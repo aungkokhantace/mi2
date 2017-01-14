@@ -30,14 +30,14 @@ class RoleController extends Controller
             $roles      = $this->roleRepository->getRoles();
             return view('core.role.index')->with('roles', $roles);
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
     public function create(){
         if (Auth::guard('User')->check()) {
             return view('core.role.role');
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
     public function store(StaffTypeRequest $request)
@@ -59,7 +59,7 @@ class RoleController extends Controller
             $roles = $this->roleRepository->getObjByID($id);
             return view('core.role.role')->with('roles', $roles);
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
     public function update(StaffTyeEditRequest $request){
@@ -91,7 +91,7 @@ class RoleController extends Controller
             $rolePermissions = $this->roleRepository->getRolePermissions($id);
             return view('core.role.rolePermission')->with('role',$role)->with('features_permissions',$rolePermissions);
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
     public function rolePermissionAssign($rid)

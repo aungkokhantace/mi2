@@ -116,7 +116,7 @@ $companyLogo = \App\Core\Check::companyLogo();
                     </a>
                     <ul class="dropdown-menu animated fadeInLeft">
                         <li class="arrow"></li>
-                        <li nav-id="profile-edit"><a href="/user/profile/{{isset($user_info['userId']) ? $user_info['userId'] : '' }}">Edit Profile</a></li>
+                        <li nav-id="profile-edit"><a href="/backend/user/profile/{{isset($user_info['userId']) ? $user_info['userId'] : '' }}">Edit Profile</a></li>
                         <li class="divider"></li>
                         <li><a href="/backend/logout">Log Out</a></li>
                     </ul>

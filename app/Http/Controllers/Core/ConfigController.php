@@ -54,7 +54,7 @@ class ConfigController extends Controller
             return view('core.config.config')->with('configs', $tempConfigs);
 
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
     public function update(){
@@ -124,7 +124,7 @@ class ConfigController extends Controller
             }
 
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
 }

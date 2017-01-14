@@ -56,7 +56,7 @@ return [
             'driver'    => 'mysql',
             'port'      =>'3306',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'laplus_new'),
+            'database'  => env('DB_DATABASE', 'mi2_db'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
