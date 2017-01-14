@@ -21,7 +21,7 @@
                      Log In
                 </div>
                 <!-- Starting Form -->
-                {!! Form::open(array('url' => 'login'))!!}
+                {!! Form::open(array('url' => 'backend/login'))!!}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         @if ($errors->has())
                             <p class="alert alert-danger">

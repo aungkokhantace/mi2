@@ -38,7 +38,7 @@ class UserController extends Controller
                     $cur_time);
             //}
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
     public function create(){
@@ -46,7 +46,7 @@ class UserController extends Controller
             $roles = $this->userRepository->getRoles();
             return view('core.user.user')->with('roles', $roles);
         }
-         return redirect('/login');
+         return redirect('/backend/login');
     }
 
     public function store(UserEntryFormRequest $request)
@@ -78,7 +78,7 @@ class UserController extends Controller
                 $roles = DB::table('core_roles')->get();
                 return view('core.user.user')->with('user', $user)->with('roles', $roles);
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 
     public function update(UserEditFormRequest $request){
@@ -149,11 +149,11 @@ class UserController extends Controller
             $role       = DB::table('core_users')->find($id);
 
             if ($role->role_id == 1) {
-                return redirect('/');
+                return redirect('/backend');
             } else if ($role->role_id == 2) {
-                return redirect('/');
+                return redirect('/backend');
             } else {
-                return redirect('/');
+                return redirect('/backend');
             }
         }
     }

@@ -11,20 +11,20 @@ use Redirect;
 class AceplusRedirect implements AceplusRedirectInterface {
 
     public function firstRedirect() {
-        return Redirect::intended("/dashboard");
+        return Redirect::intended("backend/dashboard");
     }
 
     public function firstRedirectPath() {
-        return "dashboard";
+        return "backend/dashboard";
     }
 
 
     public function afterAuthedRedirect() {
-        return Redirect::intended("/dashboard");
+        return Redirect::intended("backend/dashboard");
     }
 
     public function afterAuthedRedirectPath() {
-        return "/dashboard";
+        return "backend/dashboard";
     }
 
 }
