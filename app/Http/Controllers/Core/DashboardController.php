@@ -22,6 +22,6 @@ class DashboardController extends Controller
             return view('core.dashboard.dashboard')
                 ->with('userCount', $user_count);
         }
-        return redirect('/login');
+        return redirect('/backend/login');
     }
 }

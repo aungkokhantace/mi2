@@ -58,7 +58,7 @@ class Check
         Session::flush();
 
         //redirect user to login page
-        return Redirect::to('/login');
+        return Redirect::to('/backend/login');
     }
 
     public static function getInfo() {
