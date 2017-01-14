@@ -46,6 +46,9 @@ $companyLogo = \App\Core\Check::companyLogo();
     <link media="all" type="text/css" rel="stylesheet" href="/assets/css/custom.css">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/css/style-edit-navbar.css">
 
+    {{--For summernote editor--}}
+    <link rel="stylesheet" href="/assets/plugins/summernote/summernote.css" type="text/css" media="all" />
+
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/apps.min.js"></script>
     <script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
@@ -70,6 +73,9 @@ $companyLogo = \App\Core\Check::companyLogo();
     <script src="/assets/plugins/footable/footable.all.min.js"></script>
     <script src="/assets/plugins/switchery/switchery.min.js"></script>
     <script src="/assets/plugins/switchery/switchery_function.js"></script>
+
+    {{--For summernote editor--}}
+    <script src="/assets/plugins/summernote/summernote.min.js"></script>
 
     <script>
         $(document).ready(function() {
