@@ -4,7 +4,7 @@
  */
 
 function create_setup(type){
-    window.location ='/' + type + '/create';
+    window.location ='/backend/' + type + '/create';
 }
 
 function edit_setup(type) {
@@ -25,7 +25,7 @@ function edit_setup(type) {
 
     }
     else {
-        window.location = type + "/edit/" + data;
+        window.location ='/backend/' + type + "/edit/" + data;
     }
 }
 
@@ -69,7 +69,7 @@ function delete_setup(type) {
 }
 
 function cancel_setup(type) {
-    window.location.href = '/' + type;
+    window.location.href = '/backend/' + type;
 }
 
 $("#check_all").click(function(event){
