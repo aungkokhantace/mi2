@@ -15,9 +15,9 @@ class CreateCoreTable extends Migration
 
         Schema::create('core_settings', function(Blueprint $table) {
             $table->string('code');
-            $table->integer('type');
+            $table->string('type');
             $table->integer('value');
-            $table->integer('description');
+            $table->text('description');
 
             //Common to all table ----------------------------------------------
             $table->integer('created_by')->default(1);
