@@ -80,7 +80,17 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>53,'module'=>'Event','name'=>'Edit','description'=>'Event Edit','url'=>'event/edit'],
             ['id'=>54,'module'=>'Event','name'=>'Update','description'=>'Event Update','url'=>'event/update'],
             ['id'=>55,'module'=>'Event','name'=>'Destroy','description'=>'Event Destroy','url'=>'event/destroy'],
-        );  
+
+            // Pages
+            ['id'=>60,'module'=>'Page','name'=>'Listing','description'=>'Page Listing','url'=>'page'],
+            ['id'=>61,'module'=>'Page','name'=>'New','description'=>'Page New','url'=>'page/create'],
+            ['id'=>62,'module'=>'Page','name'=>'Store','description'=>'Page Store','url'=>'page/store'],
+            ['id'=>63,'module'=>'Page','name'=>'Edit','description'=>'Page Edit','url'=>'page/edit'],
+            ['id'=>64,'module'=>'Page','name'=>'Update','description'=>'Page Update','url'=>'page/update'],
+            ['id'=>65,'module'=>'Page','name'=>'Destroy','description'=>'Page Destroy','url'=>'page/destroy'],
+
+        );
+
 
         DB::table('core_permissions')->insert($permissions);
     }
