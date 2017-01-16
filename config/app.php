@@ -108,7 +108,10 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+//    'log' => env('APP_LOG', 'single'),
+
+    'log' => env('APP_LOG', 'daily'),
+    'log_max_files' => 60,
 
     /*
     |--------------------------------------------------------------------------
@@ -217,6 +220,7 @@ return [
         'Alert'     => UxWeb\SweetAlert\SweetAlert::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'InterventionImage' => Intervention\Image\Facades\Image::class,
+        'LogCustom' =>  App\Log\LogCustom::class,
     ],
 
 ];

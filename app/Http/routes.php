@@ -57,6 +57,14 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('permission/edit/{id}', array('as'=>'permission/edit','uses'=>'Core\PermissionController@edit'));
             Route::post('permission/update', array('as'=>'permission/update','uses'=>'Core\PermissionController@update'));
             Route::post('permission/destroy', array('as'=>'permission/destroy','uses'=>'Core\PermissionController@destroy'));
+
+            //Menu
+            Route::get('menu', array('as'=>'menu','uses'=>'Backend\MenuController@index'));
+            Route::get('menu/create', array('as'=>'menu/create','uses'=>'Backend\MenuController@create'));
+            Route::post('menu/store', array('as'=>'menu/store','uses'=>'Backend\MenuController@store'));
+            Route::get('menu/edit/{id}', array('as'=>'menu/edit','uses'=>'Backend\MenuController@edit'));
+            Route::post('menu/update', array('as'=>'menu/update','uses'=>'Backend\MenuController@update'));
+            Route::post('menu/destroy', array('as'=>'menu/destroy','uses'=>'Backend\MenuController@destroy'));
         });
 
     });
