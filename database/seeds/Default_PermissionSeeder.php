@@ -89,6 +89,13 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>64,'module'=>'Page','name'=>'Update','description'=>'Page Update','url'=>'page/update'],
             ['id'=>65,'module'=>'Page','name'=>'Destroy','description'=>'Page Destroy','url'=>'page/destroy'],
 
+            //Menu
+            ['id'=>70,'module'=>'Menu','name'=>'Listing','description'=>'Menu Listing','url'=>'menu'],
+            ['id'=>71,'module'=>'Menu','name'=>'New','description'=>'Menu New','url'=>'menu/create'],
+            ['id'=>72,'module'=>'Menu','name'=>'Store','description'=>'Menu Store','url'=>'menu/store'],
+            ['id'=>73,'module'=>'Menu','name'=>'Edit','description'=>'Menu Edit','url'=>'menu/edit'],
+            ['id'=>74,'module'=>'Menu','name'=>'Update','description'=>'Menu Update','url'=>'menu/update'],
+            ['id'=>75,'module'=>'Menu','name'=>'Destroy','description'=>'Menu Destroy','url'=>'menu/destroy'],
         );
 
 

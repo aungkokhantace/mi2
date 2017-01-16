@@ -30,8 +30,8 @@
                 </a>
 
                 <ul class="sub-menu">
-                    <li nav-id="menu-entry"><a href="/menu/create">Entry</a></li>
-                    <li nav-id="menu-list"><a href="/menu">List</a></li>
+                    <li nav-id="menu-entry"><a href="/backend/menu/create">Entry</a></li>
+                    <li nav-id="menu-list"><a href="/backend/menu">List</a></li>
                 </ul>
             </li>
 

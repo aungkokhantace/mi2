@@ -7,8 +7,8 @@
  */
 
 use App\Core\Config\ConfigRepository;
+use Illuminate\Support\Facades\Auth;
 use Validator;
-use Auth;
 use DB;
 use App\Http\Requests;
 use App\Session;
@@ -82,5 +82,24 @@ class Utility
             $syncTable->save();
 
         }
+    }
+
+    public static function getCurrentUserID(){
+        $id = Auth::guard('User')->user()->id;
+        return $id;
+    }
+
+    public static function getSettingsByType($type)
+    {
+        $tempArrays = DB::select("SELECT * FROM core_settings WHERE type = '$type' ORDER BY 'value'");
+        $result = array();
+        if (isset($tempArrays) && count($tempArrays) > 0) {
+            foreach ($tempArrays as $val) {
+                $key = $val->value;
+                $value = $val->code;
+                $result[$key] = $value;
+            }
+        }
+        return $result;
     }
 }

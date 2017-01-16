@@ -75,8 +75,14 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('page/edit/{id}',  array('as'=>'page/edit','uses'=>'Backend\PageController@edit'));
             Route::post('page/update',  array('as'=>'page/update','uses'=>'Backend\PageController@update'));
             Route::post('page/destroy',  array('as'=>'page/destroy','uses'=>'Backend\PageController@destroy'));
-                  
 
+            //Menu
+            Route::get('menu', array('as'=>'menu','uses'=>'Backend\MenuController@index'));
+            Route::get('menu/create', array('as'=>'menu/create','uses'=>'Backend\MenuController@create'));
+            Route::post('menu/store', array('as'=>'menu/store','uses'=>'Backend\MenuController@store'));
+            Route::get('menu/edit/{id}', array('as'=>'menu/edit','uses'=>'Backend\MenuController@edit'));
+            Route::post('menu/update', array('as'=>'menu/update','uses'=>'Backend\MenuController@update'));
+            Route::post('menu/destroy', array('as'=>'menu/destroy','uses'=>'Backend\MenuController@destroy'));
         });
 
     });

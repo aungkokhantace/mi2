@@ -45,3 +45,8 @@
     font-size: 18px;
     line-height: 45px;
 }
+
+.error{
+    color: #ff0000;
+    text-align: left !important;
+}

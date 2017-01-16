@@ -73,14 +73,27 @@ $companyLogo = \App\Core\Check::companyLogo();
     <script src="/assets/plugins/footable/footable.all.min.js"></script>
     <script src="/assets/plugins/switchery/switchery.min.js"></script>
     <script src="/assets/plugins/switchery/switchery_function.js"></script>
+    <script src="/assets/plugins/summernote/summernote.min.js"></script>  {{--For summernote editor--}}
+    <script src="/assets/plugins/bootstrap-checkbox-1.4.0/js/bootstrap-checkbox.js"></script>{{--For checkbox picker--}}
+    <script src="/assets/js/aceplus.backend.functions.js"></script>
 
-    {{--For summernote editor--}}
-    <script src="/assets/plugins/summernote/summernote.min.js"></script>
 
     <script>
         $(document).ready(function() {
             App.init();
             TableManageTableTools.init();
+
+            //check for notification
+                    @if(Session::has('message'))
+                        var message_title = "{{Session::get('message')['title']}}";
+            var message_body = "{{Session::get('message')['body']}}";
+            setTimeout(addNotification(message_title, message_body), 5000);
+            @endif
+
+            //set time out for the flash message..
+            setTimeout(function(){
+                $('#flash-message').hide("slow");
+            }, 2000);
         });
     </script>
 
