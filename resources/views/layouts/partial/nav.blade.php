@@ -82,11 +82,19 @@
                             <span>Site Config</span>
                         </a>
                     </li>
+                    <li nav-id="modifier-create" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+                            <span>Page</span>
+                        </a>
+
+                        <ul class="sub-menu">
+                            <li nav-id="modifier-create-modifier"><a href="/backend/page/create">Entry</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/page">List</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
-
-
-
         </ul>
         <!-- end sidebar nav -->
     </div>

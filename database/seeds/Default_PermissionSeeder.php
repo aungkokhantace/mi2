@@ -73,6 +73,14 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>42,'module'=>'Frontend','name'=>'Update','description'=>'Update Frontend','url'=>'frontend/update'],
             ['id'=>43,'module'=>'Frontend','name'=>'Edit','description'=>'Edit Frontend','url'=>'frontend/edit'],
 
+             // Pages
+            ['id'=>60,'module'=>'Page','name'=>'Listing','description'=>'Page Listing','url'=>'page'],
+            ['id'=>61,'module'=>'Page','name'=>'New','description'=>'Page New','url'=>'page/create'],
+            ['id'=>62,'module'=>'Page','name'=>'Store','description'=>'Page Store','url'=>'page/store'],
+            ['id'=>63,'module'=>'Page','name'=>'Edit','description'=>'Page Edit','url'=>'page/edit'],
+            ['id'=>64,'module'=>'Page','name'=>'Update','description'=>'Page Update','url'=>'page/update'],
+            ['id'=>65,'module'=>'Page','name'=>'Destroy','description'=>'Page Destroy','url'=>'page/destroy'],
+
         );
 
         DB::table('core_permissions')->insert($permissions);

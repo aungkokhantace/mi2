@@ -19,6 +19,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
     Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
     Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+
     });
 
     Route::group(['middleware' => 'right'], function () {
@@ -57,6 +58,15 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('permission/edit/{id}', array('as'=>'permission/edit','uses'=>'Core\PermissionController@edit'));
             Route::post('permission/update', array('as'=>'permission/update','uses'=>'Core\PermissionController@update'));
             Route::post('permission/destroy', array('as'=>'permission/destroy','uses'=>'Core\PermissionController@destroy'));
+
+            //Page
+            Route::get('page', array('as'=>'page','uses'=>'Backend\PageController@index'));
+            Route::get('page/create',  array('as'=>'page/create','uses'=>'Backend\PageController@create'));
+            Route::post('page/store', array('as'=>'page/store','uses'=>'Backend\PageController@store'));
+            Route::get('page/edit/{id}',  array('as'=>'page/edit','uses'=>'Backend\PageController@edit'));
+            Route::post('page/update',  array('as'=>'page/update','uses'=>'Backend\PageController@update'));
+            Route::post('page/destroy',  array('as'=>'page/destroy','uses'=>'Backend\PageController@destroy'));
+                  
         });
 
     });
