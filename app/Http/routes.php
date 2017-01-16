@@ -19,7 +19,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
     Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
     Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+
     });
+    
 
     Route::group(['middleware' => 'right'], function () {
 
@@ -57,6 +59,15 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('permission/edit/{id}', array('as'=>'permission/edit','uses'=>'Core\PermissionController@edit'));
             Route::post('permission/update', array('as'=>'permission/update','uses'=>'Core\PermissionController@update'));
             Route::post('permission/destroy', array('as'=>'permission/destroy','uses'=>'Core\PermissionController@destroy'));
+
+            //Event
+            Route::get('event', array('as'=>'event','uses'=>'Backend\EventController@index'));
+            Route::get('event/create', array('as'=>'event/create','uses'=>'Backend\EventController@create'));
+            Route::post('event/store', array('as'=>'event/store','uses'=>'Backend\EventController@store'));
+            Route::get('event/edit/{id}', array('as'=>'event/edit','uses'=>'Backend\EventController@edit'));
+            Route::post('event/update', array('as'=>'event/update','uses'=>'Backend\EventController@update'));
+            Route::post('event/destroy', array('as'=>'event/destroy','uses'=>'Backend\EventController@destroy'));
+           
         });
 
     });
