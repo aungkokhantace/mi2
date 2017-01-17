@@ -91,13 +91,26 @@ class Utility
 
     public static function getSettingsByType($type)
     {
-        $tempArrays = DB::select("SELECT * FROM core_settings WHERE type = '$type' ORDER BY 'value'");
-        $result = array();
-        if (isset($tempArrays) && count($tempArrays) > 0) {
-            foreach ($tempArrays as $val) {
-                $key = $val->value;
-                $value = $val->code;
-                $result[$key] = $value;
+        if($type == "COUNTRY"){
+            $tempArrays = DB::select("SELECT * FROM core_settings WHERE type = '$type' ORDER BY 'value'");
+            $result = array();
+            if (isset($tempArrays) && count($tempArrays) > 0) {
+                foreach ($tempArrays as $val) {
+                    $key = $val->value;
+                    $value = $val->description;
+                    $result[$key] = $value;
+                }
+            }
+        }
+        else{
+            $tempArrays = DB::select("SELECT * FROM core_settings WHERE type = '$type' ORDER BY 'value'");
+            $result = array();
+            if (isset($tempArrays) && count($tempArrays) > 0) {
+                foreach ($tempArrays as $val) {
+                    $key = $val->value;
+                    $value = $val->code;
+                    $result[$key] = $value;
+                }
             }
         }
         return $result;

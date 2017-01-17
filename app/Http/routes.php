@@ -83,6 +83,22 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('menu/edit/{id}', array('as'=>'menu/edit','uses'=>'Backend\MenuController@edit'));
             Route::post('menu/update', array('as'=>'menu/update','uses'=>'Backend\MenuController@update'));
             Route::post('menu/destroy', array('as'=>'menu/destroy','uses'=>'Backend\MenuController@destroy'));
+
+            //Menudetail
+            Route::get('menudetail', array('as'=>'menudetail','uses'=>'Backend\MenudetailController@index'));
+            Route::get('menudetail/create', array('as'=>'menudetail/create','uses'=>'Backend\MenudetailController@create'));
+            Route::post('menudetail/store', array('as'=>'menudetail/store','uses'=>'Backend\MenudetailController@store'));
+            Route::get('menudetail/edit/{id}', array('as'=>'menudetail/edit','uses'=>'Backend\MenudetailController@edit'));
+            Route::post('menudetail/update', array('as'=>'menudetail/update','uses'=>'Backend\MenudetailController@update'));
+            Route::post('menudetail/destroy', array('as'=>'menudetail/destroy','uses'=>'Backend\MenudetailController@destroy'));
+
+            //Template
+            Route::get('template', array('as'=>'template','uses'=>'Backend\TemplateController@index'));
+            Route::get('template/create', array('as'=>'template/create','uses'=>'Backend\TemplateController@create'));
+            Route::post('template/store', array('as'=>'template/store','uses'=>'Backend\TemplateController@store'));
+            Route::get('template/edit/{id}', array('as'=>'template/edit','uses'=>'Backend\TemplateController@edit'));
+            Route::post('template/update', array('as'=>'template/update','uses'=>'Backend\TemplateController@update'));
+            Route::post('template/destroy', array('as'=>'template/destroy','uses'=>'Backend\TemplateController@destroy'));
         });
 
     });

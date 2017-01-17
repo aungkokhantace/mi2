@@ -34,5 +34,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind('App\Setup\BackendClient\BackendClientRepositoryInterface','App\Setup\BackendClient\BackendClientRepository');
         $this->app->bind('App\Backend\Event\EventRepositoryInterface','App\Backend\Event\EventRepository');
         $this->app->bind('App\Backend\Menu\MenuRepositoryInterface','App\Backend\Menu\MenuRepository');
+        $this->app->bind('App\Backend\Menudetail\MenudetailRepositoryInterface','App\Backend\Menudetail\MenudetailRepository');
     }
 }

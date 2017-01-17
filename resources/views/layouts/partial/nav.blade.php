@@ -26,12 +26,31 @@
             <li nav-id="menu-manage" class="has-sub">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <span>Menu</span>
+                    <i class="fa fa-asterisk"></i>
+                    <span>Menu Setup</span>
                 </a>
 
                 <ul class="sub-menu">
-                    <li nav-id="menu-entry"><a href="/backend/menu/create">Entry</a></li>
-                    <li nav-id="menu-list"><a href="/backend/menu">List</a></li>
+                    <li nav-id="menu-manage" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+                            <span>Menu</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li nav-id="menu-entry"><a href="/backend/menu/create">Entry</a></li>
+                            <li nav-id="menu-list"><a href="/backend/menu">List</a></li>
+                        </ul>
+                    </li>
+                    <li nav-id="menu-manage" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+                            <span>Menu Detail</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li nav-id="menu-entry"><a href="/backend/menudetail/create">Entry</a></li>
+                            <li nav-id="menu-list"><a href="/backend/menudetail">List</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 
@@ -114,3 +133,27 @@
     <!-- end sidebar scrollbar -->
 </div>
 <div class="sidebar-bg"></div>    <!-- end #sidebar -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        //make sidebar active current tab when a page is selected
+        var path = window.location.pathname;
+//        path = path.replace(/\/$/, "");
+//        path = decodeURIComponent(path);
+        var submenu = '.sub-menu li';
+        var hassub = '.has-sub';
+
+        $(hassub).removeClass('active');
+        $(submenu).removeClass('active');
+
+        $(".sub-menu li a").each(function () {
+            var href = $(this).attr('href');
+
+            if (path === href) {
+                $(this).closest('li').addClass('active');
+                $(this).closest('.has-sub').addClass('active');
+                $(this).parents(".has-sub:eq(1)").toggleClass("active");
+            }
+        });
+    });
+</script>

@@ -96,6 +96,22 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>73,'module'=>'Menu','name'=>'Edit','description'=>'Menu Edit','url'=>'menu/edit'],
             ['id'=>74,'module'=>'Menu','name'=>'Update','description'=>'Menu Update','url'=>'menu/update'],
             ['id'=>75,'module'=>'Menu','name'=>'Destroy','description'=>'Menu Destroy','url'=>'menu/destroy'],
+
+            //Menudetail
+            ['id'=>80,'module'=>'Menudetail','name'=>'Listing','description'=>'Menu Detail Listing','url'=>'menudetail'],
+            ['id'=>81,'module'=>'Menudetail','name'=>'New','description'=>'Menu Detail New','url'=>'menudetail/create'],
+            ['id'=>82,'module'=>'Menudetail','name'=>'Store','description'=>'Menu Detail Store','url'=>'menudetail/store'],
+            ['id'=>83,'module'=>'Menudetail','name'=>'Edit','description'=>'Menu Detail Edit','url'=>'menudetail/edit'],
+            ['id'=>84,'module'=>'Menudetail','name'=>'Update','description'=>'Menu Detail Update','url'=>'menudetail/update'],
+            ['id'=>85,'module'=>'Menudetail','name'=>'Destroy','description'=>'Menu Detail Destroy','url'=>'menudetail/destroy'],
+
+            //Template
+            ['id'=>90,'module'=>'Template','name'=>'Listing','description'=>'Template Listing','url'=>'template'],
+            ['id'=>91,'module'=>'Template','name'=>'New','description'=>'Template New','url'=>'template/create'],
+            ['id'=>92,'module'=>'Template','name'=>'Store','description'=>'Template Store','url'=>'template/store'],
+            ['id'=>93,'module'=>'Template','name'=>'Edit','description'=>'Template Edit','url'=>'template/edit'],
+            ['id'=>94,'module'=>'Template','name'=>'Update','description'=>'Template Update','url'=>'template/update'],
+            ['id'=>95,'module'=>'Template','name'=>'Destroy','description'=>'Template Destroy','url'=>'template/destroy'],
         );
 
 
