@@ -54,6 +54,27 @@
                 </ul>
             </li>
 
+            <li nav-id="menu-manage" class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-asterisk"></i>
+                    <span>Template Setup</span>
+                </a>
+
+                <ul class="sub-menu">
+                    <li nav-id="menu-manage" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+                            <span>Template</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li nav-id="menu-entry"><a href="/backend/template/create">Entry</a></li>
+                            <li nav-id="menu-list"><a href="/backend/template">List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
             <li  nav-id='modifier'  class="has-sub">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>

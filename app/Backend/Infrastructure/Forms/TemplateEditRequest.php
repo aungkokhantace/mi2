@@ -4,7 +4,7 @@ namespace App\Backend\Infrastructure\Forms;
 
 use App\Http\Requests\Request;
 
-class TemplateEntryRequest extends Request
+class TemplateEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

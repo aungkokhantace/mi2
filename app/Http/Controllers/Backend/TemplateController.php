@@ -35,7 +35,6 @@ class TemplateController extends Controller
         try{
             if (Auth::guard('User')->check()) {
                 $templates      = $this->repo->getObjs();
-//                $menuCategories = Utility::getSettingsByType("MENU");
                 return view('backend.template.index')->with('templates', $templates);
             }
             return redirect('/');
@@ -47,7 +46,6 @@ class TemplateController extends Controller
 
     public function create(){
         if (Auth::guard('User')->check()) {
-//            $menuCategories = Utility::getSettingsByType("MENU");
             return view('backend.template.template');
         }
         return redirect('/');
@@ -58,13 +56,15 @@ class TemplateController extends Controller
         $request->validate();
         $name           = (Input::has('name')) ? Input::get('name') : "";
         $description    = (Input::has('description')) ? Input::get('description') : "";
-        $category       = (Input::has('category')) ? Input::get('category') : 1;
+        $has_slider     = (Input::has('has_slider')) ? 1 : 0;
+        $has_sidebar    = (Input::has('has_sidebar')) ? 1 : 0;
         $active         = (Input::has('active')) ? 1 : 0;
 
         $paramObj = new Template();
         $paramObj->name         = $name;
         $paramObj->description  = $description;
-        $paramObj->category     = $category;
+        $paramObj->has_slider   = $has_slider;
+        $paramObj->has_sidebar  = $has_sidebar;
         $paramObj->active       = $active;
 
         $result = $this->repo->create($paramObj);
@@ -82,8 +82,7 @@ class TemplateController extends Controller
     public function edit($id){
         if (Auth::guard('User')->check()) {
             $template = $this->repo->getObjByID($id);
-//            $menuCategories = Utility::getSettingsByType("MENU");
-            return view('backend.menu.menu')->with('template', $template);
+            return view('backend.template.template')->with('template', $template);
         }
         return redirect('/');
     }
@@ -93,13 +92,15 @@ class TemplateController extends Controller
         $id = Input::get('id');
         $name           = (Input::has('name')) ? Input::get('name') : "";
         $description    = (Input::has('description')) ? Input::get('description') : "";
-        $category       = (Input::has('category')) ? Input::get('category') : 1;
+        $has_slider     = (Input::has('has_slider')) ? 1 : 0;
+        $has_sidebar    = (Input::has('has_sidebar')) ? 1 : 0;
         $active         = (Input::has('active')) ? 1 : 0;
 
         $paramObj = Template::find($id);
         $paramObj->name         = $name;
         $paramObj->description  = $description;
-        $paramObj->category     = $category;
+        $paramObj->has_slider   = $has_slider;
+        $paramObj->has_sidebar  = $has_sidebar;
         $paramObj->active       = $active;
 
         $result = $this->repo->update($paramObj);
@@ -109,13 +110,12 @@ class TemplateController extends Controller
                 ->withMessage(FormatGenerator::message('Success', 'Template updated ...'));
         }
         else{
-            return redirect()->action('Backend\MenuController@index')
+            return redirect()->action('Backend\TemplateController@index')
                 ->withMessage(FormatGenerator::message('Fail', 'Template did not update ...'));
         }
     }
 
     public function destroy(){
-
         $id         = Input::get('selected_checkboxes');
         $new_string = explode(',', $id);
         $delete_flag = true;
@@ -127,7 +127,7 @@ class TemplateController extends Controller
                 ->withMessage(FormatGenerator::message('Success', 'Template deleted ...'));
         }
         else{
-            return redirect()->action('Backend\MenuController@index')
+            return redirect()->action('Backend\TemplateController@index')
                 ->withMessage(FormatGenerator::message('Fail', 'Template did not delete ...'));
         }
     }
