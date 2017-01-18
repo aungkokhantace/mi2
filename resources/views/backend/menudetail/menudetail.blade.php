@@ -65,7 +65,22 @@
             <label for="menu_order" class="text_bold_black">Menu Order<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="number" required class="form-control" id="menu_order" name="menu_order" placeholder="Enter Menu Order" value="{{ isset($menudetail)? $menudetail->menu_order:Request::old('menu_order') }}"/>
+            <select class="form-control" name="menu_order" id="menu_order">
+                @if(isset($menudetail))
+                    @for ($i = 1; $i <= 100; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                        @if($i == $menudetail->menu_order)
+                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                        @else
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endif
+                    @endfor
+                @else
+                    @for ($i = 1; $i <= 100; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                @endif
+            </select>
             <p class="text-danger">{{$errors->first('menu_order')}}</p>
         </div>
     </div>
@@ -105,10 +120,25 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="menu_group_order" class="text_bold_black">Menu Group Order<span class="require">*</span></label>
+            <label for="menu_group_order" class="text_bold_black">Menu Order<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="number" required class="form-control" id="menu_group_order" name="menu_group_order" placeholder="Enter Menu Group Order" value="{{ isset($menudetail)? $menudetail->menu_group_order:Request::old('menu_group_order') }}"/>
+            <select class="form-control" name="menu_group_order" id="menu_group_order">
+                @if(isset($menudetail))
+                    @for ($i = 1; $i <= 100; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                        @if($i == $menudetail->menu_order)
+                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                        @else
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endif
+                    @endfor
+                @else
+                    @for ($i = 1; $i <= 100; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                @endif
+            </select>
             <p class="text-danger">{{$errors->first('menu_group_order')}}</p>
         </div>
     </div>
@@ -139,10 +169,9 @@
                         @endif
                     @endforeach
                 @else
-                    {{--<option value="" selected disabled>Select Parent</option>--}}
                     <option value="0">None</option>
-                    @foreach($menudetails as $menudetail)
-                        <option value="{{$menudetail->id}}">{{$menudetail->name}}</option>
+                    @foreach($menudetails as $detail)
+                        <option value="{{$detail->id}}">{{$detail->name}}</option>
                     @endforeach
                 @endif
             </select>

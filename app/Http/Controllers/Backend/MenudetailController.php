@@ -42,7 +42,6 @@ class MenudetailController extends Controller
             return redirect('/');
         }
         catch(\Exception $e){
-            dd('exception',$e);
             return redirect('/error/204/menudetail');
         }
     }

@@ -112,6 +112,14 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>93,'module'=>'Template','name'=>'Edit','description'=>'Template Edit','url'=>'template/edit'],
             ['id'=>94,'module'=>'Template','name'=>'Update','description'=>'Template Update','url'=>'template/update'],
             ['id'=>95,'module'=>'Template','name'=>'Destroy','description'=>'Template Destroy','url'=>'template/destroy'],
+
+            //Template Sidebar Menu
+            ['id'=>100,'module'=>'Template Sidebar Menu','name'=>'Listing','description'=>'Template Sidebar Menu Listing','url'=>'templatesidebarmenu'],
+            ['id'=>101,'module'=>'Template Sidebar Menu','name'=>'New','description'=>'Template Sidebar Menu New','url'=>'templatesidebarmenu/create'],
+            ['id'=>102,'module'=>'Template Sidebar Menu','name'=>'Store','description'=>'Template Sidebar Menu Store','url'=>'templatesidebarmenu/store'],
+            ['id'=>103,'module'=>'Template Sidebar Menu','name'=>'Edit','description'=>'Template Sidebar Menu Edit','url'=>'templatesidebarmenu/edit'],
+            ['id'=>104,'module'=>'Template Sidebar Menu','name'=>'Update','description'=>'Template Sidebar Menu Update','url'=>'templatesidebarmenu/update'],
+            ['id'=>105,'module'=>'Template Sidebar Menu','name'=>'Destroy','description'=>'Template Sidebar Menu Destroy','url'=>'templatesidebarmenu/destroy'],
         );
 
 

@@ -16,7 +16,7 @@ class CreateTemplateSidebarMenuTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->integer('templates_id');
+            $table->integer('template_id');
             $table->integer('page_id');
             $table->integer('menu_order');
             $table->integer('menu_parent_id');

@@ -72,6 +72,16 @@
                             <li nav-id="menu-list"><a href="/backend/template">List</a></li>
                         </ul>
                     </li>
+                    <li nav-id="menu-manage" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+                            <span>Template Sidebar Menu</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li nav-id="menu-entry"><a href="/backend/templatesidebarmenu/create">Entry</a></li>
+                            <li nav-id="menu-list"><a href="/backend/templatesidebarmenu">List</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 

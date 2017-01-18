@@ -26,7 +26,11 @@ class Page extends Model
         'events_id',
         'templates_id',
         'updated_at','created_at','deleted_at'
-
     ];
+
+    public function templatesidebarmenu()
+    {
+        return $this->hasMany('App\Backend\TemplateSidebarMenu\TemplateSidebarMenu');
+    }
     
 }

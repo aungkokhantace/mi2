@@ -99,6 +99,14 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('template/edit/{id}', array('as'=>'template/edit','uses'=>'Backend\TemplateController@edit'));
             Route::post('template/update', array('as'=>'template/update','uses'=>'Backend\TemplateController@update'));
             Route::post('template/destroy', array('as'=>'template/destroy','uses'=>'Backend\TemplateController@destroy'));
+
+            //Template Sidebar Menu
+            Route::get('templatesidebarmenu', array('as'=>'templatesidebarmenu','uses'=>'Backend\TemplateSidebarMenuController@index'));
+            Route::get('templatesidebarmenu/create', array('as'=>'templatesidebarmenu/create','uses'=>'Backend\TemplateSidebarMenuController@create'));
+            Route::post('templatesidebarmenu/store', array('as'=>'templatesidebarmenu/store','uses'=>'Backend\TemplateSidebarMenuController@store'));
+            Route::get('templatesidebarmenu/edit/{id}', array('as'=>'templatesidebarmenu/edit','uses'=>'Backend\TemplateSidebarMenuController@edit'));
+            Route::post('templatesidebarmenu/update', array('as'=>'templatesidebarmenu/update','uses'=>'Backend\TemplateSidebarMenuController@update'));
+            Route::post('templatesidebarmenu/destroy', array('as'=>'templatesidebarmenu/destroy','uses'=>'Backend\TemplateSidebarMenuController@destroy'));
         });
 
     });

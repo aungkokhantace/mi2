@@ -27,4 +27,9 @@ class Menu extends Model
     {
         return $this->hasMany('App\Backend\Menudetail\Menudetail');
     }
+
+    public function templatesidebarmenu()
+    {
+        return $this->hasMany('App\Backend\TemplateSidebarMenu\TemplateSidebarMenu');
+    }
 }
