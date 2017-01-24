@@ -1,47 +1,34 @@
 <?php
 Route::group(['middleware' => 'web'], function () {
 
-
     Route::group(['middleware' => 'frontendorbackend'], function () {
 
-    //Frontend
-    Route::get('/', 'Frontend\HomeController@index');
-    //Registration
-    //Route::get('register', array('as'=>'register','uses'=>'Frontend\RegisterController@index'));
-    Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
-    Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
+        //Frontend
+        Route::get('/', 'Frontend\HomeController@index');
 
+        Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
+        Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
 
-    //Frontend
-    Route::get('/', 'Frontend\HomeController@index');
+        //Backend
+        Route::group(['prefix' => 'backend'], function () {
 
-    //Backend
-    Route::group(['prefix' => 'backend'], function () {
+            Route::get('/', 'Auth\AuthController@showLogin');
+            Route::get('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@showLogin'));
+            Route::post('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@doLogin'));
+            Route::get('logout', array('as'=>'backend/logout','uses'=>'Auth\AuthController@doLogout'));
+            Route::get('dashboard', array('as'=>'backend/dashboard','uses'=>'Core\DashboardController@dashboard'));
+            Route::get('/errors/{errorId}', array('as'=>'backend//errors/{errorId}','uses'=>'Core\ErrorController@index'));
+            Route::get('/unauthorize', array('as'=>'backend/unauthorize','uses'=>'Core\ErrorController@unauthorize'));
 
-    Route::get('/', 'Auth\AuthController@showLogin');
-    Route::get('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@showLogin'));
-    Route::post('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@doLogin'));
-    Route::get('logout', array('as'=>'backend/logout','uses'=>'Auth\AuthController@doLogout'));
-    Route::get('dashboard', array('as'=>'backend/dashboard','uses'=>'Core\DashboardController@dashboard'));
-    Route::get('/errors/{errorId}', array('as'=>'backend//errors/{errorId}','uses'=>'Core\ErrorController@index'));
-    Route::get('/unauthorize', array('as'=>'backend/unauthorize','uses'=>'Core\ErrorController@unauthorize'));
+            // Password Reset Routes...
+            Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
+            Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
+            Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
 
-
-    // Password Reset Routes...
-    Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
-    Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
-    Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
-
-    Route::get('register', array('as'=>'register','uses'=>'Backend\RegisterController@index'));
-    Route::get('register/edit/{id}',  array('as'=>'backend/register/edit','uses'=>'Backend\RegisterController@edit'));
-    Route::post('register/update',  array('as'=>'backend/register/update','uses'=>'Backend\RegisterController@update'));
-    Route::post('register/destroy',  array('as'=>'backend/register/destroy','uses'=>'Backend\RegisterController@destroy'));
-    Route::get('register/confirm/{registerId}',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@confirm'));
-    Route::post('register/confirm',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@registerConfirm'));
-
-    });
-    
-
+            //Event Registration Report
+            Route::get('report/registration', array('as'=>'backend/report/registration','uses'=>'Report\RegistrationReportController@index'));
+            Route::get('report/registration/search/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/search/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@search'));
+            Route::get('report/registration/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@excel'));
 
         });
 
@@ -130,6 +117,16 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('templatesidebarmenu/update', array('as'=>'backend/templatesidebarmenu/update','uses'=>'Backend\TemplateSidebarMenuController@update'));
                 Route::post('templatesidebarmenu/destroy', array('as'=>'backend/templatesidebarmenu/destroy','uses'=>'Backend\TemplateSidebarMenuController@destroy'));
 
+                //Register
+                Route::get('register', array('as'=>'backend/register','uses'=>'Backend\RegisterController@index'));
+                Route::get('register/edit/{id}',  array('as'=>'backend/register/edit','uses'=>'Backend\RegisterController@edit'));
+                Route::post('register/update',  array('as'=>'backend/register/update','uses'=>'Backend\RegisterController@update'));
+                Route::post('register/destroy',  array('as'=>'backend/register/destroy','uses'=>'Backend\RegisterController@destroy'));
+                Route::get('register/confirm/{registerId}',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@confirm'));
+                Route::post('register/confirm',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@registerConfirm'));
+
+
+                
             });
 
         });
