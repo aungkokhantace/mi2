@@ -89,6 +89,14 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>64,'module'=>'Page','name'=>'Update','description'=>'Page Update','url'=>'page/update'],
             ['id'=>65,'module'=>'Page','name'=>'Destroy','description'=>'Page Destroy','url'=>'page/destroy'],
 
+            //Event Registration
+            ['id'=>120,'module'=>'Register','name'=>'Listing','description'=>'Register Listing','url'=>'backend/register'],
+            ['id'=>121,'module'=>'Register','name'=>'Store','description'=>'Register Store','url'=>'backend/register/store'],
+            ['id'=>122,'module'=>'Register','name'=>'Edit','description'=>'Register Edit','url'=>'backend/register/edit'],
+            ['id'=>123,'module'=>'Register','name'=>'Update','description'=>'Register Update','url'=>'backend/register/update'],
+            ['id'=>124,'module'=>'Register','name'=>'Destroy','description'=>'Register Destroy','url'=>'backend/register/destroy'],
+            ['id'=>125,'module'=>'Register','name'=>'Confirm','description'=>'Register Confirm','url'=>'backend/register/confirm'],
+
         );
 
 

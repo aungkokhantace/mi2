@@ -27,11 +27,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
 
     Route::get('register', array('as'=>'register','uses'=>'Backend\RegisterController@index'));
-    Route::get('register/edit/{id}',  array('as'=>'register/edit','uses'=>'Backend\RegisterController@edit'));
-    Route::post('register/update',  array('as'=>'register/update','uses'=>'Backend\RegisterController@update'));
-    Route::post('register/destroy',  array('as'=>'register/destroy','uses'=>'Backend\RegisterController@destroy'));
-    Route::get('register/confirm/{registerId}',array('as'=>'register/confirm','uses'=>'Backend\RegisterController@confirm'));
-    Route::post('register/confirm',array('as'=>'register/confirm','uses'=>'Backend\RegisterController@registerConfirm'));
+    Route::get('register/edit/{id}',  array('as'=>'backend/register/edit','uses'=>'Backend\RegisterController@edit'));
+    Route::post('register/update',  array('as'=>'backend/register/update','uses'=>'Backend\RegisterController@update'));
+    Route::post('register/destroy',  array('as'=>'backend/register/destroy','uses'=>'Backend\RegisterController@destroy'));
+    Route::get('register/confirm/{registerId}',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@confirm'));
+    Route::post('register/confirm',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@registerConfirm'));
 
     });
     
