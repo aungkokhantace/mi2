@@ -40,7 +40,7 @@ class PageController extends Controller
         return redirect('/login');
     }
 
-     public function store(StaffTypeRequest $request)
+    public function store(StaffTypeRequest $request)
     {
         $request->validate();
         $name               = Input::get('name');

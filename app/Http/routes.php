@@ -4,6 +4,12 @@ Route::group(['middleware' => 'web'], function () {
     //Frontend
     Route::get('/', 'Frontend\HomeController@index');
 
+    //Event ( Abstarct Form )
+    Route::get('abstractform/create', array('as'=>'abstractform/create','uses'=>'Frontend\AbstractformController@create'));
+    Route::post('abstractform/store', array('as'=>'abstractform/store','uses'=>'Frontend\AbstractformController@store'));
+
+    
+
     //Backend
     Route::group(['prefix' => 'backend'], function () {
 
@@ -19,6 +25,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
     Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
     Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+
 
     });
     
@@ -75,6 +82,13 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('page/edit/{id}',  array('as'=>'page/edit','uses'=>'Backend\PageController@edit'));
             Route::post('page/update',  array('as'=>'page/update','uses'=>'Backend\PageController@update'));
             Route::post('page/destroy',  array('as'=>'page/destroy','uses'=>'Backend\PageController@destroy'));
+
+            //Abstractform
+            Route::get('abstractform', array('as'=>'backend/abstractform','uses'=>'Backend\AbstractformController@index'));
+            Route::get('abstractform/edit/{id}',  array('as'=>'backend/abstractform/edit','uses'=>'Backend\AbstractformController@edit'));
+            Route::post('abstractform/update',  array('as'=>'backend/abstractform/update','uses'=>'Backend\AbstractformController@update'));
+            Route::get('abstractform/download', array('as'=>'backend/abstractform/download','uses'=>'Backend\AbstractformController@download'));
+            Route::post('abstractform/destroy',  array('as'=>'backend/abstractform/destroy','uses'=>'Backend\AbstractformController@destroy'));
                   
 
         });
