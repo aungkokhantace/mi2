@@ -85,6 +85,26 @@
                 </ul>
             </li>
 
+            <li nav-id='profile'  class="has-sub" >
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-image"></i>
+                    <span>Slider Setup</span>
+                </a>
+                <ul class="sub-menu">
+                    <li nav-id='slider'  class="has-sub" >
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+                            <span>Slider</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li nav-id="modifier-manage-modifierpanel"><a href="/backend/templateslider/create">Entry</a></li>
+                            <li nav-id="modifier-manage-modifierpanel"><a href="/backend/templateslider">List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
             <li  nav-id='modifier'  class="has-sub">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>

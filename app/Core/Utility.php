@@ -14,6 +14,7 @@ use App\Http\Requests;
 use App\Session;
 use App\Core\User\UserRepository;
 use App\Core\SyncsTable\SyncsTable;
+use InterventionImage;
 
 class Utility
 {
@@ -115,4 +116,43 @@ class Utility
         }
         return $result;
     }
+
+    //start functions for image upload
+    public static function getImage($photo){
+        $photo_name = $photo->getClientOriginalName();
+        return $photo_name;
+    }
+
+    public static function getImageExt($photo){
+        $photo_ext = $photo->getClientOriginalExtension();
+
+        return $photo_ext;
+    }
+
+    public static function resizeImage($photo,$photo_name,$path){
+
+        if(! file_exists($path))
+        {
+            mkdir($path, 0777, true);
+        }
+
+        $photo->move($path,$photo_name);
+
+        $rWidth     = 1.0;
+        $rHeight    = 1.0;
+
+        $imgData    = getimagesize($path . $photo_name);
+        $width      = $imgData[0];
+        $imgWidth   = $width * $rWidth;
+        $height     = $imgData[1];
+        $imgHeight  = $height * $rHeight;
+
+
+
+        $image      = InterventionImage::make(sprintf($path . '/%s', $photo_name))
+            ->resize($imgWidth,$imgHeight)->save();
+
+        return $image;
+    }
+//    end functions for image upload
 }
