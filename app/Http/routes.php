@@ -3,6 +3,12 @@ Route::group(['middleware' => 'web'], function () {
 
     //Frontend
     Route::get('/', 'Frontend\HomeController@index');
+    //Registration
+    //Route::get('register', array('as'=>'register','uses'=>'Frontend\RegisterController@index'));
+    Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
+    Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
+
+    
 
     //Backend
     Route::group(['prefix' => 'backend'], function () {
@@ -19,6 +25,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
     Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
     Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+
+    Route::get('register', array('as'=>'register','uses'=>'Backend\RegisterController@index'));
+    Route::get('register/edit/{id}',  array('as'=>'register/edit','uses'=>'Backend\RegisterController@edit'));
+    Route::post('register/update',  array('as'=>'register/update','uses'=>'Backend\RegisterController@update'));
+    Route::post('register/destroy',  array('as'=>'register/destroy','uses'=>'Backend\RegisterController@destroy'));
+    Route::get('register/confirm/{registerId}',array('as'=>'register/confirm','uses'=>'Backend\RegisterController@confirm'));
+    Route::post('register/confirm',array('as'=>'register/confirm','uses'=>'Backend\RegisterController@registerConfirm'));
 
     });
     

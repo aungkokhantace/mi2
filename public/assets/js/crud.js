@@ -68,6 +68,32 @@ function delete_setup(type) {
     }
 }
 
+// confirm alertbox test
+function add_confirm_setup(type) {
+  swal({
+                title: "Are you sure?",
+                text: "You want to confirm to submit your registration form!",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55 ",
+                confirmButtonText: "Confirm",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: true,
+                closeOnCancel: true
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    //window.location = "/" + type + "/destroy/" + data;
+                    //route path to do deletion in controller
+
+                    //$("#selected_checkboxes").val(data);
+                    $("#frm_" + type).submit();
+                } else {
+                    return;
+                }
+            });
+}
+
 function cancel_setup(type) {
     window.location.href = '/backend/' + type;
 }
@@ -83,3 +109,30 @@ $("#check_all").click(function(event){
         });
     }
 });
+
+function register_status_confirm(id) {
+    swal({
+            title: "Are you sure?",
+            text: "You want to confirm this enquiry !",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55 ",
+            confirmButtonText: "Confirm",
+            cancelButtonText: "Cancel",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+                // $("#register_confirm_id").val(id);
+                // $("#frm_register_confirm_" + id).submit();
+                console.log('id'+id);
+                var location = "/backend/register/confirm/"+id;
+
+                window.location = location;
+            } else {
+                return;
+            }
+        });
+
+}

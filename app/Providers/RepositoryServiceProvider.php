@@ -32,6 +32,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind('App\Setup\Backend\BackendRepositoryInterface','App\Setup\Backend\BackendRepository');
         $this->app->bind('App\Setup\FrontEnd\FrontEndRepositoryInterface','App\Setup\FrontEnd\FrontEndRepository');
         $this->app->bind('App\Setup\BackendClient\BackendClientRepositoryInterface','App\Setup\BackendClient\BackendClientRepository');
-         $this->app->bind('App\Backend\Event\EventRepositoryInterface','App\Backend\Event\EventRepository');
+        $this->app->bind('App\Backend\Event\EventRepositoryInterface','App\Backend\Event\EventRepository');
+        $this->app->bind('App\Backend\Register\RegisterRepositoryInterface','App\Backend\Register\RegisterRepository');
     }
 }
