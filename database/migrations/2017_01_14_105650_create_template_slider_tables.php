@@ -16,7 +16,7 @@ class CreateTemplateSliderTables extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->integer('templates_id');
+            $table->integer('template_id');
             $table->tinyInteger('active');
 
             //Common to all table ----------------------------------------------

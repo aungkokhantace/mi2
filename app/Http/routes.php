@@ -6,9 +6,6 @@ Route::group(['middleware' => 'web'], function () {
         //Frontend
         Route::get('/', 'Frontend\HomeController@index');
 
-        Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
-        Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
-
         //Backend
         Route::group(['prefix' => 'backend'], function () {
 
@@ -117,6 +114,22 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('templatesidebarmenu/update', array('as'=>'backend/templatesidebarmenu/update','uses'=>'Backend\TemplateSidebarMenuController@update'));
                 Route::post('templatesidebarmenu/destroy', array('as'=>'backend/templatesidebarmenu/destroy','uses'=>'Backend\TemplateSidebarMenuController@destroy'));
 
+                //Template Slider
+                Route::get('templateslider', array('as'=>'templateslider','uses'=>'Backend\TemplateSliderController@index'));
+                Route::get('templateslider/create', array('as'=>'templateslider/create','uses'=>'Backend\TemplateSliderController@create'));
+                Route::post('templateslider/store', array('as'=>'templateslider/store','uses'=>'Backend\TemplateSliderController@store'));
+                Route::get('templateslider/edit/{id}', array('as'=>'templateslider/edit','uses'=>'Backend\TemplateSliderController@edit'));
+                Route::post('templateslider/update', array('as'=>'templateslider/update','uses'=>'Backend\TemplateSliderController@update'));
+                Route::post('templateslider/destroy', array('as'=>'templateslider/destroy','uses'=>'Backend\TemplateSliderController@destroy'));
+
+                //Template Slider Detail
+                Route::get('templatesliderdetail', array('as'=>'templatesliderdetail','uses'=>'Backend\TemplateSliderController@index'));
+                Route::get('templatesliderdetail/create', array('as'=>'templatesliderdetail/create','uses'=>'Backend\TemplateSliderController@addImage'));
+                Route::post('templatesliderdetail/store', array('as'=>'templatesliderdetail/store','uses'=>'Backend\TemplateSliderController@storeImage'));
+                Route::get('templatesliderdetail/edit/{id}', array('as'=>'templatesliderdetail/edit','uses'=>'Backend\TemplateSliderController@edit'));
+                Route::post('templatesliderdetail/update', array('as'=>'templatesliderdetail/update','uses'=>'Backend\TemplateSliderController@update'));
+                Route::post('templatesliderdetail/destroy', array('as'=>'templatesliderdetail/destroy','uses'=>'Backend\TemplateSliderController@destroy'));
+
                 //Register
                 Route::get('register', array('as'=>'backend/register','uses'=>'Backend\RegisterController@index'));
                 Route::get('register/edit/{id}',  array('as'=>'backend/register/edit','uses'=>'Backend\RegisterController@edit'));
@@ -124,9 +137,6 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('register/destroy',  array('as'=>'backend/register/destroy','uses'=>'Backend\RegisterController@destroy'));
                 Route::get('register/confirm/{registerId}',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@confirm'));
                 Route::post('register/confirm',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@registerConfirm'));
-
-
-                
             });
 
         });
@@ -136,8 +146,8 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 
- Route::group(['prefix' => 'api'], function () {
-        
-        Route::post('activate', array('as'=>'activate','uses'=>'ApiController@Activate'));
-        Route::post('check', array('as'=>'check','uses'=>'ApiController@check'));
-    });
+Route::group(['prefix' => 'api'], function () {
+
+    Route::post('activate', array('as'=>'activate','uses'=>'ApiController@Activate'));
+    Route::post('check', array('as'=>'check','uses'=>'ApiController@check'));
+});

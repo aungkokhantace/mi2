@@ -98,6 +98,10 @@ function cancel_setup(type) {
     window.location.href = '/backend/' + type;
 }
 
+function add_image(type){
+    window.location ='/backend/' + type + '/create';
+}
+
 $("#check_all").click(function(event){
     if(this.checked) {
         $('.check_source').each(function() { //loop through each checkbox
