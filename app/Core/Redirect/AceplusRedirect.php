@@ -6,25 +6,45 @@
  * Time: 2:42 PM
  */
 namespace App\Core\Redirect;
-
+use App\Core\Check;
 use Redirect;
 class AceplusRedirect implements AceplusRedirectInterface {
 
     public function firstRedirect() {
-        return Redirect::intended("backend/dashboard");
+        if(Check::validSession()){
+            return Redirect::intended("/backend/dashboard");
+        }
+        else{
+            return Redirect::intended("/");
+        }
     }
 
     public function firstRedirectPath() {
-        return "backend/dashboard";
+        if(Check::validSession()) {
+            return "backend/dashboard";
+        }
+        else{
+            return "/";
+        }
     }
 
 
     public function afterAuthedRedirect() {
-        return Redirect::intended("backend/dashboard");
+        if(Check::validSession()) {
+            return Redirect::intended("backend/dashboard");
+        }
+        else{
+            return Redirect::intended("/");
+        }
     }
 
     public function afterAuthedRedirectPath() {
-        return "backend/dashboard";
+        if(Check::validSession()) {
+            return "backend/dashboard";
+        }
+        else{
+            return "/";
+        }
     }
 
 }

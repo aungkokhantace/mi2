@@ -58,7 +58,7 @@
                         <button type="submit" class="btn btn-default fill_color login_btn" name="login">LOG IN</button>
                     </div>
                     <div class="col-md-7">
-                            <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                            <a class="btn btn-link" href="{{ url('/backend/password/reset') }}">Forgot Your Password?</a>
 
                     </div>
                 </div>

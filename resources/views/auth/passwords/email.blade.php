@@ -22,7 +22,7 @@
                     Reset Password
                 </div>
                 <!-- Starting Form -->
-                <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/backend/password/email') }}">
                     {{ csrf_field() }}
                 @if (session('status'))
                     <p class="alert alert-danger">
