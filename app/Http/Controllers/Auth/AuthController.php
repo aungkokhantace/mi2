@@ -93,8 +93,8 @@ class AuthController extends Controller
            
             return view('auth.login');
         }
-        $jeriRedirect = new AceplusRedirect();
-        return $jeriRedirect->firstRedirect();
+        $aplusRedirect = new AceplusRedirect();
+        return $aplusRedirect->firstRedirect();
     }
 
     public function doLogin(LoginFormRequest $request){

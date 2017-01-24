@@ -1,9 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
+ * User: william
  * Author: Wai Yan Aung
- * Date: 7/4/2016
- * Time: 10:08 AM
+ * Date: 1/16/2017
+ * Time: 3:19 PM
  */
 
 namespace App\Http\Middleware;
@@ -15,7 +16,7 @@ use App\Session;
 use App\Core\Check;
 use Illuminate\Support\Facades\Route;
 
-class RightMiddleware
+class FrontendOrBackend
 {
     /**
      * Handle an incoming request.
@@ -28,24 +29,17 @@ class RightMiddleware
 
     public function handle($request, Closure $next, $guard = null)
     {
-
         if(Check::validSession()){
-            $sessionObj = session('permissions');
-            $uri = $request->path();
             $currentPath= $request->route()->getName();
             $currentAction = str_replace(".","/",$currentPath);
-            if(Check::hasPermission($sessionObj,$currentAction)){
-                 return $next($request);
+
+            if (strpos($currentAction, 'backend/') !== false) {
+                return $next($request);
             }
             else{
-                return redirect('unauthorize');
+                return redirect('backend/dashboard');
             }
-
         }
-        else{
-            return redirect('backend/login');
-        }
-
         return $next($request);
     }
 }
