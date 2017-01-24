@@ -114,6 +114,14 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>103,'module'=>'Template Sidebar Menu','name'=>'Edit','description'=>'Template Sidebar Menu Edit','url'=>'backend/templatesidebarmenu/edit'],
             ['id'=>104,'module'=>'Template Sidebar Menu','name'=>'Update','description'=>'Template Sidebar Menu Update','url'=>'backend/templatesidebarmenu/update'],
             ['id'=>105,'module'=>'Template Sidebar Menu','name'=>'Destroy','description'=>'Template Sidebar Menu Destroy','url'=>'backend/templatesidebarmenu/destroy'],
+
+            //Event Registration
+            ['id'=>120,'module'=>'Register','name'=>'Listing','description'=>'Register Listing','url'=>'backend/register'],
+            ['id'=>121,'module'=>'Register','name'=>'Store','description'=>'Register Store','url'=>'backend/register/store'],
+            ['id'=>122,'module'=>'Register','name'=>'Edit','description'=>'Register Edit','url'=>'backend/register/edit'],
+            ['id'=>123,'module'=>'Register','name'=>'Update','description'=>'Register Update','url'=>'backend/register/update'],
+            ['id'=>124,'module'=>'Register','name'=>'Destroy','description'=>'Register Destroy','url'=>'backend/register/destroy'],
+            ['id'=>125,'module'=>'Register','name'=>'Confirm','description'=>'Register Confirm','url'=>'backend/register/confirm'],
         );
 
 
