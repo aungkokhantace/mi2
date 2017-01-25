@@ -86,10 +86,12 @@ class Utility
     }
 
 
+
     public static function getCurrentUserID(){
         $id = Auth::guard('User')->user()->id;
         return $id;
     }
+
 
     public static function getSettingsByType($type)
     {

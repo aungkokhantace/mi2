@@ -3,31 +3,39 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['middleware' => 'frontendorbackend'], function () {
 
-        //Frontend
-        Route::get('/', 'Frontend\HomeController@index');
+    //Frontend
+    Route::get('/', 'Frontend\HomeController@index');
 
-        //Backend
-        Route::group(['prefix' => 'backend'], function () {
+    Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
+    Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
 
-            Route::get('/', 'Auth\AuthController@showLogin');
-            Route::get('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@showLogin'));
-            Route::post('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@doLogin'));
-            Route::get('logout', array('as'=>'backend/logout','uses'=>'Auth\AuthController@doLogout'));
-            Route::get('dashboard', array('as'=>'backend/dashboard','uses'=>'Core\DashboardController@dashboard'));
-            Route::get('/errors/{errorId}', array('as'=>'backend//errors/{errorId}','uses'=>'Core\ErrorController@index'));
-            Route::get('/unauthorize', array('as'=>'backend/unauthorize','uses'=>'Core\ErrorController@unauthorize'));
+    //Event ( Abstarct Form )
+    Route::get('abstractform/create', array('as'=>'abstractform/create','uses'=>'Frontend\AbstractformController@create'));
+    Route::post('abstractform/store', array('as'=>'abstractform/store','uses'=>'Frontend\AbstractformController@store'));
 
-            // Password Reset Routes...
-            Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
-            Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
-            Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+    
 
-            //Event Registration Report
-            Route::get('report/registration', array('as'=>'backend/report/registration','uses'=>'Report\RegistrationReportController@index'));
-            Route::get('report/registration/search/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/search/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@search'));
-            Route::get('report/registration/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@excel'));
+    //Backend
+    Route::group(['prefix' => 'backend'], function () {
 
-        });
+        Route::get('/', 'Auth\AuthController@showLogin');
+        Route::get('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@showLogin'));
+        Route::post('login', array('as'=>'backend/login','uses'=>'Auth\AuthController@doLogin'));
+        Route::get('logout', array('as'=>'backend/logout','uses'=>'Auth\AuthController@doLogout'));
+        Route::get('dashboard', array('as'=>'backend/dashboard','uses'=>'Core\DashboardController@dashboard'));
+        Route::get('/errors/{errorId}', array('as'=>'backend//errors/{errorId}','uses'=>'Core\ErrorController@index'));
+        Route::get('/unauthorize', array('as'=>'backend/unauthorize','uses'=>'Core\ErrorController@unauthorize'));
+
+        // Password Reset Routes...
+        Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
+        Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
+        Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+
+        //Event Registration Report
+        Route::get('report/registration', array('as'=>'backend/report/registration','uses'=>'Report\RegistrationReportController@index'));
+        Route::get('report/registration/search/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/search/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@search'));
+        Route::get('report/registration/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@excel'));
+    });
 
         //Right
         Route::group(['middleware' => 'right'], function () {
@@ -137,6 +145,13 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('register/destroy',  array('as'=>'backend/register/destroy','uses'=>'Backend\RegisterController@destroy'));
                 Route::get('register/confirm/{registerId}',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@confirm'));
                 Route::post('register/confirm',array('as'=>'backend/register/confirm','uses'=>'Backend\RegisterController@registerConfirm'));
+
+                //Abstractform
+                Route::get('abstractform', array('as'=>'backend/abstractform','uses'=>'Backend\AbstractformController@index'));
+                Route::get('abstractform/edit/{id}',  array('as'=>'backend/abstractform/edit','uses'=>'Backend\AbstractformController@edit'));
+                Route::post('abstractform/update',  array('as'=>'backend/abstractform/update','uses'=>'Backend\AbstractformController@update'));
+                Route::get('abstractform/download', array('as'=>'backend/abstractform/download','uses'=>'Backend\AbstractformController@download'));
+                Route::post('abstractform/destroy',  array('as'=>'backend/abstractform/destroy','uses'=>'Backend\AbstractformController@destroy'));
             });
 
         });
@@ -144,6 +159,7 @@ Route::group(['middleware' => 'web'], function () {
     });
 
 });
+
 
 
 Route::group(['prefix' => 'api'], function () {
