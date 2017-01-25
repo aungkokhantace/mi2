@@ -96,6 +96,8 @@
         </div>
     </div>
     {!! Form::close() !!}
+
+    @if(isset($templateslider))
     <br><hr>
     {{--Start Slider View--}}
     <div id="slider_view" class="slider_view">
@@ -109,7 +111,7 @@
                     @if(isset($images) && count($images)>0)
                         @foreach($images as $k=>$image)
                             <div class="item @if($k == 0) active @endif">
-                                <img src="{{$image->image_url}}" alt="Image">
+                                <img src="/{{$image->image_url}}" alt="Image">
                             </div>
                         @endforeach
                     @else
@@ -146,7 +148,7 @@
                     <button type="button" onclick="add_image('templatesliderdetail');" class="btn btn-default btn-md first_btn">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </button>
-                    <button type="button" onclick="delete_image('templatesliderdetail');" class="btn btn-default btn-md third_btn">
+                    <button type="button" onclick="delete_setup('templatesliderdetail');" class="btn btn-default btn-md third_btn">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </button>
                 </div>
@@ -154,8 +156,9 @@
 
         </div>
 
-        {!! Form::open(array('id'=> 'frm_templateslider' ,'url' => 'templateslider/destroy', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('id'=> 'frm_templatesliderdetail' ,'url' => 'backend/templatesliderdetail/destroy', 'class'=> 'form-horizontal user-form-border')) !!}
         {{ csrf_field() }}
+        <input type="hidden" id="slider_id" name="slider_id" value="{{$templateslider->id}}">
         <input type="hidden" id="selected_checkboxes" name="selected_checkboxes" value="">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -189,6 +192,7 @@
 
     </div>
     {{--End Slider Image List--}}
+    @endif
 
 </div>
 @stop
@@ -216,6 +220,13 @@
             //For checkbox picker
 //            $(':checkbox').checkboxpicker();
             $('.checkboxpicker').checkboxpicker();
+
+
         });
+
+        function add_image(){
+            var slider_id = document.getElementById("slider_id").value;
+            window.location ='/backend/templatesliderdetail/create/'+slider_id;
+        }
     </script>
 @stop

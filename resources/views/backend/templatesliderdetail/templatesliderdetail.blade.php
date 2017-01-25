@@ -18,7 +18,7 @@
     <h1 class="page-header">Add Image</h1>
 
     {!! Form::open(array('url' => 'backend/templatesliderdetail/store', 'class'=> 'form-horizontal user-form-border', 'files' => true, 'id' => 'templatesliderdetailForm')) !!}
-
+    <input type="hidden" name="slider_id" id="slider_id" value="{{isset($slider_id)? $slider_id:''}}"/>
     <br/>
 
     <div class="row">
@@ -48,7 +48,7 @@
                     <label for="photo" class="text_bold_black">Photo</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                    @if(isset($patient))
+                    @if(isset($templateslider))
                         <div class="add_image_div add_image_div_red">
                         </div>
                         <input type="hidden" id="removeImageFlag" value="0" name="removeImageFlag">
@@ -196,7 +196,7 @@
             <input type="submit" name="submit" value="{{'ADD'}}" class="form-control btn-primary">
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <input type="button" value="CANCEL" class="form-control cancel_btn" onclick="cancel_setup('templatesliderdetail')">
+            <input type="button" value="CANCEL" class="form-control cancel_btn" onclick="cancel_adding_image({{$slider_id}})">
         </div>
     </div>
     {!! Form::close() !!}
@@ -302,5 +302,9 @@
             $('#removeImageFlag').val(1);
         }
         //end js function for fileupload
+
+        function cancel_adding_image(slider_id){
+            window.location ='/backend/templateslider/edit/'+slider_id;
+        }
     </script>
 @stop

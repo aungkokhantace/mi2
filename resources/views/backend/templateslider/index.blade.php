@@ -62,7 +62,7 @@
                             <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $templateslider->id }}" id="all"></td>
                             <td><a href="/backend/templateslider/edit/{{$templateslider->id}}">{{$templateslider->name}}</a></td>
                             <td>{{$templateslider->description}}</td>
-                            <td>{{$templateslider->template_id}}</td>
+                            <td>{{$templateslider->template->name}}</td>
                             @if($templateslider->active == 1)
                                 <td>Active</td>
                             @else

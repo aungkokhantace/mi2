@@ -28,4 +28,9 @@ class Template extends Model
     {
         return $this->hasMany('App\Backend\TemplateSidebarMenu\TemplateSidebarMenu');
     }
+
+    public function slider()
+    {
+        return $this->hasMany('App\Backend\TemplateSlider\TemplateSlider');
+    }
 }

@@ -115,6 +115,16 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>104,'module'=>'Template Sidebar Menu','name'=>'Update','description'=>'Template Sidebar Menu Update','url'=>'backend/templatesidebarmenu/update'],
             ['id'=>105,'module'=>'Template Sidebar Menu','name'=>'Destroy','description'=>'Template Sidebar Menu Destroy','url'=>'backend/templatesidebarmenu/destroy'],
 
+            //Template Slider
+            ['id'=>110,'module'=>'Template Slider','name'=>'Listing','description'=>'Template Slider Listing','url'=>'backend/templateslider'],
+            ['id'=>111,'module'=>'Template Slider','name'=>'Create','description'=>'Template Slider Create','url'=>'backend/templateslider/create'],
+            ['id'=>112,'module'=>'Template Slider','name'=>'Store','description'=>'Template Slider Store','url'=>'backend/templateslider/store'],
+            ['id'=>113,'module'=>'Template Slider','name'=>'Edit','description'=>'Template Slider Edit','url'=>'backend/templateslider/edit'],
+            ['id'=>114,'module'=>'Template Slider','name'=>'Update','description'=>'Template Slider Update','url'=>'backend/templateslider/update'],
+            ['id'=>115,'module'=>'Template Slider','name'=>'Destroy','description'=>'Template Slider Destroy','url'=>'backend/templateslider/destroy'],
+            ['id'=>116,'module'=>'Template Slider Detail','name'=>'New','description'=>'Template Slider Detail New','url'=>'backend/templatesliderdetail/create'],
+            ['id'=>117,'module'=>'Template Slider Detail','name'=>'Store','description'=>'Template Slider Detail Store','url'=>'backend/templatesliderdetail/store'],
+            ['id'=>118,'module'=>'Template Slider Detail','name'=>'Destroy','description'=>'Template Slider Detail Destroy','url'=>'backend/templatesliderdetail/destroy'],
 
             //Event Registration
             ['id'=>120,'module'=>'Register','name'=>'Listing','description'=>'Register Listing','url'=>'backend/register'],

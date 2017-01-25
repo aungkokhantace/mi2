@@ -33,13 +33,8 @@ class TemplateSliderRepository implements TemplateSliderRepositoryInterface
         $returnedObj['aceplusStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
 
         try {
-//            $tempObj = Utility::addCreatedBy($paramObj);
-//            $tempObj->save();
-
-            DB::table('template_slider_detail')->insert([
-                ['image_name' => $paramObj->image_name, 'image_url' => $paramObj->image_url, 'description' => $paramObj->description]
-            ]);
-
+            $tempObj = Utility::addCreatedBy($paramObj);
+            $tempObj->save();
             $returnedObj['aceplusStatusCode'] = ReturnMessage::OK;
             return $returnedObj;
         }
