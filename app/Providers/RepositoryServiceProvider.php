@@ -40,5 +40,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind('App\Backend\TemplateSidebarMenu\TemplateSidebarMenuRepositoryInterface','App\Backend\TemplateSidebarMenu\TemplateSidebarMenuRepository');
         $this->app->bind('App\Backend\Register\RegisterRepositoryInterface','App\Backend\Register\RegisterRepository');
         $this->app->bind('App\Backend\TemplateSlider\TemplateSliderRepositoryInterface','App\Backend\TemplateSlider\TemplateSliderRepository');
+        $this->app->bind('App\Report\ReportEventRegistration\ReportEventRegistrationRepositoryInterface','App\Report\ReportEventRegistration\ReportEventRegistrationRepository');
+        $this->app->bind('App\Report\ReportAbstract\ReportEventAbstractRepositoryInterface','App\Report\ReportAbstract\ReportEventAbstractRepository');
+
     }
 }
