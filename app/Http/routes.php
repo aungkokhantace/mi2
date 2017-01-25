@@ -22,6 +22,16 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
             Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
 
+            //Event Registration Report
+            Route::get('report/registration', array('as'=>'backend/report/registration','uses'=>'Report\RegistrationReportController@index'));
+            Route::get('report/registration/search/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/search/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@search'));
+            Route::get('report/registration/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@excel'));
+
+            //Event Abstract Report
+            Route::get('report/abstract', array('as'=>'backend/report/abstract','uses'=>'Report\AbstractReportController@index'));
+            Route::get('report/abstract/search/{from_date?}/{to_date?}', array('as'=>'backend/report/abstract/search/{from_date?}/{to_date?}','uses'=>'Report\AbstractReportController@search'));
+            Route::get('report/abstract/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/abstract/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\AbstractReportController@excel'));
+
         });
 
         //Right
@@ -108,7 +118,6 @@ Route::group(['middleware' => 'web'], function () {
                 Route::get('templatesidebarmenu/edit/{id}', array('as'=>'backend/templatesidebarmenu/edit','uses'=>'Backend\TemplateSidebarMenuController@edit'));
                 Route::post('templatesidebarmenu/update', array('as'=>'backend/templatesidebarmenu/update','uses'=>'Backend\TemplateSidebarMenuController@update'));
                 Route::post('templatesidebarmenu/destroy', array('as'=>'backend/templatesidebarmenu/destroy','uses'=>'Backend\TemplateSidebarMenuController@destroy'));
-
             });
 
         });
