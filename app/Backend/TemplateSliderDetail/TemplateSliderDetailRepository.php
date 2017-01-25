@@ -10,6 +10,7 @@ namespace App\Backend\TemplateSliderDetail;
 
 use App\Core\ReturnMessage;
 use App\Core\Utility;
+use Illuminate\Support\Facades\DB;
 
 class TemplateSliderDetailRepository implements TemplateSliderDetailRepositoryInterface
 {
@@ -38,8 +39,11 @@ class TemplateSliderDetailRepository implements TemplateSliderDetailRepositoryIn
         $returnedObj['aceplusStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
 
         try {
-            $tempObj = Utility::addCreatedBy($paramObj);
-            $tempObj->save();
+//            $tempObj = Utility::addCreatedBy($paramObj);
+//            $tempObj->save();
+            DB::table('template_slider_detail')->insert([
+                ['image_name' => $paramObj->image_name, 'image_url' => $paramObj->image_url, 'description' => $paramObj->description, 'template_slider_id' => $paramObj->template_slider_id]
+            ]);
 
             $returnedObj['aceplusStatusCode'] = ReturnMessage::OK;
             return $returnedObj;
@@ -71,10 +75,11 @@ class TemplateSliderDetailRepository implements TemplateSliderDetailRepositoryIn
 
     public function delete($id)
     {
-            $tempObj = TemplateSliderDetail::find($id);
+//            $tempObj = TemplateSliderDetail::find($id);
 //            $tempObj = Utility::addDeletedBy($tempObj);
 //            $tempObj->deleted_at = date('Y-m-d H:m:i');
-            $tempObj->save();
+//            $tempObj->save();
+        DB::table('template_slider_detail')->where('id', '=', $id)->delete();
     }
 
     public function getObjByID($id){

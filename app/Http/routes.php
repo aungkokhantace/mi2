@@ -115,20 +115,17 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('templatesidebarmenu/destroy', array('as'=>'backend/templatesidebarmenu/destroy','uses'=>'Backend\TemplateSidebarMenuController@destroy'));
 
                 //Template Slider
-                Route::get('templateslider', array('as'=>'templateslider','uses'=>'Backend\TemplateSliderController@index'));
-                Route::get('templateslider/create', array('as'=>'templateslider/create','uses'=>'Backend\TemplateSliderController@create'));
-                Route::post('templateslider/store', array('as'=>'templateslider/store','uses'=>'Backend\TemplateSliderController@store'));
-                Route::get('templateslider/edit/{id}', array('as'=>'templateslider/edit','uses'=>'Backend\TemplateSliderController@edit'));
-                Route::post('templateslider/update', array('as'=>'templateslider/update','uses'=>'Backend\TemplateSliderController@update'));
-                Route::post('templateslider/destroy', array('as'=>'templateslider/destroy','uses'=>'Backend\TemplateSliderController@destroy'));
+                Route::get('templateslider', array('as'=>'backend/templateslider','uses'=>'Backend\TemplateSliderController@index'));
+                Route::get('templateslider/create', array('as'=>'backend/templateslider/create','uses'=>'Backend\TemplateSliderController@create'));
+                Route::post('templateslider/store', array('as'=>'backend/templateslider/store','uses'=>'Backend\TemplateSliderController@store'));
+                Route::get('templateslider/edit/{id}', array('as'=>'backend/templateslider/edit','uses'=>'Backend\TemplateSliderController@edit'));
+                Route::post('templateslider/update', array('as'=>'backend/templateslider/update','uses'=>'Backend\TemplateSliderController@update'));
+                Route::post('templateslider/destroy', array('as'=>'backend/templateslider/destroy','uses'=>'Backend\TemplateSliderController@destroy'));
 
                 //Template Slider Detail
-                Route::get('templatesliderdetail', array('as'=>'templatesliderdetail','uses'=>'Backend\TemplateSliderController@index'));
-                Route::get('templatesliderdetail/create', array('as'=>'templatesliderdetail/create','uses'=>'Backend\TemplateSliderController@addImage'));
-                Route::post('templatesliderdetail/store', array('as'=>'templatesliderdetail/store','uses'=>'Backend\TemplateSliderController@storeImage'));
-                Route::get('templatesliderdetail/edit/{id}', array('as'=>'templatesliderdetail/edit','uses'=>'Backend\TemplateSliderController@edit'));
-                Route::post('templatesliderdetail/update', array('as'=>'templatesliderdetail/update','uses'=>'Backend\TemplateSliderController@update'));
-                Route::post('templatesliderdetail/destroy', array('as'=>'templatesliderdetail/destroy','uses'=>'Backend\TemplateSliderController@destroy'));
+                Route::get('templatesliderdetail/create/{id}', array('as'=>'backend/templatesliderdetail/create','uses'=>'Backend\TemplateSliderController@addImage'));
+                Route::post('templatesliderdetail/store', array('as'=>'backend/templatesliderdetail/store','uses'=>'Backend\TemplateSliderController@storeImage'));
+                Route::post('templatesliderdetail/destroy', array('as'=>'backend/templatesliderdetail/destroy','uses'=>'Backend\TemplateSliderController@deleteImage'));
 
                 //Register
                 Route::get('register', array('as'=>'backend/register','uses'=>'Backend\RegisterController@index'));

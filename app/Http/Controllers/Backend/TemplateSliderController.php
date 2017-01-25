@@ -33,7 +33,7 @@ class TemplateSliderController extends Controller
         $this->repo = $repo;
     }
 
-    public function index(Request $request)
+    public function index()
     {
         try{
             if (Auth::guard('User')->check()) {
@@ -145,9 +145,9 @@ class TemplateSliderController extends Controller
     }
 
     //entry form for adding image to slider
-    public function addImage(){
+    public function addImage($slider_id){
         if (Auth::guard('User')->check()) {
-            return view('backend.templatesliderdetail.templatesliderdetail');
+            return view('backend.templatesliderdetail.templatesliderdetail')->with('slider_id',$slider_id);
         }
         return redirect('/');
     }
@@ -157,7 +157,6 @@ class TemplateSliderController extends Controller
         if (Auth::guard('User')->check()) {
 
             $table = (new TemplateSliderDetail())->getTable();
-
 //        $request->validate();
 
             //Start Saving Image
@@ -184,22 +183,53 @@ class TemplateSliderController extends Controller
 
             $name = Input::get('name');
             $description = Input::get('description');
-            $paramObj                       = new TemplateSliderDetail();
-            $paramObj->image_name           = Input::get('name');
-            $paramObj->description          = Input::get('description');
-            $paramObj->image_url            = "images/slider_images/".$photo_name;
+            $slider_id = Input::get('slider_id');
 
-            $result = $this->repo->create($paramObj);
+            $paramObj                       = new TemplateSliderDetail();
+            $paramObj->image_name           = $name;
+            $paramObj->description          = $description;
+            $paramObj->image_url            = "images/slider_images/".$photo_name;
+            $paramObj->template_slider_id   = $slider_id;
+            $templateSliderDetailRepo = new TemplateSliderDetailRepository();
+            $result = $templateSliderDetailRepo->create($paramObj);
 
             if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
-                return redirect()->action('Backend\TemplateSliderController@index')
+                return redirect()->action('Backend\TemplateSliderController@edit', ['id' => $slider_id])
                     ->withMessage(FormatGenerator::message('Success', 'Image added ...'));
             }
             else{
-                return redirect()->action('Backend\TemplateSliderController@index')
+                return redirect()->action('Backend\TemplateSliderController@edit', ['id' => $slider_id])
                     ->withMessage(FormatGenerator::message('Fail', 'Image did not add ...'));
             }
         }
         return redirect('/');
+    }
+
+    public function deleteImage()
+    {
+        $id = Input::get('selected_checkboxes');
+        $slider_id = Input::get('slider_id');
+        $new_string = explode(',', $id);
+        $delete_flag = true;
+        $templateSliderDetailRepo = new TemplateSliderDetailRepository();
+        foreach ($new_string as $id) {
+            //check whether only one image left or not
+            $check = $templateSliderDetailRepo->getObjsByID($slider_id);
+            if (isset($check) && count($check) == 1) {
+                alert()->warning('There is only one image in slider and it cannot be deleted')->persistent('OK');
+                $delete_flag = false;
+            } else {
+                $templateSliderDetailRepo->delete($id);
+            }
+        }
+
+        if($delete_flag){
+            return redirect()->action('Backend\TemplateSliderController@edit', ['id' => $slider_id])
+                ->withMessage(FormatGenerator::message('Success', 'Image deleted ...'));
+        }
+        else{
+            return redirect()->action('Backend\TemplateSliderController@edit', ['id' => $slider_id])
+                ->withMessage(FormatGenerator::message('Success', 'Image did not delete ...'));
+        }
     }
 }

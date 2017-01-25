@@ -98,9 +98,10 @@ function cancel_setup(type) {
     window.location.href = '/backend/' + type;
 }
 
-function add_image(type){
-    window.location ='/backend/' + type + '/create';
-}
+//function add_image(type,slider_id){
+//    alert(slider_id);
+//    window.location ='/backend/' + type + '/create';
+//}
 
 $("#check_all").click(function(event){
     if(this.checked) {
