@@ -115,6 +115,7 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>104,'module'=>'Template Sidebar Menu','name'=>'Update','description'=>'Template Sidebar Menu Update','url'=>'backend/templatesidebarmenu/update'],
             ['id'=>105,'module'=>'Template Sidebar Menu','name'=>'Destroy','description'=>'Template Sidebar Menu Destroy','url'=>'backend/templatesidebarmenu/destroy'],
 
+
             //Event Registration
             ['id'=>120,'module'=>'Register','name'=>'Listing','description'=>'Register Listing','url'=>'backend/register'],
             ['id'=>121,'module'=>'Register','name'=>'Store','description'=>'Register Store','url'=>'backend/register/store'],
@@ -122,6 +123,15 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>123,'module'=>'Register','name'=>'Update','description'=>'Register Update','url'=>'backend/register/update'],
             ['id'=>124,'module'=>'Register','name'=>'Destroy','description'=>'Register Destroy','url'=>'backend/register/destroy'],
             ['id'=>125,'module'=>'Register','name'=>'Confirm','description'=>'Register Confirm','url'=>'backend/register/confirm'],
+
+            // Abstractform
+            ['id'=>130,'module'=>'Abstractform','name'=>'Listing','description'=>'Abstractform Listing','url'=>'backend/abstractform'],
+            ['id'=>131,'module'=>'Abstractform','name'=>'Edit','description'=>'Abstractform Edit','url'=>'backend/abstractform/edit'],
+            ['id'=>132,'module'=>'Abstractform','name'=>'Update','description'=>'Abstractform Update','url'=>'backend/abstractform/update'],
+            ['id'=>133,'module'=>'Abstractform','name'=>'Destroy','description'=>'Abstractform Destroy','url'=>'backend/abstractform/destroy'],
+
+
+
         );
 
 
