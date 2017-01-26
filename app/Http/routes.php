@@ -13,9 +13,6 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('abstractform/create', array('as'=>'abstractform/create','uses'=>'Frontend\AbstractformController@create'));
         Route::post('abstractform/store', array('as'=>'abstractform/store','uses'=>'Frontend\AbstractformController@store'));
 
-        //Frontend
-        Route::get('/', 'Frontend\HomeController@index');
-
         //Backend
         Route::group(['prefix' => 'backend'], function () {
 
@@ -42,7 +39,8 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('report/abstract/search/{from_date?}/{to_date?}', array('as'=>'backend/report/abstract/search/{from_date?}/{to_date?}','uses'=>'Report\AbstractReportController@search'));
             Route::get('report/abstract/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/abstract/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\AbstractReportController@excel'));
 
-        });
+        });       
+
 
         //Right
         Route::group(['middleware' => 'right'], function () {

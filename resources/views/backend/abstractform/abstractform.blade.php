@@ -15,7 +15,7 @@
 
     <h1 class="page-header">{{'Abstractform Update'  }}</h1>
 
-    {!! Form::open(array('url' => 'backend/abstractform/update', 'class'=> 'form-horizontal user-form-border')) !!}
+    {!! Form::open(array('url' => 'backend/abstractform/update', 'class'=> 'form-horizontal user-form-border', 'files'=> 'true')) !!}
 
     <input type="hidden" name="id" value="{{isset($abstractforms)? $abstractforms->id:''}}"/>
 
@@ -102,7 +102,7 @@
         </div>
          @if(isset($abstractforms))
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <a href="#">Download</a>
+                <a target="_blank" href="/{{isset($abstractforms)? $abstractforms->abstract_file_path:Request::old('abstract_file_path')}}">{{isset($abstractforms)? $abstractforms->abstract_file_path:Request::old('abstract_file_path')}}</a>
                 <p class="text-danger">{{$errors->first('abstract_file_path')}}</p>
             </div>
              @else
@@ -118,7 +118,7 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <input type="submit" name="submit" value="{{'Update'}}" class="form-control btn-primary">
+            <input type="submit" name="submit" value="{{'CONFIRM'}}" class="form-control btn-primary">
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
             <input type="button" value="CANCEL" class="form-control cancel_btn" onclick="cancel_setup('abstractform')">

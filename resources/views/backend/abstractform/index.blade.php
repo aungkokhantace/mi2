@@ -12,9 +12,6 @@
         <div class="col-md-10"></div>
         <div class="col-md-2 pull-right">
             <div class="buttons pull-right">
-                <button type="button" onclick='create_setup("abstractform");' class="btn btn-default btn-md first_btn">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
                 <button type="button" onclick='edit_setup("abstractform");' class="btn btn-default btn-md second_btn">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>

@@ -40,7 +40,7 @@ class AbstractformController extends Controller
     {
         if (Auth::guard('User')->check()) {
            //$abstractforms      = $this->abstractformRepository->getAbstractforms();
-            $abstractforms      = DB::select("SELECT * FROM event_abstract");           
+            $abstractforms      = DB::select("SELECT * FROM event_abstract WHERE deleted_at IS NULL");  
             $countries = Utility::getSettingsByType("COUNTRY");
             return view('backend.abstractform.index')->with('abstractforms', $abstractforms)->with('countries', $countries);
         }
@@ -65,7 +65,6 @@ class AbstractformController extends Controller
         $email                  = Input::get('email');
         $country                = Input::get('country');
         $medical_specialities   = Input::get('medical_specialities');
-        $abstract_file_path     = Input::get('abstract_file_path');
 
         $abstractform = Abstractform::find($id);
         $abstractform->first_name            = $first_name;
@@ -74,8 +73,7 @@ class AbstractformController extends Controller
         $abstractform->email                 = $email;
         $abstractform->country               = $country;
         $abstractform->medical_specialities  = $medical_specialities;
-        $abstractform->abstract_file_path    = $abstract_file_path;
-        $abstractform->status                = "Pending";
+        $abstractform->status                = "comfirm";
         $abstractform->registered            = "0";
 
         $this->abstractformRepository->update($abstractform);
@@ -91,16 +89,6 @@ class AbstractformController extends Controller
         return redirect()->action('Backend\AbstractformController@index');
     }   
     
-    public function download(Request $request)
-    {
-        //PDF file is stored under project/public/uploads/php7C6C.tmp.pdf
-        $file= public_path(). "/uploads/phpB5A5.tmp.pdf";
-
-        $headers = array(
-            'Content-Type: application/pdf',
-        );
-
-        return Response::download($file, 'downloadfile.pdf', $headers);
-    }
+    
 
 }

@@ -40,13 +40,10 @@ class AbstractformController extends Controller
 
     public function create(Request $request)
     {
-        if (Auth::guard('User')->check()) {
             
             $countries = Utility::getSettingsByType("COUNTRY");
             // dd($countries);
             return view('frontend.abstractform.abstractform')->with('countries', $countries);
-        }
-        return redirect('/login');
     }
 
     public function store(AbstractformEntryRequest $request)
@@ -97,7 +94,7 @@ class AbstractformController extends Controller
         $abstractform->country               = $country;
         $abstractform->medical_specialities  = $medical_specialities;
         $abstractform->abstract_file_path    =  "uploads/".$abstract_file_path->getFilename() . '.' . $extension;
-        $abstractform->status                = "Pending";
+        $abstractform->status                = "pending";
         $abstractform->registered            = "0";
 
         $result = $this->abstractformRepository->create($abstractform);
@@ -113,30 +110,6 @@ class AbstractformController extends Controller
         }
     }
 
-    // public function store(AbstractformEntryRequest $request)
-    // {
-    //     $request->validate();
-    //     $first_name             = Input::get('first_name');
-    //     $middle_name        	= Input::get('middle_name');
-    //     $last_name            	= Input::get('last_name');
-    //     $email             		= Input::get('email');
-    //     $country                = Input::get('country');
-    //     $medical_specialities   = Input::get('medical_specialities');
-    //     $abstract_file_path     = Input::file('abstract_file_path');
-
-    //     $abstractform = new Abstractform();
-    //     $abstractform->first_name            = $first_name;
-    //     $abstractform->middle_name           = $middle_name;
-    //     $abstractform->last_name             = $last_name;         
-    //     $abstractform->email           		 = $email;
-    //     $abstractform->country               = $country;
-    //     $abstractform->medical_specialities  = $medical_specialities;
-    //     $abstractform->abstract_file_path  	 = $abstract_file_path;
-    //     $abstractform->status       		 = "Pending";
-    //     $abstractform->registered     		 = "0";
-
-    //     $this->abstractformRepository->create($abstractform);
-    //     return redirect()->action('Frontend\AbstractformController@create');
-    // }
+   
 
 }
