@@ -36,12 +36,8 @@ class RegisterController extends Controller
   //   }
 
      public function create(){
-        if (Auth::guard('User')->check()) {
-
             $countries = Utility::getSettingsByType("COUNTRY");
-            return view('frontend.register.register_frontend')->with('countries', $countries);
-          }
-        return redirect('frontend/login');
+            return view('frontend.register.register_frontend')->with('countries', $countries);   
     }
 
     public function store(RegisterEntryRequest $request)
