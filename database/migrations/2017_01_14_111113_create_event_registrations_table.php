@@ -27,7 +27,9 @@ class CreateEventRegistrationsTable extends Migration
             $table->string('payment_type');
             $table->string('status');
             $table->integer('events_id');
+            $table->date('registered_date');
             $table->integer('confirmed_by');
+            $table->date('confirmed_date');
             $table->string('payment_reference_path');
 
             //Common to all table ----------------------------------------------

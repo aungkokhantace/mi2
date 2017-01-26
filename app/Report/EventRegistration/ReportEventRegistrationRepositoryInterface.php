@@ -10,4 +10,5 @@ namespace App\Report\EventRegistration;
 interface ReportEventRegistrationRepositoryInterface
 {
     public function getEventRegistrations();
+    public function getEventRegistrationsByDate($from_date, $to_date, $paramArray);
 }

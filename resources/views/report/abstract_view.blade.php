@@ -5,7 +5,7 @@
         <!-- begin #content -->
 <div id="content" class="content">
 
-    <h1 class="page-header">Event Registration Report</h1>
+    <h1 class="page-header">Event Abstract Report</h1>
     @if(count(Session::get('message')) != 0)
         <div>
         </div>
@@ -44,11 +44,11 @@
 
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <button type="button" onclick="report_search_by_date('backend/report/registration');" class="form-control btn-primary">Preview</button>
+            <button type="button" onclick="report_search_by_date('backend/report/abstract');" class="form-control btn-primary">Preview</button>
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <button type="button" onclick="report_export('backend/report/registration');" class="form-control btn-primary">Export Excel</button>
+            <button type="button" onclick="report_export('backend/report/abstract');" class="form-control btn-primary">Export Excel</button>
         </div>
     </div>
 
@@ -62,38 +62,34 @@
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
-                        <th>Title</th>
                         <th>Email</th>
-                        <th>Working Place</th>
+                        <th>Medical Specialities</th>
                         <th>Total Amount</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th class="search-col" con-id="">First Name</th>
-                        <th class="search-col" con-id="">Middle Name</th>
-                        <th class="search-col" con-id="">Last Name</th>
-                        <th class="search-col" con-id="">Title</th>
-                        <th class="search-col" con-id="">Email</th>
-                        <th class="search-col" con-id="">Working Place</th>
+                        <th class="search-col" con-id="first_name">First Name</th>
+                        <th class="search-col" con-id="middle_name">Middle Name</th>
+                        <th class="search-col" con-id="last_name">Last Name</th>
+                        <th class="search-col" con-id="email">Email</th>
+                        <th class="search-col" con-id="medical_specialities">Medical Specialities</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($eventRegistrations as $eventRegistration)
+                    @foreach($eventAbstracts as $eventAbstract)
                         <tr>
-                            <td><a href="/">test</a></td>
-                            <td>{{$eventRegistration->first_name}}</td>
-                            <td>{{$eventRegistration->middle_name}}</td>
-                            <td>{{$eventRegistration->last_name}}</td>
-                            <td>{{$eventRegistration->title}}</td>
-                            <td>{{$eventRegistration->where_work}}</td>
+                            <td>{{$eventAbstract->first_name}}</td>
+                            <td>{{$eventAbstract->middle_name}}</td>
+                            <td>{{$eventAbstract->last_name}}</td>
+                            <td>{{$eventAbstract->email}}</td>
+                            <td>{{$eventAbstract->medical_specialities}}</td>
                             <td></td>
 
                         </tr>
                     @endforeach
                     <tr bgcolor="#1976d3">
                         <td style = "color:white">Grand Total</td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

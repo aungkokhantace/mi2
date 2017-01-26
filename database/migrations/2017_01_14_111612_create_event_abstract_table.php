@@ -21,6 +21,10 @@ class CreateEventAbstractTable extends Migration
             $table->integer('country');
             $table->string('medical_specialities');
             $table->string('abstract_file_path');
+            $table->integer('events_id');
+            $table->date('registered_date');
+            $table->integer('confirmed_by');
+            $table->date('confirmed_date');
             $table->string('status');
             $table->boolean('registered');
 

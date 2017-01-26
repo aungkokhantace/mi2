@@ -12,4 +12,5 @@ namespace App\Report\EventAbstract;
 interface ReportEventAbstractRepositoryInterface
 {
     public function getEventAbstracts();
+    public function getEventAbstractsByDate($from_date, $to_date, $paramArray);
 }
