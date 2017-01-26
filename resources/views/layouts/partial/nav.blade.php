@@ -16,7 +16,8 @@
                 </a>
 
                 <ul class="sub-menu">
-                    <li nav-id="report-sale-summary"><a href="/backend/report/registration">Event Registrations</a></li>
+                    <li nav-id="report-event-register"><a href="/backend/report/registration">Event Registrations</a></li>
+                    <li nav-id="report-event-abstraact"><a href="/backend/report/abstract">Event Abstracts</a></li>
                 </ul>
             </li>
 

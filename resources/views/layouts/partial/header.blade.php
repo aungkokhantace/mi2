@@ -76,6 +76,7 @@ $companyLogo = \App\Core\Check::companyLogo();
     <script src="/assets/plugins/summernote/summernote.min.js"></script>  {{--For summernote editor--}}
     <script src="/assets/plugins/bootstrap-checkbox-1.4.0/js/bootstrap-checkbox.js"></script>{{--For checkbox picker--}}
     <script src="/assets/js/aceplus.backend.functions.js"></script>
+    <script src="/assets/js/backend.js"></script>
 
 
     <script>
