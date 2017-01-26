@@ -37,6 +37,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('report/registration/search/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/search/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@search'));
         Route::get('report/registration/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@excel'));
     });
+     });
 
     //Right
     Route::group(['middleware' => 'right'], function () {
@@ -138,7 +139,7 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('abstractform/download', array('as'=>'backend/abstractform/download','uses'=>'Backend\AbstractformController@download'));
             Route::post('abstractform/destroy',  array('as'=>'backend/abstractform/destroy','uses'=>'Backend\AbstractformController@destroy'));
             
-        });
+       
 
 
         });
