@@ -94,6 +94,30 @@ function add_confirm_setup(type) {
             });
 }
 
+// confirm alertbox test
+function add_confirm_setup_v2(frmId) {
+    swal({
+            title: "Are you sure?",
+            text: "You want to confirm to submit your registration form!",
+            type: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55 ",
+            confirmButtonText: "Confirm",
+            cancelButtonText: "Cancel",
+            closeOnConfirm: true,
+            closeOnCancel: true
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+
+                $('#btn_submit').attr('disabled','disabled');
+                $("#frm_register").submit();
+            } else {
+                return "no";
+            }
+        });
+}
+
 function cancel_setup(type) {
     window.location.href = '/backend/' + type;
 }

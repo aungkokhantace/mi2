@@ -7,7 +7,7 @@
             <!-- begin sidebar minify button -->
             <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
             <!-- end sidebar minify button -->
-            <li class="nav-header">AcePlus Reports</li>
+            <li class="nav-header">Event</li>
             <li nav-id='report'  class="has-sub" >
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
@@ -21,88 +21,87 @@
                 </ul>
             </li>
 
-
-            <li class="nav-header">AcePlus Backend</li>
-
-            <li nav-id="menu-manage" class="has-sub">
+            <li nav-id='event_registration'  class="has-sub" >
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <i class="fa fa-asterisk"></i>
-                    <span>Menu Setup</span>
+                    <i class="fa fa-calendar"></i>
+                    <span>Event Registration</span>
                 </a>
 
                 <ul class="sub-menu">
-                    <li nav-id="menu-manage" class="has-sub">
+                    <li nav-id="report-event-abstraact"><a href="/backend/register">List</a></li>
+                </ul>
+            </li>
+
+            <li nav-id='event_abstract'  class="has-sub" >
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-calendar"></i>
+                    <span>Event Abstract</span>
+                </a>
+
+                <ul class="sub-menu">
+                    <li nav-id="report-event-abstraact"><a href="/backend/abstractform">List</a></li>
+                </ul>
+            </li>
+
+
+            <li class="nav-header">Setup</li>
+
+
+            <li  nav-id='modifier'  class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-users"></i>
+                    <span>Frontend</span>
+                </a>
+                <ul class="sub-menu">
+                    <li nav-id="modifier-manage" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
                             <span>Menu</span>
                         </a>
+
                         <ul class="sub-menu">
                             <li nav-id="menu-entry"><a href="/backend/menu/create">Entry</a></li>
                             <li nav-id="menu-list"><a href="/backend/menu">List</a></li>
                         </ul>
                     </li>
-                    <li nav-id="menu-manage" class="has-sub">
+                    <li nav-id="modifier-manage" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
                             <span>Menu Detail</span>
                         </a>
+
                         <ul class="sub-menu">
                             <li nav-id="menu-entry"><a href="/backend/menudetail/create">Entry</a></li>
                             <li nav-id="menu-list"><a href="/backend/menudetail">List</a></li>
+
                         </ul>
                     </li>
-                </ul>
-            </li>
-
-            <li nav-id="menu-manage" class="has-sub">
-                <a href="javascript:;">
-                    <b class="caret pull-right"></b>
-                    <i class="fa fa-asterisk"></i>
-                    <span>Template Setup</span>
-                </a>
-
-                <ul class="sub-menu">
-                    <li nav-id="menu-manage" class="has-sub">
+                    <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
                             <span>Template</span>
                         </a>
+
                         <ul class="sub-menu">
                             <li nav-id="menu-entry"><a href="/backend/template/create">Entry</a></li>
                             <li nav-id="menu-list"><a href="/backend/template">List</a></li>
                         </ul>
                     </li>
-                    <li nav-id="menu-manage" class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret pull-right"></b>
-                            <span>Template Sidebar Menu</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li nav-id="menu-entry"><a href="/backend/templatesidebarmenu/create">Entry</a></li>
-                            <li nav-id="menu-list"><a href="/backend/templatesidebarmenu">List</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-
-            <li nav-id='profile'  class="has-sub" >
-                <a href="javascript:;">
-                    <b class="caret pull-right"></b>
-                    <i class="fa fa-image"></i>
-                    <span>Slider Setup</span>
-                </a>
-                <ul class="sub-menu">
-                    <li nav-id='slider'  class="has-sub" >
+                    <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
                             <span>Slider</span>
                         </a>
+
                         <ul class="sub-menu">
                             <li nav-id="modifier-manage-modifierpanel"><a href="/backend/templateslider/create">Entry</a></li>
                             <li nav-id="modifier-manage-modifierpanel"><a href="/backend/templateslider">List</a></li>
                         </ul>
                     </li>
+
                 </ul>
             </li>
 
@@ -110,7 +109,7 @@
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
                     <i class="fa fa-users"></i>
-                    <span>Site Setup</span>
+                    <span>Backend</span>
                 </a>
                 <ul class="sub-menu">
                     <li nav-id="modifier-manage" class="has-sub">

@@ -47,6 +47,7 @@
                         <th>Phone no</th>
                         <th>Registration Category</th>
                         <th>Payment Type</th>
+                        <th></th>
 
                     </tr>
                     </thead>
@@ -84,7 +85,6 @@
                             <td>{{$register->phone_no}}</td>
                             <td>{{$register->registration_category}}</td>
                             <td>{{$register->payment_type}}</td>
-                            <td><a href="registerPermission/{{$register->id}}">Edit Permissions</a></td>
                             <td>
                                 @if($register->status == 'confirm')
                                     {{'CONFIRM'}}
@@ -128,9 +128,6 @@
                 "dom": '<"pull-right m-t-20"i>rt<"bottom"lp><"clear">',
 
             });
-//            new $.fn.dataTable.FixedHeader( table, {
-//            });
-
 
             // Apply the search
             table.columns().eq( 0 ).each( function ( colIdx ) {

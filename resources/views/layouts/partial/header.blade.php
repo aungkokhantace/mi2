@@ -19,12 +19,13 @@ $companyLogo = \App\Core\Check::companyLogo();
     <title>{{$companyName}} - @yield('title')</title>
 
     <link href="/assets/css/AdminLTE.css" rel="stylesheet">
+    <link media="all" type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.css">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/js/datepicker/datepicker3.css">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/css/fullcalendar.css">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/css/sweetalert.css">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/css/multiple-select.css">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/css/jktCuteDropdown.css">
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/css/style.css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -54,7 +55,6 @@ $companyLogo = \App\Core\Check::companyLogo();
     <script src="/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
     <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-    <script src="/assets/js/search.js"></script>
     <script src="/assets/js/jquery-2.1.3.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     {{--<script src="/assets/plugins/pace/pace.min.js"></script>--}}

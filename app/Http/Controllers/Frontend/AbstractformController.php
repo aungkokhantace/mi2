@@ -48,15 +48,10 @@ class AbstractformController extends Controller
 
     public function store(AbstractformEntryRequest $request)
     {
-       
+        $request->validate();
         $filetable = (new FileUploadDownload())->getTable();
         $abstracttable = (new Abstractform())->getTable();
-        
-        
-//        $request->validate();
-
         $abstract_file_path     = Input::file('abstract_file_path');
-
           //start file section
         $extension = $abstract_file_path->getClientOriginalExtension();
 
@@ -98,7 +93,6 @@ class AbstractformController extends Controller
         $abstractform->registered            = "0";
 
         $result = $this->abstractformRepository->create($abstractform);
-
 
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
             return redirect()->action('Frontend\AbstractformController@create')
