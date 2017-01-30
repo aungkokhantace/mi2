@@ -20,7 +20,7 @@ class ReportEventRegistrationRepository implements ReportEventRegistrationReposi
     }
 
     public function getEventRegistrationsByDate($from_date = null, $to_date = null, $paramArray = null){
-        $query = "SELECT * FROM event_registrations WHERE events_id = 1 ";
+        $query = "SELECT * FROM event_registrations WHERE events_id = 1 AND deleted_at IS NULL";
 
         if(isset($from_date) && $from_date != null){
             $tempFromDate = date("Y-m-d", strtotime($from_date));
@@ -30,7 +30,7 @@ class ReportEventRegistrationRepository implements ReportEventRegistrationReposi
             $tempToDate = date("Y-m-d", strtotime($to_date));
             $query .= " AND confirmed_date <= '$tempToDate' ";
         }
-
+        
         $result = DB::select($query);
         return $result;
     }

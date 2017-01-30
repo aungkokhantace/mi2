@@ -152,6 +152,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        Elibyy\TCPDF\ServiceProvider::class,
 
 
         /*
@@ -221,6 +222,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'InterventionImage' => Intervention\Image\Facades\Image::class,
         'LogCustom' =>  App\Log\LogCustom::class,
+        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class,
     ],
 
 ];

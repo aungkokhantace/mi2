@@ -43,14 +43,22 @@
         </div>
 
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <button type="button" onclick="report_search_by_date('backend/report/registration');" class="form-control btn-primary">Preview</button>
         </div>
 
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <button type="button" onclick="report_export('backend/report/registration');" class="form-control btn-primary">Export Excel</button>
         </div>
-    </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <a target="_blank" href="registration/export"><button class="form-control btn btn-primary">Print</button></a>
+        </div>
+    </div>      
 
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
