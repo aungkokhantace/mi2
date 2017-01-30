@@ -15,6 +15,7 @@ use App\Session;
 use App\Core\User\UserRepository;
 use App\Core\SyncsTable\SyncsTable;
 use InterventionImage;
+use PDF;
 
 class Utility
 {
@@ -158,4 +159,31 @@ class Utility
         return $image;
     }
 //    end functions for image upload
+
+// Use Pdf Export
+
+    public static function exportPDF($html)
+    {
+        // dd($html);
+        PDF::SetTitle('exportPDF');
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, false, false, '');
+
+        /* PDF::writeHTML($html, $ln = true, $fill = false, $reseth = false, $cell = false, $align = '');
+
+        Parameter Definitions
+         $html     (string) text to display
+         $ln     (boolean) if true add a new line after text (default = true)
+         $fill     (boolean) Indicates if the background must be painted (true) or transparent (false).
+         $reseth (boolean) if true reset the last cell height (default false).
+         $cell     (boolean) if true add the current left (or right for RTL) padding to each Write (default false).
+         $align     (string) Allows to center or align the text. Possible values are:
+                        L  : left align
+                        C  : center
+                        R  : right align
+                        '' : empty string : left for LTR or right for RTL */
+
+        PDF::Output('exportPDF.pdf');
+        exit();
+    }
 }

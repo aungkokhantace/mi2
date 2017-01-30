@@ -43,12 +43,21 @@
         </div>
 
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+       
+    </div>
+    <br>
+    <div class="row">
+         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <button type="button" onclick="report_search_by_date('backend/report/abstract');" class="form-control btn-primary">Preview</button>
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <button type="button" onclick="report_export('backend/report/abstract');" class="form-control btn-primary">Export Excel</button>
+        </div>
+
+
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <a target="_blank" href="abstract/export"><button class="form-control btn btn-primary">Print</button></a>
         </div>
     </div>
 
