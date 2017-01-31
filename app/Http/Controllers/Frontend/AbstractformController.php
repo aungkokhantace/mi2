@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Core\Utility;
-
+use Mail;
 
 class AbstractformController extends Controller
 {
@@ -101,6 +101,13 @@ class AbstractformController extends Controller
 
 
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
+            $attach = $abstractform->abstract_file_path;
+            Mail::send('frontend.abstractform.email', compact('email'), function($message) use($email,$attach) {
+                $message->to($email)->subject('Registration Reply');
+                //Attach file
+                $message->attach($attach);
+
+            });
             return redirect()->action('Frontend\AbstractformController@create')
                 ->withMessage(FormatGenerator::message('Success', 'File added ...'));
         }

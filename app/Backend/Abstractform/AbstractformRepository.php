@@ -11,13 +11,26 @@ namespace App\Backend\Abstractform;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Core\Utility;
+use App\Core\ReturnMessage;
 
 class AbstractformRepository implements AbstractformRepositoryInterface
 {
 	 public function create($abstractform)
     {
-        $tempObj = Utility::addCreatedBy($abstractform);
-        $tempObj->save();
+        $returnedObj = array();
+        $returnedObj['aceplusStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+        try {
+            $tempObj = Utility::addCreatedBy($abstractform);
+            $tempObj->save();
+
+            $returnedObj['aceplusStatusCode'] = ReturnMessage::OK;
+            return $returnedObj;
+        }
+        catch(\Exception $e){
+            $returnedObj['aceplusStatusMessage'] = $e->getMessage();
+            return $returnedObj;
+        }
+        
     }
 
     public function getAbstractforms()
