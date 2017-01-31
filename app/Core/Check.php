@@ -5,6 +5,8 @@
  * Date: 10/25/2016
  * Time: 10:42 AM
  */
+use App\Backend\Menu\MenuRepository;
+use App\Backend\Menudetail\MenudetailRepository;
 use App\Core\Config\ConfigRepository;
 use Validator;
 use Auth;
@@ -113,6 +115,98 @@ class Check
         $permissions = $userRepository->getPermissionByUserId($id);
         session(['user'=>$tempUser->toArray()]);
         session(['permissions' => $permissions]);
+    }
+
+    public static function headerMenuFlag() {
+
+        $ConfigRepository = new ConfigRepository();
+        $headerMenuFlag = $ConfigRepository->getHeaderMenuFlag();
+
+        if(isset($headerMenuFlag) && count($headerMenuFlag)>0 ) {
+
+            if(isset($headerMenuFlag[0]->value) && $headerMenuFlag[0]->value != ""){
+                return $headerMenuFlag[0]->value;
+            }
+            else{
+                return "AcePlus Backend";
+            }
+        }
+        return "AcePlus Backend";
+    }
+
+    public static function getMainMenus()
+    {
+        $menuRepo = new MenuRepository();
+        $mainMenus = $menuRepo->getObjByType(2);//2 is for main menu
+
+        $menuDetailRepo = new MenuDetailRepository();
+        $parents    = $menuDetailRepo->getParentByMenuType(2); //2 is for main menu
+        $children   = $menuDetailRepo->getChildrenByMenuType(2); //2 is for main menu
+        $result = $parents;
+        foreach($result as $k=>$v){
+            $subresult = Check::categoriesTree($result[$k]);
+            $result[$k]->subCategories=$subresult;
+        }
+        return $result;
+    }
+
+    public static function getHeaderMenus()
+    {
+        $menuRepo = new MenuRepository();
+        $mainMenus = $menuRepo->getObjByType(1);//1 is for header menu
+
+        $menuDetailRepo = new MenuDetailRepository();
+        $parents    = $menuDetailRepo->getParentByMenuType(1); //1 is for header menu
+        $children   = $menuDetailRepo->getChildrenByMenuType(1); //1 is for header menu
+        $result = $parents;
+        foreach($result as $k=>$v){
+            $subresult = Check::categoriesTree($result[$k]);
+            $result[$k]->subCategories=$subresult;
+        }
+        return $result;
+    }
+
+    public static function getSideMenus()
+    {
+        $menuRepo = new MenuRepository();
+        $mainMenus = $menuRepo->getObjByType(3);//3 is for side menu
+
+        $menuDetailRepo = new MenuDetailRepository();
+        $parents    = $menuDetailRepo->getParentByMenuType(3); //3 is for side menu
+        $children   = $menuDetailRepo->getChildrenByMenuType(3); //3 is for side menu
+        $result = $parents;
+        foreach($result as $k=>$v){
+            $subresult = Check::categoriesTree($result[$k]);
+            $result[$k]->subCategories=$subresult;
+        }
+        return $result;
+    }
+
+    public static function getFooterMenus()
+    {
+        $menuRepo = new MenuRepository();
+        $mainMenus = $menuRepo->getObjByType(4);//4 is for footer menu
+
+        $menuDetailRepo = new MenuDetailRepository();
+        $parents    = $menuDetailRepo->getParentByMenuType(4); //4 is for footer menu
+        $children   = $menuDetailRepo->getChildrenByMenuType(4); //4 is for footer menu
+        $result = $parents;
+        foreach($result as $k=>$v){
+            $subresult = Check::categoriesTree($result[$k]);
+            $result[$k]->subCategories=$subresult;
+        }
+        return $result;
+    }
+
+    public static function categoriesTree($result){
+        $id=$result->id;
+        $menuDetailRepo = new MenuDetailRepository();
+        $sresult = $menuDetailRepo->getChildrenByID($id);
+        foreach($sresult as $k=>$v){
+            $subresult = Check::categoriesTree($sresult[$k]);
+            $sresult[$k]->subCategories= $subresult;
+        }
+        return $sresult;
     }
 
 }

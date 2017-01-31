@@ -140,7 +140,13 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>132,'module'=>'Abstractform','name'=>'Update','description'=>'Abstractform Update','url'=>'backend/abstractform/update'],
             ['id'=>133,'module'=>'Abstractform','name'=>'Destroy','description'=>'Abstractform Destroy','url'=>'backend/abstractform/destroy'],
 
-
+            //Event Registration
+            ['id'=>140,'module'=>'Post','name'=>'Listing','description'=>'Post Listing','url'=>'backend/post'],
+            ['id'=>141,'module'=>'Post','name'=>'Create','description'=>'Post Create','url'=>'backend/post/create'],
+            ['id'=>142,'module'=>'Post','name'=>'Store','description'=>'Post Store','url'=>'backend/post/store'],
+            ['id'=>143,'module'=>'Post','name'=>'Edit','description'=>'Post Edit','url'=>'backend/post/edit'],
+            ['id'=>144,'module'=>'Post','name'=>'Update','description'=>'Post Update','url'=>'backend/post/update'],
+            ['id'=>145,'module'=>'Post','name'=>'Destroy','description'=>'Post Destroy','url'=>'backend/post/destroy'],
 
         );
 

@@ -116,4 +116,11 @@ class MenuRepository implements MenuRepositoryInterface
         $role = Menu::find($id);
         return $role;
     }
+
+    public function getObjByType($type){
+        $objs = Menu::whereNull('deleted_at')
+            ->where('category','=',$type)
+            ->get();
+        return $objs;
+    }
 }

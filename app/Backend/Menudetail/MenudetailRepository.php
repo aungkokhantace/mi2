@@ -12,6 +12,7 @@ namespace App\Backend\Menudetail;
 use App\Core\ReturnMessage;
 use App\Core\Utility;
 use App\Log\LogCustom;
+use Illuminate\Support\Facades\DB;
 
 class MenudetailRepository implements MenudetailRepositoryInterface
 {
@@ -113,7 +114,38 @@ class MenudetailRepository implements MenudetailRepositoryInterface
     }
 
     public function getObjByID($id){
-        $role = Menudetail::find($id);
-        return $role;
+        $obj = Menudetail::find($id);
+        return $obj;
+    }
+
+    public function getObjByMenuType($type){
+        $objs = Menudetail::leftjoin('menu', 'menu.id', '=', 'menu_detail.menu_id')
+                            ->where('menu.category', '=', $type)
+                            ->get();
+        return $objs;
+    }
+
+    public function getParentByMenuType($type){
+        $objs = Menudetail::leftjoin('menu', 'menu.id', '=', 'menu_detail.menu_id')
+            ->select('menu_detail.*')
+            ->where('menu.category','=',$type)
+            ->where('menu_detail.parent_id', '=', 0)
+            ->get();
+        return $objs;
+    }
+
+    public function getChildrenByMenuType($type){
+        $objs = Menudetail::leftjoin('menu', 'menu.id', '=', 'menu_detail.menu_id')
+            ->select('menu_detail.*')
+            ->where('menu.category','=',$type)
+            ->where('menu_detail.parent_id', '!=', 0)
+            ->get();
+        return $objs;
+    }
+
+    public function getChildrenByID($id)
+    {
+        $objs = DB::table('menu_detail')->where('parent_id','=',$id)->get();
+        return $objs;
     }
 }

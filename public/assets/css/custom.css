@@ -50,3 +50,8 @@
     color: #ff0000;
     text-align: left !important;
 }
+
+/*To generate a horizontal scrollbar for listing pages that are wider than browser window*/
+.content{
+    overflow: auto !important;
+}

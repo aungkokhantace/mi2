@@ -1,0 +1,8 @@
+@include('layouts_frontend.partial_frontend.headermenu')
+@include('layouts_frontend.partial_frontend.mainmenu')
+@include('layouts_frontend.partial_frontend.sidemenu')
+@yield('script')
+@yield('page_script')
+@yield('content')
+@include('layouts_frontend.partial_frontend.footmenu')
+@include('sweet::alert')
