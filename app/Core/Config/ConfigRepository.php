@@ -55,4 +55,11 @@ class ConfigRepository implements ConfigRepositoryInterface
         }
         return 30;
     }
+
+    public function getHeaderMenuFlag()
+    {
+        $tbConfig =  (new Config())->getTable();
+        $configs = DB::select("SELECT * FROM $tbConfig WHERE code = 'HEADER_MENU'");
+        return $configs;
+    }
 }

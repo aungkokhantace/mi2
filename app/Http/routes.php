@@ -3,6 +3,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['middleware' => 'frontendorbackend'], function () {
 
+
         //Frontend
         Route::get('/', 'Frontend\HomeController@index');
 
@@ -42,6 +43,18 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('report/abstract/export', array('as'=>'backend/report/abstract/export','uses'=>'Report\AbstractReportController@export'));
 
         });       
+
+
+    //Frontend
+    Route::get('/', 'Frontend\HomeController@index');
+    Route::get('/testpage', 'Frontend\HomeController@test');
+
+    Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
+    Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
+
+    //Event ( Abstarct Form )
+    Route::get('abstractform/create', array('as'=>'abstractform/create','uses'=>'Frontend\AbstractformController@create'));
+    Route::post('abstractform/store', array('as'=>'abstractform/store','uses'=>'Frontend\AbstractformController@store'));
 
 
         //Right
@@ -156,6 +169,14 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('abstractform/update',  array('as'=>'backend/abstractform/update','uses'=>'Backend\AbstractformController@update'));
                 Route::get('abstractform/download', array('as'=>'backend/abstractform/download','uses'=>'Backend\AbstractformController@download'));
                 Route::post('abstractform/destroy',  array('as'=>'backend/abstractform/destroy','uses'=>'Backend\AbstractformController@destroy'));
+
+                //Post
+                Route::get('post', array('as'=>'backend/post','uses'=>'Backend\PostController@index'));
+                Route::get('post/create', array('as'=>'backend/post/create','uses'=>'Backend\PostController@create'));
+                Route::get('post/edit/{id}', array('as'=>'backend/post/edit','uses'=>'Backend\PostController@edit'));
+                Route::post('post/store', array('as'=>'backend/post/store','uses'=>'Backend\PostController@store'));
+                Route::post('post/update', array('as'=>'backend/post/update','uses'=>'Backend\PostController@update'));
+                Route::post('post/destroy', array('as'=>'backend/post/destroy','uses'=>'Backend\PostController@destroy'));
 
             });
 

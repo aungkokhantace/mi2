@@ -34,6 +34,6 @@ class Menudetail extends Model
 
     public function parent()
     {
-        return $this->belongsTo('App\Backend\Menu\Menu','parent_id','id');
+        return $this->belongsTo('App\Backend\Menudetail\Menudetail','parent_id','id');
     }
 }

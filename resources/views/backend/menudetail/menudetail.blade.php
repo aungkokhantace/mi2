@@ -155,17 +155,17 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="parent" class="text_bold_black">Parent<span class="require">*</span></label>
+            <label for="parent" class="text_bold_black">Parent</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <select class="form-control" name="parent" id="parent">
                 @if(isset($menudetail))
                     <option value="0">None</option>
-                    @foreach($menus as $menu)
-                        @if($menu->id == $menudetail->menu_id)
-                            <option value="{{$menu->id}}" selected>{{$menu->name}}</option>
+                    @foreach($menudetails as $detail)
+                        @if($detail->id == $menudetail->parent_id)
+                            <option value="{{$detail->id}}" selected>{{$detail->name}}</option>
                         @else
-                            <option value="{{$menu->id}}">{{$menu->name}}</option>
+                            <option value="{{$detail->id}}">{{$detail->name}}</option>
                         @endif
                     @endforeach
                 @else

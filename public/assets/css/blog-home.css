@@ -4,10 +4,185 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/*body {*/
+    /*padding-top: 70px; !* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. *!*/
+/*}*/
+
+/*footer {*/
+    /*margin: 50px 0;*/
+/*}*/
+
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    /*padding-top: 70px; */
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 13pt;
+    color:#000;
 }
 
 footer {
-    margin: 50px 0;
+    margin-top: 50px;
+}
+
+section.header
+{
+    background-color: #014a81;
+    padding:20px;
+    color:#fff;
+    font-size:18pt;
+}
+
+div.nav-part
+{
+    padding: 25px;
+}
+
+div.slider-header
+{
+    background-color:#0072bb;
+    color:#fff;
+    padding: 25px 0 25px 30px;
+    font-size:18pt;
+}
+
+ol.breadcrumb.nav-head
+{
+    padding: 20px 0 20px 0;
+    background-color: #fff;
+    margin-bottom: 0px;
+}
+
+div.col-md-3.left
+{
+    padding-right:0;
+}
+
+div.col-md-9.right
+{
+    padding-left:0;
+}
+
+.left .navbar
+{
+    border-radius: 0px;
+}
+
+.left .navbar-default
+{
+    border-color:transparent;
+}
+
+.navbar-default .navbar-nav>li>a:hover
+{
+    background-color: #e7e7e7;
+}
+
+.right h3
+{
+    font-size:14pt;
+    font-weight:600;
+}
+
+/*Registration Page*/
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;width:30%;}
+.tg td{padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+.tg th{padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+.tg .tg-yw4l{vertical-align:top}
+
+.right .btn
+{
+    border-radius:1px;
+    width:100px;
+    margin:10px 0 20px 0;
+}
+
+.btn.down
+{
+    width: 140px;
+    margin-right: 20px;
+}
+
+
+
+/*conference information*/
+.tg.conference
+{
+    width: 70%;
+}
+
+.circular1 {
+    width: 120px;
+    height: 120px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(../images/dummy.png) no-repeat;
+    border:1px solid #bbb;
+}
+
+.circle-img
+{
+    float:left;
+    margin-left:40px;
+    text-align:center;
+}
+
+/*register form section*/
+.btn.register
+{
+    border-radius: 1px;
+    margin-left: 17.5%;
+    width: 11%;
+}
+
+.form-horizontal .control-label
+{
+    text-align:left;
+}
+
+.form-control
+{
+    width:120%;
+}
+/*footer section*/
+footer
+{
+    background-color: #014a81;
+    color:#FFF;
+    text-align:center;
+}
+
+footer p
+{
+    padding: 30px 0 20px 0;
+}
+
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+    .sidebar-nav .navbar .navbar-collapse {
+        padding: 0;
+        max-height: none;
+    }
+    .sidebar-nav .navbar ul {
+        float: none;
+        display: block;
+    }
+    .sidebar-nav .navbar li {
+        float: none;
+        display: block;
+    }
+    .sidebar-nav .navbar li a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+
+.foot {
+    background-color: transparent;
+}
+
+.breadcrumb > li + li:before {
+    /*color: #ccc;*/
+    content: "| " !important;
+    /*padding: 0 5px;*/
 }
