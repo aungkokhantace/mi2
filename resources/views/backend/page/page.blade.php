@@ -8,10 +8,10 @@
     <h1 class="page-header">{{isset($pages) ?  'Page Edit' : 'Page Entry' }}</h1>
 
     @if(isset($pages))
-        {!! Form::open(array('url' => 'backend/page/update', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => 'backend/page/update', 'class'=> 'form-horizontal user-form-border', 'id' => 'pageForm')) !!}
 
     @else
-        {!! Form::open(array('url' => 'backend/page/store', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => 'backend/page/store', 'class'=> 'form-horizontal user-form-border', 'id' => 'pageForm')) !!}
     @endif
     <input type="hidden" name="id" value="{{isset($pages)? $pages->id:''}}"/>
     <br/>
@@ -63,7 +63,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="url">Url</label>
+            <label for="url">Url<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" class="form-control" id="url" name="url" placeholder="Enter Page Url" value="{{ isset($pages)? $pages->url:Request::old('url') }}"/>
@@ -73,7 +73,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="title">Title</label>
+            <label for="title">Title<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" class="form-control" id="title" name="title" placeholder="Enter Page Title" value="{{ isset($pages)? $pages->title:Request::old('title') }}"/>
@@ -83,7 +83,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="page_menu_order">Page Menu Order</label>
+            <label for="page_menu_order">Page Menu Order<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" class="form-control" id="page_menu_order" name="page_menu_order" placeholder="Enter Page Menu Order" value="{{ isset($pages)? $pages->page_menu_order:Request::old('page_menu_order') }}"/>
@@ -93,7 +93,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="events_id">Event Id</label>
+            <label for="events_id">Event Id<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" class="form-control" id="events_id" name="events_id" placeholder="Enter Page Event Id" value="{{ isset($pages)? $pages->events_id:Request::old('events_id') }}"/>
@@ -103,7 +103,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="templates_id">Template Id</label>
+            <label for="templates_id">Template Id<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" class="form-control" id="templates_id" name="templates_id" placeholder="Enter Page Template Id" value="{{ isset($pages)? $pages->templates_id:Request::old('templates_id') }}"/>
@@ -126,4 +126,35 @@
 @stop
 
 @section('page_script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Start Validation for Menu Entry and Edit Form
+            $('#pageForm').validate({
+                rules: {
+                    name                  : 'required',
+                    url                   : 'required',
+                    title                 : 'required',
+                    page_menu_order       : 'required',
+                    events_id             : 'required',
+                    templates_id          : 'required',
+                },
+                messages: {
+                    name                  : 'Page Name is required',
+                    url                   : 'Page URL is required',
+                    title                 : 'Page Title is required',
+                    page_menu_order       : 'Page Menu Order is required',
+                    events_id             : 'Event ID is required',
+                    templates_id          : 'Template ID is required',
+                },
+                submitHandler: function(form) {
+                    $('input[type="submit"]').attr('disabled','disabled');
+                    form.submit();
+                }
+            });
+            //End Validation for Menu Entry and Edit Form
+
+            //For checkbox picker
+            $(':checkbox').checkboxpicker();
+        });
+    </script>
 @stop
