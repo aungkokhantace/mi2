@@ -44,6 +44,7 @@ class RegisterController extends Controller
             $phone_no             = Input::get('phone_no');
             $registration_category= Input::get('registration_category');
             $payment_type         = Input::get('payment_type');
+            $registered_date      = date("Y-m-d");
 
             $register = new Register();
             $register->first_name = $first_name;
@@ -58,6 +59,7 @@ class RegisterController extends Controller
             $register->registration_category = $registration_category;
             $register->payment_type = $payment_type;
             $register->status = "pending";
+            $register->registered_date = $registered_date;
 
 
             $result = $registerRepo->create($register);

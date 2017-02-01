@@ -72,6 +72,7 @@
                         <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
+                        <th>Country</th>
                         <th>Medical Specialities</th>
                         <th>Total Amount</th>
                     </tr>
@@ -82,6 +83,7 @@
                         <th class="search-col" con-id="middle_name">Middle Name</th>
                         <th class="search-col" con-id="last_name">Last Name</th>
                         <th class="search-col" con-id="email">Email</th>
+                        <th class="search-col" con-id="country">Country</th>
                         <th class="search-col" con-id="medical_specialities">Medical Specialities</th>
                     </tr>
                     </tfoot>
@@ -92,6 +94,7 @@
                             <td>{{$eventAbstract->middle_name}}</td>
                             <td>{{$eventAbstract->last_name}}</td>
                             <td>{{$eventAbstract->email}}</td>
+                            <td>{{$eventAbstract->country}}</td>
                             <td>{{$eventAbstract->medical_specialities}}</td>
                             <td></td>
 
@@ -99,6 +102,7 @@
                     @endforeach
                     <tr bgcolor="#1976d3">
                         <td style = "color:white">Grand Total</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

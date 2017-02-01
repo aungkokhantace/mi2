@@ -34,6 +34,12 @@ class AbstractReportController extends Controller
             $from_date                  = null;
             $to_date                    = null;
 
+            foreach($eventAbstracts as $absCountry){
+                if(isset($absCountry->country)){
+                    $absCountry->country = Utility::getCountryNameByValue($absCountry->country);
+                }
+            }
+
             return view('report.abstract_view')
                 ->with('eventAbstracts', $eventAbstracts)
                 ->with('grandTotal', $grandTotal)
@@ -71,11 +77,13 @@ class AbstractReportController extends Controller
 
             $displayArray = array();
             foreach($eventAbstracts as $value){
+                $country = Utility::getCountryNameByValue($value->country); //get country name
+
                 $displayArray[$value->id]["First Name"]=$value->first_name;
                 $displayArray[$value->id]["Middle Name"]=$value->middle_name;
                 $displayArray[$value->id]["Last Name"]=$value->last_name;
                 $displayArray[$value->id]["Email"]=$value->email;
-                $displayArray[$value->id]["Country"]=$value->country;
+                $displayArray[$value->id]["Country"]=$country;
                 $displayArray[$value->id]["Medical Specialities"]=$value->medical_specialities;
             }
 
@@ -125,17 +133,21 @@ class AbstractReportController extends Controller
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Country</th>
+                                <th>Medical Specialities</th>
                             </tr>
                             </thead>
                             <tbody>';
 
                     foreach($eventAbstracts as $pdf){
+                        $country = Utility::getCountryNameByValue($pdf->country); //get country name
+
                         $html .= '<tr height="30">';
                         $html .= '<td> '. $pdf->first_name .'</td>';
                         $html .= '<td>'. $pdf->middle_name .'</td>';
                         $html .= '<td>'. $pdf->last_name .'</td>';
                         $html .= '<td>'. $pdf->email .'</td>';
-                        $html .= '<td>'. $pdf->country .'</td>';
+                        $html .= '<td>'. $country .'</td>';
+                        $html .= '<td>'. $pdf->medical_specialities .'</td>';
                         $html .= '</tr>';
                     }
                     // foreach($eventAbstracts as $pdf){

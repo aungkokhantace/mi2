@@ -222,7 +222,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'InterventionImage' => Intervention\Image\Facades\Image::class,
         'LogCustom' =>  App\Log\LogCustom::class,
-        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class,
+        'PDF'       => Elibyy\TCPDF\Facades\TCPDF::class,
     ],
 
 ];
