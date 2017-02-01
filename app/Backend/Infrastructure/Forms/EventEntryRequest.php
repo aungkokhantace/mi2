@@ -15,12 +15,18 @@ class EventEntryRequest extends Request
     public function rules()
     {
         return [
-            "name" =>"required",
+            "name"   =>"required",
+            "status" => 'required',
+            "url"    => 'required',
+            "title"  => 'required',
         ];
     }
     public function messages(){
         return [
-            "name.required" => "Role Name is required",
+            "name.required"         => "Event Name is required",
+            "status.required"       => 'Event Status is required',
+            "url.required"          => 'Event URL is required',
+            "title.required"        => 'Event Title is required',
         ];
     }
 }
