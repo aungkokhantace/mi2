@@ -1,9 +1,8 @@
-@extends('layouts.master')
-@section('title','Register')
+@extends('layouts_frontend.master_frontend')
+@section('title','Test Page')
 @section('content')
 
-        <!-- begin #content -->
-<div id="content" class="content">
+    <div class="col-md-9 right">
 
     <h1 class="page-header">{{'Register Entry' }}</h1>
 
@@ -154,7 +153,8 @@
         </div>
     </div>
     {!! Form::close() !!}
-</div>
+    </div>
+
 @stop
 
 

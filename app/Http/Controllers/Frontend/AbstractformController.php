@@ -104,6 +104,11 @@ class AbstractformController extends Controller
         }
     }
 
-   
+    public function call(Request $request)
+    {
+
+        $countries = Utility::getSettingsByType("COUNTRY");
+        return view('frontend.abstractform.abstractform_call')->with('countries', $countries);
+    }
 
 }

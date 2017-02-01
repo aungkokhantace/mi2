@@ -1,17 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Mi Tin Zar Kyaw
- * Date: 1/16/2017
- * Time: 10:57 AM
- */
-?>
-@extends('layouts.master')
-@section('title','Abstractform')
+@extends('layouts_frontend.master_frontend')
+@section('title','Test Page')
 @section('content')
 
-<!-- begin #content -->
-<div id="content" class="content">
+    <div class="col-md-9 right">
 
     <h1 class="page-header">{{ 'Abstractform Entry'  }}</h1>
 
