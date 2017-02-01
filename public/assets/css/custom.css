@@ -54,3 +54,11 @@
 .content{
     overflow: auto !important;
 }
+
+/*to make anchor tag look like a button*/
+.buttonform {
+    text-decoration: none !important;
+    color: white;
+    background-color: grey;
+}
+/*to make anchor tag look like a button*/

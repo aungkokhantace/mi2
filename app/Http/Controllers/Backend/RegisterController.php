@@ -35,12 +35,34 @@ class RegisterController extends Controller
             $registers      = $registerRepo->getregisters();
 
             $countries = Utility::getSettingsByType("COUNTRY");
-            foreach ($registers as $register)
+            foreach ($registers as $regCountry)
             {
-                $tempCountryId = $register->country;
-                $countryName = $countries[$tempCountryId]; 
-                $register->country_name = $countryName;
+                $tempCountryId = $regCountry->country;
+                $countryName = $countries[$tempCountryId];
+                $regCountry->country_name = $countryName;
             }
+
+            foreach($registers as $regCategory){
+                if(isset($regCategory->registration_category) && $regCategory->registration_category == 1){
+                    $regCategory->registration_category = "International Delegate";
+                }
+                elseif(isset($regCategory->registration_category) && $regCategory->registration_category == 2){
+                    $regCategory->registration_category = "Local Delegate";
+                }
+                else{
+                    $regCategory->registration_category = "Local Trainee";
+                }
+            }
+
+            foreach($registers as $regPayment){
+                if(isset($regPayment->payment_type) && $regPayment->payment_type == 1){
+                    $regPayment->payment_type = "Cash";
+                }
+                else{
+                    $regPayment->payment_type = "Bank Transfer";
+                }
+            }
+
             return view('backend.register.index')
                         ->with('registers', $registers);
           }
@@ -87,6 +109,7 @@ class RegisterController extends Controller
             $registerRepo = new RegisterRepository();
             $registers      = $registerRepo->getObjByID($id);
             $countries = Utility::getSettingsByType("COUNTRY");
+//            dd($registers->status);
             return view('backend.register.register_backend')->with('countries', $countries)->with('registers', $registers);
             return redirect('/login');
     }
@@ -174,12 +197,14 @@ class RegisterController extends Controller
             $image = InterventionImage::make(sprintf($path .'/%s', $img_name))->resize($imgWidth, $imgHeight)->save(); 
 
             $confirm_by                         = Auth::guard('User')->user()->id;
+            $confirmed_date                     = date("Y-m-d");
 
             $registerRepo                       = new RegisterRepository();
             $register                           = $registerRepo->getObjByID($id);
             $register->payment_reference_path   = $payment_reference_path;
             $register->status                   = 'confirm';
             $register->confirmed_by             = $confirm_by;
+            $register->confirmed_date             = $confirmed_date;
             $registerRepo->update($register);
 
             return redirect()->action('Backend\RegisterController@index');

@@ -26,7 +26,7 @@ class CreateEventRegistrationsTable extends Migration
             $table->integer('registration_category');
             $table->string('payment_type');
             $table->string('status');
-            $table->integer('events_id');
+            $table->integer('events_id')->default(1);
             $table->date('registered_date');
             $table->integer('confirmed_by');
             $table->date('confirmed_date');

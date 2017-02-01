@@ -164,7 +164,6 @@ class Utility
 
     public static function exportPDF($html)
     {
-        // dd($html);
         PDF::SetTitle('exportPDF');
         PDF::AddPage();
         PDF::writeHTML($html, true, false, false, false, '');
@@ -185,5 +184,11 @@ class Utility
 
         PDF::Output('exportPDF.pdf');
         exit();
+    }
+
+    public static function getCountryNameByValue($value){
+        $temp = DB::select("SELECT description FROM core_settings WHERE value = '$value'  LIMIT 1");
+        $countryName = $temp[0]->description;
+        return $countryName;
     }
 }

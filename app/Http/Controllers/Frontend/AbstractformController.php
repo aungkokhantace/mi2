@@ -79,7 +79,7 @@ class AbstractformController extends Controller
         $email                  = Input::get('email');
         $country                = Input::get('country');
         $medical_specialities   = Input::get('medical_specialities');
-
+        $registered_date        = date("Y-m-d");
 
         $abstractform = new Abstractform();
         $abstractform->first_name            = $first_name;
@@ -91,6 +91,8 @@ class AbstractformController extends Controller
         $abstractform->abstract_file_path    =  "uploads/".$abstract_file_path->getFilename() . '.' . $extension;
         $abstractform->status                = "pending";
         $abstractform->registered            = "0";
+        $abstractform->events_id             = 1;
+        $abstractform->registered_date       = $registered_date;
 
         $result = $this->abstractformRepository->create($abstractform);
 

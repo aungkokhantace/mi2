@@ -42,6 +42,18 @@ class AbstractformController extends Controller
            //$abstractforms      = $this->abstractformRepository->getAbstractforms();
             $abstractforms      = DB::select("SELECT * FROM event_abstract WHERE deleted_at IS NULL");  
             $countries = Utility::getSettingsByType("COUNTRY");
+
+            foreach ($abstractforms as $absCountry)
+            {
+                $tempCountryId = $absCountry->country;
+                $countryName = $countries[$tempCountryId];
+                $absCountry->country = $countryName;
+            }
+
+            foreach($abstractforms as $absStatus){
+                $absStatus->status = strtoupper($absStatus->status);
+            }
+
             return view('backend.abstractform.index')->with('abstractforms', $abstractforms)->with('countries', $countries);
         }
         return redirect('/login');
@@ -65,6 +77,8 @@ class AbstractformController extends Controller
         $email                  = Input::get('email');
         $country                = Input::get('country');
         $medical_specialities   = Input::get('medical_specialities');
+        $confirmed_date         = date("Y-m-d");
+        $confirmed_by             = Auth::guard('User')->user()->id;
 
         $abstractform = Abstractform::find($id);
         $abstractform->first_name            = $first_name;
@@ -73,8 +87,10 @@ class AbstractformController extends Controller
         $abstractform->email                 = $email;
         $abstractform->country               = $country;
         $abstractform->medical_specialities  = $medical_specialities;
-        $abstractform->status                = "comfirm";
+        $abstractform->status                = "confirm";
         $abstractform->registered            = "0";
+        $abstractform->confirmed_date        = $confirmed_date;
+        $abstractform->confirmed_by           = $confirmed_by;
 
         $this->abstractformRepository->update($abstractform);
         return redirect()->action('Backend\AbstractformController@index');

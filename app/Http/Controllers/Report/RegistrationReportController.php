@@ -34,6 +34,33 @@ class RegistrationReportController extends Controller
             $from_date                  = null;
             $to_date                    = null;
 
+            foreach($eventRegistrations as $reg){
+                if(isset($reg->country)){
+                    $reg->country = Utility::getCountryNameByValue($reg->country);
+                }
+            }
+
+            foreach($eventRegistrations as $regCategory){
+                if(isset($regCategory->registration_category) && $regCategory->registration_category == 1){
+                    $regCategory->registration_category = "International Delegate";
+                }
+                elseif(isset($regCategory->registration_category) && $regCategory->registration_category == 2){
+                    $regCategory->registration_category = "Local Delegate";
+                }
+                else{
+                    $regCategory->registration_category = "Local Trainee";
+                }
+            }
+
+            foreach($eventRegistrations as $regPayment){
+                if(isset($regPayment->payment_type) && $regPayment->payment_type == 1){
+                    $regPayment->payment_type = "Cash";
+                }
+                else{
+                    $regPayment->payment_type = "Bank Transfer";
+                }
+            }
+
             return view('report.registration_view')
                 ->with('eventRegistrations', $eventRegistrations)
                 ->with('grandTotal', $grandTotal)
@@ -48,7 +75,7 @@ class RegistrationReportController extends Controller
 
             $eventRepo                  = new ReportEventRegistrationRepository();
             $eventRegistrations         = $eventRepo->getEventRegistrationsByDate($from_date, $to_date);
-            dd($eventRegistrations);
+
             $grandTotal                 = "00.00";
 
             return view('report.registration_view')
@@ -72,18 +99,14 @@ class RegistrationReportController extends Controller
             // 
             $displayArray = array();
             foreach($eventRegistrations as $value){
-                $displayArray[$value->id]["firstname"]=$value->first_name;
-                $displayArray[$value->id]["middlename"]=$value->middle_name;
-                $displayArray[$value->id]["lastname"]=$value->last_name;
-                $displayArray[$value->id]["title"]=$value->title;
-                $displayArray[$value->id]["country"]=$value->country;
-                $displayArray[$value->id]["wherework"]=$value->where_work;
-                $displayArray[$value->id]["medicalspecialities"]=$value->medical_specialities;
-                $displayArray[$value->id]["phoneno"]=$value->phone_no;
-                $displayArray[$value->id]["registrationcategory"]=$value->registration_category;
-                $displayArray[$value->id]["paymenttype"]=$value->payment_type;
-                $displayArray[$value->id]["status"]=$value->status;
+                $country = Utility::getCountryNameByValue($value->country); //get country name
 
+                $displayArray[$value->id]["First Name"]=$value->first_name;
+                $displayArray[$value->id]["Middle Name"]=$value->middle_name;
+                $displayArray[$value->id]["Last Name"]=$value->last_name;
+                $displayArray[$value->id]["Email"]=$value->email;
+                $displayArray[$value->id]["Country"]=$country;
+                $displayArray[$value->id]["Working Place"]=$value->where_work;
 
             }
 
@@ -131,18 +154,20 @@ class RegistrationReportController extends Controller
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Country</th>
-                                <th>Work Place</th>
+                                <th>Working Place</th>
                             </tr>
                             </thead>
                             <tbody>';
 
                     foreach($eventRegistrations as $pdf){
+                        $country = Utility::getCountryNameByValue($pdf->country); //get country name
+
                         $html .= '<tr height="30">';
                         $html .= '<td> '. $pdf->first_name .'</td>';
                         $html .= '<td>'. $pdf->middle_name .'</td>';
                         $html .= '<td>'. $pdf->last_name .'</td>';
                         $html .= '<td>'. $pdf->email .'</td>';
-                        $html .= '<td>'. $pdf->country .'</td>';
+                        $html .= '<td>'. $country .'</td>';
                          $html .= '<td>'. $pdf->where_work .'</td>';
                         $html .= '</tr>';
                     }

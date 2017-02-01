@@ -70,8 +70,8 @@
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
-                        <th>Title</th>
                         <th>Email</th>
+                        <th>Country</th>
                         <th>Working Place</th>
                         <th>Total Amount</th>
                     </tr>
@@ -81,19 +81,19 @@
                         <th class="search-col" con-id="">First Name</th>
                         <th class="search-col" con-id="">Middle Name</th>
                         <th class="search-col" con-id="">Last Name</th>
-                        <th class="search-col" con-id="">Title</th>
                         <th class="search-col" con-id="">Email</th>
+                        <th class="search-col" con-id="">Country</th>
                         <th class="search-col" con-id="">Working Place</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     @foreach($eventRegistrations as $eventRegistration)
                         <tr>
-                            <td><a href="/">test</a></td>
                             <td>{{$eventRegistration->first_name}}</td>
                             <td>{{$eventRegistration->middle_name}}</td>
                             <td>{{$eventRegistration->last_name}}</td>
-                            <td>{{$eventRegistration->title}}</td>
+                            <td>{{$eventRegistration->email}}</td>
+                            <td>{{$eventRegistration->country}}</td>
                             <td>{{$eventRegistration->where_work}}</td>
                             <td></td>
 

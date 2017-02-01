@@ -73,12 +73,17 @@ if (! function_exists('generateNav')) {
 if (! function_exists('generateMainTree')) {
     function generateMainTree( $tree) {
         foreach ($tree as $mainBranch) {
-            echo '<li class="dropdown">';
-            echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.$mainBranch->name.'<b class="caret"></b></a>';
-            echo '<ul class="dropdown-menu">';
+            if(isset($mainBranch->subCategories) && count($mainBranch->subCategories)>0) {
+                echo '<li class="dropdown">';
+                echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">' . $mainBranch->name . '<b class="caret"></b></a>';
+                echo '<ul class="dropdown-menu">';
                 generateTree($mainBranch->subCategories, $parentId = $mainBranch->id);
-            echo '</ul>';
-            echo '</li>';
+                echo '</ul>';
+                echo '</li>';
+            }
+            else{
+                echo '<li><a href="#">'. $mainBranch->name .'</a></li>';
+            }
         }
     }
 }

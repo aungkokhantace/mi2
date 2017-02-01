@@ -174,11 +174,30 @@
         </div>
     </div>
 
+    {{--Show uploaded image only if status is confirm--}}
+    @if($registers->status == "confirm")
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="payment_type">Photo Upload</label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            @if(isset($registers->payment_reference_path) && $registers->payment_reference_path != null)
+                <img src="/{{$registers->payment_reference_path}}" style="height: 100%; width: 100%;">
+            @endif
+        </div>
+    </div>
+    @endif
+    {{--Show uploaded image only if status is confirm--}}
+
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+            @if($registers->status != "confirm")
             <input type="submit" name="submit" value="{{'UPDATE'}}" class="form-control btn-primary">
+            @else
+                <button class="form-control btn buttonform"><a href="/{{$registers->payment_reference_path}}" download="Payment" class="buttonform" role="button">Get Photo</a></button>
+            @endif
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
             <input type="button" value="CANCEL" class="form-control cancel_btn" onclick="cancel_setup('register')">
