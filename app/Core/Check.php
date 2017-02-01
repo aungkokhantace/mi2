@@ -134,6 +134,23 @@ class Check
         return "AcePlus Backend";
     }
 
+    public static function footerMenuFlag() {
+
+        $ConfigRepository = new ConfigRepository();
+        $footerMenuFlag = $ConfigRepository->getFooterMenuFlag();
+
+        if(isset($footerMenuFlag) && count($footerMenuFlag)>0 ) {
+
+            if(isset($footerMenuFlag[0]->value) && $footerMenuFlag[0]->value != ""){
+                return $footerMenuFlag[0]->value;
+            }
+            else{
+                return "AcePlus Backend";
+            }
+        }
+        return "AcePlus Backend";
+    }
+
     public static function getMainMenus()
     {
         $menuRepo = new MenuRepository();

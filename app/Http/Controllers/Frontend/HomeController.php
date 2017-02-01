@@ -24,38 +24,12 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        return view('layouts_frontend.master_frontend');
+        return view('frontend.home');
     }
 
     public function test(Request $request)
     {
-//        $menuRepo = new MenuRepository();
-//        $mainMenus = $menuRepo->getObjByType(2);//2 is for main menu
-
-//        $menuDetailRepo = new MenuDetailRepository();
-
-//        $mainParents    = $menuDetailRepo->getParentByMenuType(2); //2 is for main menu
-//        $mainResult = $mainParents;
-//        foreach($mainResult as $k=>$v){
-//            $subresult = $this->categoriesTree($mainResult[$k]);
-//            $mainResult[$k]->subCategories=$subresult;
-//        }
-//
-//        $headerParents    = $menuDetailRepo->getParentByMenuType(1); //1 is for header menu
-//        $headerResult = $headerParents;
-//        foreach($headerResult as $k=>$v){
-//            $subresult = $this->categoriesTree($headerResult[$k]);
-//            $headerResult[$k]->subCategories=$subresult;
-//        }
-//
-//        $footerParents    = $menuDetailRepo->getParentByMenuType(4); //4 is for footer menu
-//        $footerResult = $footerParents;
-//        foreach($footerResult as $k=>$v){
-//            $subresult = $this->categoriesTree($footerResult[$k]);
-//            $footerResult[$k]->subCategories=$subresult;
-//        }
-
-        return view('frontend.test');
+        return view('frontend.home');
     }
 
     function categoriesTree($result){
@@ -67,5 +41,20 @@ class HomeController extends Controller
             $sresult[$k]->subCategories= $subresult;
         }
         return $sresult;
+    }
+
+    public function exhibitor(Request $request)
+    {
+        return view('frontend.event.event_conference_info');
+    }
+
+    public function conference(Request $request)
+    {
+        return view('frontend.event.event_exhibitor_info');
+    }
+
+    public function other(Request $request)
+    {
+        return view('frontend.event.event_other_info');
     }
 }

@@ -4,15 +4,25 @@ Route::group(['middleware' => 'web'], function () {
     Route::group(['middleware' => 'frontendorbackend'], function () {
 
 
-        //Frontend
+        //Frontend // Event Home // event_home
         Route::get('/', 'Frontend\HomeController@index');
+        Route::get('/home', 'Frontend\HomeController@index');
 
         Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
         Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
 
         //Event ( Abstarct Form )
+        Route::get('abstractform/call', array('as'=>'abstractform/call','uses'=>'Frontend\AbstractformController@call'));
         Route::get('abstractform/create', array('as'=>'abstractform/create','uses'=>'Frontend\AbstractformController@create'));
         Route::post('abstractform/store', array('as'=>'abstractform/store','uses'=>'Frontend\AbstractformController@store'));
+
+        // event_exhibitor_info
+        // event_conference_info
+        // event_other_info
+        Route::get('event/exhibitor', array('as'=>'event/call','uses'=>'Frontend\HomeController@exhibitor'));
+        Route::get('event/conference', array('as'=>'event/conference','uses'=>'Frontend\HomeController@conference'));
+        Route::get('event/other', array('as'=>'event/other','uses'=>'Frontend\HomeController@other'));
+
 
         //Backend
         Route::group(['prefix' => 'backend'], function () {
