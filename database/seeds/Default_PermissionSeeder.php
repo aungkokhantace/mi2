@@ -140,7 +140,7 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>132,'module'=>'Abstractform','name'=>'Update','description'=>'Abstractform Update','url'=>'backend/abstractform/update'],
             ['id'=>133,'module'=>'Abstractform','name'=>'Destroy','description'=>'Abstractform Destroy','url'=>'backend/abstractform/destroy'],
 
-            //Event Registration
+            //Post
             ['id'=>140,'module'=>'Post','name'=>'Listing','description'=>'Post Listing','url'=>'backend/post'],
             ['id'=>141,'module'=>'Post','name'=>'Create','description'=>'Post Create','url'=>'backend/post/create'],
             ['id'=>142,'module'=>'Post','name'=>'Store','description'=>'Post Store','url'=>'backend/post/store'],
@@ -148,6 +148,19 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>144,'module'=>'Post','name'=>'Update','description'=>'Post Update','url'=>'backend/post/update'],
             ['id'=>145,'module'=>'Post','name'=>'Destroy','description'=>'Post Destroy','url'=>'backend/post/destroy'],
 
+            //Event Email
+            ['id'=>150,'module'=>'Event Email','name'=>'Listing','description'=>'Event Email Listing','url'=>'backend/eventemail'],
+            ['id'=>151,'module'=>'Event Email','name'=>'Create','description'=>'Event Email Create','url'=>'backend/eventemail/create'],
+            ['id'=>152,'module'=>'Event Email','name'=>'Store','description'=>'Event Email Store','url'=>'backend/eventemail/store'],
+            ['id'=>153,'module'=>'Event Email','name'=>'Edit','description'=>'Event Email Edit','url'=>'backend/eventemail/edit'],
+            ['id'=>154,'module'=>'Event Email','name'=>'Update','description'=>'Event Email Update','url'=>'backend/eventemail/update'],
+            ['id'=>155,'module'=>'Event Email','name'=>'Destroy','description'=>'Event Email Destroy','url'=>'backend/eventemail/destroy'],
+
+            //Registration Email Body
+            ['id'=>160,'module'=>'Registration Email','name'=>'View','description'=>'Registration Email Update','url'=>'backend/registrationemail'],
+
+            //Abstract Email Body
+            ['id'=>165,'module'=>'Abstract Email','name'=>'View','description'=>'Abstract Email Update','url'=>'backend/abstractemail'],
         );
 
 

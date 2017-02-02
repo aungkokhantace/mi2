@@ -97,8 +97,13 @@ class MenudetailController extends Controller
         if (Auth::guard('User')->check()) {
             $menuRepo = new MenuRepository();
             $menus    = $menuRepo->getObjs();
-            $menudetail = $this->repo->getObjByID($id);
-            return view('backend.menudetail.menudetail')->with('menudetail', $menudetail)->with('menus', $menus );
+
+            $menudetail = $this->repo->getObjByID($id); //obj to be edited
+
+            $menuDetailRepo = new MenuDetailRepository();
+            $menudetails    = $menuDetailRepo->getObjs();
+
+            return view('backend.menudetail.menudetail')->with('menudetail', $menudetail)->with('menus', $menus )->with('menudetails', $menudetails );
         }
         return redirect('/');
     }

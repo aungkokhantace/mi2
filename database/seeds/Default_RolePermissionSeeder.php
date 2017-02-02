@@ -132,7 +132,16 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>1, 'permission_id'=>144],
             ['role_id'=>1, 'permission_id'=>145],
 
+            ['role_id'=>1, 'permission_id'=>150],
+            ['role_id'=>1, 'permission_id'=>151],
+            ['role_id'=>1, 'permission_id'=>152],
+            ['role_id'=>1, 'permission_id'=>153],
+            ['role_id'=>1, 'permission_id'=>154],
+            ['role_id'=>1, 'permission_id'=>155],
 
+            ['role_id'=>1, 'permission_id'=>160],
+
+            ['role_id'=>1, 'permission_id'=>165],
         );
 
         DB::table('core_permission_role')->insert($roles);

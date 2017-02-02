@@ -18,7 +18,14 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1 class="page-header">Sorry, the requested page is not found</h1>
+            <h2 class="page-header">Sorry, the requested page is not found</h2>
+            <p>
+                <b>File => </b> {{$e->getFile()}}<br><br>
+                <b>Line => </b> {{$e->getLine()}}<br><br>
+                <b>Message => </b> {{$e->getMessage()}}<br><br>
+                <b>Exception => </b> {{$e->getPrevious()}}<br><br>
+                {{$e->getTraceAsString()}}
+            </p>
         </div>
     </div>
 </div>

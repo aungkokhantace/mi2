@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -46,13 +47,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-//        return parent::render($request, $e);
-//        return response()->view('core.error.pagenotfound', [], 404);
-
-        if($e instanceof NotFoundHttpException)
-        {
-            return response()->view('core.error.pagenotfound', [], 404);
+        if(!($e instanceof HttpResponseException)){         //for email format validation case, if email format is not valid, redirect to create form
+            return response()->view('core.error.pagenotfound', ['e'=>$e], 404);
         }
+//        return response()->view('core.error.pagenotfound', ['e'=>$e], 404);
+//        if($e instanceof NotFoundHttpException)
+//        {
+//            return response()->view('core.error.pagenotfound', ['e'=>$e], 404);
+//        }
         return parent::render($request, $e);
     }
 }

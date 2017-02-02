@@ -98,8 +98,25 @@ class AbstractformController extends Controller
 
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
             $attach = $abstractform->abstract_file_path;
-            Mail::send('frontend.abstractform.email', compact('email'), function($message) use($email,$attach) {
-                $message->to($email)->subject('Registration Reply');
+            $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+            $email = array();
+            foreach($emailRaw as $eRaw){
+                array_push($email,$eRaw->email);
+            }
+
+//            Mail::send('frontend.abstractform.email', compact($data), function($message) use($email,$attach) {
+//                $message->to($email)->subject('Registration Reply');
+//                //Attach file
+//                $message->attach($attach);
+//
+//            });
+
+            $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_ABSTRACT' LIMIT 1");
+
+            $content = $contentRaw[0]->description;
+
+            Mail::send([], [], function($message) use($email,$content,$attach) {
+                $message->to($email)->subject('Registration Reply')->setBody($content, 'text/html');;
                 //Attach file
                 $message->attach($attach);
 

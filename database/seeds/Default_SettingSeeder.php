@@ -268,10 +268,10 @@ class Default_SettingSeeder extends Seeder
             ['description'=>'Yemen', 'code' =>'YE', 'value' =>'247', 'type' =>'COUNTRY', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
             ['description'=>'Zambia', 'code' =>'ZM', 'value' =>'248', 'type' =>'COUNTRY', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
             ['description'=>'Zimbabwe', 'code' =>'ZW', 'value' =>'249', 'type' =>'COUNTRY', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
-            ['description'=>'Header Menu', 'code'=>'HEADER MENU',  'value'=>'1', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
-            ['description'=>'Main Menu', 'code'=>'MAIN MENU', 'value'=>'2', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
-            ['description'=>'Side Menu', 'code'=>'SIDE MENU', 'value'=>'3', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
-            ['description'=>'Footer Menu', 'code'=>'FOOTER MENU', 'value'=>'4', 'type'=>'MENU', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
+            ['description'=>'Header Menu', 'code'=>'HEADER_MENU',  'value'=>'1', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
+            ['description'=>'Main Menu', 'code'=>'MAIN_MENU', 'value'=>'2', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
+            ['description'=>'Side Menu', 'code'=>'SIDE_MENU', 'value'=>'3', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
+            ['description'=>'Footer Menu', 'code'=>'FOOTER_MENU', 'value'=>'4', 'type'=>'MENU', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
         );
 
         DB::table('core_settings')->insert($arr);

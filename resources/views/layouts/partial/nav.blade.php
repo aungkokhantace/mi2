@@ -188,6 +188,30 @@
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/post">List</a></li>
                         </ul>
                     </li>
+                    <li nav-id="modifier-create" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+
+                            <span>Event Email</span>
+                        </a>
+
+                        <ul class="sub-menu">
+                            <li nav-id="modifier-create-modifier"><a href="/backend/eventemail/create">Entry</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/eventemail">List</a></li>
+                        </ul>
+                    </li>
+                    <li nav-id="modifier-create" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+
+                            <span>Email Text</span>
+                        </a>
+
+                        <ul class="sub-menu">
+                            <li nav-id="modifier-create-modifier"><a href="/backend/registrationemail">Registration Email</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstractemail">Abstract Email</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
         </ul>

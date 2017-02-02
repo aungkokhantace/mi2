@@ -188,6 +188,21 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('post/update', array('as'=>'backend/post/update','uses'=>'Backend\PostController@update'));
                 Route::post('post/destroy', array('as'=>'backend/post/destroy','uses'=>'Backend\PostController@destroy'));
 
+                //Registration Email
+                Route::get('registrationemail', array('as'=>'backend/registrationemail','uses'=>'Backend\RegistrationEmailController@edit'));
+                Route::post('registrationemail', array('as'=>'backend/registrationemail','uses'=>'Backend\RegistrationEmailController@update'));
+
+                //Abstract Email
+                Route::get('abstractemail', array('as'=>'backend/abstractemail','uses'=>'Backend\AbstractEmailController@edit'));
+                Route::post('abstractemail', array('as'=>'backend/abstractemail','uses'=>'Backend\AbstractEmailController@update'));
+
+                //Event Emails(create to-emails)
+                Route::get('eventemail', array('as'=>'backend/eventemail','uses'=>'Backend\EventEmailController@index'));
+                Route::get('eventemail/create', array('as'=>'backend/eventemail/create','uses'=>'Backend\EventEmailController@create'));
+                Route::get('eventemail/edit/{id}', array('as'=>'backend/eventemail/edit','uses'=>'Backend\EventEmailController@edit'));
+                Route::post('eventemail/store', array('as'=>'backend/eventemail/store','uses'=>'Backend\EventEmailController@store'));
+                Route::post('eventemail/update', array('as'=>'backend/eventemail/update','uses'=>'Backend\EventEmailController@update'));
+                Route::post('eventemail/destroy', array('as'=>'backend/eventemail/destroy','uses'=>'Backend\EventEmailController@destroy'));
             });
 
         });

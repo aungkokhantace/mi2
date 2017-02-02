@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
          $this->call(Default_Syncs_TablesSeeder::class);
 //         $this->call(Default_CountriesSeeder::class);
          $this->call(Default_SettingSeeder::class);
+         $this->call(Default_MenuSeeder::class);
+         $this->call(Default_MenuDetailSeeder::class);
     }
 }
