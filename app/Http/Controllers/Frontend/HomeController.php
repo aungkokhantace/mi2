@@ -45,12 +45,12 @@ class HomeController extends Controller
 
     public function exhibitor(Request $request)
     {
-        return view('frontend.event.event_conference_info');
+        return view('frontend.event.event_exhibitor_info');
     }
 
     public function conference(Request $request)
     {
-        return view('frontend.event.event_exhibitor_info');
+        return view('frontend.event.event_conference_info');
     }
 
     public function other(Request $request)

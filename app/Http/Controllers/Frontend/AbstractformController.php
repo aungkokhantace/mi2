@@ -99,9 +99,9 @@ class AbstractformController extends Controller
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
             $attach = $abstractform->abstract_file_path;
             $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
-            $email = array();
+            $emailArr = array();
             foreach($emailRaw as $eRaw){
-                array_push($email,$eRaw->email);
+                array_push($emailArr,$eRaw->email);
             }
 
 //            Mail::send('frontend.abstractform.email', compact($data), function($message) use($email,$attach) {
@@ -114,13 +114,14 @@ class AbstractformController extends Controller
             $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_ABSTRACT' LIMIT 1");
 
             $content = $contentRaw[0]->description;
+            if(isset($emailArr) && count($emailArr)>0){
+                Mail::send([], [], function($message) use($emailArr,$content,$attach) {
+                    $message->to($emailArr)->subject('Registration Reply')->setBody($content, 'text/html');;
+                    //Attach file
+                    $message->attach($attach);
 
-            Mail::send([], [], function($message) use($email,$content,$attach) {
-                $message->to($email)->subject('Registration Reply')->setBody($content, 'text/html');;
-                //Attach file
-                $message->attach($attach);
-
-            });
+                });
+            }
             return redirect()->action('Frontend\AbstractformController@create')
                 ->withMessage(FormatGenerator::message('Success', 'File added ...'));
         }
@@ -132,7 +133,6 @@ class AbstractformController extends Controller
 
     public function call(Request $request)
     {
-
         $countries = Utility::getSettingsByType("COUNTRY");
         return view('frontend.abstractform.abstractform_call')->with('countries', $countries);
     }

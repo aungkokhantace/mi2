@@ -108,9 +108,9 @@
     {{--Multilevel Nav Bar--}}
 
     <!-- begin #content -->
-    <div id="content" class="content" style="overflow: auto;">
+    {{--<div id="content" class="content" style="overflow: auto;">--}}
         <!-- Right section -->
-        <div class="right">
+    <div class="col-md-9 right">
 
             <!-- Carousel & header section -->
             <div class="slider-header">
@@ -128,13 +128,13 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="images/slider1.png" alt="">
+                        <img src="/images/slider1.png" alt="">
                         <div class="carousel-caption">
                             Caption 1
                         </div>
                     </div>
                     <div class="item">
-                        <img src="images/slider2.png" alt="">
+                        <img src="/images/slider2.png" alt="">
                         <div class="carousel-caption">
                             Caption 2
                         </div>
@@ -188,7 +188,7 @@
             <p>January 11, 2017 - February 13, 2017</p>
         </div>
         <!-- /.right section -->
-    </div>
+    {{--</div>--}}
 @stop
 
 @section('page_script')

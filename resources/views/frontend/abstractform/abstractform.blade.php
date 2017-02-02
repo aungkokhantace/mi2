@@ -2,12 +2,12 @@
 @section('title','Test Page')
 @section('content')
 
-    <div class="col-md-9 right">
+    <div class="col-md-9 page_content right">
 
-    <h1 class="page-header">{{ 'Abstractform Entry'  }}</h1>
+    <h2 class="form-header">{{'Abstractform Entry' }}</h2>
 
     {!! Form::open(array('id'=> 'frm_abstract' , 'url' => 'abstractform/store', 'class'=> 'form-horizontal user-form-border', 'files'=> 'true')) !!}
-
+    <br>
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="first_name">First Name<span class="require">*</span></label>
@@ -84,15 +84,15 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary">
+        {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
+        {{--</div>--}}
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">
                 SUBMIT
             </button>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <input type="button" value="CANCEL" class="form-control cancel_btn" onclick="cancel_setup('page')">
+            <input type="button" value="CANCEL" class="form-control cancel_btn button-type" onclick="cancel_setup('page')">
         </div>
     </div>
     {!! Form::close() !!}

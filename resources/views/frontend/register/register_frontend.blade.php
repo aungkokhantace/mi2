@@ -1,10 +1,10 @@
 @extends('layouts_frontend.master_frontend')
-@section('title','Test Page')
+@section('title','Register Page')
 @section('content')
 
-    <div class="col-md-9 right">
+    <div class="col-md-9 page_content right">
 
-    <h1 class="page-header">{{'Register Entry' }}</h1>
+    <h2 class="form-header">{{'Register Entry' }}</h2>
 
     {!! Form::open(array('id'=> 'frm_register' , 'url' => '/register/store', 'class'=> 'form-horizontal user-form-border')) !!}
     {{ csrf_field() }}
@@ -136,20 +136,20 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        </div>
+        {{--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">--}}
+        {{--</div>--}}
        <!--  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
             <input type="submit" name="submit" value="{{'ADD'}}" class="form-control btn-primary">
         </div> -->
         <!--  -->
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">
                 SUBMIT
             </button>
         </div>
         <!--  -->
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <input type="button" value="CANCEL" class="form-control cancel_btn" onclick="cancel_setup('register')">
+            <input type="reset" value="CANCEL" class="form-control cancel_btn button-type" onclick="">
         </div>
     </div>
     {!! Form::close() !!}

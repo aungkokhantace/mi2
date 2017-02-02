@@ -62,3 +62,20 @@
     background-color: grey;
 }
 /*to make anchor tag look like a button*/
+.page_content{
+    padding-left: 10px !important;
+}
+
+.page_content .row{
+    margin-left: 0px;
+}
+
+.button-type{
+    padding:0px !important;
+}
+
+.form-header{
+    margin-top: 0px;
+    padding-left: 9px;
+}
+

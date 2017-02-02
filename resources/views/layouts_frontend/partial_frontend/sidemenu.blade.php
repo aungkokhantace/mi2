@@ -7,14 +7,13 @@ $sideMenus = \App\Core\Check::getSideMenus();
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <ol class="breadcrumb nav-head">
+            <ol class="breadcrumb nav-head" style="margin-top: 0px;">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Library</a></li>
                 <li class="active">Data</li>
             </ol>
         </div>
     </div>
-
     <!-- Div within Container Start and will end in footermenu.blade page -->
     <div class="row">
         <!-- Blog Sidebar Widgets Column -->

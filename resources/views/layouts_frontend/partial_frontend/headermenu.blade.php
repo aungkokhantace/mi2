@@ -129,6 +129,20 @@ $headerMenus = \App\Core\Check::getHeaderMenus();
     <script src="/assets/js/date.js"></script>
 
     {{--js and css--}}
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/assets/css/blog-home.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -136,7 +150,7 @@ $headerMenus = \App\Core\Check::getHeaderMenus();
 <!-- Navigation -->
 <section class="header">
     <div class="container">
-        <img src="images/logo.png" class="hlogo">
+        <img src="/images/logo.png" class="hlogo">
         <span class="htext">Myanmar Internal Medicine Society</span>
     </div>
 </section>
