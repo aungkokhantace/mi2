@@ -15,10 +15,10 @@
 
     {{--check new or edit--}}
     @if(isset($user))
-        {!! Form::open(array('url' => '/backend/user/update', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => '/backend/user/update', 'class'=> 'form-horizontal user-form-border', 'id' => 'userForm')) !!}
 
     @else
-        {!! Form::open(array('url' => '/backend/user/store', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => '/backend/user/store', 'class'=> 'form-horizontal user-form-border', 'id' => 'userForm')) !!}
     @endif
     <input type="hidden" name="id" value="{{isset($user)? $user->id:''}}"/>
     <br/>
@@ -28,7 +28,7 @@
             <label for="user_name">Staff Name<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input required type="text" class="form-control" id="user_name" name="user_name" placeholder="Enter Staff Login User Name" value="{{ isset($user)? $user->user_name:Request::old('name') }}"/>
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Enter Staff Login User Name" value="{{ isset($user)? $user->user_name:Request::old('name') }}"/>
             <p class="text-danger">{{$errors->first('user_name')}}</p>
         </div>
     </div>
@@ -38,7 +38,7 @@
             <label for="display_name">Display Name<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input required type="text" class="form-control" id="display_name" name="display_name" placeholder="Enter Staff Display Name" value="{{ isset($user)? $user->staff_id:Request::old('display_name') }}"/>
+            <input type="text" class="form-control" id="display_name" name="display_name" placeholder="Enter Staff Display Name" value="{{ isset($user)? $user->display_name:Request::old('display_name') }}"/>
             <p class="text-danger">{{$errors->first('display_name')}}</p>
         </div>
     </div>
@@ -48,7 +48,7 @@
             <label for="email">Email<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input required type="email" class="form-control" id="email" name="email" placeholder="Enter Staff Email" value="{{ isset($user)? $user->email:Request::old('email') }}"/>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Staff Email" value="{{ isset($user)? $user->email:Request::old('email') }}"/>
             <p class="text-danger">{{$errors->first('email')}}</p>
         </div>
     </div>
@@ -56,22 +56,22 @@
     @if(!isset($user))
         <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <label for="discount">Password<span class="require">*</span></label>
+                <label for="password">Password<span class="require">*</span></label>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <input required type="password" class="form-control" id="password" name="password" placeholder="Enter Password"/>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"/>
                 <p class="text-danger">{{$errors->first('password')}}</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <label for="discount">Confirm Password<span class="require">*</span></label>
+                <label for="conpassword">Confirm Password<span class="require">*</span></label>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <input required type="password" class="form-control" id="password" name="conpassword" placeholder="Enter Confirm Password"/>
+                <input type="password" class="form-control" id="conpassword" name="conpassword" placeholder="Enter Confirm Password"/>
                 <p class="text-danger">{{$errors->first('conpassword')}}</p>
             </div>
         </div>
@@ -80,7 +80,7 @@
     @if(isset($profile))
         <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <label for="discount">Password<span class="require">*</span></label>
+                <label for="password">Password<span class="require">*</span></label>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -92,7 +92,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="discount">Staff Role<span class="require">*</span></label>
+            <label for="password">Staff Role<span class="require">*</span></label>
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -144,4 +144,35 @@
 @stop
 
 @section('page_script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Start Validation for Entry and Edit Form
+            $('#userForm').validate({
+                rules: {
+                    user_name          : 'required',
+                    display_name       : 'required',
+                    email              : 'required',
+                    password           : 'required',
+                    conpassword        : 'required',
+                    role_id            : 'required'
+                },
+                messages: {
+                    user_name          : 'Staff Name is required',
+                    display_name       : 'Display Name is required',
+                    email              : 'Staff Email is required',
+                    password           : 'Password is required',
+                    conpassword        : 'Confirm Password is required',
+                    role_id            : 'Staff Role is required'
+                },
+                submitHandler: function(form) {
+                    $('input[type="submit"]').attr('disabled','disabled');
+                    form.submit();
+                }
+            });
+            //End Validation for Entry and Edit Form
+
+            //For checkbox picker
+            $(':checkbox').checkboxpicker();
+        });
+    </script>
 @stop

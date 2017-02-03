@@ -93,20 +93,52 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="events_id">Event Id<span class="require">*</span></label>
+            <label for="events_id">Event<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="events_id" name="events_id" placeholder="Enter Page Event Id" value="{{ isset($pages)? $pages->events_id:Request::old('events_id') }}"/>
+            {{--<input type="text" class="form-control" id="events_id" name="events_id" placeholder="Enter Page Event Id" value="{{ isset($pages)? $pages->events_id:Request::old('events_id') }}"/>--}}
+            <select class="form-control" name="events_id" id="events_id">
+                @if(isset($pages))
+                    @foreach($events as $event)
+                        @if($event->id == $pages->events_id)
+                            <option value="{{$event->id}}" selected>{{$event->name}}</option>
+                        @else
+                            <option value="{{$event->id}}">{{$event->name}}</option>
+                        @endif
+                    @endforeach
+                @else
+                    <option value="" selected disabled>Select Event</option>
+                    @foreach($events as $event)
+                        <option value="{{$event->id}}">{{$event->name}}</option>
+                    @endforeach
+                @endif
+            </select>
             <p class="text-danger">{{$errors->first('events_id')}}</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="templates_id">Template Id<span class="require">*</span></label>
+            <label for="templates_id">Template<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="templates_id" name="templates_id" placeholder="Enter Page Template Id" value="{{ isset($pages)? $pages->templates_id:Request::old('templates_id') }}"/>
+            {{--<input type="text" class="form-control" id="templates_id" name="templates_id" placeholder="Enter Page Template Id" value="{{ isset($pages)? $pages->templates_id:Request::old('templates_id') }}"/>--}}
+            <select class="form-control" name="templates_id" id="templates_id">
+                @if(isset($pages))
+                    @foreach($templates as $template)
+                        @if($template->id == $pages->templates_id)
+                            <option value="{{$template->id}}" selected>{{$template->name}}</option>
+                        @else
+                            <option value="{{$template->id}}">{{$template->name}}</option>
+                        @endif
+                    @endforeach
+                @else
+                    <option value="" selected disabled>Select Template</option>
+                    @foreach($templates as $template)
+                        <option value="{{$template->id}}">{{$template->name}}</option>
+                    @endforeach
+                @endif
+            </select>
             <p class="text-danger">{{$errors->first('templates_id')}}</p>
         </div>
     </div>

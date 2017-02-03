@@ -50,11 +50,6 @@ class Handler extends ExceptionHandler
         if(!($e instanceof HttpResponseException)){         //for email format validation case, if email format is not valid, redirect to create form
             return response()->view('core.error.pagenotfound', ['e'=>$e], 404);
         }
-//        return response()->view('core.error.pagenotfound', ['e'=>$e], 404);
-//        if($e instanceof NotFoundHttpException)
-//        {
-//            return response()->view('core.error.pagenotfound', ['e'=>$e], 404);
-//        }
         return parent::render($request, $e);
     }
 }

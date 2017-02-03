@@ -43,7 +43,6 @@
                         <th>Status</th>
                         <th>Url</th>
                         <th>Title</th>
-                        <th>Permissions</th>
 
                     </tr>
                     </thead>
@@ -54,7 +53,6 @@
                         <th class="search-col" con-id="status">Status</th>
                         <th class="search-col" con-id="url">Url</th>
                         <th class="search-col" con-id="title">Title</th>
-                        <th class="search-col" con-id="description">Permission</th>
                         <th></th>
 
 
@@ -69,7 +67,6 @@
                             <td>{{$event->status}}</td>
                             <td>{{$event->url}}</td>
                             <td>{{$event->title}}</td>
-                            <td><a href="eventPermission/{{$event->id}}">Edit Permissions</a></td>
                         </tr>
                     @endforeach
                     </tbody>

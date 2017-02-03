@@ -16,7 +16,7 @@ class EventEntryRequest extends Request
     {
         return [
             "name"   =>"required",
-            "status" => 'required',
+//            "status" => 'required',
             "url"    => 'required',
             "title"  => 'required',
         ];
@@ -24,7 +24,7 @@ class EventEntryRequest extends Request
     public function messages(){
         return [
             "name.required"         => "Event Name is required",
-            "status.required"       => 'Event Status is required',
+//            "status.required"       => 'Event Status is required',
             "url.required"          => 'Event URL is required',
             "title.required"        => 'Event Title is required',
         ];

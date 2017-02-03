@@ -112,8 +112,13 @@ class AbstractformController extends Controller
 //            });
 
             $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_ABSTRACT' LIMIT 1");
+            if(isset($contentRaw) && count($contentRaw)>0){
+                $content = $contentRaw[0]->description;
+            }
+            else{
+                $content = "Registration Reply...";
+            }
 
-            $content = $contentRaw[0]->description;
             if(isset($emailArr) && count($emailArr)>0){
                 Mail::send([], [], function($message) use($emailArr,$content,$attach) {
                     $message->to($emailArr)->subject('Registration Reply')->setBody($content, 'text/html');;

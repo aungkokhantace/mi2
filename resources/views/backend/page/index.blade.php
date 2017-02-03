@@ -45,8 +45,8 @@
                         <th>Url</th>
                         <th>Title</th>
                         <th>Page Menu Order</th>
-                        <th>Events Id</th>
-                        <th>Templates Id</th>
+                        <th>Event</th>
+                        <th>Template</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -59,8 +59,8 @@
                         <th class="search-col" con-id="url">Url</th>
                         <th class="search-col" con-id="title">Title</th>
                         <th class="search-col" con-id="page_menu_order">Page Menu Order</th>
-                        <th class="search-col" con-id="events_id">Events Id</th>
-                        <th class="search-col" con-id="templates_id">Templates Id</th>
+                        <th class="search-col" con-id="events_id">Event</th>
+                        <th class="search-col" con-id="templates_id">Template</th>
                         <th></th>
                     </tr>
                     </tfoot>
@@ -75,8 +75,8 @@
                             <td>{{$page->url}}</td>
                             <td>{{$page->title}}</td>
                             <td>{{$page->page_menu_order}}</td>
-                            <td>{{$page->events_id}}</td>
-                            <td>{{$page->templates_id}}</td>
+                            <td>{{$page->event->name}}</td>
+                            <td>{{$page->template->name}}</td>
                         </tr>
                     @endforeach
                     </tbody>

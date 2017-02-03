@@ -8,10 +8,10 @@
     <h1 class="page-header">{{isset($permission) ?  'Permission Edit' : 'Permission Entry' }}</h1>
 
     @if(isset($permission))
-        {!! Form::open(array('url' => 'backend/permission/update', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => 'backend/permission/update', 'class'=> 'form-horizontal user-form-border', 'id' => 'permissionForm')) !!}
 
     @else
-        {!! Form::open(array('url' => 'backend/permission/store', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => 'backend/permission/store', 'class'=> 'form-horizontal user-form-border', 'id' => 'permissionForm')) !!}
     @endif
     <input type="hidden" name="id" value="{{isset($permission)? $permission->id:''}}"/>
     <br/>
@@ -38,7 +38,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="url">Url</label>
+            <label for="url">Url<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="text" required class="form-control" id="url" name="url" placeholder="Enter Permission Url" value="{{ isset($permission)? $permission->url:Request::old('url') }}"/>
@@ -71,4 +71,29 @@
 @stop
 
 @section('page_script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Start Validation for Entry and Edit Form
+            $('#permissionForm').validate({
+                rules: {
+                    name          : 'required',
+                    module        : 'required',
+                    url           : 'required',
+                },
+                messages: {
+                    name          : 'Permission Name is required',
+                    module        : 'Permission Module Name is required',
+                    url           : 'Permission URL is required',
+                },
+                submitHandler: function(form) {
+                    $('input[type="submit"]').attr('disabled','disabled');
+                    form.submit();
+                }
+            });
+            //End Validation for Entry and Edit Form
+
+            //For checkbox picker
+            $(':checkbox').checkboxpicker();
+        });
+    </script>
 @stop

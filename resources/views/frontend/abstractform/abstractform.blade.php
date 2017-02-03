@@ -92,7 +92,8 @@
             </button>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <input type="button" value="CANCEL" class="form-control cancel_btn button-type" onclick="cancel_setup('page')">
+            {{--<input type="button" value="CANCEL" class="form-control cancel_btn button-type" onclick="cancel_setup('abstractform')">--}}
+            <a href="/abstractform/call"><button type="button" class="btn btn-primary cancel_btn" style="margin-top:0px;">CANCEL</button></a>
         </div>
     </div>
     {!! Form::close() !!}

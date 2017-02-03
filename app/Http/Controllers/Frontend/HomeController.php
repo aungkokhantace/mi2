@@ -57,4 +57,9 @@ class HomeController extends Controller
     {
         return view('frontend.event.event_other_info');
     }
+
+    public function comingsoon(Request $request)
+    {
+        return view('frontend.comingsoon');
+    }
 }

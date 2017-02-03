@@ -130,13 +130,14 @@ div.col-md-9.right
 .right .btn
 {
     border-radius:1px;
-    width:100px;
+    /*width:100px;*/
+    width:auto;
     margin:10px 0 20px 0;
 }
 
 .btn.down
 {
-    width: 140px;
+    /*width: 140px;*/
     margin-right: 20px;
 }
 
@@ -154,7 +155,7 @@ div.col-md-9.right
     border-radius: 150px;
     -webkit-border-radius: 150px;
     -moz-border-radius: 150px;
-    background: url(../images/dummy.png) no-repeat;
+    background: url(../../images/dummy.png) no-repeat;
     border:1px solid #bbb;
 }
 

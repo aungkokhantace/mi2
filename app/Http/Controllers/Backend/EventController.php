@@ -53,6 +53,12 @@ class EventController extends Controller
         $url         = Input::get('url');
         $title         = Input::get('title');
 
+        if ($status == "on") {
+            $status = "Active";
+        }else{
+            $status = "Inactive";
+        }
+
         $event = new Event();
         $event->name = $name;
         $event->description = $description;
@@ -81,6 +87,12 @@ class EventController extends Controller
         $status         = Input::get('status');
         $url            = Input::get('url');
         $title          = Input::get('title');
+
+         if ($status == "on") {
+             $status = "Active";
+         }else{
+             $status = "Inactive";
+         }
 
         $event = Event::find($id);
         $event->name = $name;

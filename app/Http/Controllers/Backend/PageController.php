@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers\Backend;
 
+use App\Backend\Event\EventRepository;
+use App\Backend\Template\TemplateRepository;
 use App\Core\User\UserRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -35,7 +37,13 @@ class PageController extends Controller
 
     public function create(){
         if (Auth::guard('User')->check()) {
-            return view('backend.page.page');
+            $eventRepo      = new EventRepository();
+            $events         = $eventRepo->getEvents();
+
+            $templateRepo   = new TemplateRepository();
+            $templates      = $templateRepo->getObjs();
+
+            return view('backend.page.page')->with('events',$events)->with('templates',$templates);
         }
         return redirect('/login');
     }
@@ -76,7 +84,14 @@ class PageController extends Controller
     public function edit($id){
         if (Auth::guard('User')->check()) {
             $pages = $this->pageRepository->getObjByID($id);
-            return view('backend.page.page')->with('pages', $pages);
+
+            $eventRepo      = new EventRepository();
+            $events         = $eventRepo->getEvents();
+
+            $templateRepo   = new TemplateRepository();
+            $templates      = $templateRepo->getObjs();
+
+            return view('backend.page.page')->with('pages', $pages)->with('events',$events)->with('templates',$templates);
         }
         return redirect('/login');
     }

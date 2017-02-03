@@ -12,7 +12,15 @@ if (! function_exists('generateMainTree')) {
                 echo '</li>';
             }
             else{
-                echo '<li><a href="#">'. $mainBranch->name .'</a></li>';
+                if($mainBranch->menu_id == 2 && $mainBranch->name != "Home"){
+                    echo '<li><a href="/comingsoon">'. $mainBranch->name .'</a></li>';
+                }
+                else if($mainBranch->menu_id == 2 && $mainBranch->name == "Home"){
+                    echo '<li><a href="/home">'. $mainBranch->name .'</a></li>';
+                }
+                else{
+                    echo '<li><a href="#">'. $mainBranch->name .'</a></li>';
+                }
             }
         }
     }

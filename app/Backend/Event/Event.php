@@ -22,4 +22,9 @@ class Event extends Model
         'updated_at','created_at','deleted_at'
 
     ];
+
+    public function page()
+    {
+        return $this->hasMany('App\Backend\Page\Page');
+    }
 }

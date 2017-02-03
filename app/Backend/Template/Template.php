@@ -33,4 +33,9 @@ class Template extends Model
     {
         return $this->hasMany('App\Backend\TemplateSlider\TemplateSlider');
     }
+
+    public function page()
+    {
+        return $this->hasMany('App\Backend\Page\Page');
+    }
 }

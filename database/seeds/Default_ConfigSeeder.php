@@ -22,8 +22,8 @@ class Default_ConfigSeeder extends Seeder
             ['code'=>'SETTING_COMPANY_NAME', 'type'=>'SETTING', 'value'=>'AcePlus Backend','description'=>'Company Name'],
             ['code'=>'SETTING_LOGO', 'type'=>'SETTING', 'value'=>'/images/logo.jpg','description'=>'Company Logo'],
             ['code'=>'LOG_MAX_FILES', 'type'=>'SETTING', 'value'=>'60','description'=>'Maximum Log File Count'],
-            ['code'=>'HEADER_MENU', 'type'=>'SETTING', 'value'=>'on','description'=>'Header Menu Flag'],
-            ['code'=>'FOOTER_MENU', 'type'=>'SETTING', 'value'=>'on','description'=>'Footer Menu Flag']
+            ['code'=>'HEADER_MENU', 'type'=>'SETTING', 'value'=>'off','description'=>'Header Menu Flag'],
+            ['code'=>'FOOTER_MENU', 'type'=>'SETTING', 'value'=>'off','description'=>'Footer Menu Flag']
         );
 
         DB::table('core_configs')->insert($roles);

@@ -22,9 +22,9 @@
     {{--{!! Form::open(array('url' => 'post/store', 'class'=> 'form-horizontal user-form-border','files' => true , 'id' => 'postForm')) !!}--}}
 
     @if(isset($post))
-        {!! Form::open(array('url' => 'post/update', 'class'=> 'form-horizontal user-form-border', 'files' => true , 'id' => 'postForm')) !!}
+        {!! Form::open(array('url' => 'backend/post/update', 'class'=> 'form-horizontal user-form-border', 'files' => true , 'id' => 'postForm')) !!}
     @else
-        {!! Form::open(array('url' => 'post/store', 'class'=> 'form-horizontal user-form-border', 'files' => true , 'id' => 'postForm')) !!}
+        {!! Form::open(array('url' => 'backend/post/store', 'class'=> 'form-horizontal user-form-border', 'files' => true , 'id' => 'postForm')) !!}
     @endif
     <input type="hidden" name="id" value="{{isset($post)? $post->id:''}}"/>
     <br/>

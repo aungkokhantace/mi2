@@ -31,17 +31,22 @@
             <label for="description">Description</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Event Description" value="{{ isset($event)? $event->description:Request::old('description') }}"/>
+            <textarea class="form-control" id="description" name="description" placeholder="Enter Menu Description" rows="5" cols="50">{{isset($event)? $event->description:Input::old('description')}}</textarea>
             <p class="text-danger">{{$errors->first('description')}}</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="description">Status<span class="require">*</span></label>
+            <label for="status">Active<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="status" name="status" placeholder="Enter Event Status" value="{{ isset($event)? $event->status:Request::old('status') }}"/>
+            {{--<input type="text" class="form-control" id="status" name="status" placeholder="Enter Event Status" value="{{ isset($event)? $event->status:Request::old('status') }}"/>--}}
+            @if(isset($event) && $event->status == "Active" )
+                <input name="status" type="checkbox" checked="">
+            @else
+                <input name="status" type="checkbox">
+            @endif
             <p class="text-danger">{{$errors->first('status')}}</p>
         </div>
     </div>
@@ -87,13 +92,13 @@
             $('#eventForm').validate({
                 rules: {
                     name                  : 'required',
-                    status                : 'required',
+//                    status                : 'required',
                     url                   : 'required',
                     title                  : 'required',
                 },
                 messages: {
                     name                  : 'Event Name is required',
-                    status                : 'Event Status is required',
+//                    status                : 'Event Status is required',
                     url                   : 'Event URL is required',
                     title                 : 'Event Title is required',
                 },

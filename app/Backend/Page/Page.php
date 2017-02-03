@@ -32,5 +32,15 @@ class Page extends Model
     {
         return $this->hasMany('App\Backend\TemplateSidebarMenu\TemplateSidebarMenu');
     }
+
+    public function template()
+    {
+        return $this->belongsTo('App\Backend\Template\Template','templates_id','id');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Backend\Event\Event','events_id','id');
+    }
     
 }

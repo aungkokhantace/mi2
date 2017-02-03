@@ -8,10 +8,10 @@
     <h1 class="page-header">{{isset($roles) ?  'Role Edit' : 'Role Entry' }}</h1>
 
     @if(isset($roles))
-        {!! Form::open(array('url' => '/backend/role/update', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => '/backend/role/update', 'class'=> 'form-horizontal user-form-border', 'id' => 'roleForm')) !!}
 
     @else
-        {!! Form::open(array('url' => '/backend/role/store', 'class'=> 'form-horizontal user-form-border')) !!}
+        {!! Form::open(array('url' => '/backend/role/store', 'class'=> 'form-horizontal user-form-border', 'id' => 'roleForm')) !!}
     @endif
     <input type="hidden" name="id" value="{{isset($roles)? $roles->id:''}}"/>
     <br/>
@@ -21,7 +21,7 @@
             <label for="name">Name<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" required class="form-control" id="name" name="name" placeholder="Enter Role Name" value="{{ isset($roles)? $roles->name:Request::old('name') }}"/>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Role Name" value="{{ isset($roles)? $roles->name:Request::old('name') }}"/>
             <p class="text-danger">{{$errors->first('name')}}</p>
         </div>
     </div>
@@ -51,4 +51,25 @@
 @stop
 
 @section('page_script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Start Validation for Entry and Edit Form
+            $('#roleForm').validate({
+                rules: {
+                    name          : 'required'
+                },
+                messages: {
+                    name          : 'Role Name is required'
+                },
+                submitHandler: function(form) {
+                    $('input[type="submit"]').attr('disabled','disabled');
+                    form.submit();
+                }
+            });
+            //End Validation for Entry and Edit Form
+
+            //For checkbox picker
+            $(':checkbox').checkboxpicker();
+        });
+    </script>
 @stop

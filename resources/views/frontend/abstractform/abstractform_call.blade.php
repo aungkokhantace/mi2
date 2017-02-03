@@ -6,8 +6,7 @@
 
     <!-- Carousel & header section -->
     <div class="slider-header">
-        18th IMS Annual Conference 2017<br>
-        [In Conjunction with 5th AFIM Meeting and ACP (South East Asia Chapter)]
+        18th IMS conference 23rd AFIM Meeting
     </div>
 
     <!-- Carousel Slider Part -->
@@ -46,40 +45,18 @@
     </div>
     <!-- end of Carousel & header section -->
 
-    <h3>Welcome Message</h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <h3>Call for Abstracts</h3>
+    <p>IMS 2017 is the premier venue to share research, exchange ideas, and network with more than 7,500 anticipated endocrine researchers and practitioners
     </p>
+    <a href="#"><button type="button" class="btn btn-primary down">Download Abstract Form</button></a>
+    <a href="/abstractform/create"><button type="button" class="btn btn-primary up">Upload Abstract</button></a>
+    <p>We will confirm you by email if we accept your abstract. Once you get confirmation, you need to register event from this website again.</p>
 
-    <h3>Conference Place</h3>
-    <p>Novotel, Yangon Max</p>
 
-    <h3>Conference Date & Time</h3>
-    <p>March 17,18,19, 2017 {9:00 AM to 4:00 PM}</p>
 
-    <h3>Early Registration Deadline</h3>
-    <p>March 17, 2017</p>
-
-    <h3>Abstract Submission Deadline</h3>
-    <p>January 11, 2017 - February 13, 2017</p>
 </div>
+<!-- /.right section -->
+
 
 @stop
 
