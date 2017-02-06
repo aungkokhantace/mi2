@@ -73,7 +73,6 @@ div.slider-header
 .header-menu .navbar-default .navbar-nav>li>a
 {
     color:#fff;
-    padding-right:30px;
 }
 
 .header-menu .navbar-default .navbar-nav>li>a:hover
@@ -215,5 +214,19 @@ footer p
         padding-top: 12px;
         padding-bottom: 12px;
     }
+}
+
+@media (min-width: 992px) {
+.container
+{
+    width:992px;
+}
+}
+
+@media (min-width: 1200px) {
+.container
+{
+    width:992px;
+}
 }
 
