@@ -1,6 +1,9 @@
 <?php
 $headerMenuFlag = \App\Core\Check::headerMenuFlag();
 $sideMenus = \App\Core\Check::getSideMenus();
+$url = Request::path();
+$breadCrumbArr = explode("/",$url);
+
 ?>
 
 <!-- Container Start and will end in footermenu.blade page -->
@@ -8,9 +11,12 @@ $sideMenus = \App\Core\Check::getSideMenus();
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb nav-head" style="margin-top: 0px;">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Library</a></li>
-                <li class="active">Data</li>
+                {{--<li><a href="#">Home</a></li>--}}
+                {{--<li><a href="#">Library</a></li>--}}
+                {{--<li class="active">Data</li>--}}
+                @foreach($breadCrumbArr as $bread)
+                    <li><a href="#">{{ucwords($bread)}}</a></li>
+                @endforeach
             </ol>
         </div>
     </div>
