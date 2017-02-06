@@ -30,7 +30,7 @@ class CreateMenuTables extends Migration
         Schema::create('menu_detail', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('menu_id');
-            $table->string('page_url');
+            $table->integer('page_id');
             $table->integer('menu_order');
             $table->string('status');
             $table->string('menu_group');
