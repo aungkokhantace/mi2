@@ -23,6 +23,13 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('event/conference', array('as'=>'event/conference','uses'=>'Frontend\HomeController@conference'));
         Route::get('event/other', array('as'=>'event/other','uses'=>'Frontend\HomeController@other'));
 
+        //frontend pages with new routes
+        Route::get('home/register',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
+        Route::get('home/abstract', array('as'=>'abstractform/call','uses'=>'Frontend\AbstractformController@call'));
+        Route::get('home/exhibitor', array('as'=>'event/call','uses'=>'Frontend\HomeController@exhibitor'));
+        Route::get('home/conference', array('as'=>'event/conference','uses'=>'Frontend\HomeController@conference'));
+        Route::get('home/other', array('as'=>'event/other','uses'=>'Frontend\HomeController@other'));
+
         Route::get('comingsoon', array('as'=>'event/other','uses'=>'Frontend\HomeController@comingsoon'));
 
 

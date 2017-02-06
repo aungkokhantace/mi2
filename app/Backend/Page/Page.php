@@ -42,5 +42,10 @@ class Page extends Model
     {
         return $this->belongsTo('App\Backend\Event\Event','events_id','id');
     }
+
+    public function menudetail()
+    {
+        return $this->hasOne('App\Backend\Event\Event');
+    }
     
 }

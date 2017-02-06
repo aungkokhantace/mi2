@@ -93,3 +93,15 @@
 .blank-space{
     min-height: 100px;
 }
+
+.navbar-nav>li
+{
+    border:none !important;
+}
+
+.navbar-default
+{
+    box-shadow: none !important;
+    /*background-color: #e7e7e7 !important;*/
+    background-color: #f7f8f9 !important;
+}

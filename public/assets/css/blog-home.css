@@ -56,9 +56,10 @@ div.slider-header
 
 .header-menu .navbar-default
 {
-    background-color: #1f90ff;
-    border-color:transparent;
+    background-color: #1f90ff !important;
+    border-color:transparent !important;
     color:#FFF;
+    border:none;
 }
 
 .header-menu .navbar-default .navbar-collapse {padding-left:0px;}

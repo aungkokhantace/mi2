@@ -2,12 +2,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Backend\Event\EventRepository;
+use App\Backend\Infrastructure\Forms\PageEditRequest;
+use App\Backend\Infrastructure\Forms\PageEntryRequest;
 use App\Backend\Template\TemplateRepository;
 use App\Core\User\UserRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Backend\Infrastructure\Forms\StaffTypeRequest;
-use App\Backend\Infrastructure\Forms\StaffTyeEditRequest;
 use App\Backend\Page\PageRepositoryInterface;
 use App\Backend\Page\Page;
 use App\Core\Permission\Permission;
@@ -48,7 +48,7 @@ class PageController extends Controller
         return redirect('/login');
     }
 
-    public function store(StaffTypeRequest $request)
+    public function store(PageEntryRequest $request)
     {
         $request->validate();
         $name               = Input::get('name');
@@ -96,7 +96,7 @@ class PageController extends Controller
         return redirect('/login');
     }
 
-    public function update(StaffTyeEditRequest $request){
+    public function update(PageEditRequest $request){
         $id                 = Input::get('id');
         $name               = Input::get('name');
         $description        = Input::get('description');
