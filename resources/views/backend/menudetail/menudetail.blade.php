@@ -55,7 +55,23 @@
             <label for="page_url" class="text_bold_black">Page URL<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" required class="form-control" id="page_url" name="page_url" placeholder="Enter Page URL" value="{{ isset($menudetail)? $menudetail->page_url:Request::old('page_url') }}"/>
+            {{--<input type="text" required class="form-control" id="page_url" name="page_url" placeholder="Enter Page URL" value="{{ isset($menudetail)? $menudetail->page_url:Request::old('page_url') }}"/>--}}
+            <select class="form-control" name="page_url" id="page_url">
+                @if(isset($menudetail))
+                    @foreach($pages as $page)
+                        @if($page->id == $menudetail->page_id)
+                            <option value="{{$page->id}}" selected>{{$page->url}}</option>
+                        @else
+                            <option value="{{$page->id}}">{{$page->url}}</option>
+                        @endif
+                    @endforeach
+                @else
+                    <option value="" selected disabled>Select Page URL</option>
+                    @foreach($pages as $page)
+                        <option value="{{$page->id}}">{{$page->url}}</option>
+                    @endforeach
+                @endif
+            </select>
             <p class="text-danger">{{$errors->first('page_url')}}</p>
         </div>
     </div>

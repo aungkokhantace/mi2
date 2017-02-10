@@ -13,6 +13,7 @@ use App\Backend\Menu\MenuRepository;
 use App\Backend\Menudetail\Menudetail;
 use App\Backend\Menudetail\MenudetailRepository;
 use App\Backend\Menudetail\MenudetailRepositoryInterface;
+use App\Backend\Page\PageRepository;
 use App\Core\FormatGenerator;
 use App\Core\ReturnMessage;
 use App\Core\Utility;
@@ -53,8 +54,11 @@ class MenudetailController extends Controller
         $menuDetailRepo = new MenuDetailRepository();
         $menudetails    = $menuDetailRepo->getObjs();
 
+        $pageRepo  = new PageRepository();
+        $pages     = $pageRepo->getPages();
+
         if (Auth::guard('User')->check()) {
-            return view('backend.menudetail.menudetail')->with('menus',$menus)->with('menudetails',$menudetails);
+            return view('backend.menudetail.menudetail')->with('menus',$menus)->with('menudetails',$menudetails)->with('pages',$pages);
         }
         return redirect('/');
     }
@@ -63,7 +67,7 @@ class MenudetailController extends Controller
     {
         $request->validate();
         $menu_id            = (Input::has('menu')) ? Input::get('menu') : "";
-        $page_url           = (Input::has('page_url')) ? Input::get('page_url') : "";
+        $page_id            = (Input::has('page_url')) ? Input::get('page_url') : "";
         $menu_order         = (Input::has('menu_order')) ? Input::get('menu_order') : 1;
         $status             = (Input::has('status')) ? Input::get('status') : "active";
         $menu_group         = (Input::has('menu_group')) ? Input::get('menu_group') : 1;
@@ -73,7 +77,7 @@ class MenudetailController extends Controller
 
         $paramObj = new Menudetail();
         $paramObj->menu_id             = $menu_id;
-        $paramObj->page_url         = $page_url;
+        $paramObj->page_id         = $page_id;
         $paramObj->menu_order       = $menu_order;
         $paramObj->status           = $status;
         $paramObj->menu_group       = $menu_group;
@@ -112,7 +116,7 @@ class MenudetailController extends Controller
         $request->validate();
         $id = Input::get('id');
         $menu_id            = (Input::has('menu')) ? Input::get('menu') : "";
-        $page_url           = (Input::has('page_url')) ? Input::get('page_url') : "";
+        $page_id           = (Input::has('page_url')) ? Input::get('page_url') : "";
         $menu_order         = (Input::has('menu_order')) ? Input::get('menu_order') : 1;
         $status             = (Input::has('status')) ? Input::get('status') : "active";
         $menu_group         = (Input::has('menu_group')) ? Input::get('menu_group') : 1;
@@ -121,8 +125,8 @@ class MenudetailController extends Controller
         $parent_id          = (Input::has('parent')) ? Input::get('parent') : 0;
 
         $paramObj = Menudetail::find($id);
-        $paramObj->menu_id             = $menu_id;
-        $paramObj->page_url         = $page_url;
+        $paramObj->menu_id          = $menu_id;
+        $paramObj->page_id          = $page_id;
         $paramObj->menu_order       = $menu_order;
         $paramObj->status           = $status;
         $paramObj->menu_group       = $menu_group;

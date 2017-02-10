@@ -21,7 +21,7 @@
             <label for="name">Name<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" required class="form-control" id="name" name="name" placeholder="Enter Page Name" value="{{ isset($pages)? $pages->name:Request::old('name') }}"/>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Page Name" value="{{ isset($pages)? $pages->name:Request::old('name') }}"/>
             <p class="text-danger">{{$errors->first('name')}}</p>
         </div>
     </div>
@@ -175,8 +175,8 @@
                     url                   : 'Page URL is required',
                     title                 : 'Page Title is required',
                     page_menu_order       : 'Page Menu Order is required',
-                    events_id             : 'Event ID is required',
-                    templates_id          : 'Template ID is required',
+                    events_id             : 'Event is required',
+                    templates_id          : 'Template is required',
                 },
                 submitHandler: function(form) {
                     $('input[type="submit"]').attr('disabled','disabled');

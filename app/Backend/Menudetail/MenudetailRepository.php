@@ -130,6 +130,7 @@ class MenudetailRepository implements MenudetailRepositoryInterface
             ->select('menu_detail.*')
             ->where('menu.category','=',$type)
             ->where('menu_detail.parent_id', '=', 0)
+            ->whereNull('menu_detail.deleted_at')
             ->get();
         return $objs;
     }

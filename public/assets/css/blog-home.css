@@ -56,9 +56,10 @@ div.slider-header
 
 .header-menu .navbar-default
 {
-    background-color: #1f90ff;
-    border-color:transparent;
+    background-color: #1f90ff !important;
+    border-color:transparent !important;
     color:#FFF;
+    border:none;
 }
 
 .header-menu .navbar-default .navbar-collapse {padding-left:0px;}
@@ -73,6 +74,7 @@ div.slider-header
 .header-menu .navbar-default .navbar-nav>li>a
 {
     color:#fff;
+    /*padding-right:30px;*/
 }
 
 .header-menu .navbar-default .navbar-nav>li>a:hover
@@ -217,16 +219,16 @@ footer p
 }
 
 @media (min-width: 992px) {
-.container
-{
-    width:992px;
-}
+    .container
+    {
+        width:992px;
+    }
 }
 
 @media (min-width: 1200px) {
-.container
-{
-    width:992px;
-}
+    .container
+    {
+        width:992px;
+    }
 }
 

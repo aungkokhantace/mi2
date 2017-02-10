@@ -16,7 +16,7 @@ class Menudetail extends Model
     protected $fillable = [
         'id',
         'menu_id',
-        'page_url',
+        'page_id',
         'menu_order',
         'status',
         'menu_group',
@@ -35,5 +35,10 @@ class Menudetail extends Model
     public function parent()
     {
         return $this->belongsTo('App\Backend\Menudetail\Menudetail','parent_id','id');
+    }
+
+    public function page()
+    {
+        return $this->belongsTo('App\Backend\Page\Page','page_id','id');
     }
 }

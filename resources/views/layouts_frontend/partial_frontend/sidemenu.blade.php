@@ -32,7 +32,8 @@ $sideMenus = \App\Core\Check::getSideMenus();
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav">
                             @foreach($sideMenus as $sideMenu)
-                                <li><a href="/{{$sideMenu->page_url}}">{{$sideMenu->name}}</a></li>
+{{--                                <li><a href="/{{$sideMenu->page_url}}">{{$sideMenu->name}}</a></li>--}}
+                                <li><a href="/{{$sideMenu->page->url}}">{{$sideMenu->name}}</a></li>
                             @endforeach
                         </ul>
                     </div><!--/.nav-collapse -->
