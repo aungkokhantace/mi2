@@ -20,4 +20,9 @@ class Post extends Model
         'pages_id',
         'created_by','updated_by','deleted_by','created_at','updated_at','deleted_at'
     ];
+
+    public function page()
+    {
+        return $this->belongsTo('App\Backend\Page\Page','pages_id','id');
+    }
 }

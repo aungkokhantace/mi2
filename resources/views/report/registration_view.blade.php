@@ -72,7 +72,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Country</th>
-                        <th>Working Place</th>
+                        {{--<th>Working Place</th>--}}
                         <th>Total Amount</th>
                     </tr>
                     </thead>
@@ -83,7 +83,7 @@
                         <th class="search-col" con-id="">Last Name</th>
                         <th class="search-col" con-id="">Email</th>
                         <th class="search-col" con-id="">Country</th>
-                        <th class="search-col" con-id="">Working Place</th>
+                        {{--<th class="search-col" con-id="">Working Place</th>--}}
                     </tr>
                     </tfoot>
                     <tbody>
@@ -94,7 +94,7 @@
                             <td>{{$eventRegistration->last_name}}</td>
                             <td>{{$eventRegistration->email}}</td>
                             <td>{{$eventRegistration->country}}</td>
-                            <td>{{$eventRegistration->where_work}}</td>
+                            {{--<td>{{$eventRegistration->where_work}}</td>--}}
                             <td></td>
 
                         </tr>
@@ -104,7 +104,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        {{--<td></td>--}}
                         <td></td>
                         <td align="right" style = "color:white">{{$grandTotal}}</td>
                     </tr>

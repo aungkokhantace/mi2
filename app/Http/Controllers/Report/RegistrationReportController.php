@@ -106,7 +106,7 @@ class RegistrationReportController extends Controller
                 $displayArray[$value->id]["Last Name"]=$value->last_name;
                 $displayArray[$value->id]["Email"]=$value->email;
                 $displayArray[$value->id]["Country"]=$country;
-                $displayArray[$value->id]["Working Place"]=$value->where_work;
+//                $displayArray[$value->id]["Working Place"]=$value->where_work;
 
             }
 
@@ -154,7 +154,6 @@ class RegistrationReportController extends Controller
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Country</th>
-                                <th>Working Place</th>
                             </tr>
                             </thead>
                             <tbody>';
@@ -168,7 +167,6 @@ class RegistrationReportController extends Controller
                         $html .= '<td>'. $pdf->last_name .'</td>';
                         $html .= '<td>'. $pdf->email .'</td>';
                         $html .= '<td>'. $country .'</td>';
-                         $html .= '<td>'. $pdf->where_work .'</td>';
                         $html .= '</tr>';
                     }
                     

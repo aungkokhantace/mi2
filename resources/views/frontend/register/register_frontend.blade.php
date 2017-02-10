@@ -1,13 +1,13 @@
 @extends('layouts_frontend.master_frontend')
 @section('title','Register Page')
 @section('content')
-
+    {{--{!! $page->content !!}--}}
     <div class="col-md-9 right">
 
         <!-- Carousel & header section -->
         <div class="slider-header">
-            18th IMS Annual Conference 2017<br>
-            [In Conjunction with 5th AFIM Meeting and ACP (South East Asia Chapter)]
+            18th Myanmar Internal Medicine Conference <br>
+            (In Conjunction with 4th AFIM Congress and 4th ACP South East Asian Chapter Meeting)
         </div>
 
         <!-- Carousel Slider Part -->
@@ -47,163 +47,193 @@
         <!-- end of Carousel & header section -->
         <br>
 
-    <h2 class="form-header">{{'Register Entry' }}</h2>
+        <h2 class="form-header">{{'Register Entry' }}</h2>
 
-    {!! Form::open(array('id'=> 'frm_register' , 'url' => '/register/store', 'class'=> 'form-horizontal user-form-border')) !!}
-    {{ csrf_field() }}
-    <input type="hidden" name="events_id" value="1"/>
-    <br/>
+        {!! Form::open(array('id'=> 'frm_register' , 'url' => '/register/store', 'class'=> 'form-horizontal user-form-border')) !!}
+        {{ csrf_field() }}
+        <input type="hidden" name="events_id" value="1"/>
+        <br/>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="first_name">First Name<span class="require">*</span></label>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="first_name">First Name<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" value="{{Request::old('first_name') }}"/>
+                <p class="text-danger" id="first_name_error">{{$errors->first('first_name')}}</p>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" value="{{Request::old('first_name') }}"/>
-            <p class="text-danger" id="first_name_error">{{$errors->first('first_name')}}</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="middle_name">Middle Name</label>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="middle_name">Middle Name</label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Enter Middle Name" value="{{Request::old('middle_name') }}"/>
+                <p class="text-danger">{{$errors->first('middle_name')}}</p>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Enter Middle Name" value="{{Request::old('middle_name') }}"/>
-            <p class="text-danger">{{$errors->first('middle_name')}}</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="last_name">Last Name<span class="require">*</label>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="last_name">Last Name<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" value="{{Request::old('last_name') }}"/>
+                <p class="text-danger" id="last_name_error">{{$errors->first('last_name')}}</p>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" value="{{Request::old('last_name') }}"/>
-            <p class="text-danger" id="last_name_error">{{$errors->first('last_name')}}</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="title">Title</label>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="title">Title</label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="{{Request::old('title') }}"/>
+                <p class="text-danger">{{$errors->first('title')}}</p>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="{{Request::old('title') }}"/>
-            <p class="text-danger">{{$errors->first('title')}}</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="email">Email<span class="require">*</label>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="email">Email<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{Request::old('email') }}"/>
+                <p class="text-danger" id="email_error">{{$errors->first('email')}}</p>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{Request::old('email') }}"/>
-            <p class="text-danger" id="email_error">{{$errors->first('email')}}</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="country">Country<span class="require">*</label>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="country">Country<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" name="country" id="country">
+                    <option value="" selected disabled>Select Country</option>
+                    @foreach($countries as $key=>$value)
+                        <option value="{{$key}}">{{$value}}</option>
+                    @endforeach
+                </select>
+                <p class="text-danger" id="country_error">{{$errors->first('country')}}</p>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <select class="form-control" name="country" id="country">
-                <option value="" selected disabled>Select Country</option>
-                @foreach($countries as $key=>$value)
-                    <option value="{{$key}}">{{$value}}</option>
-                @endforeach
-            </select>
-            <p class="text-danger" id="country_error">{{$errors->first('country')}}</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="where_work">Where you work<span class="require">*</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="where_work" name="where_work" placeholder="Enter where you work" value="{{Request::old('where_work') }}"/>
-            <p class="text-danger" id="where_work_error">{{$errors->first('where_work')}}</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="medical_specialities">Medication Specialities<span class="require">*</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medication Specialities" value="{{Request::old('medical_specialities') }}"/>
-            <p class="text-danger" id="medical_specialities_error">{{$errors->first('medical_specialities')}}</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="phone_no">Phone no<span class="require">*</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="phone_no" name="phone_no" placeholder="Enter Phone no" value="{{Request::old('phone_no') }}"/>
-            <p class="text-danger" id="phone_no_error">{{$errors->first('phone_no')}}</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="registration_category">Registration Category<span class="require">*</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <select class="form-control" name="registration_category" id="registration_category">
-                <option value="" selected disabled>Select Registration Category</option>
-                <option value="1">International Delegate</option>
-                <option value="2">Local Delegate</option>
-                <option value="3">Local Trainee</option>
-            </select>
-            <p class="text-danger" id="registration_category_error">{{$errors->first('registration_category')}}</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="payment_type">Payment Type<span class="require">*</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <select class="form-control" name="payment_type" id="payment_type">
-                <option value="" selected disabled>Select Payment Type</option>
-                <option value="1">Cash</option>
-                <option value="2">Bank Transfer</option>
-            </select>
-            <p class="text-danger" id="payment_type_error">{{$errors->first('payment_type')}}</p>
-        </div>
-    </div>
-
-    <div class="row">
-        {{--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">--}}
+        {{--<div class="row">--}}
+            {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
+                {{--<label for="where_work">Where you work<span class="require">*</span></label>--}}
+            {{--</div>--}}
+            {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
+                {{--<input type="text" class="form-control" id="where_work" name="where_work" placeholder="Enter where you work" value="{{Request::old('where_work') }}"/>--}}
+                {{--<p class="text-danger" id="where_work_error">{{$errors->first('where_work')}}</p>--}}
+            {{--</div>--}}
         {{--</div>--}}
-       <!--  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <input type="submit" name="submit" value="{{'ADD'}}" class="form-control btn-primary">
-        </div> -->
-        <!--  -->
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-            <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">
-                SUBMIT
-            </button>
-        </div>
-        <!--  -->
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <input type="reset" value="CANCEL" class="form-control cancel_btn button-type" onclick="">
-        </div>
-    </div>
-    {!! Form::close() !!}
-    </div>
 
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="medical_specialities">Medication Specialities<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" name="medical_specialities" id="medical_specialities" onchange="check_for_other();">
+                    @foreach($specialitiesArr as $key=>$specialities)
+                        @if($key == "main_speciality")
+                            @foreach($specialities as $mainSpeciality)
+                                <option value="{{$mainSpeciality->id}}">{{$mainSpeciality->name}}</option>
+                            @endforeach
+                        @else
+                            <optgroup label="{{$key}}">
+                                @foreach($specialities as $subSpeciality)
+                                    @if($subSpeciality->option_group_name == $key)
+                                        <option value="{{$subSpeciality->id}}" style="margin-left:20px;">{{$subSpeciality->name}}</option>
+                                    @endif
+                                @endforeach
+                            </optgroup>
+                        @endif
+                    @endforeach
+                    <option value="other">Other</option>
+                </select>
+                <p class="text-danger" id="medical_specialities_error">{{$errors->first('medical_specialities')}}</p>
+            </div>
+        </div>
+
+        <div class="other row" style="display: none;">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="other">Other Speciality<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{Request::old('other') }}"/>
+                <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="phone_no">Phone no<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="phone_no" name="phone_no" placeholder="Enter Phone no" value="{{Request::old('phone_no') }}"/>
+                <p class="text-danger" id="phone_no_error">{{$errors->first('phone_no')}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="registration_category">Registration Category<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" name="registration_category" id="registration_category">
+                    <option value="" selected disabled>Select Registration Category</option>
+                    <option value="1">International Delegate</option>
+                    <option value="2">Local Delegate</option>
+                    <option value="3">Local Trainee</option>
+                </select>
+                <p class="text-danger" id="registration_category_error">{{$errors->first('registration_category')}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <label for="payment_type">Payment Type<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <select class="form-control" name="payment_type" id="payment_type">
+                    <option value="" selected disabled>Select Payment Type</option>
+                    <option value="1">Cash</option>
+                    <option value="2">Bank Transfer</option>
+                </select>
+                <p class="text-danger" id="payment_type_error">{{$errors->first('payment_type')}}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            {{--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">--}}
+            {{--</div>--}}
+            <!--  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+            <input type="submit" name="submit" value="ADD" class="form-control btn-primary">
+        </div> -->
+            <!--  -->
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
+                <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">
+                    SUBMIT
+                </button>
+            </div>
+            <!--  -->
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <a href="/home/register"><button type="button" value="CANCEL" class="form-control cancel_btn button-type" onclick="">CANCEL</button></a>
+            </div>
+        </div>
+        {!! Form::close() !!}
+    </div>
 @stop
 
 
 @section('page_script')
     <script src="/assets/js/utils.js"></script>
     <script type="text/javascript">
+
+        $(document).ready(function() {
+            $(".other").hide();
+        });
 
         function pre_add_confirm_setup(){
 
@@ -244,18 +274,29 @@
                 valid = false;
             }
 
-            $("#where_work_error").text("");
-            var where_work = $("#where_work").val();
-            if(where_work == "" || where_work == "undefined"){
-                $("#where_work_error").text("Where You Work is required !");
-                valid = false;
-            }
+//            $("#where_work_error").text("");
+//            var where_work = $("#where_work").val();
+//            if(where_work == "" || where_work == "undefined"){
+//                $("#where_work_error").text("Where You Work is required !");
+//                valid = false;
+//            }
 
             $("#medical_specialities_error").text("");
             var medical_specialities = $("#medical_specialities").val();
             if(medical_specialities == "" || medical_specialities == "undefined"){
                 $("#medical_specialities_error").text("Medical Specialities is required !");
                 valid = false;
+            }
+
+            //to check whether user selects "other" in medical specialities //if so, validate other text box
+            var other_flag = document.getElementById('medical_specialities').value;
+            if(other_flag == "other"){
+                $("#other_error").text("");
+                var other = $("#other").val();
+                if(other == "" || other == "undefined"){
+                    $("#other_error").text("Other Speciality Text is required !");
+                    valid = false;
+                }
             }
 
             $("#phone_no_error").text("");
@@ -279,11 +320,20 @@
                 valid = false;
             }
 
-
             if(valid == true){
                 add_confirm_setup('register');
             }
 
+        }
+
+        function check_for_other(){
+            var other_flag = document.getElementById('medical_specialities').value;
+            if(other_flag == "other"){
+                $(".other").show();
+            }
+            else{
+                $(".other").hide();
+            }
         }
 
     </script>

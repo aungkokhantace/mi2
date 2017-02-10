@@ -54,6 +54,11 @@ class MenudetailController extends Controller
         $menuDetailRepo = new MenuDetailRepository();
         $menudetails    = $menuDetailRepo->getObjs();
 
+        foreach($menudetails as $detail){
+            $menu_name = $menuRepo->getObjByID($detail->menu_id);
+            $detail->menu_name = $menu_name->name;
+        }
+
         $pageRepo  = new PageRepository();
         $pages     = $pageRepo->getPages();
 
@@ -107,7 +112,15 @@ class MenudetailController extends Controller
             $menuDetailRepo = new MenuDetailRepository();
             $menudetails    = $menuDetailRepo->getObjs();
 
-            return view('backend.menudetail.menudetail')->with('menudetail', $menudetail)->with('menus', $menus )->with('menudetails', $menudetails );
+            foreach($menudetails as $detail){
+                $menu_name = $menuRepo->getObjByID($detail->menu_id);
+                $detail->menu_name = $menu_name->name;
+            }
+
+            $pageRepo  = new PageRepository();
+            $pages     = $pageRepo->getPages();
+
+            return view('backend.menudetail.menudetail')->with('menudetail', $menudetail)->with('menus', $menus )->with('menudetails', $menudetails)->with('pages', $pages);
         }
         return redirect('/');
     }

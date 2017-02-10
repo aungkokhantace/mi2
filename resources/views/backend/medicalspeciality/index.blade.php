@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title','Menu Detail')
+@section('title','Medical Speciality')
 @section('content')
 
         <!-- begin #content -->
-<div id="content" class="content" style="overflow: auto;">
+<div id="content" class="content">
 
-    <h1 class="page-header">Menu Detail List</h1>
+    <h1 class="page-header">Medical Speciality List</h1>
     @if(count(Session::get('message')) != 0)
         <div>
         </div>
@@ -15,13 +15,13 @@
         <div class="col-md-10"></div>
         <div class="col-md-2">
             <div class="buttons pull-right">
-                <button type="button" onclick='create_setup("menudetail");' class="btn btn-default btn-md first_btn">
+                <button type="button" onclick='create_setup("medicalspeciality");' class="btn btn-default btn-md first_btn">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
-                <button type="button" onclick='edit_setup("menudetail");' class="btn btn-default btn-md second_btn">
+                <button type="button" onclick='edit_setup("medicalspeciality");' class="btn btn-default btn-md second_btn">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>
-                <button type="button" onclick='delete_setup("menudetail");' class="btn btn-default btn-md third_btn">
+                <button type="button" onclick='delete_setup("medicalspeciality");' class="btn btn-default btn-md third_btn">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
             </div>
@@ -29,7 +29,7 @@
 
     </div>
 
-    {!! Form::open(array('id'=> 'frm_menudetail' ,'url' => 'backend/menudetail/destroy', 'class'=> 'form-horizontal user-form-border')) !!}
+    {!! Form::open(array('id'=> 'frm_medicalspeciality' ,'url' => 'backend/medicalspeciality/destroy', 'class'=> 'form-horizontal user-form-border')) !!}
     {{ csrf_field() }}
     <input type="hidden" id="selected_checkboxes" name="selected_checkboxes" value="">
     <div class="row">
@@ -42,44 +42,25 @@
                     <tr>
                         <th><input type='checkbox' name='check' id='check_all'/></th>
                         <th>Name</th>
-                        <th>Menu</th>
-                        <th>Page URL</th>
-                        <th>Menu Order</th>
-                        <th>Status</th>
-                        <th>Menu Group</th>
-                        <th>Menu Group Order</th>
-                        <th>Parent</th>
+                        <th>Option Group Name</th>
+                        <th>Description</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th></th>
                         <th class="search-col" con-id="name">Name</th>
-                        <th class="search-col" con-id="menu">Menu</th>
-                        <th class="search-col" con-id="page_url">Page URL</th>
-                        <th class="search-col" con-id="menu_order">Menu Order</th>
-                        <th class="search-col" con-id="status">Status</th>
-                        <th class="search-col" con-id="menu_group">Menu Group</th>
-                        <th class="search-col" con-id="menu_group_order">Menu Group Order</th>
-                        <th class="search-col" con-id="parent_id">Parent</th>
+                        <th class="search-col" con-id="option_group_name">Option Group Name</th>
+                        <th class="search-col" con-id="description">Description</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($menudetails as $menudetail)
+                    @foreach($medicalspecialities as $medicalspeciality)
                         <tr>
-                            <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $menudetail->id }}" id="all"></td>
-                            <td><a href="/backend/menudetail/edit/{{$menudetail->id}}">{{$menudetail->name}}</a></td>
-                            <td>{{$menudetail->menu->name}}</td>
-                            <td>{{$menudetail->page_url}}</td>
-                            <td>{{$menudetail->menu_order}}</td>
-                            <td>{{$menudetail->status}}</td>
-                            <td>{{$menudetail->menu_group}}</td>
-                            <td>{{$menudetail->menu_group_order}}</td>
-                            @if($menudetail->parent_id == 0)
-                                <td>None</td>
-                            @else
-                                <td>{{$menudetail->parent->name}}</td>
-                            @endif
+                            <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $medicalspeciality->id }}" id="all"></td>
+                            <td><a href="/backend/medicalspeciality/edit/{{$medicalspeciality->id}}">{{$medicalspeciality->name}}</a></td>
+                            <td>{{$medicalspeciality->option_group_name}}</td>
+                            <td>{{$medicalspeciality->description}}</td>
                         </tr>
                     @endforeach
                     </tbody>

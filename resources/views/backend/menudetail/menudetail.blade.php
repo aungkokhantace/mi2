@@ -179,15 +179,15 @@
                     <option value="0">None</option>
                     @foreach($menudetails as $detail)
                         @if($detail->id == $menudetail->parent_id)
-                            <option value="{{$detail->id}}" selected>{{$detail->name}}</option>
+                            <option value="{{$detail->id}}" selected>{{$detail->name}} ({{$detail->menu_name}})</option>
                         @else
-                            <option value="{{$detail->id}}">{{$detail->name}}</option>
+                            <option value="{{$detail->id}}">{{$detail->name}} ({{$detail->menu_name}})</option>
                         @endif
                     @endforeach
                 @else
                     <option value="0">None</option>
                     @foreach($menudetails as $detail)
-                        <option value="{{$detail->id}}">{{$detail->name}}</option>
+                        <option value="{{$detail->id}}">{{$detail->name}} ({{$detail->menu_name}})</option>
                     @endforeach
                 @endif
             </select>

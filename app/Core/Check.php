@@ -7,6 +7,7 @@
  */
 use App\Backend\Menu\MenuRepository;
 use App\Backend\Menudetail\MenudetailRepository;
+use App\Backend\Page\PageRepository;
 use App\Core\Config\ConfigRepository;
 use Validator;
 use Auth;
@@ -193,6 +194,7 @@ class Check
         $children   = $menuDetailRepo->getChildrenByMenuType(3); //3 is for side menu
         $result = $parents;
         foreach($result as $k=>$v){
+            $result[$k]->url    = $v->page->url;
             $subresult = Check::categoriesTree($result[$k]);
             $result[$k]->subCategories=$subresult;
         }
@@ -220,6 +222,10 @@ class Check
         $menuDetailRepo = new MenuDetailRepository();
         $sresult = $menuDetailRepo->getChildrenByID($id);
         foreach($sresult as $k=>$v){
+            $pageRepo  = new PageRepository();
+            $url       = $pageRepo->getURLByPageID($v->page_id);
+            $sresult[$k]->url = $url;
+
             $subresult = Check::categoriesTree($sresult[$k]);
             $sresult[$k]->subCategories= $subresult;
         }

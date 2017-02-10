@@ -19,16 +19,16 @@ Route::group(['middleware' => 'web'], function () {
         // event_exhibitor_info
         // event_conference_info
         // event_other_info
-        Route::get('event/exhibitor', array('as'=>'event/call','uses'=>'Frontend\HomeController@exhibitor'));
-        Route::get('event/conference', array('as'=>'event/conference','uses'=>'Frontend\HomeController@conference'));
-        Route::get('event/other', array('as'=>'event/other','uses'=>'Frontend\HomeController@other'));
+//        Route::get('event/exhibitor', array('as'=>'event/call','uses'=>'Frontend\HomeController@exhibitor'));
+//        Route::get('event/conference', array('as'=>'event/conference','uses'=>'Frontend\HomeController@conference'));
+//        Route::get('event/other', array('as'=>'event/other','uses'=>'Frontend\HomeController@other'));
 
         //frontend pages with new routes
-        Route::get('home/register',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
-        Route::get('home/abstract', array('as'=>'abstractform/call','uses'=>'Frontend\AbstractformController@call'));
-        Route::get('home/exhibitor', array('as'=>'event/call','uses'=>'Frontend\HomeController@exhibitor'));
-        Route::get('home/conference', array('as'=>'event/conference','uses'=>'Frontend\HomeController@conference'));
-        Route::get('home/other', array('as'=>'event/other','uses'=>'Frontend\HomeController@other'));
+        Route::get('home/register',  array('as'=>'home/register','uses'=>'Frontend\RegisterController@call'));
+        Route::get('home/abstract', array('as'=>'home/abstract','uses'=>'Frontend\AbstractformController@call'));
+        Route::get('home/exhibitor', array('as'=>'home/exhibitor','uses'=>'Frontend\HomeController@exhibitor'));
+        Route::get('home/conference', array('as'=>'home/conference','uses'=>'Frontend\HomeController@conference'));
+        Route::get('home/other', array('as'=>'home/other','uses'=>'Frontend\HomeController@other'));
 
         Route::get('comingsoon', array('as'=>'event/other','uses'=>'Frontend\HomeController@comingsoon'));
 
@@ -68,7 +68,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'Frontend\HomeController@index');
     Route::get('/testpage', 'Frontend\HomeController@test');
 
-    Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
+//    Route::get('register/create',  array('as'=>'register/create','uses'=>'Frontend\RegisterController@create'));
     Route::post('register/store', array('as'=>'register/store','uses'=>'Frontend\RegisterController@store'));
 
     //Event ( Abstarct Form )
@@ -212,6 +212,14 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('eventemail/store', array('as'=>'backend/eventemail/store','uses'=>'Backend\EventEmailController@store'));
                 Route::post('eventemail/update', array('as'=>'backend/eventemail/update','uses'=>'Backend\EventEmailController@update'));
                 Route::post('eventemail/destroy', array('as'=>'backend/eventemail/destroy','uses'=>'Backend\EventEmailController@destroy'));
+
+                //Medical Specialities
+                Route::get('medicalspeciality', array('as'=>'backend/medicalspeciality','uses'=>'Backend\MedicalSpecialityController@index'));
+                Route::get('medicalspeciality/create', array('as'=>'backend/medicalspeciality/create','uses'=>'Backend\MedicalSpecialityController@create'));
+                Route::post('medicalspeciality/store', array('as'=>'backend/medicalspeciality/store','uses'=>'Backend\MedicalSpecialityController@store'));
+                Route::get('medicalspeciality/edit/{id}', array('as'=>'backend/medicalspeciality/edit','uses'=>'Backend\MedicalSpecialityController@edit'));
+                Route::post('medicalspeciality/update', array('as'=>'backend/medicalspeciality/update','uses'=>'Backend\MedicalSpecialityController@update'));
+                Route::post('medicalspeciality/destroy', array('as'=>'backend/medicalspeciality/destroy','uses'=>'Backend\MedicalSpecialityController@destroy'));
             });
 
         });

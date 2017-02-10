@@ -23,6 +23,7 @@ class CreatePagesTable extends Migration
             $table->integer('page_menu_order');
             $table->integer('events_id');
             $table->integer('templates_id');
+            $table->tinyInteger('allow_edit');
 
             //Common to all table ----------------------------------------------
             $table->string('created_by',100)->nullable();

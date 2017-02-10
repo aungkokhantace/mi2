@@ -11,9 +11,12 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Backend\Menu\MenuRepository;
 use App\Backend\Menudetail\MenudetailRepository;
+use App\Backend\Page\PageRepository;
+use App\Backend\Post\PostRepository;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Redirect;
 
 class HomeController extends Controller
@@ -22,9 +25,18 @@ class HomeController extends Controller
     {
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        return view('frontend.home');
+        $url = Route::getCurrentRoute()->getPath();
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.home')->with('page',$page)->with('posts',$posts);
     }
 
     public function test(Request $request)
@@ -43,19 +55,48 @@ class HomeController extends Controller
         return $sresult;
     }
 
-    public function exhibitor(Request $request)
+    public function exhibitor()
     {
-        return view('frontend.event.event_exhibitor_info');
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.event.event_exhibitor_info')->with('page',$page)->with('posts',$posts);
     }
 
-    public function conference(Request $request)
+    public function conference()
     {
-        return view('frontend.event.event_conference_info');
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts);
     }
 
-    public function other(Request $request)
+    public function other()
     {
-        return view('frontend.event.event_other_info');
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.event.event_other_info')->with('page',$page)->with('posts',$posts);
     }
 
     public function comingsoon(Request $request)

@@ -11,9 +11,9 @@
         <div class="col-md-10"></div>
         <div class="col-md-2 pull-right">
             <div class="buttons pull-right">
-                <button type="button" onclick='create_setup("page");' class="btn btn-default btn-md first_btn">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
+                {{--<button type="button" onclick='create_setup("page");' class="btn btn-default btn-md first_btn">--}}
+                    {{--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>--}}
+                {{--</button>--}}
                 <button type="button" onclick='edit_setup("page");' class="btn btn-default btn-md second_btn">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>
@@ -47,6 +47,7 @@
                         <th>Page Menu Order</th>
                         <th>Event</th>
                         <th>Template</th>
+                        <th>Allow Edit</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -61,7 +62,7 @@
                         <th class="search-col" con-id="page_menu_order">Page Menu Order</th>
                         <th class="search-col" con-id="events_id">Event</th>
                         <th class="search-col" con-id="templates_id">Template</th>
-                        <th></th>
+                        <th class="search-col" con-id="allow_edit">Allow Edit</th>
                     </tr>
                     </tfoot>
                     <tbody>
@@ -77,6 +78,7 @@
                             <td>{{$page->page_menu_order}}</td>
                             <td>{{$page->event->name}}</td>
                             <td>{{$page->template->name}}</td>
+                            <td>{{$page->allow_edit}}</td>
                         </tr>
                     @endforeach
                     </tbody>

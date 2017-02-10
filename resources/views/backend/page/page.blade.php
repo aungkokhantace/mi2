@@ -14,6 +14,8 @@
         {!! Form::open(array('url' => 'backend/page/store', 'class'=> 'form-horizontal user-form-border', 'id' => 'pageForm')) !!}
     @endif
     <input type="hidden" name="id" value="{{isset($pages)? $pages->id:''}}"/>
+
+    <input type="hidden" name="allow_edit" id="allow_edit" value="{{isset($pages)? $pages->allow_edit:''}}"/>
     <br/>
 
     <div class="row">
@@ -40,19 +42,20 @@
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="content">Content</label>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="content" name="content" placeholder="Enter Page Content" value="{{ isset($pages)? $pages->content:Request::old('content') }}"/>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            {{--<input type="text" class="form-control" id="content" name="content" placeholder="Enter Page Content" value="{{ isset($pages)? $pages->content:Request::old('content') }}"/>--}}
+            <textarea class="form-control" id="page_content" name="content" placeholder="Enter Page Content" rows="5" cols="50">{{ isset($pages)? $pages->content:Request::old('content') }}</textarea>
             <p class="text-danger">{{$errors->first('content')}}</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="status">Status</label>
+            <label for="status">Active</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             
-            @if(isset($pages) && $pages->status == "Active" )            
+            @if(isset($pages) && $pages->status == "active" )
                 <input name="status" type="checkbox" checked="">
             @else
                 <input name="status" type="checkbox">
@@ -86,7 +89,23 @@
             <label for="page_menu_order">Page Menu Order<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="page_menu_order" name="page_menu_order" placeholder="Enter Page Menu Order" value="{{ isset($pages)? $pages->page_menu_order:Request::old('page_menu_order') }}"/>
+            {{--<input type="text" class="form-control" id="page_menu_order" name="page_menu_order" placeholder="Enter Page Menu Order" value="{{ isset($pages)? $pages->page_menu_order:Request::old('page_menu_order') }}"/>--}}
+            <select class="form-control" name="page_menu_order" id="page_menu_order">
+                @if(isset($pages))
+                    @for ($i = 1; $i <= 100; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                        @if($i == $pages->page_menu_order)
+                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                        @else
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endif
+                    @endfor
+                @else
+                    @for ($i = 1; $i <= 100; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                @endif
+            </select>
             <p class="text-danger">{{$errors->first('page_menu_order')}}</p>
         </div>
     </div>
@@ -144,6 +163,20 @@
     </div>
 
     <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="status">Allow Edit</label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            @if(isset($pages) && $pages->allow_edit == 1 )
+                <input name="allow_edit" type="checkbox" checked="">
+            @else
+                <input name="allow_edit" type="checkbox">
+            @endif
+
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
@@ -187,6 +220,35 @@
 
             //For checkbox picker
             $(':checkbox').checkboxpicker();
+
+            //For Text Editor
+            $('#page_content').summernote({
+                height:400,
+//                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather'],
+//                toolbar: [
+//                    // [groupName, [list of button]]
+//                    ['style', ['bold', 'italic', 'underline', 'clear']],
+//                    ['font', ['strikethrough', 'superscript', 'subscript']],
+//                    ['fontsize', ['fontsize']],
+//                    ['color', ['color']],
+//                    ['para', ['ul', 'ol', 'paragraph']],
+//                    ['height', ['height']]
+//                ]
+            });
+
+            var editable_flag = document.getElementById('allow_edit').value;
+
+            // To disable
+            if(editable_flag == 0){
+                $('#page_content').summernote('disable');
+            }
+
+            // param {String} fontName
+            $('#page_content').summernote('fontName', 'Zawgyi-One');
+
+            // param {Number} font size - unit is px
+            $('#page_content').summernote('fontSize', 11);
+
         });
     </script>
 @stop

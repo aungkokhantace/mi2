@@ -1,5 +1,5 @@
 @extends('layouts_frontend.master_frontend')
-@section('title','Abstract')
+@section('title','Register')
 @section('content')
         <!-- Right section -->
     <div class="col-md-9 right">
