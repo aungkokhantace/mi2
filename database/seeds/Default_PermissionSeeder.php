@@ -161,6 +161,14 @@ class Default_PermissionSeeder extends Seeder
 
             //Abstract Email Body
             ['id'=>165,'module'=>'Abstract Email','name'=>'View','description'=>'Abstract Email Update','url'=>'backend/abstractemail'],
+
+            //Medical Specialities
+            ['id'=>170,'module'=>'Medical Speciality','name'=>'Listing','description'=>'Medical Speciality Listing','url'=>'backend/medicalspeciality'],
+            ['id'=>171,'module'=>'Medical Speciality','name'=>'Create','description'=>'Medical Speciality Create','url'=>'backend/medicalspeciality/create'],
+            ['id'=>172,'module'=>'Medical Speciality','name'=>'Store','description'=>'Medical Speciality Store','url'=>'backend/medicalspeciality/store'],
+            ['id'=>173,'module'=>'Medical Speciality','name'=>'Edit','description'=>'Medical Speciality Edit','url'=>'backend/medicalspeciality/edit'],
+            ['id'=>174,'module'=>'Medical Speciality','name'=>'Update','description'=>'Medical Speciality Update','url'=>'backend/medicalspeciality/update'],
+            ['id'=>175,'module'=>'Medical Speciality','name'=>'Destroy','description'=>'Medical Speciality Destroy','url'=>'backend/medicalspeciality/destroy'],
         );
 
 

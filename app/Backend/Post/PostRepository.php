@@ -75,4 +75,12 @@ class PostRepository implements PostRepositoryInterface
         $post = Post::find($id);
         return $post;
     }
+
+    public function getObjByPage($page_id)
+    {
+        $posts = Post::whereNull('deleted_at')
+            ->where('pages_id','=',$page_id)
+            ->get();
+        return $posts;
+    }
 }

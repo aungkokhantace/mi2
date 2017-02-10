@@ -1,6 +1,9 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 
+use App\Backend\MedicalSpeciality\MedicalSpecialityRepository;
+use App\Backend\Page\PageRepository;
+use App\Backend\Post\PostRepository;
 use App\Backend\Register\AppRegister;
 use App\Backend\Permission\Permission;
 use App\Session;
@@ -17,6 +20,7 @@ use App\Backend\Register\RegisterRepository;
 use App\Backend\Infrastructure\Forms\RegisterEntryRequest;
 use App\Backend\Infrastructure\Forms\EventEditRequest;
 use App\Core\Utility;
+use Illuminate\Support\Facades\Route;
 
 class RegisterController extends Controller
 {   
@@ -25,13 +29,50 @@ class RegisterController extends Controller
     {        
     }
 
-     public function create(){
-            $countries = Utility::getSettingsByType("COUNTRY");
-            return view('frontend.register.register_frontend')->with('countries', $countries);   
+    public function call()
+    {
+        $countries = Utility::getSettingsByType("COUNTRY");
+
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.register.register_call')->with('countries', $countries)->with('page', $page)->with('posts', $posts);
     }
 
+     public function create(){
+        $countries = Utility::getSettingsByType("COUNTRY");
+
+         $medicalspecialityRepo = new MedicalSpecialityRepository();
+         $medicalspecialities   = $medicalspecialityRepo->getObjs();
+
+         $specialitiesArr = array();
+         foreach($medicalspecialities as $k=>$medicalspeciality){
+//             if(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name == null){
+             if($medicalspeciality->option_group_name == null){
+                 $specialitiesArr["main_speciality"][$k] = $medicalspeciality;
+             }
+             elseif(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name != null){
+                 $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
+             }
+         }
+
+//         $url = Route::getCurrentRoute()->getPath();
+//         $pageRepo = new PageRepository();
+//         $page_id  = $pageRepo->getPageIDByURL($url);
+//         $page = $pageRepo->getObjByID($page_id);
+        return view('frontend.register.register_frontend')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
+    }
+
+
     public function store(RegisterEntryRequest $request)
-        {   $registerRepo = new RegisterRepository();
+        {
+            $registerRepo = new RegisterRepository();
             $request->validate();
             $first_name           = Input::get('first_name');
             $middle_name          = Input::get('middle_name');
@@ -39,8 +80,16 @@ class RegisterController extends Controller
             $title                = Input::get('title');
             $email                = Input::get('email');
             $country              = Input::get('country');  
-            $where_work           = Input::get('where_work');
+//            $where_work           = Input::get('where_work');
             $medical_specialities = Input::get('medical_specialities');
+            if($medical_specialities == "other"){
+                $medical_specialities = 0;
+                $other_specialities  = Input::get('other');
+            }
+            else{
+                $other_specialities  = null;
+            }
+
             $phone_no             = Input::get('phone_no');
             $registration_category= Input::get('registration_category');
             $payment_type         = Input::get('payment_type');
@@ -53,16 +102,16 @@ class RegisterController extends Controller
             $register->title = $title;
             $register->email = $email;
             $register->country = $country;
-            $register->where_work = $where_work;
-            $register->medical_specialities = $medical_specialities;
+//            $register->where_work = $where_work;
+            $register->medical_speciality_id = $medical_specialities;
+            $register->medical_speciality_other = $other_specialities;
             $register->phone_no = $phone_no;
             $register->registration_category = $registration_category;
             $register->payment_type = $payment_type;
             $register->status = "pending";
             $register->registered_date = $registered_date;
 
-
-            $result = $registerRepo->create($register);
+            $registerRepo->create($register);
             alert()->success('Registration successfully created. ')->persistent('OK');
             return redirect()->action('Frontend\RegisterController@create');
         }

@@ -20,8 +20,9 @@ class CreateEventRegistrationsTable extends Migration
             $table->string('title');
             $table->string('email');
             $table->integer('country');
-            $table->text('where_work');
-            $table->string('medical_specialities');
+            $table->text('where_work')->nullable();
+            $table->integer('medical_speciality_id')->default(0);
+            $table->text('medical_speciality_other')->nullable();
             $table->string('phone_no');
             $table->integer('registration_category');
             $table->string('payment_type');

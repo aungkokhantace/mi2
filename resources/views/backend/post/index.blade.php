@@ -38,7 +38,7 @@
 
     </div>
 
-    {!! Form::open(array('id'=> 'frm_post' ,'url' => 'post/destroy', 'class'=> 'form-horizontal user-form-border')) !!}
+    {!! Form::open(array('id'=> 'frm_post' ,'url' => '/backend/post/destroy', 'class'=> 'form-horizontal user-form-border')) !!}
     {{ csrf_field() }}
     <input type="hidden" id="selected_checkboxes" name="selected_checkboxes" value="">
     <div class="row">
@@ -63,16 +63,28 @@
                     <tfoot>
                     <tr>
                         <th></th>
+                        <th class="search-col" con-id="name">Name</th>
+                        <th class="search-col" con-id="description">Description</th>
                         <th class="search-col" con-id="title">Title</th>
-                        <th class="search-col" con-id="detail">Detail</th>
+                        <th class="search-col" con-id="content">Content</th>
+                        <th class="search-col" con-id="status">Status</th>
+                        <th class="search-col" con-id="url">URL</th>
+                        <th class="search-col" con-id="post_order">Post Order</th>
+                        <th class="search-col" con-id="pages_id">Page</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     @foreach($posts as $post)
                         <tr>
                             <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $post->id }}" id="all"></td>
-                            <td><a href="/post/edit/{{$post->id}}">{{$post->title}}</a></td>
-                            <td>{{$post->detail}}</td>
+                            <td><a href="/backend/post/edit/{{$post->id}}">{{$post->name}}</a></td>
+                            <td>{{$post->description}}</td>
+                            <td>{{$post->title}}</td>
+                            <td>{{$post->content}}</td>
+                            <td>{{$post->status}}</td>
+                            <td>{{$post->url}}</td>
+                            <td>{{$post->post_order}}</td>
+                            <td>{{$post->page->name}}</td>
                         </tr>
                     @endforeach
                     </tbody>

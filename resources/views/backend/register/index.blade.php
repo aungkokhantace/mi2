@@ -42,7 +42,7 @@
                         <th>Title</th>
                         <th>Email</th>
                         <th>Country</th>
-                        <th>Where you work?</th>
+                        {{--<th>Where you work?</th>--}}
                         <th>Medication Specialities</th>
                         <th>Phone no</th>
                         <th>Registration Category</th>
@@ -60,7 +60,7 @@
                         <th class="search-col" con-id="title">Title</th>
                         <th class="search-col" con-id="email">Email</th>
                         <th class="search-col" con-id="country">Country</th>
-                        <th class="search-col" con-id="where_work">Where you work?</th>
+                        {{--<th class="search-col" con-id="where_work">Where you work?</th>--}}
                         <th class="search-col" con-id="medical_specialities">Medication Specialities</th>
                         <th class="search-col" con-id="phone_no">Phone No</th>
                         <th class="search-col" con-id="registration_category">Registration Category</th>
@@ -80,8 +80,8 @@
                             <td>{{$register->title}}</td>
                             <td>{{$register->email}}</td>
                             <td>{{$register->country_name}}</td>
-                            <td>{{$register->where_work}}</td>
-                            <td>{{$register->medical_specialities}}</td>
+                            {{--<td>{{$register->where_work}}</td>--}}
+                            <td>{{$register->medical_speciality_name}}</td>
                             <td>{{$register->phone_no}}</td>
                             <td>{{$register->registration_category}}</td>
                             <td>{{$register->payment_type}}</td>

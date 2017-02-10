@@ -71,22 +71,22 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="where_work">Where you work</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="where_work" name="where_work" placeholder="Enter where you work" value="{{ isset($register)? $register->where_work:Request::old('where_work') }}" readonly/>
-            <p class="text-danger">{{$errors->first('where_work')}}</p>
-        </div>
-    </div>
+    {{--<div class="row">--}}
+        {{--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">--}}
+            {{--<label for="where_work">Where you work</label>--}}
+        {{--</div>--}}
+        {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
+            {{--<input type="text" class="form-control" id="where_work" name="where_work" placeholder="Enter where you work" value="{{ isset($register)? $register->where_work:Request::old('where_work') }}" readonly/>--}}
+            {{--<p class="text-danger">{{$errors->first('where_work')}}</p>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="medical_specialities">Medication Specialities</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medication Specialities" value="{{ isset($register)? $register->medical_specialities:Request::old('medical_specialities') }}" readonly/>
+            <input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medication Specialities" value="{{ isset($register)? $register->medical_speciality_name:Request::old('medical_specialities') }}" readonly/>
             <p class="text-danger">{{$errors->first('medical_specialities')}}</p>
         </div>
     </div>

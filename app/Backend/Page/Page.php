@@ -47,5 +47,9 @@ class Page extends Model
     {
         return $this->hasOne('App\Backend\Event\Event');
     }
-    
+
+    public function post()
+    {
+        return $this->hasMany('App\Backend\Post\Post');
+    }
 }

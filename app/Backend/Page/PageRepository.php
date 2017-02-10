@@ -41,6 +41,20 @@ class PageRepository implements PageRepositoryInterface
         $page = DB::table('pages')->where('id',$id)->update(['deleted_at'=> date('Y-m-d H:m:i')]);
         return $page;
     }
+
+    public function getPageIDByURL($url){
+        if($url == "/"){
+            $url = "home";
+        }
+
+        $page_id = DB::table('pages')->where('url',$url)->whereNull('deleted_at')->first()->id;
+        return $page_id;
+    }
+
+    public function getURLByPageID($page_id){
+        $url = DB::table('pages')->where('id',$page_id)->whereNull('deleted_at')->first()->url;
+        return $url;
+    }
     
 
 

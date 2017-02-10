@@ -102,6 +102,17 @@
                         </ul>
                     </li>
 
+                    <li nav-id="modifier-create" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+                            <span>Medical Speciality</span>
+                        </a>
+
+                        <ul class="sub-menu">
+                            <li nav-id="modifier-manage-modifierpanel"><a href="/backend/medicalspeciality/create">Entry</a></li>
+                            <li nav-id="modifier-manage-modifierpanel"><a href="/backend/medicalspeciality">List</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
 
@@ -112,6 +123,7 @@
                     <span>Backend</span>
                 </a>
                 <ul class="sub-menu">
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-manage" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -123,6 +135,9 @@
                             <li nav-id="modifier-manage-modifierpanel"><a href="/backend/role">List</a></li>
                         </ul>
                     </li>
+                    @endif
+
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-manage" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -135,6 +150,8 @@
 
                         </ul>
                     </li>
+                    @endif
+
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>

@@ -20,6 +20,7 @@ class Default_RolePermissionSeeder extends Seeder
         DB::table('core_permission_role')->delete();
 
         $roles = array(
+//          start  role-permissions for super-administrator //developer account
             ['role_id'=>1, 'permission_id'=>1],
             ['role_id'=>1, 'permission_id'=>2],
             ['role_id'=>1, 'permission_id'=>3],
@@ -143,7 +144,16 @@ class Default_RolePermissionSeeder extends Seeder
 
             ['role_id'=>1, 'permission_id'=>165],
 
-//            role-permissions for administrator
+            ['role_id'=>1, 'permission_id'=>170],
+            ['role_id'=>1, 'permission_id'=>171],
+            ['role_id'=>1, 'permission_id'=>172],
+            ['role_id'=>1, 'permission_id'=>173],
+            ['role_id'=>1, 'permission_id'=>174],
+            ['role_id'=>1, 'permission_id'=>175],
+//          end  role-permissions for super-administrator //developer account
+
+
+//          start role-permissions for administrator //user account
             ['role_id'=>2, 'permission_id'=>1],
             ['role_id'=>2, 'permission_id'=>2],
             ['role_id'=>2, 'permission_id'=>3],
@@ -266,7 +276,14 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>2, 'permission_id'=>160],
 
             ['role_id'=>2, 'permission_id'=>165],
-//            role-permissions for administrator
+
+            ['role_id'=>2, 'permission_id'=>170],
+            ['role_id'=>2, 'permission_id'=>171],
+            ['role_id'=>2, 'permission_id'=>172],
+            ['role_id'=>2, 'permission_id'=>173],
+            ['role_id'=>2, 'permission_id'=>174],
+            ['role_id'=>2, 'permission_id'=>175],
+//           end role-permissions for administrator //user account
         );
 
         DB::table('core_permission_role')->insert($roles);

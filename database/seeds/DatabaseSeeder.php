@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
          $this->call(Default_TemplateSeeder::class);
          $this->call(Default_EventSeeder::class);
          $this->call(Default_PageSeeder::class);
+         $this->call(Default_PostSeeder::class);
+         $this->call(Default_MedicalSpecialitySeeder::class);
     }
 }

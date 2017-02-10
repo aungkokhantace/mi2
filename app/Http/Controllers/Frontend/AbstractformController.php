@@ -9,6 +9,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Backend\File\FileUploadDownloadRepository;
+use App\Backend\Page\PageRepository;
+use App\Backend\Post\PostRepository;
 use App\Core\FormatGenerator;
 use App\Core\ReturnMessage;
 use App\Http\Requests;
@@ -26,6 +28,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Core\Utility;
+use Illuminate\Support\Facades\Route;
 use Mail;
 
 class AbstractformController extends Controller
@@ -136,10 +139,21 @@ class AbstractformController extends Controller
         }
     }
 
-    public function call(Request $request)
+    public function call()
     {
         $countries = Utility::getSettingsByType("COUNTRY");
-        return view('frontend.abstractform.abstractform_call')->with('countries', $countries);
+
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.abstractform.abstractform_call')->with('countries', $countries)->with('page', $page)->with('posts', $posts);
     }
 
 }
