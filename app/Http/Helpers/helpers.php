@@ -104,7 +104,7 @@ if (! function_exists('generateSlider')) {
     function generateSlider() {
         echo '<!-- Carousel & header section -->';
         echo '<div class="slider-header slider-image col-md-2">';
-        echo '<img style="height:66px !important;" src="/images/slider_logo.png" alt="">';
+        echo '<img style="height:66px !important;" src="/images/Slider_logo.png" alt="">';
         echo '</div>';
         echo '<div class="slider-header col-md-10">';
         echo '18th Myanmar Internal Medicine Conference (MIMC) 2017'.'<br>';
@@ -137,6 +137,7 @@ if (! function_exists('generateSlider')) {
         echo '<img src="/images/slider3.jpg" alt="">';
         echo '<div class="carousel-caption">';
 //        echo 'Caption 3';
+        echo '</div>';
         echo '</div>';
         echo '</div>';
         echo '<!-- Controls -->';
