@@ -169,7 +169,6 @@ class PageController extends Controller
         $events_id          = Input::get('events_id');
         $templates_id       = Input::get('templates_id');
         $allow_edit         = Input::get('allow_edit');
-
         $page = Page::find($id);
         $original_content       = $page->content;
         $original_allow_edit    = $page->allow_edit;
@@ -195,9 +194,9 @@ class PageController extends Controller
             }
             $page->allow_edit     = $allow_edit;
 
-       /* //start saving image
+//        $content = htmlentities($content); //**** important....for special characters in $content to be used successfully in "loadHTML"
+        /*//start saving image
         $dom = new DomDocument();
-
         if(isset($content) && $content != ""){
             $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
@@ -231,10 +230,10 @@ class PageController extends Controller
 
                 } // <!--endif
             } // <!--endforeach
+            $page->content = $dom->saveHTML();
         }
 
-        $page->content = $dom->saveHTML();
-        //End saving image  */
+        //End saving image */
 
             $this->pageRepository->update($page);
             return redirect()->action('Backend\PageController@index');

@@ -222,18 +222,29 @@
             $(':checkbox').checkboxpicker();
 
             //For Text Editor
+//            $('#page_content').summernote({
+//                height:400
+//            });
+
             $('#page_content').summernote({
-                height:400,
-//                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather'],
-//                toolbar: [
-//                    // [groupName, [list of button]]
-//                    ['style', ['bold', 'italic', 'underline', 'clear']],
-//                    ['font', ['strikethrough', 'superscript', 'subscript']],
-//                    ['fontsize', ['fontsize']],
-//                    ['color', ['color']],
-//                    ['para', ['ul', 'ol', 'paragraph']],
-//                    ['height', ['height']]
-//                ]
+                height:300,
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['picture', ['picture']],
+                    ['link', ['link']],
+                    ['table', ['table']],
+                    ['hr', ['hr']],
+                    ['codeview', ['codeview']],
+                    ['undo', ['undo']],
+                    ['redo', ['redo']],
+                    ['help', ['help']],
+                ]
             });
 
             var editable_flag = document.getElementById('allow_edit').value;

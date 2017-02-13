@@ -36,8 +36,30 @@
 @section('page_script')
 <script>
     $(document).ready(function() {
+//        $('#description').summernote({
+//            fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
+//            height:300,
+//        });
+
         $('#description').summernote({
-            height:300
+            height:300,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['picture', ['picture']],
+                ['link', ['link']],
+                ['table', ['table']],
+                ['hr', ['hr']],
+                ['codeview', ['codeview']],
+                ['undo', ['undo']],
+                ['redo', ['redo']],
+                ['help', ['help']],
+            ]
         });
     });
 

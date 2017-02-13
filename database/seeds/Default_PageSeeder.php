@@ -30,22 +30,22 @@ class Default_PageSeeder extends Seeder
         ['id'=>9, 'name'=>'About Us','description'=>'About Us description', 'content' =>'About Us content', 'status' =>'active', 'url' =>'main_about_us', 'title' =>'About Us title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>0, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
         ['id'=>10, 'name'=>'Partner Website','description'=>'Partner Website description', 'content' =>'Partner Website content', 'status' =>'active', 'url' =>'main_partner_website', 'title' =>'Partner Website title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>0, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
         ['id'=>11, 'name'=>'Home','description'=>'Home description',
-            'content' =>'<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><b>WELCOME
+            'content' =>'<p class="MsoNormal"><span style="font-size: 11px;">﻿</span><span style="font-family:" zawgyi-one","sans-serif""=""><b>WELCOME
 ADDRESS</b><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">Dear
+<img src="/images/president_mi2.jpg" style="width: 219px;height:295px; float: right; padding-left:10px;"><p class="MsoNormal"></p><p class="MsoNormal" style="text-align: justify; "><span style="font-family:" zawgyi-one","sans-serif""="">Dear
 members of the AFIM and SEA Chapter of ACP<o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">It is my
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">It is my
 pleasure to inform that the 18<sup>th</sup> Medical Specialty Conference of the
 Internal Medicine Society of the Myanmar Medical Association will be held from
 29<sup>th</sup> September 2017 to 1<sup>st</sup> October 2017in conjunction
-with AFIM and ACP South East Chapter at Hotel Melia Yangon, Myanmar. <o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">It will
+with AFIM and ACP South East Chapter at Hotel Melia Yangon, Myanmar. <o:p></o:p></span></p><p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">It will
 feature lectures, academic symposia on internal medicine and various medical
 specialties by local and international speakers included those from AFIM
 countries and ACP and presentation of scientific papers and posters of local
-and regional researchers.<o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">Our
-vision of the Conference is “Broaden the Horizons by Harmonization”.<o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">As
+and regional researchers.<o:p></o:p></span></p><p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">Our
+vision of the Conference is “Broaden the Horizons by Harmonization”.<o:p></o:p></span></p><p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">As
 Myanmar is entering into a new chapter by actively involving in the
 international activities we are pleased to invite all the participants to
 experience the new development as well as already enriched Myanmar tradition
@@ -59,74 +59,71 @@ and culture.<o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:
 
 
 
-</p><p class="MsoNormal"><span style="font-family: Zawgyi-One, sans-serif; background: rgb(252, 252, 252);">Yours sincerely,<br>
-<br>
-Prof Myo Lwin Nyein<br>
-Chairperson<br>
-Organizing Committee, MIMC 2017</span><span style="font-family:" zawgyi-one","sans-serif";="" color:#2f3652;background:#fcfcfc"=""></span></p>
+</p><p class="MsoNormal"></p><div style="text-align: justify;"><span style="background-color: rgb(252, 252, 252); font-family: Zawgyi-One, sans-serif;">Yours sincerely,</span></div><span style="background: rgb(252, 252, 252);"><div style="text-align: justify;"><font face="Zawgyi-One, sans-serif"><br></font></div>
+<font face="Zawgyi-One, sans-serif"><div style="text-align: justify;">Prof Myo Lwin Nyein</div></font><font face="Zawgyi-One, sans-serif"><div style="text-align: justify;">Chairperson</div></font><font face="Zawgyi-One, sans-serif"><div style="text-align: justify;">Organizing Committee, MIMC 2017</div></font></span><span style="font-family:" zawgyi-one","sans-serif";="" color:#2f3652;background:#fcfcfc"=""></span><p></p>
 
 <p class="MsoNormal"><span style="font-size:14.0pt;line-height:107%;font-family:
-" times="" new="" roman","serif";mso-bidi-font-family:"times="" roman";mso-bidi-theme-font:="" minor-bidi;mso-no-proof:yes"=""></span></p><p class="MsoNormal"><b><span style="font-size:14.0pt;line-height:107%;font-family:
+" times="" new="" roman","serif";mso-bidi-font-family:"times="" roman";mso-bidi-theme-font:="" minor-bidi;mso-no-proof:yes"=""></span></p><p class="MsoNormal" style="text-align: justify;"><b><span style="font-size:14.0pt;line-height:107%;font-family:
 " times="" new="" roman","serif";mso-bidi-font-family:"times="" roman";mso-bidi-theme-font:="" minor-bidi"=""></span><span style="font-family: Zawgyi-One, sans-serif;">MISSION
 STATEMENT</span><span style="font-family: Zawgyi-One, sans-serif;"></span></b></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">(The 18<sup>TH</sup>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">(The 18<sup>TH</sup>
 Myanmar Internal Medicine Conference(MIMC) in conjunction with 4<sup>th</sup>
 AFIM Congress and ACP South East Asian Chapter meeting)<o:p></o:p></span></p>
 
 <p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><b>OUR
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""=""><b>OUR
 VISION</b><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">To
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">To
 broaden the horizons by harmonization</span></p><p class="MsoNormal"></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><b>OUR
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""=""><b>OUR
 MISSION</b><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">To
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">To
 maintain the professional and academic standard of the Myanmar Internal
 Medicine Society (IMS)<o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">To
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">To
 extend the professional arena of the IMS to regional and international level.<o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">To be an
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">To be an
 active member of the AFIM and South East Asia Chapter of ACP.<o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">To
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">To
 promote the AFIM to a stronger professional organization by harmonization
 between the member associations.<o:p></o:p></span></p>
 
 <p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Venue</b><o:p></o:p></span></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Venue</b><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">Melia
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">Melia
 Hotel, Yangon<o:p></o:p></span></p>
 
 <p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Date</b><o:p></o:p></span></p>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Date</b><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">29<sup>th</sup>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">29<sup>th</sup>
 September to 1<sup>st</sup> October, 2017<o:p></o:p></span></p>
 
 <p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Early
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Early
 Registration Deadline</b><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">31<sup>st</sup>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">31<sup>st</sup>
 March 2017<o:p></o:p></span></p>
 
 <p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Abstract
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""=""><b>Abstract
 Submission Deadline</b><o:p></o:p></span></p>
 
-<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">30<sup>th</sup>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">30<sup>th</sup>
 April 2017</span></p>',
             'status' =>'active', 'url' =>'home', 'title' =>'Home title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
