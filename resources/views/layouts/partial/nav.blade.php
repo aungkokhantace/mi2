@@ -56,6 +56,7 @@
                     <span>Frontend</span>
                 </a>
                 <ul class="sub-menu">
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-manage" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -67,6 +68,8 @@
                             <li nav-id="menu-list"><a href="/backend/menu">List</a></li>
                         </ul>
                     </li>
+                    @endif
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-manage" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -79,6 +82,8 @@
 
                         </ul>
                     </li>
+                    @endif
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -90,6 +95,8 @@
                             <li nav-id="menu-list"><a href="/backend/template">List</a></li>
                         </ul>
                     </li>
+                    @endif
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -101,7 +108,7 @@
                             <li nav-id="modifier-manage-modifierpanel"><a href="/backend/templateslider">List</a></li>
                         </ul>
                     </li>
-
+                    @endif
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -169,6 +176,7 @@
                             <span>Site Config</span>
                         </a>
                     </li>
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -181,6 +189,8 @@
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/event">List</a></li>
                         </ul>
                     </li>
+                    @endif
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -193,6 +203,8 @@
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/page">List</a></li>
                         </ul>
                     </li>
+                    @endif
+                    @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -205,6 +217,7 @@
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/post">List</a></li>
                         </ul>
                     </li>
+                    @endif
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>

@@ -10,7 +10,7 @@ $footerMenus = \App\Core\Check::getFooterMenus();
 
         <!-- Footer -->
 <footer>
-    <div class="container">
+    <div class="container footer-container">
         <div class="row">
             <div class="col-lg-12">
                 <p>Copyright &copy; IMS All Right Reserved 2017</p>

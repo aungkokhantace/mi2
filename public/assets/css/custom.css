@@ -146,4 +146,21 @@ p .MsoNormal{
     background-color: #f7f8f9 !important;
     color:black !important;
 }
+
+.list-group.panel > .list-group-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e0d1d1 !important;
+    border-bottom-right-radius:0px !important;
+    border-bottom-left-radius:0px !important;
+}
+
+.list-group.panel{
+    border-bottom: 0px !important;
+}
 /*for multilevel sidebar*/
+
+.footer-menu{
+    width: 100% !important;
+}
+
