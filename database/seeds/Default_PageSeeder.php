@@ -67,7 +67,7 @@ and culture.<o:p></o:p></span></p><p class="MsoNormal"><span style="font-family:
 " times="" new="" roman","serif";mso-bidi-font-family:"times="" roman";mso-bidi-theme-font:="" minor-bidi"=""></span><span style="font-family: Zawgyi-One, sans-serif;">MISSION
 STATEMENT</span><span style="font-family: Zawgyi-One, sans-serif;"></span></b></p>
 
-<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">(The 18<sup>TH</sup>
+<p class="MsoNormal" style="text-align: justify;"><span style="font-family:" zawgyi-one","sans-serif""="">(The 18<sup>th</sup>
 Myanmar Internal Medicine Conference(MIMC) in conjunction with 4<sup>th</sup>
 AFIM Congress and ACP South East Asian Chapter meeting)<o:p></o:p></span></p>
 
