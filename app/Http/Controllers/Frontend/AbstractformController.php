@@ -128,7 +128,7 @@ class AbstractformController extends Controller
         $abstractform->registered_date       = $registered_date;
 
         $result = $this->abstractformRepository->create($abstractform);
-        dd($result);
+        
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
             $attach = $abstractform->abstract_file_path;
             $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
