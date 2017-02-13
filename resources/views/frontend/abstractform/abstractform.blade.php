@@ -128,7 +128,7 @@
     <div class="row entry_row">
         {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
         {{--</div>--}}
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2"  style="margin-right:10px;">
             {{--<button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">--}}
                 {{--SUBMIT--}}
             {{--</button>--}}
