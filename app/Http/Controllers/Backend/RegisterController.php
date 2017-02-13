@@ -127,14 +127,14 @@ class RegisterController extends Controller
 
             $specialitiesArr = array();
             foreach($medicalspecialities as $k=>$medicalspeciality){
-                if(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name == null){
+                if($medicalspeciality->option_group_name == null){
                     $specialitiesArr["main_speciality"][$k] = $medicalspeciality;
                 }
                 elseif(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name != null){
                     $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
                 }
             }
-//            dd($registers);
+
             return view('backend.register.register_backend')->with('countries', $countries)->with('registers', $registers)->with('specialitiesArr', $specialitiesArr);
             return redirect('/login');
     }

@@ -86,15 +86,97 @@
         </div>
     </div>
 
+    {{--<div class="row">--}}
+        {{--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">--}}
+            {{--<label for="medical_specialities">Medication Specialities</label>--}}
+        {{--</div>--}}
+        {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
+            {{--<input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medical Specialities" value="{{ isset($abstractforms)? $abstractforms->medical_specialities:Request::old('medical_specialities') }}"/>--}}
+            {{--<p class="text-danger">{{$errors->first('medical_specialities')}}</p>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="medical_specialities">Medication Specialities</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medical Specialities" value="{{ isset($abstractforms)? $abstractforms->medical_specialities:Request::old('medical_specialities') }}"/>
+            {{--<input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medication Specialities" value="{{ isset($abstractforms)? $abstractforms->medical_specialities:Request::old('medical_specialities') }}"/>--}}
+            @if(isset($abstractforms))
+                <select class="form-control" name="medical_specialities" id="medical_specialities" onchange="check_for_other();">
+                    @foreach($specialitiesArr as $key=>$specialities)
+                        @if($key == "main_speciality")
+                            @foreach($specialities as $mainSpeciality)
+                                @if($mainSpeciality->id == $abstractforms->medical_speciality_id)
+                                    <option value="{{$mainSpeciality->id}}" selected>{{$mainSpeciality->name}}</option>
+                                @else
+                                    <option value="{{$mainSpeciality->id}}">{{$mainSpeciality->name}}</option>
+                                @endif
+                            @endforeach
+                        @else
+                            <optgroup label="{{$key}}">
+                                @foreach($specialities as $subSpeciality)
+                                    @if($subSpeciality->option_group_name == $key)
+                                        @if($subSpeciality->id == $abstractforms->medical_speciality_id)
+                                            <option value="{{$subSpeciality->id}}" selected style="margin-left:20px;">{{$subSpeciality->name}}</option>
+                                        @else
+                                            <option value="{{$subSpeciality->id}}" style="margin-left:20px;">{{$subSpeciality->name}}</option>
+                                        @endif
+                                    @endif
+                                @endforeach
+                            </optgroup>
+                        @endif
+                    @endforeach
+                    @if($abstractforms->medical_speciality_id == "0")
+                        <option value="other" selected>Other</option>
+                    @else
+                        <option value="other">Other</option>
+                    @endif
+                </select>
+            @else
+                <select class="form-control" name="medical_specialities" id="medical_specialities" onchange="check_for_other();">
+                    @foreach($specialitiesArr as $key=>$specialities)
+                        @if($key == "main_speciality")
+                            @foreach($specialities as $mainSpeciality)
+                                <option value="{{$mainSpeciality->id}}">{{$mainSpeciality->name}}</option>
+                            @endforeach
+                        @else
+                            <optgroup label="{{$key}}">
+                                @foreach($specialities as $subSpeciality)
+                                    @if($subSpeciality->option_group_name == $key)
+                                        <option value="{{$subSpeciality->id}}" style="margin-left:20px;">{{$subSpeciality->name}}</option>
+                                    @endif
+                                @endforeach
+                            </optgroup>
+                        @endif
+                    @endforeach
+                    <option value="other">Other</option>
+                </select>
+            @endif
             <p class="text-danger">{{$errors->first('medical_specialities')}}</p>
         </div>
     </div>
+
+    @if(isset($abstractforms) && $abstractforms->medical_speciality_id == "0")
+        <div class="other row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <label for="other">Other Speciality<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" required class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{$abstractforms->medical_speciality_other}}"/>
+                <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
+            </div>
+        </div>
+    @else
+        <div class="other row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <label for="other">Other Speciality<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" required class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{Request::old('other')}}"/>
+                <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
+            </div>
+        </div>
+    @endif
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">

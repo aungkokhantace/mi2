@@ -1,5 +1,5 @@
 @extends('layouts_frontend.master_frontend')
-@section('title','Test Page')
+@section('title','Abstract Form')
 @section('content')
 
     <div class="col-md-9 right">
@@ -51,7 +51,7 @@
     {!! Form::open(array('id'=> 'frm_abstract' , 'url' => 'abstractform/store', 'class'=> 'form-horizontal user-form-border', 'files'=> 'true')) !!}
     <br>
     <div class="row entry_row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <label for="first_name">First Name<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -61,7 +61,7 @@
     </div>
 
     <div class="row entry_row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <label for="middle_name">Middle Name</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -71,7 +71,7 @@
     </div>
 
     <div class="row entry_row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <label for="last_name">Last Name<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -81,7 +81,7 @@
     </div>
 
     <div class="row entry_row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <label for="email">Email</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -91,7 +91,7 @@
     </div>
 
     <div class="row entry_row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <label for="country">Country</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -105,18 +105,55 @@
         </div>
     </div>
 
+    {{--<div class="row entry_row">--}}
+        {{--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">--}}
+            {{--<label for="medical_specialities">Medication Specialities</label>--}}
+        {{--</div>--}}
+        {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
+            {{--<input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medical Specialities" value="{{Request::old('medical_specialities') }}"/>--}}
+            {{--<p class="text-danger" id="medical_specialities_error">{{$errors->first('medical_specialities')}}</p>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
     <div class="row entry_row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="medical_specialities">Medication Specialities</label>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <label for="medical_specialities">Medication Specialities<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="medical_specialities" name="medical_specialities" placeholder="Enter Medical Specialities" value="{{Request::old('medical_specialities') }}"/>
+            <select class="form-control" name="medical_specialities" id="medical_specialities" onchange="check_for_other();">
+                @foreach($specialitiesArr as $key=>$specialities)
+                    @if($key == "main_speciality")
+                        @foreach($specialities as $mainSpeciality)
+                            <option value="{{$mainSpeciality->id}}">{{$mainSpeciality->name}}</option>
+                        @endforeach
+                    @else
+                        <optgroup label="{{$key}}">
+                            @foreach($specialities as $subSpeciality)
+                                @if($subSpeciality->option_group_name == $key)
+                                    <option value="{{$subSpeciality->id}}" style="margin-left:20px;">{{$subSpeciality->name}}</option>
+                                @endif
+                            @endforeach
+                        </optgroup>
+                    @endif
+                @endforeach
+                <option value="other">Other</option>
+            </select>
             <p class="text-danger" id="medical_specialities_error">{{$errors->first('medical_specialities')}}</p>
         </div>
     </div>
 
+    <div class="other row entry_row" style="display: none;">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <label for="other">Other Speciality<span class="require">*</span></label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <input type="text" class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{Request::old('other') }}"/>
+            <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
+        </div>
+    </div>
+
     <div class="row entry_row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <label for="abstract_file_path">File Upload</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -128,7 +165,7 @@
     <div class="row entry_row">
         {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
         {{--</div>--}}
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2"  style="margin-right:10px;">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4"  style="margin-right:10px;">
             {{--<button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">--}}
                 {{--SUBMIT--}}
             {{--</button>--}}
@@ -203,6 +240,16 @@
                 add_confirm_setup('abstract');
             }
 
+        }
+
+        function check_for_other(){
+            var other_flag = document.getElementById('medical_specialities').value;
+            if(other_flag == "other"){
+                $(".other").show();
+            }
+            else{
+                $(".other").hide();
+            }
         }
 
     </script>

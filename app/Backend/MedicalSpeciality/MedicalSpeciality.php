@@ -26,4 +26,9 @@ class MedicalSpeciality extends Model
     {
         return $this->hasMany('App\Backend\Register\Register');
     }
+
+    public function abstractform()
+    {
+        return $this->hasMany('App\Backend\Abstractform\Abstractform');
+    }
 }

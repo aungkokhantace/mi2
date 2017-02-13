@@ -9,7 +9,7 @@ namespace App\Backend\Register;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use App\Backend\Register\Register;
+use App\Backend\Register\register;
 use App\Backend\Permission\PermissionRepository;
 use App\Core\Utility;
 

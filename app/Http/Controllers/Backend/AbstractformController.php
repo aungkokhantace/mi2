@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Backend\MedicalSpeciality\MedicalSpecialityRepository;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Backend\Abstractform\AbstractformRepositoryInterface;
@@ -39,8 +40,8 @@ class AbstractformController extends Controller
     public function index(Request $request)
     {
         if (Auth::guard('User')->check()) {
-           //$abstractforms      = $this->abstractformRepository->getAbstractforms();
-            $abstractforms      = DB::select("SELECT * FROM event_abstract WHERE deleted_at IS NULL");  
+           $abstractforms      = $this->abstractformRepository->getAbstractforms();
+//            $abstractforms      = DB::select("SELECT * FROM event_abstract WHERE deleted_at IS NULL");
             $countries = Utility::getSettingsByType("COUNTRY");
 
             foreach ($abstractforms as $absCountry)
@@ -54,6 +55,17 @@ class AbstractformController extends Controller
                 $absStatus->status = strtoupper($absStatus->status);
             }
 
+            foreach($abstractforms as $absSpeciality){
+                if($absSpeciality->medical_speciality_id == 0){
+                    //if user chose "other" in medical speciality, medical_speciality_id is 0 and medical_speciality_other is shown instead!!
+                    $absSpeciality->medical_speciality_name = $absSpeciality->medical_speciality_other;
+                }
+                else{
+                    //if medical_speciality is not 0, show medical_speciality_name
+                    $absSpeciality->medical_speciality_name = $absSpeciality->medical_speciality->name;
+                }
+            }
+
             return view('backend.abstractform.index')->with('abstractforms', $abstractforms)->with('countries', $countries);
         }
         return redirect('/login');
@@ -64,7 +76,21 @@ class AbstractformController extends Controller
 
                 $abstractforms = $this->abstractformRepository->getObjByID($id);
                 $countries = Utility::getSettingsByType("COUNTRY");
-                return view('backend.abstractform.abstractform')->with('abstractforms', $abstractforms)->with('countries', $countries);
+
+            $medicalspecialityRepo = new MedicalSpecialityRepository();
+            $medicalspecialities   = $medicalspecialityRepo->getObjs();
+
+            $specialitiesArr = array();
+            foreach($medicalspecialities as $k=>$medicalspeciality){
+                if($medicalspeciality->option_group_name == null){
+                    $specialitiesArr["main_speciality"][$k] = $medicalspeciality;
+                }
+                elseif(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name != null){
+                    $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
+                }
+            }
+
+                return view('backend.abstractform.abstractform')->with('abstractforms', $abstractforms)->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
         }
         return redirect('/backend/login');
     }

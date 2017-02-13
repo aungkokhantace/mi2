@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Backend\File\FileUploadDownloadRepository;
+use App\Backend\MedicalSpeciality\MedicalSpecialityRepository;
 use App\Backend\Page\PageRepository;
 use App\Backend\Post\PostRepository;
 use App\Core\FormatGenerator;
@@ -44,17 +45,33 @@ class AbstractformController extends Controller
     public function create(Request $request)
     {
             
-            $countries = Utility::getSettingsByType("COUNTRY");
-            // dd($countries);
-            return view('frontend.abstractform.abstractform')->with('countries', $countries);
+        $countries = Utility::getSettingsByType("COUNTRY");
+
+        $medicalspecialityRepo = new MedicalSpecialityRepository();
+        $medicalspecialities   = $medicalspecialityRepo->getObjs();
+
+        $specialitiesArr = array();
+        foreach($medicalspecialities as $k=>$medicalspeciality){
+//             if(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name == null){
+            if($medicalspeciality->option_group_name == null){
+                $specialitiesArr["main_speciality"][$k] = $medicalspeciality;
+            }
+            elseif(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name != null){
+                $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
+            }
+        }
+
+        return view('frontend.abstractform.abstractform')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
     }
 
     public function store(AbstractformEntryRequest $request)
     {
         $request->validate();
+
         $filetable = (new FileUploadDownload())->getTable();
         $abstracttable = (new Abstractform())->getTable();
         $abstract_file_path     = Input::file('abstract_file_path');
+
           //start file section
         $extension = $abstract_file_path->getClientOriginalExtension();
 
@@ -62,8 +79,10 @@ class AbstractformController extends Controller
         $destinationPath = 'uploads';
         // GET THE FILE EXTENSION
         $extension = $abstract_file_path->getClientOriginalExtension();
+
         // RENAME THE UPLOAD WITH RANDOM NUMBER
         $fileName = $abstract_file_path->getFilename() . '.' . $extension;
+
         // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
         $upload_success = $abstract_file_path->move($destinationPath, $fileName);
 
@@ -77,11 +96,20 @@ class AbstractformController extends Controller
         //end file section
 
         $first_name             = Input::get('first_name');
+
         $middle_name            = Input::get('middle_name');
         $last_name              = Input::get('last_name');
         $email                  = Input::get('email');
         $country                = Input::get('country');
         $medical_specialities   = Input::get('medical_specialities');
+        if($medical_specialities == "other"){
+            $medical_specialities = 0;
+            $other_specialities  = Input::get('other');
+        }
+        else{
+            $other_specialities  = null;
+        }
+
         $registered_date        = date("Y-m-d");
 
         $abstractform = new Abstractform();
@@ -90,7 +118,9 @@ class AbstractformController extends Controller
         $abstractform->last_name             = $last_name;
         $abstractform->email                 = $email;
         $abstractform->country               = $country;
-        $abstractform->medical_specialities  = $medical_specialities;
+//        $abstractform->medical_specialities  = $medical_specialities;
+        $abstractform->medical_speciality_id = $medical_specialities;
+        $abstractform->medical_speciality_other = $other_specialities;
         $abstractform->abstract_file_path    =  "uploads/".$abstract_file_path->getFilename() . '.' . $extension;
         $abstractform->status                = "pending";
         $abstractform->registered            = "0";
@@ -98,7 +128,7 @@ class AbstractformController extends Controller
         $abstractform->registered_date       = $registered_date;
 
         $result = $this->abstractformRepository->create($abstractform);
-
+        dd($result);
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
             $attach = $abstractform->abstract_file_path;
             $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");

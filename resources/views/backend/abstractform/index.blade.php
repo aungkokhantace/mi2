@@ -71,7 +71,7 @@
                             <td>{{$abstractform->last_name}}</td>
                             <td>{{$abstractform->email}}</td>
                             <td>{{$abstractform->country}}</td>
-                            <td>{{$abstractform->medical_specialities}}</td>
+                            <td>{{$abstractform->medical_speciality_name}}</td>
                             <td>{{$abstractform->abstract_file_path}}</td>
                             <td>{{$abstractform->status}}</td>
                             <td>{{$abstractform->registered}}</td>
