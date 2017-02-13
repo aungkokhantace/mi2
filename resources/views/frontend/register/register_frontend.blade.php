@@ -3,58 +3,17 @@
 @section('content')
     {{--{!! $page->content !!}--}}
     <div class="col-md-9 right">
-
-        <!-- Carousel & header section -->
-        <div class="slider-header">
-            18th Myanmar Internal Medicine Conference <br>
-            (In Conjunction with 4th AFIM Congress and 4th ACP South East Asian Chapter Meeting)
-        </div>
-
-        <!-- Carousel Slider Part -->
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="/images/slider1.png" alt="">
-                    <div class="carousel-caption">
-                        Caption 1
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="/images/slider2.png" alt="">
-                    <div class="carousel-caption">
-                        Caption 2
-                    </div>
-                </div>
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-        <!-- end of Carousel & header section -->
+        {!! generateSlider() !!}
         <br>
 
-        <h2 class="form-header">{{'Register Entry' }}</h2>
+        <h2 class="">{{'Register Entry' }}</h2>
 
         {!! Form::open(array('id'=> 'frm_register' , 'url' => '/register/store', 'class'=> 'form-horizontal user-form-border')) !!}
         {{ csrf_field() }}
         <input type="hidden" name="events_id" value="1"/>
         <br/>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="first_name">First Name<span class="require">*</span></label>
             </div>
@@ -64,7 +23,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="middle_name">Middle Name</label>
             </div>
@@ -74,7 +33,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="last_name">Last Name<span class="require">*</span></label>
             </div>
@@ -84,7 +43,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="title">Title</label>
             </div>
@@ -94,7 +53,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="email">Email<span class="require">*</span></label>
             </div>
@@ -104,7 +63,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="country">Country<span class="require">*</span></label>
             </div>
@@ -119,7 +78,7 @@
             </div>
         </div>
 
-        {{--<div class="row">--}}
+        {{--<div class="row entry_row">--}}
             {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
                 {{--<label for="where_work">Where you work<span class="require">*</span></label>--}}
             {{--</div>--}}
@@ -129,7 +88,7 @@
             {{--</div>--}}
         {{--</div>--}}
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="medical_specialities">Medication Specialities<span class="require">*</span></label>
             </div>
@@ -156,7 +115,7 @@
             </div>
         </div>
 
-        <div class="other row" style="display: none;">
+        <div class="other row entry_row" style="display: none;">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="other">Other Speciality<span class="require">*</span></label>
             </div>
@@ -166,7 +125,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="phone_no">Phone no<span class="require">*</span></label>
             </div>
@@ -176,7 +135,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="registration_category">Registration Category<span class="require">*</span></label>
             </div>
@@ -191,12 +150,12 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row entry_row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <label for="payment_type">Payment Type<span class="require">*</span></label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <select class="form-control" name="payment_type" id="payment_type">
+                <select class="form-control" name="payment_type" id="payment_type" onchange="check_for_bank_transfer();">
                     <option value="" selected disabled>Select Payment Type</option>
                     <option value="1">Cash</option>
                     <option value="2">Bank Transfer</option>
@@ -205,21 +164,45 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="bank_acc_info row entry_row" style="display: none;">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <p class="bank_account_no">Account  -0107101200004456 (Name – internal medicine society)</p>
+                <div class="bank_acc_detail">
+                    <p>
+                    Co-operative Bank Ltd. (CB Bank)<br>
+                    Myanmar Plaza Branch<br>
+                    Room No G24, Myanmar Plaaza, Gabar Aye Pagoda Road,<br>
+                    Bahan Township, Yangon, Myanmar<br>
+                    Swift Code CPOBMMMY<br>
+                    Tel (95-9) 73018809, (95-9) 731180241<br>
+                    Fax (95-9) 732 19446, (95-9) 73223426<br>
+                    E-mail myanmarplazabranch@cbbank.com.mm
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="row entry_row">
             {{--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">--}}
             {{--</div>--}}
             <!--  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
             <input type="submit" name="submit" value="ADD" class="form-control btn-primary">
         </div> -->
-            <!--  -->
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
-                <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">
-                    SUBMIT
-                </button>
+
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="margin-right:10px;">
+                {{--<button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">--}}
+                    {{--SUBMIT--}}
+                {{--</button>--}}
+                <button type="button" class="form-control btn btn-primary" onclick="pre_add_confirm_setup();">SUBMIT</button>
             </div>
+
             <!--  -->
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                <a href="/home/register"><button type="button" value="CANCEL" class="form-control cancel_btn button-type" onclick="">CANCEL</button></a>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                {{--<a href="/home/register"><button type="button" value="CANCEL" class="form-control cancel_btn button-type" onclick="">CANCEL</button></a>--}}
+                <a href="/home/register"><button type="button" class="form-control btn btn-primary cancel_btn frontend-cancel">CANCEL</button></a>
             </div>
         </div>
         {!! Form::close() !!}
@@ -333,6 +316,16 @@
             }
             else{
                 $(".other").hide();
+            }
+        }
+
+        function check_for_bank_transfer(){
+            var flag = document.getElementById('payment_type').value;
+            if(flag == 2){
+                $(".bank_acc_info").show();
+            }
+            else{
+                $(".bank_acc_info").hide();
             }
         }
 

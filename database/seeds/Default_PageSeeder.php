@@ -191,7 +191,7 @@ flights.<o:p></o:p></span></p><p class="MsoNormal" style="margin-left:.25in">
 </p><p class="MsoNormal" style="margin-left:.25in"><span style="font-family:" zawgyi-one","sans-serif""="">Refund
 requested for other reasons, must be approved by Myanmar Internal Medicine Society.
 Refunds requested after May 30 will be processed one month after conference.<o:p></o:p></span></p><p class="MsoNormal" style="margin-left:.25in"><span style="font-family:" zawgyi-one","sans-serif""=""><o:p></o:p></span></p>
-<a href="/register/create"><button type="button" class="btn btn-primary down">Register Now</button></a>',
+<a href="/register/create"><button type="button" class="btn btn-primary down" style="margin-left:25px;">Register Now</button></a>',
             'status' =>'active', 'url' =>'home/register', 'title' =>'Register title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
         ['id'=>13, 'name'=>'Abstract','description'=>'Abstract description',
@@ -230,7 +230,7 @@ for both oral and poster presentations.</span>&nbsp;</p>
 <p class="MsoNormal"><b style="mso-bidi-font-weight:normal"><u><span style="font-family:" zawgyi-one","sans-serif""="">Deadline for abstract summision</span></u></b><span style="font-family:" zawgyi-one","sans-serif""=""> – May 31, 2017</span></p>
 
 <a href="#"><button type="button" class="btn btn-primary down">Download Abstract Form</button></a>
-    <button type="button" class="btn btn-primary up"><a href="/abstractform/create">Upload Abstract</a></button>.
+    <a href="/abstractform/create"><button type="button" class="btn btn-primary up">Upload Abstract</button>
 <p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""="">We will confirm you by email if we accept the abstract. Once you get confirmation, you will need to register event from the web again.</span></p>
 ',
             'status' =>'active', 'url' =>'home/abstract', 'title' =>'Abstract title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],

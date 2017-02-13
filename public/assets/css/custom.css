@@ -164,3 +164,23 @@ p .MsoNormal{
     width: 100% !important;
 }
 
+.entry_row{
+    margin-left: -7px !important;
+}
+
+.bank_acc_detail{
+    border: double;
+}
+
+.bank_acc_detail>p{
+    text-align: center;
+}
+
+.bank_account_no{
+    text-align: center;
+}
+
+.frontend-cancel{
+    margin-left: -50px !important;
+}
+

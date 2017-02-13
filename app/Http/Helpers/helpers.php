@@ -113,12 +113,12 @@ if (! function_exists('generateSlider')) {
         echo '</div>';
         echo '<!-- Carousel Slider Part -->';
         echo '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
-        echo '<!-- Indicators -->';
-        echo '<ol class="carousel-indicators">';
-        echo '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
-        echo '<li data-target="#carousel-example-generic" data-slide-to="1"></li>';
-        echo '<li data-target="#carousel-example-generic" data-slide-to="2"></li>';
-        echo '</ol>';
+//        echo '<!-- Indicators -->';
+//        echo '<ol class="carousel-indicators">';
+//        echo '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
+//        echo '<li data-target="#carousel-example-generic" data-slide-to="1"></li>';
+//        echo '<li data-target="#carousel-example-generic" data-slide-to="2"></li>';
+//        echo '</ol>';
         echo '<!-- Wrapper for slides -->';
         echo '<div class="carousel-inner" role="listbox">';
         echo '<div class="item">';

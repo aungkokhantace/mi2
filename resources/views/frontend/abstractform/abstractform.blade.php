@@ -3,54 +3,54 @@
 @section('content')
 
     <div class="col-md-9 right">
+        {!! generateSlider() !!}
+        {{--<!-- Carousel & header section -->--}}
+        {{--<div class="slider-header">--}}
+            {{--18th IMS conference 23rd AFIM Meeting--}}
+        {{--</div>--}}
 
-        <!-- Carousel & header section -->
-        <div class="slider-header">
-            18th IMS conference 23rd AFIM Meeting
-        </div>
+        {{--<!-- Carousel Slider Part -->--}}
+        {{--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">--}}
+            {{--<!-- Indicators -->--}}
+            {{--<ol class="carousel-indicators">--}}
+                {{--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>--}}
+                {{--<li data-target="#carousel-example-generic" data-slide-to="1"></li>--}}
+            {{--</ol>--}}
 
-        <!-- Carousel Slider Part -->
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            </ol>
+            {{--<!-- Wrapper for slides -->--}}
+            {{--<div class="carousel-inner" role="listbox">--}}
+                {{--<div class="item active">--}}
+                    {{--<img src="/images/slider1.png" alt="">--}}
+                    {{--<div class="carousel-caption">--}}
+                        {{--Caption 1--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="item">--}}
+                    {{--<img src="/images/slider2.png" alt="">--}}
+                    {{--<div class="carousel-caption">--}}
+                        {{--Caption 2--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="/images/slider1.png" alt="">
-                    <div class="carousel-caption">
-                        Caption 1
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="/images/slider2.png" alt="">
-                    <div class="carousel-caption">
-                        Caption 2
-                    </div>
-                </div>
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-        <!-- end of Carousel & header section -->
+            {{--<!-- Controls -->--}}
+            {{--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">--}}
+                {{--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>--}}
+                {{--<span class="sr-only">Previous</span>--}}
+            {{--</a>--}}
+            {{--<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">--}}
+                {{--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>--}}
+                {{--<span class="sr-only">Next</span>--}}
+            {{--</a>--}}
+        {{--</div>--}}
+        {{--<!-- end of Carousel & header section -->--}}
         <br>
 
-    <h2 class="form-header">{{'Abstractform Entry' }}</h2>
+    <h2 class="">{{'Abstractform Entry' }}</h2>
 
     {!! Form::open(array('id'=> 'frm_abstract' , 'url' => 'abstractform/store', 'class'=> 'form-horizontal user-form-border', 'files'=> 'true')) !!}
     <br>
-    <div class="row">
+    <div class="row entry_row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="first_name">First Name<span class="require">*</span></label>
         </div>
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row entry_row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="middle_name">Middle Name</label>
         </div>
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row entry_row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="last_name">Last Name<span class="require">*</span></label>
         </div>
@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row entry_row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="email">Email</label>
         </div>
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row entry_row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="country">Country</label>
         </div>
@@ -105,7 +105,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row entry_row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="medical_specialities">Medication Specialities</label>
         </div>
@@ -115,7 +115,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row entry_row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="abstract_file_path">File Upload</label>
         </div>
@@ -125,17 +125,19 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row entry_row">
         {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
         {{--</div>--}}
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-            <button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">
-                SUBMIT
-            </button>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
+            {{--<button type="button" onclick="pre_add_confirm_setup();" class="form-control btn-primary button-type">--}}
+                {{--SUBMIT--}}
+            {{--</button>--}}
+            <button type="button" class="form-control btn btn-primary" onclick="pre_add_confirm_setup();">SUBMIT</button>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             {{--<input type="button" value="CANCEL" class="form-control cancel_btn button-type" onclick="cancel_setup('abstractform')">--}}
-            <a href="/home/abstract"><button type="button" class="btn btn-primary cancel_btn" style="margin-top:0px;">CANCEL</button></a>
+            {{--<a href="/home/abstract"><button type="button" class="btn btn-primary cancel_btn" style="margin-top:0px;">CANCEL</button></a>--}}
+            <a href="/home/abstract"><button type="button" class="form-control btn btn-primary cancel_btn frontend-cancel">CANCEL</button></a>
         </div>
     </div>
     {!! Form::close() !!}
