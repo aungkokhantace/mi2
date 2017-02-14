@@ -184,3 +184,8 @@ p .MsoNormal{
     margin-left: -50px !important;
 }
 
+/*for left-alignment at homepage*/
+.navbar-default{
+    margin-left:-16px;
+}
+
