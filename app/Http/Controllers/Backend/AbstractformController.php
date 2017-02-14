@@ -103,6 +103,14 @@ class AbstractformController extends Controller
         $email                  = Input::get('email');
         $country                = Input::get('country');
         $medical_specialities   = Input::get('medical_specialities');
+        if($medical_specialities == "other"){
+            $medical_specialities = 0;
+            $other_specialities  = Input::get('other');
+        }
+        else{
+            $other_specialities  = null;
+        }
+
         $confirmed_date         = date("Y-m-d");
         $confirmed_by             = Auth::guard('User')->user()->id;
 
@@ -112,7 +120,9 @@ class AbstractformController extends Controller
         $abstractform->last_name             = $last_name;         
         $abstractform->email                 = $email;
         $abstractform->country               = $country;
-        $abstractform->medical_specialities  = $medical_specialities;
+//        $abstractform->medical_specialities  = $medical_specialities;
+        $abstractform->medical_speciality_id = $medical_specialities;
+        $abstractform->medical_speciality_other = $other_specialities;
         $abstractform->status                = "confirm";
         $abstractform->registered            = "0";
         $abstractform->confirmed_date        = $confirmed_date;
