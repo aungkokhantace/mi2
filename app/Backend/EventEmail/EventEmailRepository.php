@@ -17,13 +17,13 @@ class EventEmailRepository implements EventEmailRepositoryInterface
 {
     public function getObjs()
     {
-        $objs = Eventemail::whereNull('deleted_at')->get();
+        $objs = EventEmail::whereNull('deleted_at')->get();
         return $objs;
     }
 
     public function getArrays()
     {
-        $tbName = (new Eventemail())->getTable();
+        $tbName = (new EventEmail())->getTable();
         $arr = DB::select("SELECT * FROM $tbName WHERE deleted_at IS NULL");
         return $arr;
     }
@@ -94,7 +94,7 @@ class EventEmailRepository implements EventEmailRepositoryInterface
         $currentUser = Utility::getCurrentUserID(); //get currently logged in user
 
         try{
-            $tempObj = Eventemail::find($id);
+            $tempObj = EventEmail::find($id);
             $tempObj = Utility::addDeletedBy($tempObj);
             $tempObj->deleted_at = date('Y-m-d H:m:i');
             $tempObj->save();
@@ -113,12 +113,12 @@ class EventEmailRepository implements EventEmailRepositoryInterface
     }
 
     public function getObjByID($id){
-        $role = Eventemail::find($id);
+        $role = EventEmail::find($id);
         return $role;
     }
 
     public function getObjByType($type){
-        $objs = Eventemail::whereNull('deleted_at')
+        $objs = EventEmail::whereNull('deleted_at')
             ->where('category','=',$type)
             ->get();
         return $objs;

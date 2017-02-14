@@ -7,7 +7,7 @@
  */
 namespace App\Http\Controllers\Backend;
 
-use App\Backend\EventEmail\Eventemail;
+use App\Backend\EventEmail\EventEmail;
 use App\Backend\EventEmail\EventEmailRepositoryInterface;
 use App\Backend\Infrastructure\Forms\EventEmailEditRequest;
 use App\Backend\Infrastructure\Forms\EventEmailEntryRequest;
@@ -59,7 +59,7 @@ class EventEmailController extends Controller
         $description    = (Input::has('description')) ? Input::get('description') : "";
         $type           = (Input::has('type')) ? Input::get('type') : 1;
 
-        $paramObj = new Eventemail();
+        $paramObj = new EventEmail();
         $paramObj->email        = $email;
         $paramObj->description  = $description;
         $paramObj->type         = $type;
