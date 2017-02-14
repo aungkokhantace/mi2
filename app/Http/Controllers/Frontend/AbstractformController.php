@@ -160,6 +160,8 @@ class AbstractformController extends Controller
 
                 });
             }
+
+            alert()->success('Abstract Form successfully added. ')->persistent('OK');
             return redirect()->action('Frontend\AbstractformController@create')
                 ->withMessage(FormatGenerator::message('Success', 'File added ...'));
         }
