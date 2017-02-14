@@ -15,7 +15,7 @@
     @endif
     <input type="hidden" name="id" value="{{isset($pages)? $pages->id:''}}"/>
 
-    <input type="hidden" name="allow_edit" id="allow_edit" value="{{isset($pages)? $pages->allow_edit:''}}"/>
+    <input type="hidden" name="allow_edit" id="allow_edit" value="{{isset($pages)? $pages->allow_edit:1}}"/>
     <br/>
 
     <div class="row">
