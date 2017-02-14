@@ -6,6 +6,8 @@ use App\Backend\Page\PageRepository;
 use App\Backend\Post\PostRepository;
 use App\Backend\Register\AppRegister;
 use App\Backend\Permission\Permission;
+use App\Core\FormatGenerator;
+use App\Core\ReturnMessage;
 use App\Session;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -21,6 +23,7 @@ use App\Backend\Infrastructure\Forms\RegisterEntryRequest;
 use App\Backend\Infrastructure\Forms\EventEditRequest;
 use App\Core\Utility;
 use Illuminate\Support\Facades\Route;
+use Mail;
 
 class RegisterController extends Controller
 {   
@@ -111,10 +114,36 @@ class RegisterController extends Controller
             $register->status = "pending";
             $register->registered_date = $registered_date;
 
-            $registerRepo->create($register);
+            $result = $registerRepo->create($register);
+
+        if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
+            $emailArr = array();
+            $emailArr[0] = $email;
+            $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_REGISTRATION' LIMIT 1");
+
+            if(isset($contentRaw) && count($contentRaw)>0){
+                $content = $contentRaw[0]->description;
+            }
+            else{
+                $content = "Registration Reply...";
+            }
+
+            if(isset($emailArr) && count($emailArr)>0){
+                Mail::send([], [], function($message) use($emailArr,$content) {
+                    $message->to($emailArr)->subject('Registration Reply')->setBody($content, 'text/html');;
+//                    Attach file
+//                    $message->attach($attach);
+
+                });
+            }
             alert()->success('Registration successfully created. ')->persistent('OK');
             return redirect()->action('Frontend\RegisterController@create');
         }
+        else{
+            return redirect()->action('Frontend\RegisterController@create')
+                ->withMessage(FormatGenerator::message('Fail', 'Registration did not create ...'));
+        }
+    }
 
    
 

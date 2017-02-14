@@ -7,6 +7,7 @@
  */
 namespace App\Backend\Register;
 
+use App\Core\ReturnMessage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Backend\Register\register;
@@ -17,8 +18,23 @@ class RegisterRepository implements RegisterRepositoryInterface
 {
     public function create($register)
     {
-        $tempObj = Utility::addCreatedBy($register);
-        $tempObj->save();
+//        $tempObj = Utility::addCreatedBy($register);
+//        $tempObj->save();
+
+        $returnedObj = array();
+        $returnedObj['aceplusStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+
+        try {
+            $tempObj = Utility::addCreatedBy($register);
+            $tempObj->save();
+
+            $returnedObj['aceplusStatusCode'] = ReturnMessage::OK;
+            return $returnedObj;
+        }
+        catch(\Exception $e){
+            $returnedObj['aceplusStatusMessage'] = $e->getMessage();
+            return $returnedObj;
+        }
     }
 
     public function getRegisters()
