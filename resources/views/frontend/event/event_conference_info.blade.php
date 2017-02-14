@@ -1,5 +1,5 @@
 @extends('layouts_frontend.master_frontend')
-@section('title','Test Page')
+@section('title','Conference')
 @section('content')
 
     <style>

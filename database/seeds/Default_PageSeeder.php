@@ -1188,6 +1188,43 @@ the official hotel block<o:p></o:p></span></p><p class="MsoNormal" style="text-a
 
 </p><p class="MsoNormal" style="text-align: justify; margin-bottom: 0.0001pt; line-height: normal;"><span style="font-family:" zawgyi-one","sans-serif""=""><a href="http://www.myanmar.micasahotel.com/default-en.html"><span style="mso-fareast-font-family:" times="" new="" roman";color:#1155cc"="">http://www.myanmar.micasahotel.com/default-en.html</span></a></span><span style="font-family:" zawgyi-one","sans-serif";mso-fareast-font-family:"times="" new="" roman""=""><o:p></o:p></span></p>', 'status' =>'active', 'url' =>'home/other/housing', 'title' =>'Other title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
+        ['id'=>20, 'name'=>'Agenda','description'=>'Agenda', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span></p><p class="MsoNormal"><span style="font-size:12.0pt;line-height:107%;font-family:
+" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Scientific Sessions will be included.</span><o:p></o:p></span></p><p class="MsoListParagraphCxSpFirst" style="text-indent:-.25in;mso-list:l0 level1 lfo1"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">-</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
+font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Symposium</span><o:p></o:p></span></p><p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in;mso-list:l0 level1 lfo1"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">-</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
+font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Meet the expert </span><o:p></o:p></span></p><p class="MsoListParagraphCxSpMiddle" style="text-indent:-.25in;mso-list:l0 level1 lfo1"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">-</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
+font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Paper presentation</span><o:p></o:p></span></p><p><span style="font-size: 14px;">
+
+
+
+
+
+
+
+</span></p><p class="MsoListParagraphCxSpLast" style="text-indent:-.25in;mso-list:l0 level1 lfo1"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">-</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
+font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Plenary lecturer</span><o:p></o:p></span></p>',
+            'status' =>'active', 'url' =>'home/conference/agenda', 'title' =>'Agenda', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+
+        ['id'=>21, 'name'=>'Speakers','description'=>'Speakers', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span><br></p>',
+            'status' =>'active', 'url' =>'home/conference/speakers', 'title' =>'Speakers', 'page_menu_order' =>'2', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+
+        ['id'=>22, 'name'=>'Committees','description'=>'Committees', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span><br></p>',
+            'status' =>'active', 'url' =>'home/conference/committees', 'title' =>'Committees', 'page_menu_order' =>'3', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+
+        ['id'=>23, 'name'=>'Secretariat','description'=>'Secretariat', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span><br></p>',
+            'status' =>'active', 'url' =>'home/conference/secretariat', 'title' =>'Secretariat', 'page_menu_order' =>'4', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+
+        ['id'=>24, 'name'=>'Contact Us','description'=>'Contact Us', 'content' =>'<p class="MsoNormal"><span style="font-size:12.0pt;line-height:107%;font-family:
+&quot;Zawgyi-One&quot;,&quot;sans-serif&quot;">For sponsorship information: Prof Mar Mar Kyi &lt;drmmkyi@gmail.com&gt;<o:p></o:p></span></p><p>
+
+<span style="font-size:12.0pt;line-height:107%;font-family:&quot;Zawgyi-One&quot;,&quot;sans-serif&quot;;
+mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">For Conference
+information: AP Thein Myint <a href="mailto:drthanemyint@gmail.com">drthanemyint@gmail.com</a></span><br></p><p><br></p>',
+            'status' =>'active', 'url' =>'home/conference/contactus', 'title' =>'Contact Us', 'page_menu_order' =>'5', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
     );
 
     DB::table('pages')->insert($objs);

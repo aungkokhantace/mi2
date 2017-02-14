@@ -28,6 +28,11 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('home/abstract', array('as'=>'home/abstract','uses'=>'Frontend\AbstractformController@call'));
         Route::get('home/exhibitor', array('as'=>'home/exhibitor','uses'=>'Frontend\HomeController@exhibitor'));
         Route::get('home/conference', array('as'=>'home/conference','uses'=>'Frontend\HomeController@conference'));
+        Route::get('home/conference/agenda', array('as'=>'home/conference/agenda','uses'=>'Frontend\HomeController@agenda'));
+        Route::get('home/conference/speakers', array('as'=>'home/conference/speakers','uses'=>'Frontend\HomeController@speakers'));
+        Route::get('home/conference/committees', array('as'=>'home/conference/committees','uses'=>'Frontend\HomeController@committees'));
+        Route::get('home/conference/secretariat', array('as'=>'home/conference/secretariat','uses'=>'Frontend\HomeController@secretariat'));
+        Route::get('home/conference/contactus', array('as'=>'home/conference/contactus','uses'=>'Frontend\HomeController@contactus'));
         Route::get('home/other', array('as'=>'home/other','uses'=>'Frontend\HomeController@other'));
         Route::get('home/other/local', array('as'=>'home/other/local','uses'=>'Frontend\HomeController@local'));
         Route::get('home/other/visa', array('as'=>'home/other/visa','uses'=>'Frontend\HomeController@visa'));
