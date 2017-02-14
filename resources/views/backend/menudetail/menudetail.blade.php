@@ -84,7 +84,6 @@
             <select class="form-control" name="menu_order" id="menu_order">
                 @if(isset($menudetail))
                     @for ($i = 1; $i <= 100; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
                         @if($i == $menudetail->menu_order)
                             <option value="{{ $i }}" selected>{{ $i }}</option>
                         @else
@@ -136,13 +135,12 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="menu_group_order" class="text_bold_black">Menu Order<span class="require">*</span></label>
+            <label for="menu_group_order" class="text_bold_black">Menu Group Order<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <select class="form-control" name="menu_group_order" id="menu_group_order">
                 @if(isset($menudetail))
                     @for ($i = 1; $i <= 100; $i++)
-                        <option value="{{ $i }}">{{ $i }}</option>
                         @if($i == $menudetail->menu_order)
                             <option value="{{ $i }}" selected>{{ $i }}</option>
                         @else

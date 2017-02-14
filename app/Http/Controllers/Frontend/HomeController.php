@@ -99,6 +99,51 @@ class HomeController extends Controller
         return view('frontend.event.event_other_info')->with('page',$page)->with('posts',$posts);
     }
 
+    public function local()
+    {
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.event.event_local_info')->with('page',$page)->with('posts',$posts);
+    }
+
+    public function visa()
+    {
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.event.event_visa_info')->with('page',$page)->with('posts',$posts);
+    }
+
+    public function housing()
+    {
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        return view('frontend.event.event_housing_info')->with('page',$page)->with('posts',$posts);
+    }
+
     public function comingsoon(Request $request)
     {
         return view('frontend.comingsoon');

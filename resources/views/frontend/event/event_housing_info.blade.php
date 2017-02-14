@@ -1,5 +1,5 @@
 @extends('layouts_frontend.master_frontend')
-@section('title','Other Information')
+@section('title','Housing Information')
 @section('content')
 
     <style>

@@ -146,7 +146,7 @@ class MenudetailRepository implements MenudetailRepositoryInterface
 
     public function getChildrenByID($id)
     {
-        $objs = DB::table('menu_detail')->where('parent_id','=',$id)->get();
+        $objs = DB::table('menu_detail')->where('parent_id','=',$id)->orderBy('menu_order', 'asc')->get();
         return $objs;
     }
 }

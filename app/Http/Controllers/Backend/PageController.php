@@ -93,7 +93,7 @@ class PageController extends Controller
         }
         $page->allow_edit     = $allow_edit;
 
-        //start saving image
+        /*//start saving image
         $dom = new DomDocument();
 
         if(isset($content) && $content != ""){
@@ -132,7 +132,7 @@ class PageController extends Controller
         }
 
         $page->content = $dom->saveHTML();
-        //End saving image
+        //End saving image */
 
         $this->pageRepository->create($page);
         return redirect()->action('Backend\PageController@index');

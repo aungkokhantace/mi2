@@ -70,7 +70,7 @@
                             <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $menudetail->id }}" id="all"></td>
                             <td><a href="/backend/menudetail/edit/{{$menudetail->id}}">{{$menudetail->name}}</a></td>
                             <td>{{$menudetail->menu->name}}</td>
-                            <td>{{$menudetail->page_url}}</td>
+                            <td>{{$menudetail->page->url}}</td>
                             <td>{{$menudetail->menu_order}}</td>
                             <td>{{$menudetail->status}}</td>
                             <td>{{$menudetail->menu_group}}</td>
