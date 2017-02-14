@@ -14,7 +14,7 @@ use App\Backend\Register\RegisterRepositoryInterface;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use Illuminate\Support\Facades\DB;
-use App\Backend\Register\Register;
+use App\Backend\Register\register;
 use Carbon\Carbon;
 use App\Backend\Register\RegisterRepository;
 use App\Backend\Infrastructure\Forms\RegisterEntryRequest;
@@ -95,7 +95,7 @@ class RegisterController extends Controller
             $payment_type         = Input::get('payment_type');
             $registered_date      = date("Y-m-d");
 
-            $register = new Register();
+            $register = new register();
             $register->first_name = $first_name;
             $register->middle_name = $middle_name;
             $register->last_name = $last_name;
