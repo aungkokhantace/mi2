@@ -66,6 +66,18 @@ class AbstractReportController extends Controller
 
             $eventRepo                  = new ReportEventAbstractRepository();
             $eventAbstracts             = $eventRepo->getEventAbstractsByDate($from_date, $to_date);
+
+            foreach($eventAbstracts as $abstract){
+                if($abstract->medical_speciality_id == 0){
+                    $abstract->medical_speciality = $abstract->medical_speciality_other;
+                }
+                else{
+                    $specialityRepo = new MedicalSpecialityRepository();
+                    $medical_speciality = $specialityRepo->getObjByID($abstract->medical_speciality_id);
+                    $abstract->medical_speciality = $medical_speciality->name;
+                }
+            }
+
             $grandTotal                 = "00.00";
 
             return view('report.abstract_view')
@@ -87,6 +99,17 @@ class AbstractReportController extends Controller
             $eventRepo                  = new ReportEventAbstractRepository();
             $eventAbstracts             = $eventRepo->getEventAbstracts($from_date, $to_date);
 
+            foreach($eventAbstracts as $abstract){
+                if($abstract->medical_speciality_id == 0){
+                    $abstract->medical_speciality = $abstract->medical_speciality_other;
+                }
+                else{
+                    $specialityRepo = new MedicalSpecialityRepository();
+                    $medical_speciality = $specialityRepo->getObjByID($abstract->medical_speciality_id);
+                    $abstract->medical_speciality = $medical_speciality->name;
+                }
+            }
+
             $displayArray = array();
             foreach($eventAbstracts as $value){
                 $country = Utility::getCountryNameByValue($value->country); //get country name
@@ -96,7 +119,7 @@ class AbstractReportController extends Controller
                 $displayArray[$value->id]["Last Name"]=$value->last_name;
                 $displayArray[$value->id]["Email"]=$value->email;
                 $displayArray[$value->id]["Country"]=$country;
-                $displayArray[$value->id]["Medical Specialities"]=$value->medical_specialities;
+                $displayArray[$value->id]["Medical Specialities"]=$value->medical_speciality;
             }
 
 
@@ -123,6 +146,18 @@ class AbstractReportController extends Controller
             $date = Carbon::parse($from_date)->format('d-m-Y'); //changing date format to show in view
             $eventRepo                  = new ReportEventAbstractRepository();
             $eventAbstracts             = $eventRepo->getEventAbstracts($from_date, $to_date);
+
+            foreach($eventAbstracts as $abstract){
+                if($abstract->medical_speciality_id == 0){
+                    $abstract->medical_speciality = $abstract->medical_speciality_other;
+                }
+                else{
+                    $specialityRepo = new MedicalSpecialityRepository();
+                    $medical_speciality = $specialityRepo->getObjByID($abstract->medical_speciality_id);
+                    $abstract->medical_speciality = $medical_speciality->name;
+                }
+            }
+
 
             $html = '
                     <style>
@@ -159,7 +194,7 @@ class AbstractReportController extends Controller
                         $html .= '<td>'. $pdf->last_name .'</td>';
                         $html .= '<td>'. $pdf->email .'</td>';
                         $html .= '<td>'. $country .'</td>';
-                        $html .= '<td>'. $pdf->medical_specialities .'</td>';
+                        $html .= '<td>'. $pdf->medical_speciality .'</td>';
                         $html .= '</tr>';
                     }
                     // foreach($eventAbstracts as $pdf){
