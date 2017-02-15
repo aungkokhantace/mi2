@@ -95,7 +95,7 @@
                             <td>{{$eventAbstract->last_name}}</td>
                             <td>{{$eventAbstract->email}}</td>
                             <td>{{$eventAbstract->country}}</td>
-                            <td>{{$eventAbstract->medical_specialities}}</td>
+                            <td>{{$eventAbstract->medical_speciality}}</td>
                             <td></td>
 
                         </tr>
