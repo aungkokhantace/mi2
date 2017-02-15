@@ -13,7 +13,9 @@ $footerMenus = \App\Core\Check::getFooterMenus();
     <div class="footer-container">
         {{--<div class="row">--}}
             {{--<div class="col-lg-12">--}}
-                <p>Copyright &copy; IMS All Right Reserved 2017</p>
+                {{--<p>Copyright &copy; IMS All Right Reserved 2017</p>--}}
+                <p>Copyright &copy; 2017. Interal Medicine Society Myanmar</p>
+
             {{--</div>--}}
             <!-- /.col-lg-12 -->
         {{--</div>--}}

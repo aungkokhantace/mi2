@@ -46,7 +46,7 @@
         {{--<!-- end of Carousel & header section -->--}}
         <br>
 
-    <h2 class="">{{'Abstractform Entry' }}</h2>
+    <h2 class="">{{'Abstract Form Entry' }}</h2>
 
     {!! Form::open(array('id'=> 'frm_abstract' , 'url' => 'abstractform/store', 'class'=> 'form-horizontal user-form-border', 'files'=> 'true')) !!}
     <br>
