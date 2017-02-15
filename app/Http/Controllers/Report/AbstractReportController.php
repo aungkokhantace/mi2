@@ -8,6 +8,7 @@
  */
 
 namespace App\Http\Controllers\Report;
+use App\Backend\MedicalSpeciality\MedicalSpecialityRepository;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -37,6 +38,17 @@ class AbstractReportController extends Controller
             foreach($eventAbstracts as $absCountry){
                 if(isset($absCountry->country)){
                     $absCountry->country = Utility::getCountryNameByValue($absCountry->country);
+                }
+            }
+
+            foreach($eventAbstracts as $abstract){
+                if($abstract->medical_speciality_id == 0){
+                    $abstract->medical_speciality = $abstract->medical_speciality_other;
+                }
+                else{
+                    $specialityRepo = new MedicalSpecialityRepository();
+                    $medical_speciality = $specialityRepo->getObjByID($abstract->medical_speciality_id);
+                    $abstract->medical_speciality = $medical_speciality->name;
                 }
             }
 
