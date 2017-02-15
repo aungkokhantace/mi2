@@ -168,7 +168,9 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                <p class="bank_account_no">Account  -0107101200004456 (Name – internal medicine society)</p>
+                {{--<p class="bank_account_no">Account  -0107101200004456 (Name – internal medicine society)</p>--}}
+                <p class="bank_account_no">Foreign Account  -  0107101200004456</p>
+                <p class="bank_account_no">Local Account  -  0107100400000108</p>
                 <div class="bank_acc_detail">
                     <p>
                     Co-operative Bank Ltd. (CB Bank)<br>

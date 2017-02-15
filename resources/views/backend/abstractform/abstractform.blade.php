@@ -7,13 +7,13 @@
  */
 ?>
 @extends('layouts.master')
-@section('title','Abstractform')
+@section('title','Abstract Form')
 @section('content')
 
 <!-- begin #content -->
 <div id="content" class="content">
 
-    <h1 class="page-header">{{'Abstractform Update'  }}</h1>
+    <h1 class="page-header">{{'Abstract Form Update'  }}</h1>
 
     {!! Form::open(array('url' => 'backend/abstractform/update', 'class'=> 'form-horizontal user-form-border', 'files'=> 'true')) !!}
 
@@ -167,16 +167,18 @@
             </div>
         </div>
     @else
-        <div class="other row">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <label for="other">Other Speciality<span class="require">*</span></label>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <input type="text" required class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{Request::old('other')}}"/>
-                <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
-            </div>
-        </div>
+
     @endif
+
+    <div class="other row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="other">Other Speciality<span class="require">*</span></label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <input type="text" required class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{Request::old('other')}}"/>
+            <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -216,37 +218,47 @@
     <script type="text/javascript" language="javascript" class="init">
         $(document).ready(function() {
 
-            $('#list-table tfoot th.search-col').each( function () {
-                var title = $('#list-table thead th').eq( $(this).index() ).text();
-                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-            } );
-
-            var table = $('#list-table').DataTable({
-                aLengthMenu: [
-                    [5,25, 50, 100, 200, -1],
-                    [5,25, 50, 100, 200, "All"]
-                ],
-                iDisplayLength: 5,
-                "order": [[ 2, "desc" ]],
-                stateSave: false,
-                "pagingType": "full",
-                "dom": '<"pull-right m-t-20"i>rt<"bottom"lp><"clear">',
-
-            });
-//            new $.fn.dataTable.FixedHeader( table, {
+//            $('#list-table tfoot th.search-col').each( function () {
+//                var title = $('#list-table thead th').eq( $(this).index() ).text();
+//                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+//            } );
+//
+//            var table = $('#list-table').DataTable({
+//                aLengthMenu: [
+//                    [5,25, 50, 100, 200, -1],
+//                    [5,25, 50, 100, 200, "All"]
+//                ],
+//                iDisplayLength: 5,
+//                "order": [[ 2, "desc" ]],
+//                stateSave: false,
+//                "pagingType": "full",
+//                "dom": '<"pull-right m-t-20"i>rt<"bottom"lp><"clear">',
+//
 //            });
-
-
-            // Apply the search
-            table.columns().eq( 0 ).each( function ( colIdx ) {
-                $( 'input', table.column( colIdx ).footer() ).on( 'keyup change', function () {
-                    table
-                            .column( colIdx )
-                            .search( this.value )
-                            .draw();
-                } );
-
-            });
+////            new $.fn.dataTable.FixedHeader( table, {
+////            });
+//
+//
+//            // Apply the search
+//            table.columns().eq( 0 ).each( function ( colIdx ) {
+//                $( 'input', table.column( colIdx ).footer() ).on( 'keyup change', function () {
+//                    table
+//                            .column( colIdx )
+//                            .search( this.value )
+//                            .draw();
+//                } );
+//
+//            });
         });
+
+        function check_for_other(){
+            var other_flag = document.getElementById('medical_specialities').value;
+            if(other_flag == "other"){
+                $(".other").show();
+            }
+            else{
+                $(".other").hide();
+            }
+        }
     </script>
 @stop

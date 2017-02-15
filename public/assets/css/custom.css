@@ -186,6 +186,11 @@ p .MsoNormal{
 
 /*for left-alignment at homepage*/
 .navbar-default{
-    margin-left:-16px;
+    margin-left:-10px;
+}
+
+/*for medical_speciality_other*/
+.other{
+    display:none;
 }
 

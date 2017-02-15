@@ -2,7 +2,12 @@
 $headerMenuFlag = \App\Core\Check::headerMenuFlag();
 $sideMenus = \App\Core\Check::getSideMenus();
 $url = Request::path();
-$breadCrumbArr = explode("/",$url);
+if($url == "/"){
+    $breadCrumbArr[0] = "home";
+}
+else{
+    $breadCrumbArr = explode("/",$url);
+}
 $breadCrumbLink = "/";
 ?>
 

@@ -72,7 +72,7 @@ function delete_setup(type) {
 function add_confirm_setup(type) {
   swal({
                 title: "Are you sure?",
-                text: "You want to confirm to submit your registration form!",
+                text: "You want to confirm to submit your "+type+" form!",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55 ",
