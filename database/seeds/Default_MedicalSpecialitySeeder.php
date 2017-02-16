@@ -30,14 +30,15 @@ class Default_MedicalSpecialitySeeder extends Seeder
         ['id'=>9, 'name'=>'Hematology-Oncology', 'option_group_name'=>null, 'description'=>'Hematology-Oncology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
         ['id'=>10, 'name'=>'HIV/AIDS', 'option_group_name'=>null, 'description'=>'HIV/AIDS', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
         ['id'=>11, 'name'=>'Infectious Diseases', 'option_group_name'=>null, 'description'=>'Infectious Diseases', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>12, 'name'=>'Nephrology', 'option_group_name'=>'Internal Medicine', 'description'=>'Nephrology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>13, 'name'=>'Neurology', 'option_group_name'=>'Internal Medicine', 'description'=>'Neurology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>14, 'name'=>'Pathology & Lab Medicine', 'option_group_name'=>'Internal Medicine', 'description'=>'Pathology & Lab Medicine', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>15, 'name'=>'Psychiatry', 'option_group_name'=>'Internal Medicine', 'description'=>'Psychiatry', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>16, 'name'=>'Pulmonary Medicine', 'option_group_name'=>'Internal Medicine', 'description'=>'Pulmonary Medicine', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>17, 'name'=>'Radiology', 'option_group_name'=>'Internal Medicine', 'description'=>'Radiology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>18, 'name'=>'Rheumatology', 'option_group_name'=>'Internal Medicine', 'description'=>'Rheumatology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
-        ['id'=>19, 'name'=>'Transplantation', 'option_group_name'=>'Internal Medicine', 'description'=>'Transplantation', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>12, 'name'=>'Internal Medicine', 'option_group_name'=>null, 'description'=>'Internal Medicine', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>13, 'name'=>'Nephrology', 'option_group_name'=>null, 'description'=>'Nephrology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>14, 'name'=>'Neurology', 'option_group_name'=>null, 'description'=>'Neurology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>15, 'name'=>'Pathology & Lab Medicine', 'option_group_name'=>null, 'description'=>'Pathology & Lab Medicine', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>16, 'name'=>'Psychiatry', 'option_group_name'=>null, 'description'=>'Psychiatry', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>17, 'name'=>'Pulmonary Medicine', 'option_group_name'=>null, 'description'=>'Pulmonary Medicine', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>18, 'name'=>'Radiology', 'option_group_name'=>null, 'description'=>'Radiology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>19, 'name'=>'Rheumatology', 'option_group_name'=>null, 'description'=>'Rheumatology', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+        ['id'=>20, 'name'=>'Transplantation', 'option_group_name'=>null, 'description'=>'Transplantation', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
     );
 
