@@ -121,11 +121,12 @@ class RegisterController extends Controller
             $emailArr[0] = $email;
             $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_REGISTRATION' LIMIT 1");
 
+            $content = "<p>Dear ".$first_name.",<p>";
             if(isset($contentRaw) && count($contentRaw)>0){
-                $content = $contentRaw[0]->description;
+                $content .= $contentRaw[0]->description;
             }
             else{
-                $content = "Registration Reply...";
+                $content .= "Registration Reply...";
             }
 
             if(isset($emailArr) && count($emailArr)>0){

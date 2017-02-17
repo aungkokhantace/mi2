@@ -144,12 +144,14 @@ class AbstractformController extends Controller
 //
 //            });
 
+            $content = "<p>Dear Sir,<p>";
+
             $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_ABSTRACT' LIMIT 1");
             if(isset($contentRaw) && count($contentRaw)>0){
-                $content = $contentRaw[0]->description;
+                $content .= $contentRaw[0]->description;
             }
             else{
-                $content = "Registration Reply...";
+                $content .= "Abstract Reply...";
             }
 
             if(isset($emailArr) && count($emailArr)>0){

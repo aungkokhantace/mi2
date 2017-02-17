@@ -272,6 +272,29 @@ class Default_SettingSeeder extends Seeder
             ['description'=>'Main Menu', 'code'=>'MAIN_MENU', 'value'=>'2', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
             ['description'=>'Side Menu', 'code'=>'SIDE_MENU', 'value'=>'3', 'type'=>'MENU','created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
             ['description'=>'Footer Menu', 'code'=>'FOOTER_MENU', 'value'=>'4', 'type'=>'MENU', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
+
+
+            ['description'=>'<p class="MsoNormal"><span style="font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">We are
+pleased to inform you that your application to registration has been
+received.</span></span></p><p class="MsoNormal"><span style="text-align: justify; font-size: 14px;">In the meantime, could you please mail your bank statement to us.</span></p><p class="MsoNormal"><span style="font-size: 14px;">We will send admission document after confirming getting registration fee.</span></p>
+',
+                'code'=>'TO_EMAIL_REGISTRATION', 'value'=>'0', 'type'=>'EMAIL', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
+            ['description'=>'<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-family: Zawgyi-One, sans-serif;"><span style="font-size: 14px;">We acknowledge receipt
+of your abstract submission.</span><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;"><o:p> </o:p></span></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-family: Zawgyi-One, sans-serif;"><span style="font-size: 14px;">We will inform you of
+the outcome after 31 May 2017, which is the deadline for
+submission of abstracts, as well as to provide you details regarding
+your registration to attend the MIMC 2017 Conference.</span><o:p></o:p></span></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 1; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;"><o:p> </o:p></span></p><p><span style="font-size: 14px;">
+
+</span><span style="font-size: 14px;">
+
+</span><span style="font-size: 14px;">
+
+</span><span style="font-size: 14px;">
+
+</span></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><span style="font-family: Zawgyi-One, sans-serif;"><span style="font-size: 14px;">In the meantime, could
+you please register to attend the MIMC 2017 Conference, if you have not
+done so. You are eligible for the early bird registration fee.</span><o:p></o:p></span></p>',
+                'code'=>'TO_EMAIL_ABSTRACT', 'value'=>'0', 'type'=>'EMAIL', 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-06 11:30:35', 'updated_at' =>'2017-01-06 11:30:35'],
         );
 
         DB::table('core_settings')->insert($arr);
