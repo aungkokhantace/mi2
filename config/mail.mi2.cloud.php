@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'president@internalmedicinesocietymyanmar.com', 'name' => 'Bacekend System'],
+    'from' => ['address' => 'mimc2017registration@internalmedicinesocietymyanmar.com', 'name' => 'Bacekend System'],
 
     /*
     |--------------------------------------------------------------------------
