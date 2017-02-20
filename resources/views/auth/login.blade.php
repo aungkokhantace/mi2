@@ -14,11 +14,18 @@ $companyLogo = \App\Core\Check::companyLogo();
 </head>
 <body>
 <div class="container">
-    <div class="row middle">
+    <div class="row middle2">
+        <div class="col-md-5 col-md-offset-3 login-center2">
+            <img src="{{$companyLogo}}" class="pull-left height-full m-r-5 login_logo">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
         <div class="col-md-5 col-md-offset-3 login-left">
             <p id="logo"><strong>{{$companyName}}</strong></p>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-5 col-md-offset-3 login-left">
             <div class="border">
@@ -74,11 +81,7 @@ $companyLogo = \App\Core\Check::companyLogo();
         </div>
     </div>
     <br />
-    <div class="row">
-        <div class="col-md-5 col-md-offset-3 login-center">
-            <img src="{{$companyLogo}}" class="pull-left height-full m-r-5 login_logo">
-        </div>
-    </div>
+
 </div>
 </body>
 </html>
