@@ -35,7 +35,5 @@ composer.lock
 .env
 
 public/images/
-public/images/registration/
-public/images/slider_images/
 public/uploads/
 public/mailoutput/
