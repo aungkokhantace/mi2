@@ -34,6 +34,8 @@ composer.lock
 .idea/workspace.xml
 .env
 
+public/images/
 public/images/registration/
-public/uploads/
 public/images/slider_images/
+public/uploads/
+public/mailoutput/
