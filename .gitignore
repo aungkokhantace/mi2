@@ -34,5 +34,6 @@ composer.lock
 .idea/workspace.xml
 .env
 
+
 public/uploads/
 public/mailoutput/
