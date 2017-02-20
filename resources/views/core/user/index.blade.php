@@ -39,7 +39,7 @@
                     <tr>
                         <th><input type='checkbox' name='check' id='check_all'/></th>
                         <th>Login Name</th>
-                        <th>Displaly Name</th>
+                        <th>Display Name</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Address</th>
@@ -60,15 +60,25 @@
                     </tfoot>
                     <tbody>
                     @foreach($users as $user)
-                        <tr>
-                        <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $user->id }}" id="all"></td>
-                        <td><a href="/backend/user/edit/{{$user->id}}">{{$user->user_name}}</a></td>
-                        <td>{{$user->display_name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->role->name}}</td>
-                        <td>{{$user->address}}</td>
-
-                        </tr>
+                        @if(($user->role_id == 1))
+                            @if(Auth::guard('User')->user()->role_id == '1')
+                            <tr>
+                                <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $user->id }}" id="all"></td>
+                                <td><a href="/backend/user/edit/{{$user->id}}">{{$user->user_name}}</a></td>
+                                <td>{{$user->display_name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->role->name}}</td>
+                                <td>{{$user->address}}</td>
+                            </tr>
+                            @endif
+                        @else
+                            <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $user->id }}" id="all"></td>
+                            <td><a href="/backend/user/edit/{{$user->id}}">{{$user->user_name}}</a></td>
+                            <td>{{$user->display_name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->role->name}}</td>
+                            <td>{{$user->address}}</td>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

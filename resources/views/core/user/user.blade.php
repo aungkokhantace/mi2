@@ -99,19 +99,34 @@
             @if(isset($user))
                 <select class="form-control" name="role_id" id="role_id">
                     @foreach($roles as $role)
-                        @if($role->id == $user->role_id)
-                            <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
+                        @if(($role->id == 1))
+                            @if(Auth::guard('User')->user()->role_id == '1')
+                                @if($role->id == $user->role_id)
+                                    <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
+                                @else
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                @endif
+                            @endif
                         @else
-                            <option value="{{$role->id}}">{{$role->name}}</option>
+                            @if($role->id == $user->role_id)
+                                <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
+                            @else
+                                <option value="{{$role->id}}">{{$role->name}}</option>
+                            @endif
                         @endif
                     @endforeach
                 </select>
             @else
                 <select class="form-control" name="role_id" id="role_id">
                     <option value="" selected disabled>Select Staff Role</option>
-
                     @foreach($roles as $role)
-                        <option value="{{$role->id}}">{{$role->name}}</option>
+                        @if(($role->id == 1))
+                            @if(Auth::guard('User')->user()->role_id == '1')
+                                <option value="{{$role->id}}">{{$role->name}}</option>
+                            @endif
+                        @else
+                            <option value="{{$role->id}}">{{$role->name}}</option>
+                        @endif
                     @endforeach
                 </select>
             @endif
