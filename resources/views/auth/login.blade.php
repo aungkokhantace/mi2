@@ -1,3 +1,8 @@
+<?php
+$companyName = \App\Core\Check::companyName();
+$companyLogo = \App\Core\Check::companyLogo();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +16,7 @@
 <div class="container">
     <div class="row middle">
         <div class="col-md-5 col-md-offset-3 login-left">
-            <p id="logo"><strong>AcePlus</strong> Management System</p>
+            <p id="logo"><strong>{{$companyName}}</strong></p>
         </div>
     </div>
     <div class="row">
@@ -71,7 +76,7 @@
     <br />
     <div class="row">
         <div class="col-md-5 col-md-offset-3 login-center">
-            <img src="/images/aceplus_logo.png" class="pull-left height-full m-r-5">
+            <img src="{{$companyLogo}}" class="pull-left height-full m-r-5 login_logo">
         </div>
     </div>
 </div>
