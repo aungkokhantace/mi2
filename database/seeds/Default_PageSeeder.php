@@ -139,7 +139,7 @@ Refunds requested after May 30 will be processed one month after conference.<o:p
             'status' =>'active', 'url' =>'home/register', 'title' =>'Register title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
         ['id'=>13, 'name'=>'Abstract','description'=>'Abstract description',
-            'content' =>'<h5 style="text-align: justify; "><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b style="mso-bidi-font-weight:normal"><u><span style="font-family:" zawgyi-one","sans-serif""="">Now Accepting Abstracts</span></u></b></h5>
+            'content' =>'<h5 style="text-align: justify; "><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b style="mso-bidi-font-weight:normal"><u><span style="font-family:" zawgyi-one","sans-serif""="">Now Accepting Abstracts</span></u></b></h5>
 
 <p class="MsoNormal" style="text-align: justify; line-height: 1.4;"><span style="font-family:" zawgyi-one","sans-serif""="">It’s
 time to summit abstracts of your research papers at the great gathering of
@@ -156,7 +156,7 @@ for both oral and poster presentations.</span>&nbsp;</p><p class="MsoNormal" sty
 
 <h5 style="text-align: justify;"><b style="mso-bidi-font-weight:normal"><u><span style="font-family:" zawgyi-one","sans-serif""="">Deadline for abstract submission</span></u></b><span style="font-family:" zawgyi-one","sans-serif""=""> – <font color="#ff0000"><b>May 31<sup>st</sup>, 2017</b></font></span></h5><h5 style="text-align: justify; line-height: 1;"><span style="font-family:" zawgyi-one","sans-serif""=""><font color="#ff0000"><b><br></b></font></span></h5>
 
-<div style="text-align: justify;"><a href="#"><button type="button" class="btn btn-primary down">Download Abstract Form</button></a>
+<div style="text-align: justify;"><a href="/download/Abstract_Submission_Form.docx"><button type="button" class="btn btn-primary down">Download Abstract Form</button></a>
     <a href="/abstractform/create"><button type="button" class="btn btn-primary up">Upload Abstract</button></a><a href="#"><br></a></div><p class="MsoNormal" style="text-align: justify; line-height: 1;"><span style="font-family:" zawgyi-one","sans-serif""="">We will confirm you by email if we accept the abstract. Once you get confirmation, you will need to register event from the web again.</span></p>',
             'status' =>'active', 'url' =>'home/abstract', 'title' =>'Abstract title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
