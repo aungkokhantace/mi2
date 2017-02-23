@@ -7,6 +7,7 @@ $companyLogo = \App\Core\Check::companyLogo();
 <html>
 <head>
     <title>Log In</title>
+    <link rel="shortcut icon" href="{{$companyLogo}}"/>
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/login.css" rel="stylesheet">
 

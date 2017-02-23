@@ -17,6 +17,7 @@ $companyLogo = \App\Core\Check::companyLogo();
     <meta content="" name="description" />
     <meta content="" name="author" />
     <title>{{$companyName}} - @yield('title')</title>
+    <link rel="shortcut icon" href="{{$companyLogo}}"/>
 
     <link href="/assets/css/AdminLTE.css" rel="stylesheet">
     <link media="all" type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-datepicker/css/datepicker3.css">

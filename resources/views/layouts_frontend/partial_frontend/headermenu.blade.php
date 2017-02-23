@@ -1,6 +1,7 @@
 <?php
 $headerMenuFlag = \App\Core\Check::headerMenuFlag();
 $headerMenus = \App\Core\Check::getHeaderMenus();
+$companyLogo = \App\Core\Check::companyLogo();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@ $headerMenus = \App\Core\Check::getHeaderMenus();
     <meta name="author" content="">
 
     <title>Myanmar Internal Medicine Society</title>
-
+    <link rel="shortcut icon" href="{{$companyLogo}}"/>
     <!-- Bootstrap Core CSS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 
