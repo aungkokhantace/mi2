@@ -157,10 +157,10 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>155,'module'=>'Event Email','name'=>'Destroy','description'=>'Event Email Destroy','url'=>'backend/eventemail/destroy'],
 
             //Registration Email Body
-            ['id'=>160,'module'=>'Registration Email','name'=>'View','description'=>'Registration Email Update','url'=>'backend/registrationemail'],
+//            ['id'=>160,'module'=>'Registration Email','name'=>'View','description'=>'Registration Email Update','url'=>'backend/registrationemail'],
 
             //Abstract Email Body
-            ['id'=>165,'module'=>'Abstract Email','name'=>'View','description'=>'Abstract Email Update','url'=>'backend/abstractemail'],
+//            ['id'=>165,'module'=>'Abstract Email','name'=>'View','description'=>'Abstract Email Update','url'=>'backend/abstractemail'],
 
             //Medical Specialities
             ['id'=>170,'module'=>'Medical Speciality','name'=>'Listing','description'=>'Medical Speciality Listing','url'=>'backend/medicalspeciality'],
@@ -169,6 +169,43 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>173,'module'=>'Medical Speciality','name'=>'Edit','description'=>'Medical Speciality Edit','url'=>'backend/medicalspeciality/edit'],
             ['id'=>174,'module'=>'Medical Speciality','name'=>'Update','description'=>'Medical Speciality Update','url'=>'backend/medicalspeciality/update'],
             ['id'=>175,'module'=>'Medical Speciality','name'=>'Destroy','description'=>'Medical Speciality Destroy','url'=>'backend/medicalspeciality/destroy'],
+
+            //Registration submit user email
+            ['id'=>180,'module'=>'Registration Submit User Email','name'=>'View','description'=>'Registration Submit User Email','url'=>'backend/registration_submit_user_email'],
+
+            //Registration submit admin email
+            ['id'=>181,'module'=>'Registration Submit Admin Email','name'=>'View','description'=>'Registration Submit Admin Email','url'=>'backend/registration_submit_admin_email'],
+
+            //Registration confirm user email
+            ['id'=>182,'module'=>'Registration Confirm User Email','name'=>'View','description'=>'Registration Confirm User Email','url'=>'backend/registration_confirm_user_email'],
+
+            //Registration confirm admin email
+            ['id'=>183,'module'=>'Registration Confirm Admin Email','name'=>'View','description'=>'Registration Confirm Admin Email','url'=>'backend/registration_confirm_admin_email'],
+
+            //Abstract submit user email
+            ['id'=>184,'module'=>'Abstract Submit User Email','name'=>'View','description'=>'Abstract Submit User Email','url'=>'backend/abstract_submit_user_email'],
+
+            //Abstract submit admin email
+            ['id'=>185,'module'=>'Abstract Submit Admin Email','name'=>'View','description'=>'Abstract Submit Admin Email','url'=>'backend/abstract_submit_admin_email'],
+
+            //Abstract confirm user email 1
+            ['id'=>186,'module'=>'Abstract Confirm User Email 1','name'=>'View','description'=>'Abstract Confirm User Email 1','url'=>'backend/abstract_confirm_user_email_1'],
+
+            //Abstract confirm admin email 1
+            ['id'=>187,'module'=>'Abstract Confirm Admin Email 1','name'=>'View','description'=>'Abstract Confirm Admin Email 1','url'=>'backend/abstract_confirm_admin_email_1'],
+
+            //Abstract confirm user email 2
+            ['id'=>188,'module'=>'Abstract Confirm User Email 2','name'=>'View','description'=>'Abstract Confirm User Email 2','url'=>'backend/abstract_confirm_user_email_2'],
+
+            //Abstract confirm admin email 2
+            ['id'=>189,'module'=>'Abstract Confirm Admin Email 2','name'=>'View','description'=>'Abstract Confirm Admin Email 2','url'=>'backend/abstract_confirm_admin_email_2'],
+
+            //Abstract reject user email
+            ['id'=>190,'module'=>'Abstract Reject User Email','name'=>'View','description'=>'Abstract Reject User Email','url'=>'backend/abstract_reject_user_email'],
+
+            //Abstract reject admin email
+            ['id'=>191,'module'=>'Abstract Reject Admin Email','name'=>'View','description'=>'Abstract Reject Admin Email','url'=>'backend/abstract_reject_admin_email'],
+
         );
 
 

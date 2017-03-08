@@ -140,9 +140,9 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>1, 'permission_id'=>154],
             ['role_id'=>1, 'permission_id'=>155],
 
-            ['role_id'=>1, 'permission_id'=>160],
+//            ['role_id'=>1, 'permission_id'=>160],
 
-            ['role_id'=>1, 'permission_id'=>165],
+//            ['role_id'=>1, 'permission_id'=>165],
 
             ['role_id'=>1, 'permission_id'=>170],
             ['role_id'=>1, 'permission_id'=>171],
@@ -150,6 +150,21 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>1, 'permission_id'=>173],
             ['role_id'=>1, 'permission_id'=>174],
             ['role_id'=>1, 'permission_id'=>175],
+
+            //email formats
+            ['role_id'=>1, 'permission_id'=>180],
+            ['role_id'=>1, 'permission_id'=>181],
+            ['role_id'=>1, 'permission_id'=>182],
+            ['role_id'=>1, 'permission_id'=>183],
+            ['role_id'=>1, 'permission_id'=>184],
+            ['role_id'=>1, 'permission_id'=>185],
+            ['role_id'=>1, 'permission_id'=>186],
+            ['role_id'=>1, 'permission_id'=>187],
+            ['role_id'=>1, 'permission_id'=>188],
+            ['role_id'=>1, 'permission_id'=>189],
+            ['role_id'=>1, 'permission_id'=>190],
+            ['role_id'=>1, 'permission_id'=>191],
+
 //          end  role-permissions for super-administrator //developer account
 
 
@@ -273,9 +288,9 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>2, 'permission_id'=>154],
             ['role_id'=>2, 'permission_id'=>155],
 
-            ['role_id'=>2, 'permission_id'=>160],
+//            ['role_id'=>2, 'permission_id'=>160],
 
-            ['role_id'=>2, 'permission_id'=>165],
+//            ['role_id'=>2, 'permission_id'=>165],
 
             ['role_id'=>2, 'permission_id'=>170],
             ['role_id'=>2, 'permission_id'=>171],
@@ -283,6 +298,20 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>2, 'permission_id'=>173],
             ['role_id'=>2, 'permission_id'=>174],
             ['role_id'=>2, 'permission_id'=>175],
+
+            //email formats
+            ['role_id'=>2, 'permission_id'=>180],
+            ['role_id'=>2, 'permission_id'=>181],
+            ['role_id'=>2, 'permission_id'=>182],
+            ['role_id'=>2, 'permission_id'=>183],
+            ['role_id'=>2, 'permission_id'=>184],
+            ['role_id'=>2, 'permission_id'=>185],
+            ['role_id'=>2, 'permission_id'=>186],
+            ['role_id'=>2, 'permission_id'=>187],
+            ['role_id'=>2, 'permission_id'=>188],
+            ['role_id'=>2, 'permission_id'=>189],
+            ['role_id'=>2, 'permission_id'=>190],
+            ['role_id'=>2, 'permission_id'=>191],
 //           end role-permissions for administrator //user account
         );
 

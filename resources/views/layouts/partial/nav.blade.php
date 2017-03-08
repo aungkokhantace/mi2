@@ -233,13 +233,30 @@
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
-
                             <span>Email Text</span>
                         </a>
 
                         <ul class="sub-menu">
-                            <li nav-id="modifier-create-modifier"><a href="/backend/registrationemail">Registration Email</a></li>
-                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstractemail">Abstract Email</a></li>
+                            {{--<li nav-id="modifier-create-modifier"><a href="/backend/registrationemail">Registration Email</a></li>--}}
+                            {{--<li nav-id="modifier-create-modifierpanel"><a href="/backend/abstractemail">Abstract Email</a></li>--}}
+
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_submit_user_email">Registration Submit User Email</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_submit_admin_email">Registration Submit Admin Email</a></li>
+
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_confirm_user_email">Registration Confirm User Email</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_confirm_admin_email">Registration Confirm Admin Email</a></li>
+
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_submit_user_email">Abstract Submit User Email</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_submit_admin_email">Abstract Submit Admin Email</a></li>
+
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_user_email_1">Abstract Confirm User Email 1</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_admin_email_1">Abstract Confirm Admin Email 1</a></li>
+
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_user_email_2">Abstract Confirm User Email 2</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_admin_email_2">Abstract Confirm Admin Email 2</a></li>
+
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_reject_user_email">Abstract Reject User Email</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_reject_admin_email">Abstract Reject Admin Email</a></li>
                         </ul>
                     </li>
                 </ul>

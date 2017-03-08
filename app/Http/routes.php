@@ -206,12 +206,12 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('post/destroy', array('as'=>'backend/post/destroy','uses'=>'Backend\PostController@destroy'));
 
                 //Registration Email
-                Route::get('registrationemail', array('as'=>'backend/registrationemail','uses'=>'Backend\RegistrationEmailController@edit'));
-                Route::post('registrationemail', array('as'=>'backend/registrationemail','uses'=>'Backend\RegistrationEmailController@update'));
+//                Route::get('registrationemail', array('as'=>'backend/registrationemail','uses'=>'Backend\RegistrationEmailController@edit'));
+//                Route::post('registrationemail', array('as'=>'backend/registrationemail','uses'=>'Backend\RegistrationEmailController@update'));
 
                 //Abstract Email
-                Route::get('abstractemail', array('as'=>'backend/abstractemail','uses'=>'Backend\AbstractEmailController@edit'));
-                Route::post('abstractemail', array('as'=>'backend/abstractemail','uses'=>'Backend\AbstractEmailController@update'));
+//                Route::get('abstractemail', array('as'=>'backend/abstractemail','uses'=>'Backend\AbstractEmailController@edit'));
+//                Route::post('abstractemail', array('as'=>'backend/abstractemail','uses'=>'Backend\AbstractEmailController@update'));
 
                 //Event Emails(create to-emails)
                 Route::get('eventemail', array('as'=>'backend/eventemail','uses'=>'Backend\EventEmailController@index'));
@@ -228,6 +228,58 @@ Route::group(['middleware' => 'web'], function () {
                 Route::get('medicalspeciality/edit/{id}', array('as'=>'backend/medicalspeciality/edit','uses'=>'Backend\MedicalSpecialityController@edit'));
                 Route::post('medicalspeciality/update', array('as'=>'backend/medicalspeciality/update','uses'=>'Backend\MedicalSpecialityController@update'));
                 Route::post('medicalspeciality/destroy', array('as'=>'backend/medicalspeciality/destroy','uses'=>'Backend\MedicalSpecialityController@destroy'));
+
+                //Registration submit user email
+                Route::get('registration_submit_user_email', array('as'=>'backend/registration_submit_user_email','uses'=>'Backend\RegistrationSubmitUserEmailController@edit'));
+                Route::post('registration_submit_user_email', array('as'=>'backend/registration_submit_user_email','uses'=>'Backend\RegistrationSubmitUserEmailController@update'));
+
+                //Registration submit admin email
+                Route::get('registration_submit_admin_email', array('as'=>'backend/registration_submit_admin_email','uses'=>'Backend\RegistrationSubmitAdminEmailController@edit'));
+                Route::post('registration_submit_admin_email', array('as'=>'backend/registration_submit_admin_email','uses'=>'Backend\RegistrationSubmitAdminEmailController@update'));
+
+                //Registration confirm user email
+                Route::get('registration_confirm_user_email', array('as'=>'backend/registration_confirm_user_email','uses'=>'Backend\RegistrationConfirmUserEmailController@edit'));
+                Route::post('registration_confirm_user_email', array('as'=>'backend/registration_confirm_user_email','uses'=>'Backend\RegistrationConfirmUserEmailController@update'));
+
+                //Registration confirm admin email
+                Route::get('registration_confirm_admin_email', array('as'=>'backend/registration_confirm_admin_email','uses'=>'Backend\RegistrationConfirmAdminEmailController@edit'));
+                Route::post('registration_confirm_admin_email', array('as'=>'backend/registration_confirm_admin_email','uses'=>'Backend\RegistrationConfirmAdminEmailController@update'));
+
+                //Abstract submit user email
+                Route::get('abstract_submit_user_email', array('as'=>'backend/abstract_submit_user_email','uses'=>'Backend\AbstractSubmitUserEmailController@edit'));
+                Route::post('abstract_submit_user_email', array('as'=>'backend/abstract_submit_user_email','uses'=>'Backend\AbstractSubmitUserEmailController@update'));
+
+                //Abstract submit admin email
+                Route::get('abstract_submit_admin_email', array('as'=>'backend/abstract_submit_admin_email','uses'=>'Backend\AbstractSubmitAdminEmailController@edit'));
+                Route::post('abstract_submit_admin_email', array('as'=>'backend/abstract_submit_admin_email','uses'=>'Backend\AbstractSubmitAdminEmailController@update'));
+
+                //Abstract confirm user email 1
+                Route::get('abstract_confirm_user_email_1', array('as'=>'backend/abstract_confirm_user_email_1','uses'=>'Backend\AbstractConfirmUserEmail1Controller@edit'));
+                Route::post('abstract_confirm_user_email_1', array('as'=>'backend/abstract_confirm_user_email_1','uses'=>'Backend\AbstractConfirmUserEmail1Controller@update'));
+
+                //Abstract confirm admin email 1
+                Route::get('abstract_confirm_admin_email_1', array('as'=>'backend/abstract_confirm_admin_email_1','uses'=>'Backend\AbstractConfirmAdminEmail1Controller@edit'));
+                Route::post('abstract_confirm_admin_email_1', array('as'=>'backend/abstract_confirm_admin_email_1','uses'=>'Backend\AbstractConfirmAdminEmail1Controller@update'));
+
+                //Abstract confirm user email 2
+                Route::get('abstract_confirm_user_email_2', array('as'=>'backend/abstract_confirm_user_email_2','uses'=>'Backend\AbstractConfirmUserEmail2Controller@edit'));
+                Route::post('abstract_confirm_user_email_2', array('as'=>'backend/abstract_confirm_user_email_2','uses'=>'Backend\AbstractConfirmUserEmail2Controller@update'));
+
+                //Abstract confirm admin email 2
+                Route::get('abstract_confirm_admin_email_2', array('as'=>'backend/abstract_confirm_admin_email_2','uses'=>'Backend\AbstractConfirmAdminEmail2Controller@edit'));
+                Route::post('abstract_confirm_admin_email_2', array('as'=>'backend/abstract_confirm_admin_email_2','uses'=>'Backend\AbstractConfirmAdminEmail2Controller@update'));
+
+                //Abstract reject user email
+                Route::get('abstract_reject_user_email', array('as'=>'backend/abstract_reject_user_email','uses'=>'Backend\AbstractRejectUserEmailController@edit'));
+                Route::post('abstract_reject_user_email', array('as'=>'backend/abstract_reject_user_email','uses'=>'Backend\AbstractRejectUserEmailController@update'));
+
+                //Abstract reject admin email
+                Route::get('abstract_reject_admin_email', array('as'=>'backend/abstract_reject_admin_email','uses'=>'Backend\AbstractRejectAdminEmailController@edit'));
+                Route::post('abstract_reject_admin_email', array('as'=>'backend/abstract_reject_admin_email','uses'=>'Backend\AbstractRejectAdminEmailController@update'));
+
+
+
+
             });
 
         });
