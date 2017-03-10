@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 use App\Backend\MedicalSpeciality\MedicalSpecialityRepository;
 use App\Backend\Register\AppRegister;
 use App\Backend\Permission\Permission;
+use App\Core\FormatGenerator;
+use App\Core\ReturnMessage;
 use App\Session;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -18,6 +20,7 @@ use App\Backend\Register\RegisterRepository;
 use App\Backend\Infrastructure\Forms\RegisterEntryRequest;
 use App\Backend\Infrastructure\Forms\RegisterEditRequest;
 use App\Core\Utility;
+use Illuminate\Support\Facades\Mail;
 use InterventionImage;
 
 
@@ -134,10 +137,9 @@ class RegisterController extends Controller
                     $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
                 }
             }
-
             return view('backend.register.register_backend')->with('countries', $countries)->with('registers', $registers)->with('specialitiesArr', $specialitiesArr);
-            return redirect('/login');
-    }
+        }
+        return redirect('/login');
     }
 
      public function update(RegisterEditRequest $request){
@@ -221,7 +223,7 @@ class RegisterController extends Controller
             }
 
             if($register->medical_speciality_id == 0){
-                //if user chose "other" in medical speciality, medical_speciality_id is 0 and medical_speciality_other is shown instead!!
+                //if user choose "other" in medical speciality, medical_speciality_id is 0 and medical_speciality_other is shown instead!!
                 $register->medical_speciality_name = $register->medical_speciality_other;
             }
             else{
@@ -264,6 +266,10 @@ class RegisterController extends Controller
                 // resizing image
                 $image = InterventionImage::make(sprintf($path .'/%s', $img_name))->resize($imgWidth, $imgHeight)->save();
             }
+            else{
+                $payment_reference_path = "";
+            }
+
 
 
             $confirm_by                         = Auth::guard('User')->user()->id;
@@ -277,9 +283,69 @@ class RegisterController extends Controller
             $register->status                   = 'confirm';
             $register->confirmed_by             = $confirm_by;
             $register->confirmed_date             = $confirmed_date;
-            $registerRepo->update($register);
+            $result = $registerRepo->update($register);
 
-            return redirect()->action('Backend\RegisterController@index');
+            if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
+                //start sending email to user
+                $userEmailArr = array();
+                $userEmailArr[0] = $register->email;
+
+                $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_USER' LIMIT 1");
+
+                $userContent = "<p>Dear ".$register->first_name.",<p>";
+                if(isset($userContentRaw) && count($userContentRaw)>0){
+                    $userContent .= $userContentRaw[0]->description;
+                }
+                else{
+                    $userContent .= "Registration Confirmation Reply...";
+                }
+
+                if(isset($userEmailArr) && count($userEmailArr)>0){
+                    Mail::send([], [], function($message) use($userEmailArr,$userContent) {
+                        $message->to($userEmailArr)->subject('Registration Confirmation Reply')->setBody($userContent, 'text/html');;
+//                    Attach file
+//                    $message->attach($attach);
+                    });
+                }
+                //end sending email to user
+
+                //start sending email to admin
+                $attach = $payment_reference_path;
+                $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+                $adminEmailArr = array();
+                foreach($adminEmailRaw as $eRaw){
+                    array_push($adminEmailArr,$eRaw->email);
+                }
+
+                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_confirm_ADMIN' LIMIT 1");
+
+                $adminContent = "<p>Dear Sir,<p>";
+                if(isset($adminContentRaw) && count($adminContentRaw)>0){
+                    $adminContent .= $adminContentRaw[0]->description;
+                }
+                else{
+                    $adminContent .= "Registration Confirmation Reply...";
+                }
+
+                if(isset($adminEmailArr) && count($adminEmailArr)>0){
+                    Mail::send([], [], function($message) use($adminEmailArr,$adminContent,$attach) {
+                        $message->to($adminEmailArr)->subject('Registration Confirmation Reply')->setBody($adminContent, 'text/html');
+                        if(isset($attach) && $attach != ""){
+                            //Attach file
+                            $message->attach($attach);
+                        }
+                    });
+                }
+                //end sending email to admin
+
+//                alert()->success('Registration successfully created. ')->persistent('OK');
+                return redirect()->action('Backend\RegisterController@index')
+                    ->withMessage(FormatGenerator::message('Success', 'Registration confirmed ...'));
+            }
+            else{
+                return redirect()->action('Backend\RegisterController@index')
+                    ->withMessage(FormatGenerator::message('Fail', 'Registration did not confirm ...'));
+            }
 
         }
        

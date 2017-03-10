@@ -29,8 +29,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Core\Utility;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use Mail;
 
 class AbstractformController extends Controller
 {
@@ -130,6 +130,29 @@ class AbstractformController extends Controller
         $result = $this->abstractformRepository->create($abstractform);
 
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
+            //start sending email to user
+            $userEmailArr = array();
+            $userEmailArr[0] = $email;
+            $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_SUBMIT_USER' LIMIT 1");
+
+            $userContent = "<p>Dear ".$first_name.",<p>";
+            if(isset($userContentRaw) && count($userContentRaw)>0){
+                $userContent .= $userContentRaw[0]->description;
+            }
+            else{
+                $userContent .= "Abstract Submission Reply...";
+            }
+
+            if(isset($userEmailArr) && count($userEmailArr)>0){
+                Mail::send([], [], function($message) use($userEmailArr,$userContent) {
+                    $message->to($userEmailArr)->subject('Abstract Submission Reply')->setBody($userContent, 'text/html');;
+//                    Attach file
+//                    $message->attach($attach);
+                });
+            }
+            //end sending email to user
+
+            //start sending email to admin
             $attach = $abstractform->abstract_file_path;
             $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
             $emailArr = array();
@@ -137,31 +160,24 @@ class AbstractformController extends Controller
                 array_push($emailArr,$eRaw->email);
             }
 
-//            Mail::send('frontend.abstractform.email', compact($data), function($message) use($email,$attach) {
-//                $message->to($email)->subject('Registration Reply');
-//                //Attach file
-//                $message->attach($attach);
-//
-//            });
-
             $content = "<p>Dear Sir,<p>";
 
-            $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_ABSTRACT' LIMIT 1");
+            $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_SUBMIT_ADMIN' LIMIT 1");
             if(isset($contentRaw) && count($contentRaw)>0){
                 $content .= $contentRaw[0]->description;
             }
             else{
-                $content .= "Abstract Reply...";
+                $content .= "Abstract Submission Reply...";
             }
 
             if(isset($emailArr) && count($emailArr)>0){
                 Mail::send([], [], function($message) use($emailArr,$content,$attach) {
-                    $message->to($emailArr)->subject('Registration Reply')->setBody($content, 'text/html');;
+                    $message->to($emailArr)->subject('Abstract Submission Reply...')->setBody($content, 'text/html');
                     //Attach file
                     $message->attach($attach);
-
                 });
             }
+            //end sending email to admin
 
             alert()->success('Abstract Form successfully added. ')->persistent('OK');
             return redirect()->action('Frontend\AbstractformController@create')

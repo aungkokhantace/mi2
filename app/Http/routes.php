@@ -196,6 +196,8 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('abstractform/update',  array('as'=>'backend/abstractform/update','uses'=>'Backend\AbstractformController@update'));
                 Route::get('abstractform/download', array('as'=>'backend/abstractform/download','uses'=>'Backend\AbstractformController@download'));
                 Route::post('abstractform/destroy',  array('as'=>'backend/abstractform/destroy','uses'=>'Backend\AbstractformController@destroy'));
+                Route::get('abstractform/edit_reject/{id}',  array('as'=>'backend/abstractform/edit_reject','uses'=>'Backend\AbstractformController@edit_reject'));
+                Route::post('abstractform/reject',  array('as'=>'backend/abstractform/reject','uses'=>'Backend\AbstractformController@reject'));
 
                 //Post
                 Route::get('post', array('as'=>'backend/post','uses'=>'Backend\PostController@index'));

@@ -261,7 +261,7 @@
     </div>
     @endif
     {{--Show uploaded image only if status is confirm--}}
-
+    <br>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         </div>
@@ -269,7 +269,7 @@
             @if($registers->status != "confirm")
             <input type="submit" name="submit" value="{{'UPDATE'}}" class="form-control btn-primary">
             @else
-                {{--<button class="form-control btn buttonform"><a href="/{{$registers->payment_reference_path}}" download="Payment" class="buttonform" role="button">Get Photo</a></button>--}}
+                <button class="form-control btn buttonform"><a href="/{{$registers->payment_reference_path}}" download="Payment" class="buttonform" role="button">Get Photo</a></button>
             @endif
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">

@@ -142,7 +142,7 @@ $("#check_all").click(function(event){
 function register_status_confirm(id) {
     swal({
             title: "Are you sure?",
-            text: "You want to confirm this enquiry !",
+            text: "You want to confirm this register !",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55 ",
@@ -157,6 +157,60 @@ function register_status_confirm(id) {
                 // $("#frm_register_confirm_" + id).submit();
                 console.log('id'+id);
                 var location = "/backend/register/confirm/"+id;
+
+                window.location = location;
+            } else {
+                return;
+            }
+        });
+
+}
+
+function abstract_status_confirm(id) {
+    swal({
+            title: "Are you sure?",
+            text: "You want to confirm this abstract !",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55 ",
+            confirmButtonText: "Confirm",
+            cancelButtonText: "Cancel",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+                // $("#register_confirm_id").val(id);
+                // $("#frm_register_confirm_" + id).submit();
+                //console.log('id'+id);
+                var location = "/backend/abstractform/edit/"+id;
+
+                window.location = location;
+            } else {
+                return;
+            }
+        });
+
+}
+
+function abstract_status_reject(id) {
+    swal({
+            title: "Are you sure?",
+            text: "You want to reject this abstract !",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55 ",
+            confirmButtonText: "Reject",
+            cancelButtonText: "Cancel",
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+                // $("#register_confirm_id").val(id);
+                // $("#frm_register_confirm_" + id).submit();
+                //console.log('id'+id);
+                var location = "/backend/abstractform/edit_reject/"+id;
 
                 window.location = location;
             } else {

@@ -5,7 +5,7 @@
         <!-- begin #content -->
 <div id="content" class="content">
 
-    <h1 class="page-header">Abstract Confirm User Email 1 Edit</h1>
+    <h1 class="page-header">Abstract Confirm User Email (Oral Presentation) Edit</h1>
     {!! Form::open(array('url' => '/backend/abstract_confirm_user_email_1', 'class'=> 'form-horizontal user-form-border','files' => true)) !!}
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

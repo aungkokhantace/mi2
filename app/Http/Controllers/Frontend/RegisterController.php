@@ -117,26 +117,54 @@ class RegisterController extends Controller
             $result = $registerRepo->create($register);
 
         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
-            $emailArr = array();
-            $emailArr[0] = $email;
-            $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'TO_EMAIL_REGISTRATION' LIMIT 1");
+            //start sending email to user
+            $userEmailArr = array();
+            $userEmailArr[0] = $email;
+            $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_SUBMIT_USER' LIMIT 1");
 
-            $content = "<p>Dear ".$first_name.",<p>";
-            if(isset($contentRaw) && count($contentRaw)>0){
-                $content .= $contentRaw[0]->description;
+            $userContent = "<p>Dear ".$first_name.",<p>";
+            if(isset($userContentRaw) && count($userContentRaw)>0){
+                $userContent .= $userContentRaw[0]->description;
             }
             else{
-                $content .= "Registration Reply...";
+                $userContent .= "Registration Submission Reply...";
             }
 
-            if(isset($emailArr) && count($emailArr)>0){
-                Mail::send([], [], function($message) use($emailArr,$content) {
-                    $message->to($emailArr)->subject('Registration Reply')->setBody($content, 'text/html');;
+            if(isset($userEmailArr) && count($userEmailArr)>0){
+                Mail::send([], [], function($message) use($userEmailArr,$userContent) {
+                    $message->to($userEmailArr)->subject('Registration Submission Reply')->setBody($userContent, 'text/html');;
 //                    Attach file
 //                    $message->attach($attach);
-
                 });
             }
+            //end sending email to user
+
+            //start sending email to admin
+            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+            $adminEmailArr = array();
+            foreach($adminEmailRaw as $eRaw){
+                array_push($adminEmailArr,$eRaw->email);
+            }
+
+            $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_SUBMIT_ADMIN' LIMIT 1");
+
+            $adminContent = "<p>Dear Sir,<p>";
+            if(isset($adminContentRaw) && count($adminContentRaw)>0){
+                $adminContent .= $adminContentRaw[0]->description;
+            }
+            else{
+                $adminContent .= "Registration Submission Reply...";
+            }
+
+            if(isset($adminEmailArr) && count($adminEmailArr)>0){
+                Mail::send([], [], function($message) use($adminEmailArr,$adminContent) {
+                    $message->to($adminEmailArr)->subject('Registration Submission Reply')->setBody($adminContent, 'text/html');;
+//                    Attach file
+//                    $message->attach($attach);
+                });
+            }
+            //end sending email to admin
+
             alert()->success('Registration successfully created. ')->persistent('OK');
             return redirect()->action('Frontend\RegisterController@create');
         }

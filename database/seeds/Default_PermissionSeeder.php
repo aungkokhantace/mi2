@@ -139,6 +139,8 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>131,'module'=>'Abstractform','name'=>'Edit','description'=>'Abstractform Edit','url'=>'backend/abstractform/edit'],
             ['id'=>132,'module'=>'Abstractform','name'=>'Update','description'=>'Abstractform Update','url'=>'backend/abstractform/update'],
             ['id'=>133,'module'=>'Abstractform','name'=>'Destroy','description'=>'Abstractform Destroy','url'=>'backend/abstractform/destroy'],
+            ['id'=>134,'module'=>'Abstractform','name'=>'Edit Reject','description'=>'Abstractform Edit Reject','url'=>'backend/abstractform/edit_reject'],
+            ['id'=>135,'module'=>'Abstractform','name'=>'Reject','description'=>'Abstractform Reject','url'=>'backend/abstractform/reject'],
 
             //Post
             ['id'=>140,'module'=>'Post','name'=>'Listing','description'=>'Post Listing','url'=>'backend/post'],

@@ -97,7 +97,8 @@ class Utility
     public static function getSettingsByType($type)
     {
         if($type == "COUNTRY"){
-            $tempArrays = DB::select("SELECT * FROM core_settings WHERE type = '$type' ORDER BY 'value'");
+//            $tempArrays = DB::select("SELECT * FROM core_settings WHERE type = '$type' ORDER BY 'value'");
+            $tempArrays = DB::select("SELECT * FROM core_settings WHERE type = '$type' ORDER BY 'description' ASC"); //to sort by country names alphabetically
             $result = array();
             if (isset($tempArrays) && count($tempArrays) > 0) {
                 foreach ($tempArrays as $val) {

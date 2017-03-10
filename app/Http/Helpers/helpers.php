@@ -13,7 +13,8 @@ if (! function_exists('generateMainTree')) {
             }
             else{
                 if($mainBranch->menu_id == 2 && $mainBranch->name != "Home"){
-                    echo '<li><a href="/comingsoon">'. $mainBranch->name .'</a></li>';
+//                    echo '<li><a href="/comingsoon">'. $mainBranch->name .'</a></li>';
+                    echo '<li><a href="#">'. $mainBranch->name .'</a></li>'; //deactivating coming soon links
                 }
                 else if($mainBranch->menu_id == 2 && $mainBranch->name == "Home"){
                     echo '<li><a href="/home">'. $mainBranch->name .'</a></li>';

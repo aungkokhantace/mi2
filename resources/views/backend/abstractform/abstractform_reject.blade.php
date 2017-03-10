@@ -13,9 +13,9 @@
 <!-- begin #content -->
 <div id="content" class="content">
 
-    <h1 class="page-header">{{'Abstract Form Confirm'  }}</h1>
+    <h1 class="page-header">{{'Abstract Form Reject'  }}</h1>
 
-    {!! Form::open(array('url' => 'backend/abstractform/update', 'class'=> 'form-horizontal user-form-border', 'id' => 'abstractForm', 'files'=> 'true')) !!}
+    {!! Form::open(array('url' => 'backend/abstractform/reject', 'class'=> 'form-horizontal user-form-border', 'id' => 'abstractForm', 'files'=> 'true')) !!}
 
 
     <input type="hidden" name="id" value="{{isset($abstractforms)? $abstractforms->id:''}}"/>
@@ -196,33 +196,15 @@
                 <p class="text-danger">{{$errors->first('abstract_file_path')}}</p>
             </div>
         @endif
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="email_template">Email Template<span class="require">*</span></label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <select class="form-control" name="email_template" id="email_template">
-                <option value="" selected disabled>Select Email Template</option>
-                <option value="oral">Oral Presentation</option>
-                <option value="poster">Poster Presentation</option>
-            </select>
-            <p class="text-danger">{{$errors->first('email_template')}}</p>
-        </div>
+        
     </div>
 
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         </div>
-        {{--<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">--}}
-            {{--@if(isset($abstractforms) && $abstractforms->status != "reject")--}}
-                {{--<input type="submit" name="reject" id="reject" value="REJECT" class="form-control btn-warning submit">--}}
-            {{--@endif--}}
-        {{--</div>--}}
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            @if(isset($abstractforms) && $abstractforms->status != "confirm")
-                <input type="submit" name="confirm" id="confirm" value="CONFIRM" class="form-control btn-primary submit">
+            @if(isset($abstractforms) && $abstractforms->status != "reject")
+                <input type="submit" name="reject" id="reject" value="REJECT" class="form-control btn-warning submit">
             @endif
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
@@ -252,7 +234,6 @@
                     email                       : 'required',
                     country                     : 'required',
                     other                       : 'required',
-                    email_template              : 'required',
                 },
                 messages: {
                     first_name                  : 'First Name is required',
@@ -260,7 +241,6 @@
                     email                       : 'Email is required',
                     country                     : 'Country is required',
                     other                       : 'Other Speciality Text is required',
-                    email_template              : 'Email Template is required',
                 },
                 submitHandler: function(form) {
                     $('input[type="submit"]').attr('disabled','disabled');

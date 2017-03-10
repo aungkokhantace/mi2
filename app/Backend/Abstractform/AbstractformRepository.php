@@ -45,8 +45,23 @@ class AbstractformRepository implements AbstractformRepositoryInterface
 
      public function update($paramObj)
     {
-        $tempObj = Utility::addUpdatedBy($paramObj);
-        $tempObj->save();
+//        $tempObj = Utility::addUpdatedBy($paramObj);
+//        $tempObj->save();
+
+         $returnedObj = array();
+         $returnedObj['aceplusStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+
+         try {
+             $tempObj = Utility::addUpdatedBy($paramObj);
+             $tempObj->save();
+
+             $returnedObj['aceplusStatusCode'] = ReturnMessage::OK;
+             return $returnedObj;
+         }
+         catch(\Exception $e){
+             $returnedObj['aceplusStatusMessage'] = $e->getMessage();
+             return $returnedObj;
+         }
     }
 
     public function getObjByID($id){

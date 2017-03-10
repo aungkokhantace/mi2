@@ -50,8 +50,23 @@ class RegisterRepository implements RegisterRepositoryInterface
 
     public function update($register)
     {
-        $tempObj = Utility::addUpdatedBy($register);
-        $tempObj->save();
+//        $tempObj = Utility::addUpdatedBy($register);
+//        $tempObj->save();
+
+        $returnedObj = array();
+        $returnedObj['aceplusStatusCode'] = ReturnMessage::INTERNAL_SERVER_ERROR;
+
+        try {
+            $tempObj = Utility::addUpdatedBy($register);
+            $tempObj->save();
+
+            $returnedObj['aceplusStatusCode'] = ReturnMessage::OK;
+            return $returnedObj;
+        }
+        catch(\Exception $e){
+            $returnedObj['aceplusStatusMessage'] = $e->getMessage();
+            return $returnedObj;
+        }
     }
 
     public function delete_registers($id){
