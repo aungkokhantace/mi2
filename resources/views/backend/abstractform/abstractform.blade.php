@@ -13,9 +13,10 @@
 <!-- begin #content -->
 <div id="content" class="content">
 
-    <h1 class="page-header">{{'Abstract Form Update'  }}</h1>
+    <h1 class="page-header">{{'Abstract Form Confirm'  }}</h1>
 
-    {!! Form::open(array('url' => 'backend/abstractform/update', 'class'=> 'form-horizontal user-form-border', 'files'=> 'true')) !!}
+    {!! Form::open(array('url' => 'backend/abstractform/update', 'class'=> 'form-horizontal user-form-border', 'id' => 'abstractForm', 'files'=> 'true')) !!}
+
 
     <input type="hidden" name="id" value="{{isset($abstractforms)? $abstractforms->id:''}}"/>
 
@@ -51,7 +52,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="email">Email</label>
+            <label for="email">Email<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{ isset($abstractforms)? $abstractforms->email:Request::old('email') }}"/>
@@ -61,7 +62,7 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="country">Country</label>
+            <label for="country">Country<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">            
             @if(isset($abstractforms))
@@ -156,29 +157,29 @@
         </div>
     </div>
 
-    @if(isset($abstractforms) && $abstractforms->medical_speciality_id == "0")
+    {{--@if(isset($abstractforms) && $abstractforms->medical_speciality_id == 0)--}}
         <div class="other row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <label for="other">Other Speciality<span class="require">*</span></label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <input type="text" required class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{$abstractforms->medical_speciality_other}}"/>
+                <input type="text" class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{$abstractforms->medical_speciality_other}}"/>
                 <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
             </div>
         </div>
-    @else
+    {{--@else--}}
 
-    @endif
+    {{--@endif--}}
 
-    <div class="other row">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="other">Other Speciality<span class="require">*</span></label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" required class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{Request::old('other')}}"/>
-            <p class="text-danger" id="other_error">{{$errors->first('other')}}</p>
-        </div>
-    </div>
+    {{--<div class="other row">--}}
+        {{--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">--}}
+            {{--<label for="other">Other Speciality<span class="require">*</span></label>--}}
+        {{--</div>--}}
+        {{--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">--}}
+            {{--<input type="text" class="form-control" id="other" name="other" placeholder="Enter Other Speciality Text" value="{{Request::old('other')}}"/>--}}
+            {{--<p class="text-danger" id="other_error">{{$errors->first('other')}}</p>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -195,15 +196,33 @@
                 <p class="text-danger">{{$errors->first('abstract_file_path')}}</p>
             </div>
         @endif
-        
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="email_template">Email Template<span class="require">*</span></label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <select class="form-control" name="email_template" id="email_template">
+                <option value="" selected disabled>Select Email Template</option>
+                <option value="oral">Oral Presentation</option>
+                <option value="poster">Poster Presentation</option>
+            </select>
+            <p class="text-danger">{{$errors->first('email_template')}}</p>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         </div>
+        {{--<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">--}}
+            {{--@if(isset($abstractforms) && $abstractforms->status != "reject")--}}
+                {{--<input type="submit" name="reject" id="reject" value="REJECT" class="form-control btn-warning submit">--}}
+            {{--@endif--}}
+        {{--</div>--}}
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
             @if(isset($abstractforms) && $abstractforms->status != "confirm")
-                <input type="submit" name="submit" value="{{'CONFIRM'}}" class="form-control btn-primary">
+                <input type="submit" name="confirm" id="confirm" value="CONFIRM" class="form-control btn-primary submit">
             @endif
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
@@ -217,37 +236,79 @@
 @section('page_script')
     <script type="text/javascript" language="javascript" class="init">
         $(document).ready(function() {
+            var other_flag = document.getElementById('medical_specialities').value;
+            if(other_flag == "other"){
+                $(".other").show();
+            }
+            else{
+                $(".other").hide();
+            }
 
-//            $('#list-table tfoot th.search-col').each( function () {
-//                var title = $('#list-table thead th').eq( $(this).index() ).text();
-//                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-//            } );
-//
-//            var table = $('#list-table').DataTable({
-//                aLengthMenu: [
-//                    [5,25, 50, 100, 200, -1],
-//                    [5,25, 50, 100, 200, "All"]
-//                ],
-//                iDisplayLength: 5,
-//                "order": [[ 2, "desc" ]],
-//                stateSave: false,
-//                "pagingType": "full",
-//                "dom": '<"pull-right m-t-20"i>rt<"bottom"lp><"clear">',
-//
-//            });
-////            new $.fn.dataTable.FixedHeader( table, {
-////            });
-//
-//
-//            // Apply the search
-//            table.columns().eq( 0 ).each( function ( colIdx ) {
-//                $( 'input', table.column( colIdx ).footer() ).on( 'keyup change', function () {
-//                    table
-//                            .column( colIdx )
-//                            .search( this.value )
-//                            .draw();
-//                } );
-//
+//            //Start Validation for Entry and Edit Form
+            $('#abstractForm').validate({
+                rules: {
+                    first_name                  : 'required',
+                    last_name                   : 'required',
+                    email                       : 'required',
+                    country                     : 'required',
+                    other                       : 'required',
+                    email_template              : 'required',
+                },
+                messages: {
+                    first_name                  : 'First Name is required',
+                    last_name                   : 'Last Name is required',
+                    email                       : 'Email is required',
+                    country                     : 'Country is required',
+                    other                       : 'Other Speciality Text is required',
+                    email_template              : 'Email Template is required',
+                },
+                submitHandler: function(form) {
+                    $('input[type="submit"]').attr('disabled','disabled');
+                    form.submit();
+                }
+            });
+//            //End Validation for Entry and Edit Form
+
+//            $('.submit').on('click', function(e){
+//                //When a submit is clicked
+//                e.preventDefault();
+//                //prevent submit button default action
+//                var submitBtn = $(this).attr('id');
+//                //get the id of the submit
+////                alert(submitBtn);
+//            if(submitBtn == 'confirm'){
+//                alert('confirmed');
+//                //Start Validation for Entry and Edit Form
+//                $('#abstractConfirm').validate({
+//                    rules: {
+//                        first_name                  : 'required',
+//                        last_name                   : 'required',
+//                        email                       : 'required',
+//                        country                     : 'required',
+//                        other                       : 'required',
+//                    },
+//                    messages: {
+//                        first_name                  : 'First Name is required',
+//                        last_name                   : 'Last Name is required',
+//                        email                       : 'Email is required',
+//                        country                     : 'Country is required',
+//                        other                       : 'Other Speciality Text is required',
+//                    },
+//                submitHandler: function(form) {
+//                    $('input[type="submit"]').attr('disabled','disabled');
+////                    form.submit();
+////                    $("#abstractConfirm").submit();
+//                    document.getElementById("abstractConfirm").submit();
+//                }
+//                });
+//                //End Validation for Entry and Edit Form
+////                $("#abstractConfirm").submit();
+//            }else{
+//                alert('rejected');
+//                alert(document.getElementById("abstractReject"));
+////                $("#abstractReject").submit();
+//                document.getElementById("abstractReject").submit();
+//            }
 //            });
         });
 
@@ -261,4 +322,4 @@
             }
         }
     </script>
-@stop
+@stop 

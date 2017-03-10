@@ -45,6 +45,8 @@
                         <th>Abstract File Path</th>
                         <th>Status</th>
                         <th>Registered</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -59,6 +61,7 @@
                         <th class="search-col" con-id="abstract_file_path">Abstract File Path</th>
                         <th class="search-col" con-id="status">Status</th>
                         <th class="search-col" con-id="registered">Registered</th>
+                        <th></th>
                         <th></th>
                     </tr>
                     </tfoot>
@@ -75,6 +78,24 @@
                             <td>{{$abstractform->abstract_file_path}}</td>
                             <td>{{$abstractform->status}}</td>
                             <td>{{$abstractform->registered}}</td>
+                            <td>
+                                @if($abstractform->status == 'CONFIRM')
+                                    {{--{{'CONFIRM'}}--}}
+                                @else
+                                    <button type="button" onclick="abstract_status_confirm('{{$abstractform->id}}');" class="btn btn-primary">
+                                        CONFIRM
+                                    </button>
+                                @endif
+                            </td>
+                            <td>
+                                @if($abstractform->status == 'REJECT')
+                                    {{--{{'REJECT'}}--}}
+                                @else
+                                    <button type="button" onclick="abstract_status_reject('{{$abstractform->id}}');" class="btn btn-warning">
+                                        REJECT
+                                    </button>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
