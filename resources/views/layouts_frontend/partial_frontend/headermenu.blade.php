@@ -151,7 +151,7 @@ $companyLogo = \App\Core\Check::companyLogo();
 <!-- Navigation -->
 <section class="header">
     <div class="container">
-        <img src="/images/logo.png" class="hlogo">
+        <img src="/images/logo.png" class="hlogo frontend_hlogo">
         <span class="htext">Myanmar Internal Medicine Society</span>
     </div>
 </section>

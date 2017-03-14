@@ -166,6 +166,44 @@ class RegisterController extends Controller
             $registration_category= Input::get('registration_category');
             $payment_type         = Input::get('payment_type');
 
+             //Start image section
+             $removeImageFlag = (Input::has('removeImageFlag')) ? Input::get('removeImageFlag') : 0;
+
+             if((Input::hasFile('photo'))){
+                 $file = Input::file('photo');
+
+                 $path = base_path().'/public/images/registration';
+                 if ( ! file_exists($path))
+                 {
+                     mkdir($path, 0777, true);
+                 }
+                 $extension = Input::file('photo')->getClientOriginalExtension();
+                 $img_name  = uniqid().'.' .$extension;
+
+                 $payment_reference_path = 'images/registration/' .$img_name;
+
+                 // moving image into image folder
+                 $file->move($path, $img_name);
+
+                 $rWidth = 1.0;
+                 $rHeight =  1.0;
+
+                 // getting image width and height
+                 $imgData = getimagesize($path . '/' . $img_name);
+                 $width = $imgData[0];
+                 $imgWidth = $width * $rWidth;
+                 $height = $imgData[1];
+                 $imgHeight = $height * $rHeight;
+
+                 // resizing image
+                 $image = InterventionImage::make(sprintf($path .'/%s', $img_name))->resize($imgWidth, $imgHeight)->save();
+             }
+             else{
+                 $payment_reference_path = "";
+             }
+             //End image section
+
+
             $register = Register::find($id);
             $register->first_name = $first_name;
             $register->middle_name = $middle_name;
@@ -179,11 +217,27 @@ class RegisterController extends Controller
             $register->phone_no = $phone_no;
             $register->registration_category = $registration_category;
             $register->payment_type = $payment_type;
-            $register->status                = "Pending";
+
+            if(isset($payment_reference_path) && $payment_reference_path !== ""){
+                $register->payment_reference_path = $payment_reference_path;
+            }
+
+             if($removeImageFlag == 1){
+                 $register->payment_reference_path = "";
+             }
+//            $register->status                = "Pending";
 
             $registerRepo = new RegisterRepository();
-            $registerRepo->update($register);
-            return redirect()->action('Backend\RegisterController@index');
+            $result = $registerRepo->update($register);
+
+         if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
+             return redirect()->action('Backend\RegisterController@index')
+                 ->withMessage(FormatGenerator::message('Success', 'Registration updated ...'));
+         }
+         else{
+             return redirect()->action('Backend\RegisterController@index')
+                 ->withMessage(FormatGenerator::message('Fail', 'Registration did not update ...'));
+         }
         }
 
          public function destroy(){
@@ -200,6 +254,7 @@ class RegisterController extends Controller
             $registerRepo   = new RegisterRepository();
             $register       = $registerRepo->getObjByID($id);
 
+            /*
             if(isset($register->registration_category) && $register->registration_category == 1){
                 $register->registration_category = "International Delegate";
             }
@@ -230,13 +285,50 @@ class RegisterController extends Controller
                 //if medical_speciality is not 0, show medical_speciality_name
                 $register->medical_speciality_name = $register->medical_speciality->name;
             }
+            */
 
-            return view('backend.register.register_confirm')->with('register',$register);
+            $countries = Utility::getSettingsByType("COUNTRY");
+
+            $medicalspecialityRepo = new MedicalSpecialityRepository();
+            $medicalspecialities   = $medicalspecialityRepo->getObjs();
+
+            $specialitiesArr = array();
+            foreach($medicalspecialities as $k=>$medicalspeciality){
+                if($medicalspeciality->option_group_name == null){
+                    $specialitiesArr["main_speciality"][$k] = $medicalspeciality;
+                }
+                elseif(isset($medicalspeciality->option_group_name) && $medicalspeciality->option_group_name != null){
+                    $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
+                }
+            }
+
+            return view('backend.register.register_confirm')->with('register',$register)->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
         }
 
         public function registerConfirm()
         {
             $id   = Input::get('id');
+
+            $first_name           = Input::get('first_name');
+            $middle_name          = Input::get('middle_name');
+            $last_name            = Input::get('last_name');
+            $title                = Input::get('title');
+            $email                = Input::get('email');
+            $country              = Input::get('country');
+            $medical_specialities = Input::get('medical_specialities');
+            if($medical_specialities == "other"){
+                $medical_specialities = 0;
+                $other_specialities  = Input::get('other');
+            }
+            else{
+                $other_specialities  = null;
+            }
+
+            $phone_no             = Input::get('phone_no');
+            $registration_category= Input::get('registration_category');
+            $payment_type         = Input::get('payment_type');
+//            $registered_date      = date("Y-m-d");
+
             $file = Input::file('register_image');
             if(isset($file) && count($file)>0){
                 $path = base_path().'/public/images/registration';
@@ -277,12 +369,26 @@ class RegisterController extends Controller
 
             $registerRepo                       = new RegisterRepository();
             $register                           = $registerRepo->getObjByID($id);
+
+            $register->first_name               = $first_name;
+            $register->middle_name              = $middle_name;
+            $register->last_name                = $last_name;
+            $register->title                    = $title;
+            $register->email                    = $email;
+            $register->country                  = $country;
+            $register->medical_speciality_id    = $medical_specialities;
+            $register->medical_speciality_other = $other_specialities;
+            $register->phone_no                 = $phone_no;
+            $register->registration_category    = $registration_category;
+            $register->payment_type             = $payment_type;
+
             if(isset($file) && count($file)>0) {
                 $register->payment_reference_path = $payment_reference_path;
             }
             $register->status                   = 'confirm';
             $register->confirmed_by             = $confirm_by;
-            $register->confirmed_date             = $confirmed_date;
+            $register->confirmed_date           = $confirmed_date;
+
             $result = $registerRepo->update($register);
 
             if($result['aceplusStatusCode'] ==  ReturnMessage::OK){
@@ -317,7 +423,7 @@ class RegisterController extends Controller
                     array_push($adminEmailArr,$eRaw->email);
                 }
 
-                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_confirm_ADMIN' LIMIT 1");
+                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_ADMIN' LIMIT 1");
 
                 $adminContent = "<p>Dear Sir,<p>";
                 if(isset($adminContentRaw) && count($adminContentRaw)>0){
