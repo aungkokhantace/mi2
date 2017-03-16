@@ -75,4 +75,9 @@ class TemplateSliderRepository implements TemplateSliderRepositoryInterface
         $slider = TemplateSlider::find($id);
         return $slider;
     }
+
+    public function getObjByTemplateID($template_id){
+        $slider = TemplateSlider::whereNull('deleted_at')->where('template_id','=',$template_id)->first();
+        return $slider;
+    }
 }

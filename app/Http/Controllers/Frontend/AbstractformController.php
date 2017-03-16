@@ -12,6 +12,8 @@ use App\Backend\File\FileUploadDownloadRepository;
 use App\Backend\MedicalSpeciality\MedicalSpecialityRepository;
 use App\Backend\Page\PageRepository;
 use App\Backend\Post\PostRepository;
+use App\Backend\TemplateSlider\TemplateSliderRepository;
+use App\Backend\TemplateSliderDetail\TemplateSliderDetailRepository;
 use App\Core\FormatGenerator;
 use App\Core\ReturnMessage;
 use App\Http\Requests;
@@ -61,7 +63,26 @@ class AbstractformController extends Controller
             }
         }
 
-        return view('frontend.abstractform.abstractform')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
+        //for slider view
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+        $page = $pageRepo->getObjByID($page_id);
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.abstractform.abstractform')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr)->with('images', $images)->with('$status', $status);
     }
 
     public function store(AbstractformEntryRequest $request)
@@ -203,7 +224,21 @@ class AbstractformController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.abstractform.abstractform_call')->with('countries', $countries)->with('page', $page)->with('posts', $posts);
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.abstractform.abstractform_call')->with('countries', $countries)->with('page', $page)->with('posts', $posts)->with('images', $images)->with('$status', $status);
     }
 
 }

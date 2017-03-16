@@ -119,6 +119,8 @@ if (! function_exists('generateSlider')) {
         echo '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
         echo '<li data-target="#carousel-example-generic" data-slide-to="1"></li>';
         echo '<li data-target="#carousel-example-generic" data-slide-to="2"></li>';
+        echo '<li data-target="#carousel-example-generic" data-slide-to="3"></li>';
+        echo '<li data-target="#carousel-example-generic" data-slide-to="4"></li>';
         echo '</ol>';
         echo '<!-- Wrapper for slides -->';
         echo '<div class="carousel-inner" role="listbox">';
@@ -138,6 +140,18 @@ if (! function_exists('generateSlider')) {
         echo '<img src="/images/Slider3.jpg" alt="">';
         echo '<div class="carousel-caption">';
 //        echo 'Caption 3';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="item">';
+        echo '<img src="/images/Slider4.jpg" alt="">';
+        echo '<div class="carousel-caption">';
+//        echo 'Caption 4';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="item">';
+        echo '<img src="/images/Slider5.jpg" alt="">';
+        echo '<div class="carousel-caption">';
+//        echo 'Caption 5';
         echo '</div>';
         echo '</div>';
         echo '</div>';

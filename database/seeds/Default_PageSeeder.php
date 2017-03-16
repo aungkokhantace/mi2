@@ -1161,6 +1161,12 @@ font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Plenar
 </span><span style="font-size:12.0pt;line-height:107%;font-family:" zawgyi-one","sans-serif";="" mso-fareast-font-family:calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:="" en-us;mso-fareast-language:en-us;mso-bidi-language:ar-sa"=""><span style="font-size: 14px;">For conference
 information: AP Thein Myint :&nbsp;</span><a href="http://drthanemyint@gmail.com"><span style="font-size: 14px;">drthanemyint@gmail.com</span></a></span><br></p><p><br></p>',
             'status' =>'active', 'url' =>'home/conference/contactus', 'title' =>'Contact Us', 'page_menu_order' =>'5', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+
+        ['id'=>25, 'name'=>'Register Entry','description'=>'Register Entry', 'content' =>'',
+            'status' =>'active', 'url' =>'register/create', 'title' =>'Register entry title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>0, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
+
+        ['id'=>26, 'name'=>'Abstract Entry','description'=>'Abstract Entry', 'content' =>'',
+            'status' =>'active', 'url' =>'abstractform/create', 'title' =>'Abstract entry title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>0, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
     );
 
     DB::table('pages')->insert($objs);

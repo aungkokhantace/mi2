@@ -64,15 +64,27 @@
         </div>
     </div>
 
+    @if(isset($pages))
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="url">Url<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="url" name="url" placeholder="Enter Page Url" value="{{ isset($pages)? $pages->url:Request::old('url') }}"/>
+            <input type="text" class="form-control" id="url" name="url" readonly placeholder="Enter Page Url" value="{{ isset($pages)? $pages->url:Request::old('url') }}"/>
             <p class="text-danger">{{$errors->first('url')}}</p>
         </div>
     </div>
+    @else
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <label for="url">Url<span class="require">*</span></label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="text" class="form-control" id="url" name="url" placeholder="Enter Page Url" value="{{ isset($pages)? $pages->url:Request::old('url') }}"/>
+                <p class="text-danger">{{$errors->first('url')}}</p>
+            </div>
+        </div>
+    @endif
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">

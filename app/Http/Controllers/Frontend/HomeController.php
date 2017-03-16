@@ -13,6 +13,8 @@ use App\Backend\Menu\MenuRepository;
 use App\Backend\Menudetail\MenudetailRepository;
 use App\Backend\Page\PageRepository;
 use App\Backend\Post\PostRepository;
+use App\Backend\TemplateSlider\TemplateSliderRepository;
+use App\Backend\TemplateSliderDetail\TemplateSliderDetailRepository;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -36,7 +38,21 @@ class HomeController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.home')->with('page',$page)->with('posts',$posts);
+    //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+    //for slider view
+
+        return view('frontend.home')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function test(Request $request)
@@ -67,7 +83,21 @@ class HomeController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.event.event_exhibitor_info')->with('page',$page)->with('posts',$posts);
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_exhibitor_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function conference()
@@ -81,7 +111,22 @@ class HomeController extends Controller
 
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
-        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts);
+
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function agenda()
@@ -95,7 +140,22 @@ class HomeController extends Controller
 
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
-        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts);
+
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function speakers()
@@ -109,7 +169,22 @@ class HomeController extends Controller
 
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
-        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts);
+
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function committees()
@@ -123,7 +198,22 @@ class HomeController extends Controller
 
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
-        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts);
+
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function secretariat()
@@ -137,7 +227,22 @@ class HomeController extends Controller
 
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
-        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts);
+
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function contactus()
@@ -151,7 +256,22 @@ class HomeController extends Controller
 
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
-        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts);
+
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_conference_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function other()
@@ -166,7 +286,21 @@ class HomeController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.event.event_other_info')->with('page',$page)->with('posts',$posts);
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_other_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function local()
@@ -181,7 +315,21 @@ class HomeController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.event.event_local_info')->with('page',$page)->with('posts',$posts);
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_local_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function visa()
@@ -196,7 +344,21 @@ class HomeController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.event.event_visa_info')->with('page',$page)->with('posts',$posts);
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_visa_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function housing()
@@ -211,7 +373,21 @@ class HomeController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.event.event_housing_info')->with('page',$page)->with('posts',$posts);
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_housing_info')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
     }
 
     public function comingsoon(Request $request)

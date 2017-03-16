@@ -8,6 +8,8 @@ use App\Backend\Register\AppRegister;
 use App\Backend\Permission\Permission;
 use App\Backend\RegistrationCategory\RegistrationCategory;
 use App\Backend\RegistrationCategory\RegistrationCategoryRepository;
+use App\Backend\TemplateSlider\TemplateSliderRepository;
+use App\Backend\TemplateSliderDetail\TemplateSliderDetailRepository;
 use App\Core\FormatGenerator;
 use App\Core\ReturnMessage;
 use App\Session;
@@ -47,7 +49,21 @@ class RegisterController extends Controller
         $postRepo = new PostRepository();
         $posts    = $postRepo->getObjByPage($page_id);
 
-        return view('frontend.register.register_call')->with('countries', $countries)->with('page', $page)->with('posts', $posts);
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.register.register_call')->with('countries', $countries)->with('page', $page)->with('posts', $posts)->with('images', $images)->with('$status', $status);
     }
 
      public function create(){
@@ -75,7 +91,26 @@ class RegisterController extends Controller
          $registrationCategoryRepo = new RegistrationCategoryRepository();
          $registrationCategories   = $registrationCategoryRepo->getObjs();
 
-        return view('frontend.register.register_frontend')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr)->with('registrationCategories', $registrationCategories);
+         //for slider view
+         $url = Route::getCurrentRoute()->getPath();
+
+         $pageRepo = new PageRepository();
+         $page_id  = $pageRepo->getPageIDByURL($url);
+         $page = $pageRepo->getObjByID($page_id);
+         //get template of page
+         $template_id = $page->templates_id;
+
+         //get slider of template
+         $templateSliderRepo = new TemplateSliderRepository();
+         $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+         //get images of the slider
+         $sliderdetailRepo = new TemplateSliderDetailRepository();
+         $images      = $sliderdetailRepo->getObjsById($slider->id);
+         $status = "active";
+         //for slider view
+
+        return view('frontend.register.register_frontend')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr)->with('registrationCategories', $registrationCategories)->with('images', $images)->with('$status', $status);
     }
 
 
