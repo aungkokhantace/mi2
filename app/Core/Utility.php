@@ -192,4 +192,102 @@ class Utility
         $countryName = $temp[0]->description;
         return $countryName;
     }
+
+/*    public static function getEmailHeader(){
+//        $imgpath = url('images/LetterHead.jpg');
+//        $imgpath = base_path().'/public/images/LetterHead.jpg';
+//        dd('imgpath',$imgpath);
+//        $headerImage = '<img style="width:100%;height:100%;" src="<? php echo $message->embed('.$imgpath.');
+//<!--" alt="Letter Head"><br><br>';-->
+        $date        = date("d-m-Y").'<br><br>';
+//        $to          = 'To : '.'<br><br>';
+
+//        $title       = '<b>ACKNOWLEDGEMENT OF RECEIPT OF MMK ............ AS THE REGISTRATION FEE FOR .................................</b><br><br>';
+//        $content     = 'This serves to confirm that we have received your payment of MMK ................. as the registration fee to attend the MIMC 2017 Conference.<br><br><br>
+//                        You have now been registered as a delegate for the Conference.<br><br><br><br><br><br>';
+
+//        $template      = $headerImage.'<br>'.$date;
+        $template      = $date;
+        return $template;
+    } */
+
+    public static function getEventTitle(){
+        $eventTitle       = '<b>MIMC 2017 Conference – 29th September to 1st October, 2017</b>';
+        return $eventTitle;
+    }
+
+    public static function getSincerely(){
+        $sincerely   = 'Yours sincerely';
+        return $sincerely;
+    }
+
+    public static function getPresidentInfo(){
+        $presidentInfo = 'Professor Myo Lwin Nyein<br><br>
+                        President<br><br>
+                        Organizing Committee, MIMC 2017';
+        return $presidentInfo;
+    }
+
+    public static function getEmailFooterBeforeLogo(){
+        $footerBeforeLogo = '<table width="100%" border="0">
+                            <tr>
+                                <td width="40%" rowspan="5">';
+        return $footerBeforeLogo;
+    }
+
+    public static function getEmailFooterAfterLogo(){
+        $footerAfterLogo = '</td>
+                                <td width="60%" style="padding-left: 10px;"><b>MIMC 2017 Conference Secretariat:</b></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;">Tel: +9595173548, +9595192153, +9595049616</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;">Email: <a href="treasurer@internalmedicinesocietymyanmar.com">treasurer@internalmedicinesocietymyanmar.com,</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;"><a href="secretary@internalmedicinesocietymyanmar.com">secretary@internalmedicinesocietymyanmar.com</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;"><a href="http://www.internalmedicinesocietymyanmar.com">Website: http://www.internalmedicinesocietymyanmar.com</a></td>
+                            </tr>
+                        </table><br>';
+        return $footerAfterLogo;
+    }
+
+   /* public static function getEmailFooter(){
+        /*$signature   = 'Yours sincerely<br><br>'.
+            '<img style="width:20%;height:20%;" src="/images/Sign.jpg" alt="Signature"><br><br>'
+            .'Professor Myo Lwin Nyein<br><br>
+                        President<br><br>
+                        Organizing Committee, MIMC 2017<br><br><br><br><br><br><br>';   */
+
+        /*$footerLogos      = '<table width="100%" border="0">
+                            <tr>
+                                <td width="40%" rowspan="5"><img style="width:100%;height:25%;" src="/images/FooterLogos.jpg" alt="FooterLogos"></td>
+                                <td width="60%" style="padding-left: 10px;"><b>MIMC 2017 Conference Secretariat:</b></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;">Tel: +9595173548, +9595192153, +9595049616</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;">Email: <a href="treasurer@internalmedicinesocietymyanmar.com">treasurer@internalmedicinesocietymyanmar.com,</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;"><a href="secretary@internalmedicinesocietymyanmar.com">secretary@internalmedicinesocietymyanmar.com</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;"><a href="http://www.internalmedicinesocietymyanmar.com">Website: http://www.internalmedicinesocietymyanmar.com</a></td>
+                            </tr>
+                        </table>';
+
+        $footer = $signature.$footerLogos;
+        return $footer;
+    } */
+
+    public static function getEarlyBirdDate(){
+        $temp = DB::select("SELECT value FROM core_configs WHERE code = 'SETTING_EARLY_BIRD' AND type = 'SETTING' LIMIT 1");
+        $early_bird_date = $temp[0]->value;
+        return $early_bird_date;
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 use App\Backend\MedicalSpeciality\MedicalSpecialityRepository;
 use App\Backend\Register\AppRegister;
 use App\Backend\Permission\Permission;
+use App\Backend\RegistrationCategory\RegistrationCategoryRepository;
 use App\Core\FormatGenerator;
 use App\Core\ReturnMessage;
 use App\Session;
@@ -46,17 +47,17 @@ class RegisterController extends Controller
                 $regCountry->country_name = $countryName;
             }
 
-            foreach($registers as $regCategory){
-                if(isset($regCategory->registration_category) && $regCategory->registration_category == 1){
-                    $regCategory->registration_category = "International Delegate";
-                }
-                elseif(isset($regCategory->registration_category) && $regCategory->registration_category == 2){
-                    $regCategory->registration_category = "Local Delegate";
-                }
-                else{
-                    $regCategory->registration_category = "Local Trainee";
-                }
-            }
+//            foreach($registers as $regCategory){
+//                if(isset($regCategory->registration_category) && $regCategory->registration_category == 1){
+//                    $regCategory->registration_category = "International Delegate";
+//                }
+//                elseif(isset($regCategory->registration_category) && $regCategory->registration_category == 2){
+//                    $regCategory->registration_category = "Local Delegate";
+//                }
+//                else{
+//                    $regCategory->registration_category = "Local Trainee";
+//                }
+//            }
 
             foreach($registers as $regPayment){
                 if(isset($regPayment->payment_type) && $regPayment->payment_type == 1){
@@ -137,7 +138,11 @@ class RegisterController extends Controller
                     $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
                 }
             }
-            return view('backend.register.register_backend')->with('countries', $countries)->with('registers', $registers)->with('specialitiesArr', $specialitiesArr);
+
+            $registrationCategoryRepo = new RegistrationCategoryRepository();
+            $registrationCategories   = $registrationCategoryRepo->getObjs();
+
+            return view('backend.register.register_backend')->with('countries', $countries)->with('registers', $registers)->with('specialitiesArr', $specialitiesArr)->with('registrationCategories', $registrationCategories);
         }
         return redirect('/login');
     }
@@ -302,7 +307,10 @@ class RegisterController extends Controller
                 }
             }
 
-            return view('backend.register.register_confirm')->with('register',$register)->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
+            $registrationCategoryRepo = new RegistrationCategoryRepository();
+            $registrationCategories   = $registrationCategoryRepo->getObjs();
+
+            return view('backend.register.register_confirm')->with('register',$register)->with('countries', $countries)->with('specialitiesArr', $specialitiesArr)->with('registrationCategories', $registrationCategories);
         }
 
         public function registerConfirm()
@@ -396,21 +404,104 @@ class RegisterController extends Controller
                 $userEmailArr = array();
                 $userEmailArr[0] = $register->email;
 
+                //start constructing email template
+                //start getting email content
                 $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_USER' LIMIT 1");
 
-                $userContent = "<p>Dear ".$register->first_name.",<p>";
+//                $userContent = "<p>Dear ".$register->first_name.",<p>";
                 if(isset($userContentRaw) && count($userContentRaw)>0){
-                    $userContent .= $userContentRaw[0]->description;
+                    $userContent = $userContentRaw[0]->description;
                 }
                 else{
-                    $userContent .= "Registration Confirmation Reply...";
+                    $userContent = "Registration Confirmation Reply...";
                 }
 
+                $early_bird_date = Utility::getEarlyBirdDate();
+
+                $registrationCategoryRepo = new RegistrationCategoryRepository();
+                $regCategoryObj = $registrationCategoryRepo->getObjByID($registration_category);
+
+                $registered_date = $register->registered_date;
+
+                if($registered_date <= $early_bird_date){
+                    $fee_amount = $regCategoryObj->early_bird_fee;
+                }
+                else{
+                    $fee_amount = $regCategoryObj->normal_fee;
+                }
+
+                if($regCategoryObj->currency_type == "usd"){
+                    $currency_unit = "$";
+                }
+                else{
+                    $currency_unit = "MMK ";
+                }
+
+                $fee     = $currency_unit.$fee_amount;
+
+                $reg_cat = $regCategoryObj->name;
+
+                $userContent = str_replace("[[{{!!fee_amt_variable!!}}]]",$fee,$userContent);
+                $userContent = str_replace("[[{{!!reg_cat_variable!!}}]]",$reg_cat,$userContent);
+
+                //end getting email content
+
+                //start getting letterHead Image and Date
+                $letterHeadImage = public_path().'/images/LetterHead.jpg';
+
+                $date = date("d-m-Y");                              //date for email
+
+                //get recipient of email
+                $to = "To : ";
+                //recipient with middle name
+                if(isset($register->middle_name) && $register->middle_name != ""){
+                    $to  .=  $register->first_name.' '.$register->middle_name.' '.$register->last_name.'<br><br>';
+                }
+                //recipient without middle name
+                else{
+                    $to  .=  $register->first_name.' '.$register->last_name.'<br><br>';
+                }
+                //end getting recipient of email
+
+                //get event title
+                $eventTitle  = Utility::getEventTitle();
+
+                //start signature section
+                $sincerely   = Utility::getSincerely();
+                $signatureImage = public_path().'/images/Sign.jpg';
+                $presidentInfo = Utility::getPresidentInfo();
+                //end signature section
+
+                //get footer of email template
+                $emailFooterBeforeLogo = Utility::getEmailFooterBeforeLogo();
+                $footerLogoImage       = public_path().'/images/FooterLogos.jpg';
+                $emailFooterAfterLogo  = Utility::getEmailFooterAfterLogo();
+                //end constructing email template
+
+
+                /*if(isset($userEmailArr) && count($userEmailArr)>0){
+                    Mail::send([], [], function($message) use($userEmailArr,$email_template) {
+                        $message->to($userEmailArr)->subject('Registration Confirmation Reply')->setBody($email_template, 'text/html');
+                        //Attach file
+                        //$message->attach($attach);
+                    });
+                } */
+
                 if(isset($userEmailArr) && count($userEmailArr)>0){
-                    Mail::send([], [], function($message) use($userEmailArr,$userContent) {
-                        $message->to($userEmailArr)->subject('Registration Confirmation Reply')->setBody($userContent, 'text/html');;
-//                    Attach file
-//                    $message->attach($attach);
+                    Mail::send([], [], function($message) use($userEmailArr,$letterHeadImage,$date,$to,$eventTitle,$userContent,$sincerely,$signatureImage,$presidentInfo,$emailFooterBeforeLogo,$footerLogoImage,$emailFooterAfterLogo) {
+                        $message->to($userEmailArr)->subject('Registration Confirmation Reply')
+                            ->setBody('<img src="'.$message->embed($letterHeadImage).'" alt="header image" style="width:100%;height:100%;" /><br><br>'
+                                .$date.'<br><br><br>'
+                                .$to.'<br><br>'
+                                .$eventTitle.'<br>'
+                                .$userContent.'<br><br><br><br><br>'
+                                .$sincerely.'<br><br>'
+                                .'<img src="'.$message->embed($signatureImage).'" alt="signature image" style="width:20%;height:20%;" /><br><br>'
+                                .$presidentInfo.'<br><br><br><br>'
+                                .$emailFooterBeforeLogo.'<img src="'.$message->embed($footerLogoImage).'" alt="footer logos" style="width:100%;height:25%;" /><br><br>'.$emailFooterAfterLogo, 'text/html');
+
+                        //Attach file
+                        //$message->attach($attach);
                     });
                 }
                 //end sending email to user
@@ -423,17 +514,91 @@ class RegisterController extends Controller
                     array_push($adminEmailArr,$eRaw->email);
                 }
 
+//                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_ADMIN' LIMIT 1");
+//
+//                $adminContent = "<p>Dear Sir,<p>";
+//                if(isset($adminContentRaw) && count($adminContentRaw)>0){
+//                    $adminContent .= $adminContentRaw[0]->description;
+//                }
+//                else{
+//                    $adminContent .= "Registration Confirmation Reply...";
+//                }
+
+                //start constructing email template
+                //start getting email content
                 $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_ADMIN' LIMIT 1");
 
-                $adminContent = "<p>Dear Sir,<p>";
+//                $adminContent = "<p>Dear ".$register->first_name.",<p>";
                 if(isset($adminContentRaw) && count($adminContentRaw)>0){
-                    $adminContent .= $adminContentRaw[0]->description;
+                    $adminContent = $adminContentRaw[0]->description;
                 }
                 else{
-                    $adminContent .= "Registration Confirmation Reply...";
+                    $adminContent = "Registration Confirmation Reply...";
                 }
 
-                if(isset($adminEmailArr) && count($adminEmailArr)>0){
+                $early_bird_date = Utility::getEarlyBirdDate();
+
+                $registrationCategoryRepo = new RegistrationCategoryRepository();
+                $regCategoryObj = $registrationCategoryRepo->getObjByID($registration_category);
+
+                $registered_date = $register->registered_date;
+
+                if($registered_date <= $early_bird_date){
+                    $fee_amount = $regCategoryObj->early_bird_fee;
+                }
+                else{
+                    $fee_amount = $regCategoryObj->normal_fee;
+                }
+
+                if($regCategoryObj->currency_type == "usd"){
+                    $currency_unit = "$";
+                }
+                else{
+                    $currency_unit = "MMK ";
+                }
+
+                $fee     = $currency_unit.$fee_amount;
+
+                $reg_cat = $regCategoryObj->name;
+
+                $userContent = str_replace("[[{{!!fee_amt_variable!!}}]]",$fee,$userContent);
+                $userContent = str_replace("[[{{!!reg_cat_variable!!}}]]",$reg_cat,$userContent);
+
+                //end getting email content
+
+                //start getting letterHead Image and Date
+                $letterHeadImage = public_path().'/images/LetterHead.jpg';
+
+                $date = date("d-m-Y");                              //date for email
+
+                //get recipient of email
+                $to = "To : Admin";
+                /* //recipient with middle name
+                if(isset($register->middle_name) && $register->middle_name != ""){
+                    $to  .=  $register->first_name.' '.$register->middle_name.' '.$register->last_name.'<br><br>';
+                }
+                //recipient without middle name
+                else{
+                    $to  .=  $register->first_name.' '.$register->last_name.'<br><br>';
+                }
+                //end getting recipient of email     */
+
+                //get event title
+                $eventTitle  = Utility::getEventTitle();
+
+                //start signature section
+                $sincerely   = Utility::getSincerely();
+                $signatureImage = public_path().'/images/Sign.jpg';
+                $presidentInfo = Utility::getPresidentInfo();
+                //end signature section
+
+                //get footer of email template
+                $emailFooterBeforeLogo = Utility::getEmailFooterBeforeLogo();
+                $footerLogoImage       = public_path().'/images/FooterLogos.jpg';
+                $emailFooterAfterLogo  = Utility::getEmailFooterAfterLogo();
+                //end constructing email template
+
+                /*if(isset($adminEmailArr) && count($adminEmailArr)>0){
                     Mail::send([], [], function($message) use($adminEmailArr,$adminContent,$attach) {
                         $message->to($adminEmailArr)->subject('Registration Confirmation Reply')->setBody($adminContent, 'text/html');
                         if(isset($attach) && $attach != ""){
@@ -441,7 +606,28 @@ class RegisterController extends Controller
                             $message->attach($attach);
                         }
                     });
+                }*/
+
+                if(isset($adminEmailArr) && count($adminEmailArr)>0){
+                    Mail::send([], [], function($message) use($adminEmailArr,$letterHeadImage,$date,$to,$eventTitle,$adminContent,$sincerely,$signatureImage,$presidentInfo,$emailFooterBeforeLogo,$footerLogoImage,$emailFooterAfterLogo,$attach) {
+                        $message->to($adminEmailArr)->subject('Registration Confirmation Reply')
+                            ->setBody('<img src="'.$message->embed($letterHeadImage).'" alt="header image" style="width:100%;height:100%;" /><br><br>'
+                                .$date.'<br><br><br>'
+                                .$to.'<br><br>'
+                                .$eventTitle.'<br>'
+                                .$adminContent.'<br><br><br><br><br>'
+                                .$sincerely.'<br><br>'
+                                .'<img src="'.$message->embed($signatureImage).'" alt="signature image" style="width:20%;height:20%;" /><br><br>'
+                                .$presidentInfo.'<br><br><br><br>'
+                                .$emailFooterBeforeLogo.'<img src="'.$message->embed($footerLogoImage).'" alt="footer logos" style="width:100%;height:25%;" /><br><br>'.$emailFooterAfterLogo, 'text/html');
+                        if(isset($attach) && $attach != ""){
+                            //Attach file
+                            $message->attach($attach);
+                        }
+                    });
+
                 }
+
                 //end sending email to admin
 
 //                alert()->success('Registration successfully created. ')->persistent('OK');

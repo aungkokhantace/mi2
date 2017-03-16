@@ -171,6 +171,25 @@ class AbstractformController extends Controller
             $userEmailArr = array();
             $userEmailArr[0] = $email;
 
+           /* if($email_template == "oral"){
+                //ABS_CONFIRM_USER_1 is for oral presentation
+                $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_USER_1' LIMIT 1");
+            }
+            else{
+                //ABS_CONFIRM_USER_2 is for poster presentation
+                $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_USER_2' LIMIT 1");
+            }  */
+
+//            $userContent = "<p>Dear ".$abstractform->first_name.",<p>";
+            /*if(isset($userContentRaw) && count($userContentRaw)>0){
+                $userContent .= $userContentRaw[0]->description;
+            }
+            else{
+                $userContent .= "Abstract Confirmation Reply...";
+            } */
+
+            //start constructing email template
+            //start getting email content
             if($email_template == "oral"){
                 //ABS_CONFIRM_USER_1 is for oral presentation
                 $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_USER_1' LIMIT 1");
@@ -180,19 +199,67 @@ class AbstractformController extends Controller
                 $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_USER_2' LIMIT 1");
             }
 
-            $userContent = "<p>Dear ".$abstractform->first_name.",<p>";
+//                $userContent = "<p>Dear ".$register->first_name.",<p>";
             if(isset($userContentRaw) && count($userContentRaw)>0){
-                $userContent .= $userContentRaw[0]->description;
+                $userContent = $userContentRaw[0]->description;
             }
             else{
-                $userContent .= "Abstract Confirmation Reply...";
+                $userContent = "Abstract Confirmation Reply...";
             }
+            //end getting email content
 
-            if(isset($userEmailArr) && count($userEmailArr)>0){
+            //start getting letterHead Image and Date
+            $letterHeadImage = public_path().'/images/LetterHead.jpg';
+
+            $date = date("d-m-Y");                              //date for email
+
+            //get recipient of email
+            $to = "To : ";
+            //recipient with middle name
+            if(isset($abstractform->middle_name) && $abstractform->middle_name != ""){
+                $to  .=  $abstractform->first_name.' '.$abstractform->middle_name.' '.$abstractform->last_name.'<br><br>';
+            }
+            //recipient without middle name
+            else{
+                $to  .=  $abstractform->first_name.' '.$abstractform->last_name.'<br><br>';
+            }
+            //end getting recipient of email
+
+            //get event title
+            $eventTitle  = Utility::getEventTitle();
+
+            //start signature section
+            $sincerely   = Utility::getSincerely();
+            $signatureImage = public_path().'/images/Sign.jpg';
+            $presidentInfo = Utility::getPresidentInfo();
+            //end signature section
+
+            //get footer of email template
+            $emailFooterBeforeLogo = Utility::getEmailFooterBeforeLogo();
+            $footerLogoImage       = public_path().'/images/FooterLogos.jpg';
+            $emailFooterAfterLogo  = Utility::getEmailFooterAfterLogo();
+            //end constructing email template
+
+        /*    if(isset($userEmailArr) && count($userEmailArr)>0){
                 Mail::send([], [], function($message) use($userEmailArr,$userContent) {
                     $message->to($userEmailArr)->subject('Abstract Confirmation Reply')->setBody($userContent, 'text/html');;
 //                    Attach file
 //                    $message->attach($attach);
+                });
+            } */
+
+            if(isset($userEmailArr) && count($userEmailArr)>0){
+                Mail::send([], [], function($message) use($userEmailArr,$letterHeadImage,$date,$to,$eventTitle,$userContent,$sincerely,$signatureImage,$presidentInfo,$emailFooterBeforeLogo,$footerLogoImage,$emailFooterAfterLogo) {
+                    $message->to($userEmailArr)->subject('Abstract Confirmation Reply')
+                        ->setBody('<img src="'.$message->embed($letterHeadImage).'" alt="header image" style="width:100%;height:100%;" /><br><br>'
+                            .$date.'<br><br><br>'
+                            .$to.'<br><br>'
+                            .$eventTitle.'<br>'
+                            .$userContent.'<br><br><br><br><br>'
+                            .$sincerely.'<br><br>'
+                            .'<img src="'.$message->embed($signatureImage).'" alt="signature image" style="width:20%;height:20%;" /><br><br>'
+                            .$presidentInfo.'<br><br><br><br>'
+                            .$emailFooterBeforeLogo.'<img src="'.$message->embed($footerLogoImage).'" alt="footer logos" style="width:100%;height:25%;" /><br><br>'.$emailFooterAfterLogo, 'text/html');
                 });
             }
             //end sending email to user
@@ -204,7 +271,27 @@ class AbstractformController extends Controller
                 array_push($adminEmailArr,$eRaw->email);
             }
 
-//            $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_confirm_ADMIN' LIMIT 1");
+          /*  //$adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_confirm_ADMIN' LIMIT 1");
+            if($email_template == "oral"){
+                //ABS_CONFIRM_ADMIN_1 is for oral presentation
+                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_ADMIN_1' LIMIT 1");
+            }
+            else{
+                //ABS_CONFIRM_ADMIN_2 is for poster presentation
+                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_ADMIN_2' LIMIT 1");
+            }  */
+
+            /*   $adminContent = "<p>Dear Sir,<p>";
+            if(isset($adminContentRaw) && count($adminContentRaw)>0){
+                $adminContent .= $adminContentRaw[0]->description;
+            }
+            else{
+                $adminContent .= "Abstract Confirmation Reply...";
+            }
+            */
+
+            //start constructing email template
+            //start getting email content
             if($email_template == "oral"){
                 //ABS_CONFIRM_ADMIN_1 is for oral presentation
                 $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_ADMIN_1' LIMIT 1");
@@ -214,21 +301,61 @@ class AbstractformController extends Controller
                 $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_ADMIN_2' LIMIT 1");
             }
 
-            $adminContent = "<p>Dear Sir,<p>";
+//                $adminContent = "<p>Dear ".$register->first_name.",<p>";
             if(isset($adminContentRaw) && count($adminContentRaw)>0){
-                $adminContent .= $adminContentRaw[0]->description;
+                $adminContent = $userContentRaw[0]->description;
             }
             else{
-                $adminContent .= "Abstract Confirmation Reply...";
+                $adminContent = "Abstract Confirmation Reply...";
             }
+            //end getting email content
 
-            if(isset($adminEmailArr) && count($adminEmailArr)>0){
+            //start getting letterHead Image and Date
+            $letterHeadImage = public_path().'/images/LetterHead.jpg';
+
+            $date = date("d-m-Y");                              //date for email
+
+            //get recipient of email
+            $to = "To : Admin";
+            //end getting recipient of email
+
+            //get event title
+            $eventTitle  = Utility::getEventTitle();
+
+            //start signature section
+            $sincerely   = Utility::getSincerely();
+            $signatureImage = public_path().'/images/Sign.jpg';
+            $presidentInfo = Utility::getPresidentInfo();
+            //end signature section
+
+            //get footer of email template
+            $emailFooterBeforeLogo = Utility::getEmailFooterBeforeLogo();
+            $footerLogoImage       = public_path().'/images/FooterLogos.jpg';
+            $emailFooterAfterLogo  = Utility::getEmailFooterAfterLogo();
+            //end constructing email template
+
+         /*   if(isset($adminEmailArr) && count($adminEmailArr)>0){
                 Mail::send([], [], function($message) use($adminEmailArr,$adminContent) {
                     $message->to($adminEmailArr)->subject('Abstract Confirmation Reply')->setBody($adminContent, 'text/html');
                     if(isset($attach) && $attach != ""){
                         //Attach file
 //                        $message->attach($attach);
                     }
+                });
+            }  */
+
+            if(isset($adminEmailArr) && count($adminEmailArr)>0){
+                Mail::send([], [], function($message) use($adminEmailArr,$letterHeadImage,$date,$to,$eventTitle,$adminContent,$sincerely,$signatureImage,$presidentInfo,$emailFooterBeforeLogo,$footerLogoImage,$emailFooterAfterLogo) {
+                    $message->to($adminEmailArr)->subject('Abstract Confirmation Reply')
+                        ->setBody('<img src="'.$message->embed($letterHeadImage).'" alt="header image" style="width:100%;height:100%;" /><br><br>'
+                            .$date.'<br><br><br>'
+                            .$to.'<br><br>'
+                            .$eventTitle.'<br>'
+                            .$adminContent.'<br><br><br><br><br>'
+                            .$sincerely.'<br><br>'
+                            .'<img src="'.$message->embed($signatureImage).'" alt="signature image" style="width:20%;height:20%;" /><br><br>'
+                            .$presidentInfo.'<br><br><br><br>'
+                            .$emailFooterBeforeLogo.'<img src="'.$message->embed($footerLogoImage).'" alt="footer logos" style="width:100%;height:25%;" /><br><br>'.$emailFooterAfterLogo, 'text/html');
                 });
             }
             //end sending email to admin

@@ -279,7 +279,13 @@ Route::group(['middleware' => 'web'], function () {
                 Route::get('abstract_reject_admin_email', array('as'=>'backend/abstract_reject_admin_email','uses'=>'Backend\AbstractRejectAdminEmailController@edit'));
                 Route::post('abstract_reject_admin_email', array('as'=>'backend/abstract_reject_admin_email','uses'=>'Backend\AbstractRejectAdminEmailController@update'));
 
-
+                //Registration Categories
+                Route::get('registrationcategory', array('as'=>'backend/registrationcategory','uses'=>'Backend\RegistrationCategoryController@index'));
+                Route::get('registrationcategory/create', array('as'=>'backend/registrationcategory/create','uses'=>'Backend\RegistrationCategoryController@create'));
+                Route::post('registrationcategory/store', array('as'=>'backend/registrationcategory/store','uses'=>'Backend\RegistrationCategoryController@store'));
+                Route::get('registrationcategory/edit/{id}', array('as'=>'backend/registrationcategory/edit','uses'=>'Backend\RegistrationCategoryController@edit'));
+                Route::post('registrationcategory/update', array('as'=>'backend/registrationcategory/update','uses'=>'Backend\RegistrationCategoryController@update'));
+                Route::post('registrationcategory/destroy', array('as'=>'backend/registrationcategory/destroy','uses'=>'Backend\RegistrationCategoryController@destroy'));
 
 
             });

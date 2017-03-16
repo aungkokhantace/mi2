@@ -167,6 +167,13 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>1, 'permission_id'=>190],
             ['role_id'=>1, 'permission_id'=>191],
 
+            //registration categories
+            ['role_id'=>1, 'permission_id'=>200],
+            ['role_id'=>1, 'permission_id'=>201],
+            ['role_id'=>1, 'permission_id'=>202],
+            ['role_id'=>1, 'permission_id'=>203],
+            ['role_id'=>1, 'permission_id'=>204],
+            ['role_id'=>1, 'permission_id'=>205],
 //          end  role-permissions for super-administrator //developer account
 
 
@@ -316,6 +323,14 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>2, 'permission_id'=>189],
             ['role_id'=>2, 'permission_id'=>190],
             ['role_id'=>2, 'permission_id'=>191],
+
+            //registration categories
+            ['role_id'=>2, 'permission_id'=>200],
+            ['role_id'=>2, 'permission_id'=>201],
+            ['role_id'=>2, 'permission_id'=>202],
+            ['role_id'=>2, 'permission_id'=>203],
+            ['role_id'=>2, 'permission_id'=>204],
+            ['role_id'=>2, 'permission_id'=>205],
 //           end role-permissions for administrator //user account
         );
 

@@ -37,7 +37,24 @@
             <input type="button" class="form-control image_remove_btn" value="Remove Image" id="removeImage" name="removeImage">
         </div>
     </div>
-    <br /><br />
+    <br />
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="SETTING_EARLY_BIRD">Early Bird Date</label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            {{--<input type="text" required class="form-control" id="SETTING_EARLY_BIRD" name="SETTING_EARLY_BIRD" placeholder="Choose Early Bird Date" value="{{ isset($configs)? $configs['SETTING_EARLY_BIRD']:Request::old('SETTING_EARLY_BIRD') }}"/>--}}
+            <div class="input-group date" data-provide="datepicker">
+                <input type="hidden" id="date_hidden" name="date_hidden"  value="{{ isset($configs)? $configs['SETTING_EARLY_BIRD']:Request::old('SETTING_EARLY_BIRD') }}">
+                <input autocomplete="off" required type="text" class="form-control" id="SETTING_EARLY_BIRD" name="SETTING_EARLY_BIRD"  value="{{ isset($configs)? $configs['SETTING_EARLY_BIRD']:Request::old('SETTING_EARLY_BIRD') }}">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </div>
+            </div>
+            <p class="text-danger">{{$errors->first('SETTING_EARLY_BIRD')}}</p>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -203,6 +220,15 @@
             }
             //}
 
+        });
+
+        $('.date').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 1,
+            allowInputToggle: true,
         });
     });
 

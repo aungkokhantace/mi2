@@ -218,6 +218,20 @@
                         </ul>
                     </li>
                     @endif
+
+                    <li nav-id="modifier-create" class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b>
+
+                            <span>Registration Categories</span>
+                        </a>
+
+                        <ul class="sub-menu">
+                            <li nav-id="modifier-create-modifier"><a href="/backend/registrationcategory/create">Entry</a></li>
+                            <li nav-id="modifier-create-modifierpanel"><a href="/backend/registrationcategory">List</a></li>
+                        </ul>
+                    </li>
+
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>

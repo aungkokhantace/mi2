@@ -39,4 +39,9 @@ class Register extends Model
     {
         return $this->belongsTo('App\Backend\MedicalSpeciality\MedicalSpeciality','medical_speciality_id','id');
     }
+
+    public function registrationcategory()
+    {
+        return $this->belongsTo('App\Backend\RegistrationCategory\RegistrationCategory','registration_category','id');
+    }
 }

@@ -208,6 +208,14 @@ class Default_PermissionSeeder extends Seeder
             //Abstract reject admin email
             ['id'=>191,'module'=>'Abstract Reject Admin Email','name'=>'View','description'=>'Abstract Reject Admin Email','url'=>'backend/abstract_reject_admin_email'],
 
+            //Registration Categories
+            ['id'=>200,'module'=>'Registration Category','name'=>'Listing','description'=>'Registration Category Listing','url'=>'backend/registrationcategory'],
+            ['id'=>201,'module'=>'Registration Category','name'=>'Create','description'=>'Registration Category Create','url'=>'backend/registrationcategory/create'],
+            ['id'=>202,'module'=>'Registration Category','name'=>'Store','description'=>'Registration Category Store','url'=>'backend/registrationcategory/store'],
+            ['id'=>203,'module'=>'Registration Category','name'=>'Edit','description'=>'Registration Category Edit','url'=>'backend/registrationcategory/edit'],
+            ['id'=>204,'module'=>'Registration Category','name'=>'Update','description'=>'Registration Category Update','url'=>'backend/registrationcategory/update'],
+            ['id'=>205,'module'=>'Registration Category','name'=>'Destroy','description'=>'Registration Category Destroy','url'=>'backend/registrationcategory/destroy'],
+
         );
 
 

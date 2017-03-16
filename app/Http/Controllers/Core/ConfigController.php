@@ -24,7 +24,6 @@ class ConfigController extends Controller
 
     public function edit(){
         if (Auth::guard('User')->check()) {
-
             $configs      = $this->ConfigRepository->getSiteConfigs();
             
             if (is_null($configs) || count($configs) == 0)
@@ -51,6 +50,9 @@ class ConfigController extends Controller
                 $tempConfigs["SETTING_COMPANY_NAME"] = "";
             }
 
+            if(!array_key_exists("SETTING_EARLY_BIRD",$tempConfigs)){
+                $tempConfigs["SETTING_EARLY_BIRD"] = "";
+            }
             return view('core.config.config')->with('configs', $tempConfigs);
 
         }
@@ -59,9 +61,11 @@ class ConfigController extends Controller
 
     public function update(){
         if (Auth::guard('User')->check()) {
-
             $SETTING_COMPANY_NAME = Input::get('SETTING_COMPANY_NAME');
             $removeImageFlag = Input::get('removeImageFlag');
+
+            $SETTING_EARLY_BIRD_temp = Input::get('SETTING_EARLY_BIRD');
+            $SETTING_EARLY_BIRD = date("Y-m-d", strtotime($SETTING_EARLY_BIRD_temp)); //change date format to store in db
 
             try{
 
@@ -76,6 +80,10 @@ class ConfigController extends Controller
 
                 DB::statement("DELETE FROM `$this->tbConfig` WHERE `code` = 'SETTING_COMPANY_NAME'");
                 $result = DB::statement("INSERT INTO `$this->tbConfig` (code,type,value,description,updated_by,updated_at) VALUES ('SETTING_COMPANY_NAME','SETTING','$SETTING_COMPANY_NAME','Company Name',$loginUserId,'$updated_at')");
+
+                //for early bird date
+                DB::statement("DELETE FROM `$this->tbConfig` WHERE `code` = 'SETTING_EARLY_BIRD'");
+                $result = DB::statement("INSERT INTO `$this->tbConfig` (code,type,value,description,updated_by,updated_at) VALUES ('SETTING_EARLY_BIRD','SETTING','$SETTING_EARLY_BIRD','Early Bird Date',$loginUserId,'$updated_at')");
 
                 // saving image
                 if(Input::hasFile('site_logo'))

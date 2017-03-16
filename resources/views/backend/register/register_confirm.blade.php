@@ -202,16 +202,26 @@
             @if(isset($register))
                 <select class="form-control" name="registration_category" id="registration_category">
                     <option value="" selected disabled>Select Registration Category</option>
-                    <option value="1" @if($register->registration_category == 1) selected @endif>International Delegate</option>
-                    <option value="2" @if($register->registration_category == 2) selected @endif>Local Delegate</option>
-                    <option value="3" @if($register->registration_category == 3) selected @endif>Local Trainee</option>
+                    {{--<option value="1" @if($register->registration_category == 1) selected @endif>International Delegate</option>--}}
+                    {{--<option value="2" @if($register->registration_category == 2) selected @endif>Local Delegate</option>--}}
+                    {{--<option value="3" @if($register->registration_category == 3) selected @endif>Local Trainee</option>--}}
+                    @foreach($registrationCategories as $registrationCategory)
+                        @if($register->registration_category == $registrationCategory->id)
+                            <option value="{{$registrationCategory->id}}" selected>{{$registrationCategory->name}}</option>
+                        @else
+                            <option value="{{$registrationCategory->id}}">{{$registrationCategory->name}}</option>
+                        @endif
+                    @endforeach
                 </select>
             @else
                 <select class="form-control" name="registration_category" id="registration_category">
                     <option value="" selected disabled>Select Registration Category</option>
-                    <option value="1">International Delegate</option>
-                    <option value="2">Local Delegate</option>
-                    <option value="3">Local Trainee</option>
+                    {{--<option value="1">International Delegate</option>--}}
+                    {{--<option value="2">Local Delegate</option>--}}
+                    {{--<option value="3">Local Trainee</option>--}}
+                    @foreach($registrationCategories as $registrationCategory)
+                        <option value="{{$registrationCategory->id}}">{{$registrationCategory->name}}</option>
+                    @endforeach
                 </select>
             @endif
             <p class="text-danger">{{$errors->first('registration_category')}}</p>

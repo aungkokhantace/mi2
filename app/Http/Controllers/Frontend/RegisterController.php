@@ -6,6 +6,8 @@ use App\Backend\Page\PageRepository;
 use App\Backend\Post\PostRepository;
 use App\Backend\Register\AppRegister;
 use App\Backend\Permission\Permission;
+use App\Backend\RegistrationCategory\RegistrationCategory;
+use App\Backend\RegistrationCategory\RegistrationCategoryRepository;
 use App\Core\FormatGenerator;
 use App\Core\ReturnMessage;
 use App\Session;
@@ -49,7 +51,7 @@ class RegisterController extends Controller
     }
 
      public function create(){
-        $countries = Utility::getSettingsByType("COUNTRY");
+         $countries = Utility::getSettingsByType("COUNTRY");
 
          $medicalspecialityRepo = new MedicalSpecialityRepository();
          $medicalspecialities   = $medicalspecialityRepo->getObjs();
@@ -69,7 +71,11 @@ class RegisterController extends Controller
 //         $pageRepo = new PageRepository();
 //         $page_id  = $pageRepo->getPageIDByURL($url);
 //         $page = $pageRepo->getObjByID($page_id);
-        return view('frontend.register.register_frontend')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
+
+         $registrationCategoryRepo = new RegistrationCategoryRepository();
+         $registrationCategories   = $registrationCategoryRepo->getObjs();
+
+        return view('frontend.register.register_frontend')->with('countries', $countries)->with('specialitiesArr', $specialitiesArr)->with('registrationCategories', $registrationCategories);
     }
 
 

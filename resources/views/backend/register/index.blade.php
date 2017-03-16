@@ -83,7 +83,7 @@
                             {{--<td>{{$register->where_work}}</td>--}}
                             <td>{{$register->medical_speciality_name}}</td>
                             <td>{{$register->phone_no}}</td>
-                            <td>{{$register->registration_category}}</td>
+                            <td>{{$register->registrationcategory->name}}</td>
                             <td>{{$register->payment_type}}</td>
                             <td>
                                 @if($register->status == 'confirm')

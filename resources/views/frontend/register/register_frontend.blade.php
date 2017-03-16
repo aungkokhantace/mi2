@@ -142,9 +142,12 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <select class="form-control" name="registration_category" id="registration_category">
                     <option value="" selected disabled>Select Registration Category</option>
-                    <option value="1">International Delegate</option>
-                    <option value="2">Local Delegate</option>
-                    <option value="3">Local Trainee</option>
+                    {{--<option value="1">International Delegate</option>--}}
+                    {{--<option value="2">Local Delegate</option>--}}
+                    {{--<option value="3">Local Trainee</option>--}}
+                    @foreach($registrationCategories as $registrationCategory)
+                        <option value="{{$registrationCategory->id}}">{{$registrationCategory->name}}</option>
+                    @endforeach
                 </select>
                 <p class="text-danger" id="registration_category_error">{{$errors->first('registration_category')}}</p>
             </div>
@@ -183,6 +186,10 @@
                     E-mail myanmarplazabranch@cbbank.com.mm
                     </p>
                 </div>
+                <br>
+                <p>
+                    You need to send scanned document of payment for registration fee via mail. (eg- cash receipt, deposit slip or transfer slip)
+                </p>
             </div>
         </div>
         <br>
