@@ -348,6 +348,14 @@ class Default_RolePermissionSeeder extends Seeder
             //for profile update
             ['role_id'=>3, 'permission_id'=>25],
 
+            //for registration CRUD
+            ['role_id'=>3, 'permission_id'=>120],
+            ['role_id'=>3, 'permission_id'=>121],
+            ['role_id'=>3, 'permission_id'=>122],
+            ['role_id'=>3, 'permission_id'=>123],
+            ['role_id'=>3, 'permission_id'=>124],
+            ['role_id'=>3, 'permission_id'=>125],
+
             //registration email templates
             ['role_id'=>3, 'permission_id'=>180],
             ['role_id'=>3, 'permission_id'=>181],
@@ -366,6 +374,14 @@ class Default_RolePermissionSeeder extends Seeder
 
             //for profile update
             ['role_id'=>4, 'permission_id'=>25],
+
+            //for abstract CRUD
+            ['role_id'=>4, 'permission_id'=>130],
+            ['role_id'=>4, 'permission_id'=>131],
+            ['role_id'=>4, 'permission_id'=>132],
+            ['role_id'=>4, 'permission_id'=>133],
+            ['role_id'=>4, 'permission_id'=>134],
+            ['role_id'=>4, 'permission_id'=>135],
 
             //abstract email templates
             ['role_id'=>4, 'permission_id'=>184],

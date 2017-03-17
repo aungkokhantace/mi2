@@ -162,6 +162,12 @@ class TemplateSliderController extends Controller
             //Start Saving Image
             $removeImageFlag          = (Input::has('removeImageFlag')) ? Input::get('removeImageFlag') : 0;
             $path         = base_path().'/public/images/slider_images/';
+
+            if ( ! file_exists($path))
+            {
+                mkdir($path, 0777, true);
+            }
+
             if(Input::hasFile('photo'))
             {
                 $photo        = Input::file('photo');
