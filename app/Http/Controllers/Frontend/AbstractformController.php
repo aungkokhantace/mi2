@@ -97,17 +97,18 @@ class AbstractformController extends Controller
         $extension = $abstract_file_path->getClientOriginalExtension();
 
         // SET UPLOAD PATH
-        $destinationPath = 'uploads';
+//        $destinationPath = 'uploads';
+        $destinationPath = base_path().'/public/';
         // GET THE FILE EXTENSION
         $extension = $abstract_file_path->getClientOriginalExtension();
 
         // RENAME THE UPLOAD WITH RANDOM NUMBER
         $fileName = $abstract_file_path->getFilename() . '.' . $extension;
 
-//        if ( ! file_exists($destinationPath))
-//        {
-//            mkdir($destinationPath, 0777, true);
-//        }
+        if ( ! file_exists($destinationPath))
+        {
+            mkdir($destinationPath, 0777, true);
+        }
 
         // MOVE THE UPLOADED FILES TO THE DESTINATION DIRECTORY
         $upload_success = $abstract_file_path->move($destinationPath, $fileName);
