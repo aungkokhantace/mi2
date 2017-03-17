@@ -14,7 +14,9 @@
     </h1>
 
     {{--check new or edit--}}
-    @if(isset($user))
+    @if(isset($profile))
+        {!! Form::open(array('url' => '/backend/user/updateProfile', 'class'=> 'form-horizontal user-form-border', 'id' => 'userForm')) !!}
+    @elseif(isset($user))
         {!! Form::open(array('url' => '/backend/user/update', 'class'=> 'form-horizontal user-form-border', 'id' => 'userForm')) !!}
 
     @else
@@ -80,19 +82,28 @@
     @if(isset($profile))
         <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <label for="password">Password<span class="require">*</span></label>
+                <label for="active" class="text_bold_black">Change Password</label>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="checkbox" name="active" id="active" value="1" @if(Input::old('active')=="1")checked @endif>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <label for="password" class="password">Password<span class="require">*</span></label>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"/>
-                <p class="text-danger">{{$errors->first('password')}}</p>
+                <input type="password" class="form-control password" id="password" name="password" placeholder="Enter Password"/>
+                <p class="text-danger password">{{$errors->first('password')}}</p>
             </div>
         </div>
     @endif
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <label for="password">Staff Role<span class="require">*</span></label>
+            <label for="role">Staff Role<span class="require">*</span></label>
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -107,11 +118,29 @@
                                     <option value="{{$role->id}}">{{$role->name}}</option>
                                 @endif
                             @endif
+                        @elseif(($role->id == 2))
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
+                                @if($role->id == $user->role_id)
+                                    <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
+                                @else
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                @endif
+                            @endif
+                        @elseif(($role->id == 3))
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '3')
+                                @if($role->id == $user->role_id)
+                                    <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
+                                @else
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                @endif
+                            @endif
                         @else
-                            @if($role->id == $user->role_id)
-                                <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
-                            @else
-                                <option value="{{$role->id}}">{{$role->name}}</option>
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '4')
+                                @if($role->id == $user->role_id)
+                                    <option value="{{$user->role_id}}" selected>{{$user->role->name}}</option>
+                                @else
+                                    <option value="{{$role->id}}">{{$role->name}}</option>
+                                @endif
                             @endif
                         @endif
                     @endforeach
@@ -161,6 +190,7 @@
 @section('page_script')
     <script type="text/javascript">
         $(document).ready(function() {
+            $(".password").hide();
             //Start Validation for Entry and Edit Form
             $('#userForm').validate({
                 rules: {
@@ -187,7 +217,16 @@
             //End Validation for Entry and Edit Form
 
             //For checkbox picker
-            $(':checkbox').checkboxpicker();
+//            $(':checkbox').checkboxpicker();
+
+            $(':checkbox').checkboxpicker().change(function() {
+                if (document.getElementById('active').checked)
+                {
+                    $(".password").show();
+                } else {
+                    $(".password").hide();
+                }
+            });
         });
     </script>
 @stop

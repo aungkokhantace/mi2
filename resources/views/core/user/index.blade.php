@@ -72,12 +72,14 @@
                             </tr>
                             @endif
                         @else
-                            <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $user->id }}" id="all"></td>
-                            <td><a href="/backend/user/edit/{{$user->id}}">{{$user->user_name}}</a></td>
-                            <td>{{$user->display_name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->role->name}}</td>
-                            <td>{{$user->address}}</td>
+                            <tr>
+                                <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $user->id }}" id="all"></td>
+                                <td><a href="/backend/user/edit/{{$user->id}}">{{$user->user_name}}</a></td>
+                                <td>{{$user->display_name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->role->name}}</td>
+                                <td>{{$user->address}}</td>
+                            </tr>
                         @endif
                     @endforeach
                     </tbody>

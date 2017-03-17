@@ -8,6 +8,8 @@
             <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
             <!-- end sidebar minify button -->
             <li class="nav-header">Event</li>
+
+            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
             <li nav-id='report'  class="has-sub" >
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
@@ -20,7 +22,9 @@
                     <li nav-id="report-event-abstraact"><a href="/backend/report/abstract">Event Abstracts</a></li>
                 </ul>
             </li>
+            @endif
 
+            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '3')
             <li nav-id='event_registration'  class="has-sub" >
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
@@ -32,23 +36,24 @@
                     <li nav-id="report-event-abstraact"><a href="/backend/register">List</a></li>
                 </ul>
             </li>
+            @endif
 
+            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '4')
             <li nav-id='event_abstract'  class="has-sub" >
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
                     <i class="fa fa-calendar"></i>
                     <span>Event Abstract</span>
                 </a>
-
                 <ul class="sub-menu">
                     <li nav-id="report-event-abstraact"><a href="/backend/abstractform">List</a></li>
                 </ul>
             </li>
-
+            @endif
 
             <li class="nav-header">Setup</li>
 
-
+            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
             <li  nav-id='modifier'  class="has-sub">
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
@@ -122,6 +127,7 @@
                     </li>
                 </ul>
             </li>
+            @endif
 
             <li  nav-id='modifier'  class="has-sub">
                 <a href="javascript:;">
@@ -159,6 +165,7 @@
                     </li>
                     @endif
 
+                    @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
@@ -170,31 +177,34 @@
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/user">List</a></li>
                         </ul>
                     </li>
+                    @endif
+
+                    @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
                     <li nav-id="">
                         <a href="/backend/config">
                             <b class="caret pull-right"></b>
                             <span>Site Config</span>
                         </a>
                     </li>
+                    @endif
+
                     @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
-
                             <span>Event</span>
                         </a>
-
                         <ul class="sub-menu">
                             <li nav-id="modifier-create-modifier"><a href="/backend/event/create">Entry</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/event">List</a></li>
                         </ul>
                     </li>
                     @endif
-                    @if(Auth::guard('User')->user()->role_id == '1')
+
+                    @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
-
                             <span>Page</span>
                         </a>
 
@@ -204,14 +214,13 @@
                         </ul>
                     </li>
                     @endif
+
                     @if(Auth::guard('User')->user()->role_id == '1')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
-
                             <span>Post</span>
                         </a>
-
                         <ul class="sub-menu">
                             <li nav-id="modifier-create-modifier"><a href="/backend/post/create">Entry</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/post">List</a></li>
@@ -219,58 +228,69 @@
                     </li>
                     @endif
 
+                    @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
-
                             <span>Registration Categories</span>
                         </a>
-
                         <ul class="sub-menu">
                             <li nav-id="modifier-create-modifier"><a href="/backend/registrationcategory/create">Entry</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/registrationcategory">List</a></li>
                         </ul>
                     </li>
+                    @endif
 
+                    @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2')
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
-
                             <span>Event Email</span>
                         </a>
-
                         <ul class="sub-menu">
                             <li nav-id="modifier-create-modifier"><a href="/backend/eventemail/create">Entry</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/eventemail">List</a></li>
                         </ul>
                     </li>
+                    @endif
+
                     <li nav-id="modifier-create" class="has-sub">
                         <a href="javascript:;">
                             <b class="caret pull-right"></b>
                             <span>Email Text</span>
                         </a>
-
                         <ul class="sub-menu">
                             {{--<li nav-id="modifier-create-modifier"><a href="/backend/registrationemail">Registration Email</a></li>--}}
                             {{--<li nav-id="modifier-create-modifierpanel"><a href="/backend/abstractemail">Abstract Email</a></li>--}}
-
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '3')
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_submit_user_email">Registration Submit User Email</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_submit_admin_email">Registration Submit Admin Email</a></li>
+                            @endif
 
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '3')
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_confirm_user_email">Registration Confirm User Email</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/registration_confirm_admin_email">Registration Confirm Admin Email</a></li>
+                            @endif
 
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '4')
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_submit_user_email">Abstract Submit User Email</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_submit_admin_email">Abstract Submit Admin Email</a></li>
+                            @endif
 
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '4')
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_user_email_1">Abstract Confirm User Email (Oral Presentation)</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_admin_email_1">Abstract Confirm Admin Email (Oral Presentation)</a></li>
+                            @endif
 
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '4')
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_user_email_2">Abstract Confirm User Email (Poster Presentation)</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_confirm_admin_email_2">Abstract Confirm Admin Email (Poster Presentation)</a></li>
+                            @endif
 
+                            @if(Auth::guard('User')->user()->role_id == '1' || Auth::guard('User')->user()->role_id == '2' || Auth::guard('User')->user()->role_id == '4')
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_reject_user_email">Abstract Reject User Email</a></li>
                             <li nav-id="modifier-create-modifierpanel"><a href="/backend/abstract_reject_admin_email">Abstract Reject Admin Email</a></li>
+                            @endif
                         </ul>
                     </li>
                 </ul>

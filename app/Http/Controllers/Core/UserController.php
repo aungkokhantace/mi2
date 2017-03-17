@@ -82,7 +82,6 @@ class UserController extends Controller
     }
 
     public function update(UserEditFormRequest $request){
-
         $request->validate();
         $id                 = Input::get('id');
         $user_name          = Input::get('user_name');
@@ -99,8 +98,8 @@ class UserController extends Controller
         $userObj->email     = $email;
         $userObj->role_id   = $roleId;
         $userObj->address   = $address;
-        $password           = Input::get('password');
 
+        $password           = Input::get('password');
         if(isset($password) && $password != ""){
             $pwd = trim(bcrypt(Input::get('password')));
             $userObj->password = $pwd;
@@ -130,6 +129,36 @@ class UserController extends Controller
         }
     }
 
+    public function updateProfile(UserEditFormRequest $request){
+        $request->validate();
+        $id                 = Input::get('id');
+        $user_name          = Input::get('user_name');
+        $display_name       = Input::get('display_name');
+        $email              = Input::get('email');
+        $address            = Input::get('address');
+        $staffId            = Input::get('user_name');
+        $roleId             = Input::get('role_id');
+
+        $userObj            = User::find($id);
+        $userObj->user_name = $user_name;
+        $userObj->display_name = $display_name;
+        $userObj->staff_id  = $staffId;
+        $userObj->email     = $email;
+        $userObj->role_id   = $roleId;
+        $userObj->address   = $address;
+
+        $password           = Input::get('password');
+        if(isset($password) && $password != ""){
+            $pwd = trim(bcrypt(Input::get('password')));
+            $userObj->password = $pwd;
+        }
+        $this->userRepository->update($userObj);
+//        return redirect()->action('/backend/userAuth');
+        $user = $this->userRepository->getObjByID($id);
+        $roles = DB::table('core_roles')->get();
+        return view('core.user.user')->with('user', $user)->with('roles', $roles)->with('profile',true);
+    }
+
     public function destroy(){
         $id         = Input::get('selected_checkboxes');
         $new_string = explode(',', $id);
@@ -151,6 +180,10 @@ class UserController extends Controller
             if ($role->role_id == 1) {
                 return redirect('/backend');
             } else if ($role->role_id == 2) {
+                return redirect('/backend');
+            }else if ($role->role_id == 3) {
+                return redirect('/backend');
+            }else if ($role->role_id == 4) {
                 return redirect('/backend');
             } else {
                 return redirect('/backend');

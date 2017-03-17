@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
          $this->call(Default_PageSeeder::class);
          $this->call(Default_PostSeeder::class);
          $this->call(Default_MedicalSpecialitySeeder::class);
+         $this->call(Default_TemplateSliderSeeder::class);
     }
 }

@@ -45,6 +45,8 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>1, 'permission_id'=>22],
             ['role_id'=>1, 'permission_id'=>23],
 
+            ['role_id'=>1, 'permission_id'=>25],
+
             ['role_id'=>1, 'permission_id'=>30],
             ['role_id'=>1, 'permission_id'=>31],
             ['role_id'=>1, 'permission_id'=>32],
@@ -202,6 +204,8 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>2, 'permission_id'=>22],
             ['role_id'=>2, 'permission_id'=>23],
 
+            ['role_id'=>2, 'permission_id'=>25],
+
             ['role_id'=>2, 'permission_id'=>30],
             ['role_id'=>2, 'permission_id'=>31],
             ['role_id'=>2, 'permission_id'=>32],
@@ -332,6 +336,49 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>2, 'permission_id'=>204],
             ['role_id'=>2, 'permission_id'=>205],
 //           end role-permissions for administrator //user account
+
+            //start registration admin permissions
+            //for dashboard after login //userAuth permission
+            ['role_id'=>3, 'permission_id'=>15],
+            ['role_id'=>3, 'permission_id'=>16],
+
+            //user update permission for edit profile
+            ['role_id'=>3, 'permission_id'=>13],
+
+            //for profile update
+            ['role_id'=>3, 'permission_id'=>25],
+
+            //registration email templates
+            ['role_id'=>3, 'permission_id'=>180],
+            ['role_id'=>3, 'permission_id'=>181],
+            ['role_id'=>3, 'permission_id'=>182],
+            ['role_id'=>3, 'permission_id'=>183],
+
+            //end registration admin permissions
+
+            //start abstract admin permissions
+            //for dashboard after login //userAuth permission
+            ['role_id'=>4, 'permission_id'=>15],
+            ['role_id'=>4, 'permission_id'=>16],
+
+            //user update permission for edit profile
+            ['role_id'=>4, 'permission_id'=>13],
+
+            //for profile update
+            ['role_id'=>4, 'permission_id'=>25],
+
+            //abstract email templates
+            ['role_id'=>4, 'permission_id'=>184],
+            ['role_id'=>4, 'permission_id'=>185],
+            ['role_id'=>4, 'permission_id'=>186],
+            ['role_id'=>4, 'permission_id'=>187],
+            ['role_id'=>4, 'permission_id'=>188],
+            ['role_id'=>4, 'permission_id'=>189],
+            ['role_id'=>4, 'permission_id'=>190],
+            ['role_id'=>4, 'permission_id'=>191],
+
+            //end abstract admin permissions
+
         );
 
         DB::table('core_permission_role')->insert($roles);

@@ -101,6 +101,7 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('user/update', array('as'=>'backend/user/update','uses'=>'Core\UserController@update'));
                 Route::post('user/destroy', array('as'=>'backend/user/destroy','uses'=>'Core\UserController@destroy'));
                 Route::get('user/profile/{id}', array('as'=>'backend/user/profile','uses'=>'Core\UserController@profile'));
+                Route::post('user/updateProfile', array('as'=>'backend/user/updateProfile','uses'=>'Core\UserController@updateProfile'));
                 Route::get('userAuth', array('as'=>'backend/userAuth','uses'=>'Core\UserController@getAuthUser'));
 
                 //Role
