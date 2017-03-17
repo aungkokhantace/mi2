@@ -20,7 +20,7 @@ use App\Backend\Register\RegisterRepositoryInterface;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use Illuminate\Support\Facades\DB;
-use App\Backend\Register\register;
+use App\Backend\Register\Register;
 use Carbon\Carbon;
 use App\Backend\Register\RegisterRepository;
 use App\Backend\Infrastructure\Forms\RegisterEntryRequest;
