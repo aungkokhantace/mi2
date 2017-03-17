@@ -56,7 +56,7 @@
             <label for="email">Email<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{ isset($register)? $register->email:Request::old('email') }}"/>
+            <input type="text" readonly class="form-control" id="email" name="email" placeholder="Enter Email" value="{{ isset($register)? $register->email:Request::old('email') }}"/>
             <p class="text-danger">{{$errors->first('email')}}</p>
         </div>
     </div>

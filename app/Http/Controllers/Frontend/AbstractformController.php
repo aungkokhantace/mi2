@@ -98,7 +98,7 @@ class AbstractformController extends Controller
 
         // SET UPLOAD PATH
 //        $destinationPath = 'uploads';
-        $destinationPath = base_path().'/public/';
+        $destinationPath = base_path().'/public/uploads';
         // GET THE FILE EXTENSION
         $extension = $abstract_file_path->getClientOriginalExtension();
 
@@ -180,7 +180,9 @@ class AbstractformController extends Controller
             //end sending email to user
 
             //start sending email to admin
+//            $attach = public_path().'/'.$abstractform->abstract_file_path;
             $attach = $abstractform->abstract_file_path;
+
             $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
             $emailArr = array();
             foreach($emailRaw as $eRaw){
