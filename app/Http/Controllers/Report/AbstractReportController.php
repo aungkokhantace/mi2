@@ -145,7 +145,8 @@ class AbstractReportController extends Controller
             $grandTotal = 0;
             $date = Carbon::parse($from_date)->format('d-m-Y'); //changing date format to show in view
             $eventRepo                  = new ReportEventAbstractRepository();
-            $eventAbstracts             = $eventRepo->getEventAbstracts($from_date, $to_date);
+//            $eventAbstracts             = $eventRepo->getEventAbstracts($from_date, $to_date);
+            $eventAbstracts             = $eventRepo->getEventAbstractsByDate($from_date, $to_date);
 
             foreach($eventAbstracts as $abstract){
                 if($abstract->medical_speciality_id == 0){
@@ -157,7 +158,6 @@ class AbstractReportController extends Controller
                     $abstract->medical_speciality = $medical_speciality->name;
                 }
             }
-
 
             $html = '
                     <style>

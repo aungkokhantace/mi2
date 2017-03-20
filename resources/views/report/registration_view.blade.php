@@ -56,7 +56,8 @@
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            <a target="_blank" href="registration/export"><button class="form-control btn btn-primary">Print</button></a>
+            {{--<a target="_blank" href="/backend/report/registration/export"><button class="form-control btn btn-primary">Print</button></a>--}}
+            <button type="button" onclick="report_pdf_export('backend/report/registration');" class="form-control btn btn-primary">Print</button>
         </div>
     </div>      
 

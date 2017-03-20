@@ -61,13 +61,13 @@ Route::group(['middleware' => 'web'], function () {
             Route::get('report/registration', array('as'=>'backend/report/registration','uses'=>'Report\RegistrationReportController@index'));
             Route::get('report/registration/search/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/search/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@search'));
             Route::get('report/registration/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@excel'));
-            Route::get('report/registration/export', array('as'=>'backend/report/registration/export','uses'=>'Report\RegistrationReportController@export'));
+            Route::get('report/registration/export/{from_date?}/{to_date?}', array('as'=>'backend/report/registration/export/{from_date?}/{to_date?}','uses'=>'Report\RegistrationReportController@export'));
 
             //Event Abstract Report
             Route::get('report/abstract', array('as'=>'backend/report/abstract','uses'=>'Report\AbstractReportController@index'));
             Route::get('report/abstract/search/{from_date?}/{to_date?}', array('as'=>'backend/report/abstract/search/{from_date?}/{to_date?}','uses'=>'Report\AbstractReportController@search'));
             Route::get('report/abstract/exportexcel/{from_date?}/{to_date?}', array('as'=>'backend/report/abstract/exportexcel/{from_date?}/{to_date?}','uses'=>'Report\AbstractReportController@excel'));
-            Route::get('report/abstract/export', array('as'=>'backend/report/abstract/export','uses'=>'Report\AbstractReportController@export'));
+            Route::get('report/abstract/export/{from_date?}/{to_date?}', array('as'=>'backend/report/abstract/export/{from_date?}/{to_date?}','uses'=>'Report\AbstractReportController@export'));
 
         });       
 

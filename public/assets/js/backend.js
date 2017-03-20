@@ -63,6 +63,35 @@ function report_export(module) {
     window.location = form_action;
 }
 
+function report_pdf_export(module) {
+    var from_date = $("#from_date").val();
+    var to_date = $("#to_date").val();
+
+    if(from_date == "" && to_date == ""){
+        var form_action = "/"+module+"/export";
+    }
+    else if(from_date == "" && to_date != "") {
+        sweetAlert("Oops...", "Please Choose the date !");
+        return;
+    }
+    else if(from_date != "" && to_date == "") {
+        sweetAlert("Oops...", "Please Choose the date !");
+        return;
+    }
+    else{
+        var dateComparison = check_date(from_date, to_date);
+
+        if(dateComparison){
+            var form_action = "/"+module+"/export/"+ from_date + "/" + to_date;
+        }
+        else{
+            sweetAlert("Oops...", "Please Choose the valid date !");
+            return;
+        }
+    }
+    window.location = form_action;
+}
+
 function check_date(from_date, to_date){
 
     var dateFirst = from_date.split('-');
