@@ -295,6 +295,10 @@
                     </li>
                 </ul>
             </li>
+
+            @if(Auth::guard('User')->user()->role_id == '1')
+                <li nav-id="modifier-manage-modifierpanel"><a href="/backend/systemreference">System Reference</a></li>
+            @endif
         </ul>
         <!-- end sidebar nav -->
     </div>

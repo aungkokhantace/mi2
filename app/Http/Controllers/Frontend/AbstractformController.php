@@ -46,7 +46,6 @@ class AbstractformController extends Controller
 
     public function create(Request $request)
     {
-            
         $countries = Utility::getSettingsByType("COUNTRY");
 
         $medicalspecialityRepo = new MedicalSpecialityRepository();
@@ -126,6 +125,7 @@ class AbstractformController extends Controller
 
         $middle_name            = Input::get('middle_name');
         $last_name              = Input::get('last_name');
+        $title                  = Input::get('title');
         $email                  = Input::get('email');
         $country                = Input::get('country');
         $medical_specialities   = Input::get('medical_specialities');
@@ -143,6 +143,7 @@ class AbstractformController extends Controller
         $abstractform->first_name            = $first_name;
         $abstractform->middle_name           = $middle_name;
         $abstractform->last_name             = $last_name;
+        $abstractform->title                 = $title;
         $abstractform->email                 = $email;
         $abstractform->country               = $country;
 //        $abstractform->medical_specialities  = $medical_specialities;
@@ -190,7 +191,7 @@ class AbstractformController extends Controller
                 array_push($emailArr,$eRaw->email);
             }
 
-            $content = "<p>Dear Sir,<p>";
+            $content = "<p>Dear Sir/Madam,<p>";
 
             $contentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_SUBMIT_ADMIN' LIMIT 1");
             if(isset($contentRaw) && count($contentRaw)>0){

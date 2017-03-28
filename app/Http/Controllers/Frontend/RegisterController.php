@@ -190,7 +190,7 @@ class RegisterController extends Controller
 
             $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_SUBMIT_ADMIN' LIMIT 1");
 
-            $adminContent = "<p>Dear Sir,<p>";
+            $adminContent = "<p>Dear Sir/Madam,<p>";
             if(isset($adminContentRaw) && count($adminContentRaw)>0){
                 $adminContent .= $adminContentRaw[0]->description;
             }

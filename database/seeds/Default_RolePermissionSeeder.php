@@ -176,6 +176,8 @@ class Default_RolePermissionSeeder extends Seeder
             ['role_id'=>1, 'permission_id'=>203],
             ['role_id'=>1, 'permission_id'=>204],
             ['role_id'=>1, 'permission_id'=>205],
+
+            ['role_id'=>1, 'permission_id'=>250],
 //          end  role-permissions for super-administrator //developer account
 
 

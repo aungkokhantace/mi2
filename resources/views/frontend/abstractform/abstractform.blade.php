@@ -91,6 +91,24 @@
 
     <div class="row entry_row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <label for="title">Title</label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            {{--<input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="{{Request::old('title') }}"/>--}}
+            <select class="form-control" name="title" id="title">
+                <option value="" selected disabled>Select Title</option>
+                <option value="1">Dr.</option>
+                <option value="2">Professor</option>
+                <option value="3">Mr.</option>
+                <option value="4">Mrs.</option>
+                <option value="5">Ms.</option>
+            </select>
+            <p class="text-danger" id="title_error">{{$errors->first('title')}}</p>
+        </div>
+    </div>
+
+    <div class="row entry_row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <label for="email">Email</label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -209,6 +227,14 @@
             var last_name = $("#last_name").val();
             if(last_name == "" || last_name == "undefined"){
                 $("#last_name_error").text("Last Name is required !");
+                valid = false;
+            }
+
+            $("#title_error").text("");
+            var title = $("#title").val();
+
+            if(title == "" || title == "undefined" || title == null){
+                $("#title_error").text("Title is required !");
                 valid = false;
             }
 

@@ -282,7 +282,7 @@ class AbstractformController extends Controller
                 $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_ADMIN_2' LIMIT 1");
             }  */
 
-            /*   $adminContent = "<p>Dear Sir,<p>";
+            /*   $adminContent = "<p>Dear Sir/Madam,<p>";
             if(isset($adminContentRaw) && count($adminContentRaw)>0){
                 $adminContent .= $adminContentRaw[0]->description;
             }
@@ -448,7 +448,7 @@ class AbstractformController extends Controller
 
             $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_ADMIN' LIMIT 1");
 
-            $adminContent = "<p>Dear Sir,<p>";
+            $adminContent = "<p>Dear Sir/Madam,<p>";
             if(isset($adminContentRaw) && count($adminContentRaw)>0){
                 $adminContent .= $adminContentRaw[0]->description;
             }

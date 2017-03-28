@@ -288,7 +288,8 @@ Route::group(['middleware' => 'web'], function () {
                 Route::post('registrationcategory/update', array('as'=>'backend/registrationcategory/update','uses'=>'Backend\RegistrationCategoryController@update'));
                 Route::post('registrationcategory/destroy', array('as'=>'backend/registrationcategory/destroy','uses'=>'Backend\RegistrationCategoryController@destroy'));
 
-
+                //System Reference
+                Route::get('systemreference', array('as'=>'backend/systemreference','uses'=>'Backend\SystemReferenceController@index'));
             });
 
         });

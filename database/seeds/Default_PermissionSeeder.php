@@ -217,6 +217,9 @@ class Default_PermissionSeeder extends Seeder
             ['id'=>204,'module'=>'Registration Category','name'=>'Update','description'=>'Registration Category Update','url'=>'backend/registrationcategory/update'],
             ['id'=>205,'module'=>'Registration Category','name'=>'Destroy','description'=>'Registration Category Destroy','url'=>'backend/registrationcategory/destroy'],
 
+            //System Reference
+            ['id'=>250,'module'=>'System Reference','name'=>'View','description'=>'System Reference View','url'=>'backend/systemreference'],
+
         );
 
 

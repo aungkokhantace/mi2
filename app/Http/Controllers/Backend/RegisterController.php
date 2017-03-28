@@ -79,6 +79,24 @@ class RegisterController extends Controller
                     $regSpeciality->medical_speciality_name = $regSpeciality->medical_speciality->name;
                 }
             }
+
+            foreach($registers as $regTitle){
+                if($regTitle->title == 1){
+                    $regTitle->title = "Dr.";
+                }
+                elseif($regTitle->title == 2){
+                    $regTitle->title = "Professor";
+                }
+                elseif($regTitle->title == 3){
+                    $regTitle->title = "Mr.";
+                }
+                elseif($regTitle->title == 4){
+                    $regTitle->title = "Mrs.";
+                }
+                else{
+                    $regTitle->title = "Ms.";
+                }
+            }
             return view('backend.register.index')
                         ->with('registers', $registers);
           }
@@ -517,7 +535,7 @@ class RegisterController extends Controller
 
 //                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_ADMIN' LIMIT 1");
 //
-//                $adminContent = "<p>Dear Sir,<p>";
+//                $adminContent = "<p>Dear Sir/Madam,<p>";
 //                if(isset($adminContentRaw) && count($adminContentRaw)>0){
 //                    $adminContent .= $adminContentRaw[0]->description;
 //                }
