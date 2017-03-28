@@ -265,7 +265,8 @@ class AbstractformController extends Controller
             //end sending email to user
 
             //start sending email to admin
-            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+//            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 1"); //type = 1 is for abstract
             $adminEmailArr = array();
             foreach($adminEmailRaw as $eRaw){
                 array_push($adminEmailArr,$eRaw->email);
@@ -438,7 +439,8 @@ class AbstractformController extends Controller
             //end sending email to user
 
             //start sending email to admin
-            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+//            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 1"); //type = 1 is for abstract
             $adminEmailArr = array();
             foreach($adminEmailRaw as $eRaw){
                 array_push($adminEmailArr,$eRaw->email);

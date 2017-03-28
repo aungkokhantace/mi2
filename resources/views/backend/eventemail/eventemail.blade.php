@@ -54,14 +54,17 @@
                 <select class="form-control" name="type" id="type">
                         @if($eventemail->type == 1)
                             <option value="1" selected>Abstract</option>
+                            <option value="2">Register</option>
                         @else
                             <option value="1">Abstract</option>
+                            <option value="2" selected>Register</option>
                         @endif
                 </select>
             @else
                 <select class="form-control" name="type" id="type">
                     <option value="" selected disabled>Select Event Email Type</option>
                     <option value="1">Abstract</option>
+                    <option value="2">Register</option>
                 </select>
             @endif
             <p class="text-danger">{{$errors->first('type')}}</p>

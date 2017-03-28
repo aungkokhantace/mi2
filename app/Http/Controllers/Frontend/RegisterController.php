@@ -181,7 +181,8 @@ class RegisterController extends Controller
             //end sending email to user
 
             //start sending email to admin
-            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+//            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+            $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 2"); //type = 2 is for register
             $adminEmailArr = array();
             foreach($adminEmailRaw as $eRaw){
                 array_push($adminEmailArr,$eRaw->email);
@@ -206,7 +207,8 @@ class RegisterController extends Controller
             }
             //end sending email to admin
 
-            alert()->success('Registration successfully created. ')->persistent('OK');
+//            alert()->success('Registration successfully created. ')->persistent('OK');
+            alert()->success('Registration successfully submitted. Please check your email for further information.')->persistent('OK');
             return redirect()->action('Frontend\RegisterController@create');
         }
         else{

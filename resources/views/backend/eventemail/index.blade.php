@@ -62,6 +62,8 @@
                             <td>{{$eventemail->description}}</td>
                             @if($eventemail->type == 1)
                                 <td>Abstract</td>
+                            @else
+                                <td>Register</td>
                             @endif
                         </tr>
                     @endforeach

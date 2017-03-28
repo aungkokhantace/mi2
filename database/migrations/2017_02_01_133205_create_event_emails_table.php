@@ -16,7 +16,7 @@ class CreateEventEmailsTable extends Migration
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('description')->nullable();
-            $table->integer('type')->default(1); //default 1 is for abstract
+            $table->integer('type')->default(1); //1 is for abstract, 2 is for registration
 
             //Common to all table ----------------------------------------------
             $table->integer('created_by')->default(1);

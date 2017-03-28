@@ -93,7 +93,7 @@ class AbstractformController extends Controller
         $abstracttable = (new Abstractform())->getTable();
         $abstract_file_path     = Input::file('abstract_file_path');
 
-          //start file section
+      //start file section
         $extension = $abstract_file_path->getClientOriginalExtension();
 
         // SET UPLOAD PATH
@@ -183,7 +183,8 @@ class AbstractformController extends Controller
 //            $attach = public_path().'/'.$abstractform->abstract_file_path;
             $attach = $abstractform->abstract_file_path;
 
-            $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+            $emailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 1"); //type = 1 is for abstract
+
             $emailArr = array();
             foreach($emailRaw as $eRaw){
                 array_push($emailArr,$eRaw->email);

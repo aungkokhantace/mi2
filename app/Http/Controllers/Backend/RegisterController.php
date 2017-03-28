@@ -508,7 +508,8 @@ class RegisterController extends Controller
 
                 //start sending email to admin
                 $attach = $payment_reference_path;
-                $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+//                $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL");
+                $adminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 2"); //type = 2 is for register
                 $adminEmailArr = array();
                 foreach($adminEmailRaw as $eRaw){
                     array_push($adminEmailArr,$eRaw->email);

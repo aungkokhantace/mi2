@@ -40,14 +40,13 @@ class EventEmailController extends Controller
             return redirect('/');
         }
         catch(\Exception $e){
-            return redirect('/error/204/menu');
+            return redirect('/error/204/eventemail');
         }
     }
 
     public function create(){
         if (Auth::guard('User')->check()) {
-            $menuCategories = Utility::getSettingsByType("MENU");
-            return view('backend.eventemail.eventemail')->with('menuCategories',$menuCategories);
+            return view('backend.eventemail.eventemail');
         }
         return redirect('/');
     }
