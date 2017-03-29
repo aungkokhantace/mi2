@@ -52,6 +52,26 @@ class AbstractReportController extends Controller
                 }
             }
 
+            //change title numbers to title names
+            foreach($eventAbstracts as $absTitle){
+                if($absTitle->title == 1){
+                    $absTitle->title = "Dr.";
+                }
+                elseif($absTitle->title == 2){
+                    $absTitle->title = "Professor";
+                }
+                elseif($absTitle->title == 3){
+                    $absTitle->title = "Mr.";
+                }
+                elseif($absTitle->title == 4){
+                    $absTitle->title = "Mrs.";
+                }
+                else{
+                    $absTitle->title = "Ms.";
+                }
+            }
+            //change title numbers to title names
+
             return view('report.abstract_view')
                 ->with('eventAbstracts', $eventAbstracts)
                 ->with('grandTotal', $grandTotal)
@@ -67,6 +87,13 @@ class AbstractReportController extends Controller
             $eventRepo                  = new ReportEventAbstractRepository();
             $eventAbstracts             = $eventRepo->getEventAbstractsByDate($from_date, $to_date);
 
+            //get country name
+            foreach($eventAbstracts as $absCountry){
+                if(isset($absCountry->country)){
+                    $absCountry->country = Utility::getCountryNameByValue($absCountry->country);
+                }
+            }
+
             foreach($eventAbstracts as $abstract){
                 if($abstract->medical_speciality_id == 0){
                     $abstract->medical_speciality = $abstract->medical_speciality_other;
@@ -79,6 +106,24 @@ class AbstractReportController extends Controller
             }
 
             $grandTotal                 = "00.00";
+
+            foreach($eventAbstracts as $absTitle){
+                if($absTitle->title == 1){
+                    $absTitle->title = "Dr.";
+                }
+                elseif($absTitle->title == 2){
+                    $absTitle->title = "Professor";
+                }
+                elseif($absTitle->title == 3){
+                    $absTitle->title = "Mr.";
+                }
+                elseif($absTitle->title == 4){
+                    $absTitle->title = "Mrs.";
+                }
+                else{
+                    $absTitle->title = "Ms.";
+                }
+            }
 
             return view('report.abstract_view')
                 ->with('eventAbstracts', $eventAbstracts)
@@ -97,7 +142,7 @@ class AbstractReportController extends Controller
             $grandTotal = 0;
             $date = Carbon::parse($from_date)->format('d-m-Y'); //changing date format to show in view
             $eventRepo                  = new ReportEventAbstractRepository();
-            $eventAbstracts             = $eventRepo->getEventAbstracts($from_date, $to_date);
+            $eventAbstracts             = $eventRepo->getEventAbstractsByDate($from_date, $to_date);
 
             foreach($eventAbstracts as $abstract){
                 if($abstract->medical_speciality_id == 0){
@@ -114,9 +159,28 @@ class AbstractReportController extends Controller
             foreach($eventAbstracts as $value){
                 $country = Utility::getCountryNameByValue($value->country); //get country name
 
+                //change title numbers to title names
+                if($value->title == 1){
+                    $value->title = "Dr.";
+                }
+                elseif($value->title == 2){
+                    $value->title = "Professor";
+                }
+                elseif($value->title == 3){
+                    $value->title = "Mr.";
+                }
+                elseif($value->title == 4){
+                    $value->title = "Mrs.";
+                }
+                else{
+                    $value->title = "Ms.";
+                }
+                //change title numbers to title names
+
                 $displayArray[$value->id]["First Name"]=$value->first_name;
                 $displayArray[$value->id]["Middle Name"]=$value->middle_name;
                 $displayArray[$value->id]["Last Name"]=$value->last_name;
+                $displayArray[$value->id]["Title"]=$value->title;
                 $displayArray[$value->id]["Email"]=$value->email;
                 $displayArray[$value->id]["Country"]=$country;
                 $displayArray[$value->id]["Medical Specialities"]=$value->medical_speciality;
@@ -178,6 +242,7 @@ class AbstractReportController extends Controller
                                 <th>First Name</th>
                                 <th>Middle Name</th>
                                 <th>Last Name</th>
+                                <th>Title</th>
                                 <th>Email</th>
                                 <th>Country</th>
                                 <th>Medical Specialities</th>
@@ -188,10 +253,29 @@ class AbstractReportController extends Controller
                     foreach($eventAbstracts as $pdf){
                         $country = Utility::getCountryNameByValue($pdf->country); //get country name
 
+                        //change title numbers to title names
+                        if($pdf->title == 1){
+                            $pdf->title = "Dr.";
+                        }
+                        elseif($pdf->title == 2){
+                            $pdf->title = "Professor";
+                        }
+                        elseif($pdf->title == 3){
+                            $pdf->title = "Mr.";
+                        }
+                        elseif($pdf->title == 4){
+                            $pdf->title = "Mrs.";
+                        }
+                        else{
+                            $pdf->title = "Ms.";
+                        }
+                        //change title numbers to title names
+
                         $html .= '<tr height="30">';
                         $html .= '<td> '. $pdf->first_name .'</td>';
                         $html .= '<td>'. $pdf->middle_name .'</td>';
                         $html .= '<td>'. $pdf->last_name .'</td>';
+                        $html .= '<td>'. $pdf->title .'</td>';
                         $html .= '<td>'. $pdf->email .'</td>';
                         $html .= '<td>'. $country .'</td>';
                         $html .= '<td>'. $pdf->medical_speciality .'</td>';

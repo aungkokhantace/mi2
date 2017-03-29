@@ -52,6 +52,54 @@
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="title">Title<span class="require">*</span></label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            {{--<input type="text" class="form-control" id="title" name="title" placeholder="Enter Event Title" value="{{ isset($abstractforms)? $abstractforms->title:Request::old('title') }}"/>--}}
+            @if(isset($abstractforms))
+                <select class="form-control" name="title" id="title">
+                    @if($abstractforms->title == 1)
+                        <option value="1" selected>Dr.</option>
+                    @else
+                        <option value="1">Dr.</option>
+                    @endif
+                    @if($abstractforms->title == 2)
+                        <option value="2" selected>Professor</option>
+                    @else
+                        <option value="2">Professor</option>
+                    @endif
+                    @if($abstractforms->title == 3)
+                        <option value="3" selected>Mr.</option>
+                    @else
+                        <option value="3">Mr.</option>
+                    @endif
+                    @if($abstractforms->title == 4)
+                        <option value="4" selected>Mrs.</option>
+                    @else
+                        <option value="4">Mrs.</option>
+                    @endif
+                    @if($abstractforms->title == 5)
+                        <option value="5" selected>Ms.</option>
+                    @else
+                        <option value="5">Ms.</option>
+                    @endif
+                </select>
+            @else
+                <select class="form-control" name="title" id="title">
+                    <option value="" selected disabled>Select Title</option>
+                    <option value="1">Dr.</option>
+                    <option value="2">Professor</option>
+                    <option value="3">Mr.</option>
+                    <option value="4">Mrs.</option>
+                    <option value="5">Ms.</option>
+                </select>
+            @endif
+            <p class="text-danger">{{$errors->first('title')}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="email">Email<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">

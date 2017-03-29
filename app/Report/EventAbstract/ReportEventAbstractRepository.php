@@ -21,15 +21,18 @@ class ReportEventAbstractRepository implements ReportEventAbstractRepositoryInte
     }
 
     public function getEventAbstractsByDate($from_date = null, $to_date = null, $paramArray = null){
-        $query = "SELECT * FROM event_abstract WHERE events_id = 1 ";
+        $query = "SELECT * FROM event_abstract WHERE events_id = 1 AND deleted_at IS NULL";
 
         if(isset($from_date) && $from_date != null){
-            $tempFromDate = date("Y-m-d", strtotime($from_date));
-            $query .= " AND confirmed_date >= '$tempFromDate' ";
+            $tempFromDate = date("Y-m-d H:i:s", strtotime($from_date));
+
+            $query .= " AND created_at >= '$tempFromDate' ";
         }
         if(isset($to_date) && $to_date != null){
             $tempToDate = date("Y-m-d", strtotime($to_date));
-            $query .= " AND confirmed_date <= '$tempToDate' ";
+            $tempToDate .= " 23:00:00";
+
+            $query .= " AND created_at <= '$tempToDate' ";
         }
 
         $result = DB::select($query);

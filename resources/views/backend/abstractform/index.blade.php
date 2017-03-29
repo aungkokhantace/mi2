@@ -39,6 +39,7 @@
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
+                        <th>Title</th>
                         <th>Email</th>
                         <th>Country</th>
                         <th>Medical Specialities</th>
@@ -55,6 +56,7 @@
                         <th class="search-col" con-id="first_name">First Name</th>
                         <th class="search-col" con-id="middle_name">Middle Name</th>
                         <th class="search-col" con-id="last_name">Last Name</th>
+                        <th class="search-col" con-id="title">Title</th>
                         <th class="search-col" con-id="email">Email</th>
                         <th class="search-col" con-id="country">Country</th>
                         <th class="search-col" con-id="medical_specialities">Medical Specialities</th>
@@ -72,6 +74,7 @@
                             <td><a href="/backend/abstractform/edit/{{$abstractform->id}}">{{$abstractform->first_name}}</a></td>
                             <td>{{$abstractform->middle_name}}</td>
                             <td>{{$abstractform->last_name}}</td>
+                            <td>{{$abstractform->title}}</td>
                             <td>{{$abstractform->email}}</td>
                             <td>{{$abstractform->country}}</td>
                             <td>{{$abstractform->medical_speciality_name}}</td>
@@ -79,8 +82,10 @@
                             <td>{{$abstractform->status}}</td>
                             <td>{{$abstractform->registered}}</td>
                             <td>
-                                @if($abstractform->status == 'CONFIRM')
-                                    {{--{{'CONFIRM'}}--}}
+                                @if($abstractform->status == 'CONFIRM' || $abstractform->status == 'REJECT')
+                                    @if($abstractform->status == 'CONFIRM')
+                                    {{$abstractform->status}}
+                                    @endif
                                 @else
                                     <button type="button" onclick="abstract_status_confirm('{{$abstractform->id}}');" class="btn btn-primary">
                                         CONFIRM
@@ -88,8 +93,10 @@
                                 @endif
                             </td>
                             <td>
-                                @if($abstractform->status == 'REJECT')
-                                    {{--{{'REJECT'}}--}}
+                                @if($abstractform->status == 'REJECT' || $abstractform->status == 'CONFIRM')
+                                    @if($abstractform->status == 'REJECT')
+                                        {{$abstractform->status}}
+                                    @endif
                                 @else
                                     <button type="button" onclick="abstract_status_reject('{{$abstractform->id}}');" class="btn btn-warning">
                                         REJECT

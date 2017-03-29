@@ -471,15 +471,35 @@ class RegisterController extends Controller
 
                 //get recipient of email
                 $to = "To : ";
-                //recipient with middle name
-                if(isset($register->middle_name) && $register->middle_name != ""){
-                    $to  .=  $register->first_name.' '.$register->middle_name.' '.$register->last_name.'<br><br>';
+//                //recipient with middle name
+//                if(isset($register->middle_name) && $register->middle_name != ""){
+//                    $to  .=  $register->first_name.' '.$register->middle_name.' '.$register->last_name.'<br><br>';
+//                }
+//                //recipient without middle name
+//                else{
+//                    $to  .=  $register->first_name.' '.$register->last_name.'<br><br>';
+//                }
+//                //end getting recipient of email
+
+                //start changing $title to title names
+                if($title == 1){
+                    $user_title = "Dr.";
                 }
-                //recipient without middle name
+                elseif($title == 2){
+                    $user_title = "Professor";
+                }
+                elseif($title == 3){
+                    $user_title = "Mr.";
+                }
+                elseif($title == 4){
+                    $user_title = "Mrs.";
+                }
                 else{
-                    $to  .=  $register->first_name.' '.$register->last_name.'<br><br>';
+                    $user_title = "Ms.";
                 }
-                //end getting recipient of email
+                //end changing $title to title names
+
+                $to .= $user_title." ".$last_name;
 
                 //get event title
                 $eventTitle  = Utility::getEventTitle();

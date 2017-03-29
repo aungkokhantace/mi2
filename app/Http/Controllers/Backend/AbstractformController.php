@@ -67,6 +67,24 @@ class AbstractformController extends Controller
                 }
             }
 
+            foreach($abstractforms as $absTitle){
+                if($absTitle->title == 1){
+                    $absTitle->title = "Dr.";
+                }
+                elseif($absTitle->title == 2){
+                    $absTitle->title = "Professor";
+                }
+                elseif($absTitle->title == 3){
+                    $absTitle->title = "Mr.";
+                }
+                elseif($absTitle->title == 4){
+                    $absTitle->title = "Mrs.";
+                }
+                else{
+                    $absTitle->title = "Ms.";
+                }
+            }
+
             return view('backend.abstractform.index')->with('abstractforms', $abstractforms)->with('countries', $countries);
         }
         return redirect('/login');
@@ -114,7 +132,6 @@ class AbstractformController extends Controller
                     $specialitiesArr[$medicalspeciality->option_group_name][$k] = $medicalspeciality;
                 }
             }
-
             return view('backend.abstractform.abstractform_reject')->with('abstractforms', $abstractforms)->with('countries', $countries)->with('specialitiesArr', $specialitiesArr);
         }
         return redirect('/backend/login');
@@ -126,6 +143,7 @@ class AbstractformController extends Controller
         $first_name = Input::get('first_name');
         $middle_name = Input::get('middle_name');
         $last_name = Input::get('last_name');
+        $title     = Input::get('title');
         $email = Input::get('email');
         $country = Input::get('country');
         $medical_specialities = Input::get('medical_specialities');
@@ -145,6 +163,7 @@ class AbstractformController extends Controller
         $abstractform->first_name = $first_name;
         $abstractform->middle_name = $middle_name;
         $abstractform->last_name = $last_name;
+        $abstractform->title = $title;
         $abstractform->email = $email;
         $abstractform->country = $country;
 //        $abstractform->medical_specialities  = $medical_specialities;
@@ -215,15 +234,35 @@ class AbstractformController extends Controller
 
             //get recipient of email
             $to = "To : ";
-            //recipient with middle name
-            if(isset($abstractform->middle_name) && $abstractform->middle_name != ""){
-                $to  .=  $abstractform->first_name.' '.$abstractform->middle_name.' '.$abstractform->last_name.'<br><br>';
+//            //recipient with middle name
+//            if(isset($abstractform->middle_name) && $abstractform->middle_name != ""){
+//                $to  .=  $abstractform->first_name.' '.$abstractform->middle_name.' '.$abstractform->last_name.'<br><br>';
+//            }
+//            //recipient without middle name
+//            else{
+//                $to  .=  $abstractform->first_name.' '.$abstractform->last_name.'<br><br>';
+//            }
+//            //end getting recipient of email
+
+            //start changing $title to title names
+            if($title == 1){
+                $user_title = "Dr.";
             }
-            //recipient without middle name
+            elseif($title == 2){
+                $user_title = "Professor";
+            }
+            elseif($title == 3){
+                $user_title = "Mr.";
+            }
+            elseif($title == 4){
+                $user_title = "Mrs.";
+            }
             else{
-                $to  .=  $abstractform->first_name.' '.$abstractform->last_name.'<br><br>';
+                $user_title = "Ms.";
             }
-            //end getting recipient of email
+            //end changing $title to title names
+
+            $to .= $user_title." ".$last_name;
 
             //get event title
             $eventTitle  = Utility::getEventTitle();
@@ -376,6 +415,7 @@ class AbstractformController extends Controller
         $first_name = Input::get('first_name');
         $middle_name = Input::get('middle_name');
         $last_name = Input::get('last_name');
+        $title      = Input::get('title');
         $email = Input::get('email');
         $country = Input::get('country');
         $medical_specialities = Input::get('medical_specialities');
@@ -393,6 +433,7 @@ class AbstractformController extends Controller
         $abstractform->first_name = $first_name;
         $abstractform->middle_name = $middle_name;
         $abstractform->last_name = $last_name;
+        $abstractform->title = $title;
         $abstractform->email = $email;
         $abstractform->country = $country;
 //        $abstractform->medical_specialities  = $medical_specialities;
@@ -421,7 +462,27 @@ class AbstractformController extends Controller
 
             $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_USER' LIMIT 1");
 
-            $userContent = "<p>Dear ".$abstractform->first_name.",<p>";
+            //start changing $title to title names
+            if($title == 1){
+                $user_title = "Dr.";
+            }
+            elseif($title == 2){
+                $user_title = "Professor";
+            }
+            elseif($title == 3){
+                $user_title = "Mr.";
+            }
+            elseif($title == 4){
+                $user_title = "Mrs.";
+            }
+            else{
+                $user_title = "Ms.";
+            }
+            //end changing $title to title names
+
+//            $userContent = "<p>Dear ".$abstractform->first_name.",<p>";
+            $userContent = "<p>Dear ".$user_title." ".$last_name.",<p>";
+
             if(isset($userContentRaw) && count($userContentRaw)>0){
                 $userContent .= $userContentRaw[0]->description;
             }

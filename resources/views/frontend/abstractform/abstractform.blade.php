@@ -91,7 +91,7 @@
 
     <div class="row entry_row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <label for="title">Title</label>
+            <label for="title">Title<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             {{--<input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="{{Request::old('title') }}"/>--}}
@@ -109,7 +109,7 @@
 
     <div class="row entry_row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <label for="email">Email</label>
+            <label for="email">Email<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" value="{{Request::old('email') }}"/>
@@ -119,7 +119,7 @@
 
     <div class="row entry_row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <label for="country">Country</label>
+            <label for="country">Country<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <select class="form-control" name="country" id="country">                   
@@ -181,7 +181,7 @@
 
     <div class="row entry_row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <label for="abstract_file_path">File Upload</label>
+            <label for="abstract_file_path">File Upload<span class="require">*</span></label>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <input type="file" class="form-control" id="abstract_file_path" name="abstract_file_path" placeholder="Enter Abstract File Path" value=""/>

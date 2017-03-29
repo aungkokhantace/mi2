@@ -71,19 +71,24 @@
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
+                        <th>Title</th>
                         <th>Email</th>
                         <th>Country</th>
                         {{--<th>Working Place</th>--}}
-                        <th>Total Amount</th>
+                        <th>Total Amount(MMK)</th>
+                        <th>Total Amount(USD)</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th class="search-col" con-id="">First Name</th>
-                        <th class="search-col" con-id="">Middle Name</th>
-                        <th class="search-col" con-id="">Last Name</th>
-                        <th class="search-col" con-id="">Email</th>
-                        <th class="search-col" con-id="">Country</th>
+                        <th class="search-col" con-id="first_name">First Name</th>
+                        <th class="search-col" con-id="middle_name">Middle Name</th>
+                        <th class="search-col" con-id="last_name">Last Name</th>
+                        <th class="search-col" con-id="title">Title</th>
+                        <th class="search-col" con-id="email">Email</th>
+                        <th class="search-col" con-id="country">Country</th>
+                        <th class="search-col" con-id="mmk_amount">Total Amount(MMK)</th>
+                        <th class="search-col" con-id="usd_amount">Total Amount(USD)</th>
                         {{--<th class="search-col" con-id="">Working Place</th>--}}
                     </tr>
                     </tfoot>
@@ -93,11 +98,17 @@
                             <td>{{$eventRegistration->first_name}}</td>
                             <td>{{$eventRegistration->middle_name}}</td>
                             <td>{{$eventRegistration->last_name}}</td>
+                            <td>{{$eventRegistration->title}}</td>
                             <td>{{$eventRegistration->email}}</td>
                             <td>{{$eventRegistration->country}}</td>
+                            @if($eventRegistration->currency_type == "USD")
+                                <td align="right">0</td>
+                                <td align="right">{{$eventRegistration->amount}}</td>
+                            @else
+                                <td align="right">{{$eventRegistration->amount}}</td>
+                                <td align="right">0</td>
+                            @endif
                             {{--<td>{{$eventRegistration->where_work}}</td>--}}
-                            <td></td>
-
                         </tr>
                     @endforeach
                     <tr bgcolor="#1976d3">
@@ -105,9 +116,10 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        {{--<td></td>--}}
                         <td></td>
-                        <td align="right" style = "color:white">{{$grandTotal}}</td>
+                        <td></td>
+                        <td align="right" style = "color:white">{{$grandTotal_mmk}}</td>
+                        <td align="right" style = "color:white">{{$grandTotal_usd}}</td>
                     </tr>
                     </tbody>
                 </table>

@@ -163,7 +163,25 @@ class AbstractformController extends Controller
             $userEmailArr[0] = $email;
             $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_SUBMIT_USER' LIMIT 1");
 
-            $userContent = "<p>Dear ".$first_name.",<p>";
+            //start changing $title to title names
+            if($title == 1){
+                $user_title = "Dr.";
+            }
+            elseif($title == 2){
+                $user_title = "Professor";
+            }
+            elseif($title == 3){
+                $user_title = "Mr.";
+            }
+            elseif($title == 4){
+                $user_title = "Mrs.";
+            }
+            else{
+                $user_title = "Ms.";
+            }
+            //end changing $title to title names
+
+            $userContent = "<p>Dear ".$user_title." ".$last_name.",<p>";
             if(isset($userContentRaw) && count($userContentRaw)>0){
                 $userContent .= $userContentRaw[0]->description;
             }

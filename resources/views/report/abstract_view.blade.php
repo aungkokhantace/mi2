@@ -72,10 +72,11 @@
                         <th>First Name</th>
                         <th>Middle Name</th>
                         <th>Last Name</th>
+                        <th>Title</th>
                         <th>Email</th>
                         <th>Country</th>
                         <th>Medical Specialities</th>
-                        <th>Total Amount</th>
+                        {{--<th>Total Amount</th>--}}
                     </tr>
                     </thead>
                     <tfoot>
@@ -83,6 +84,7 @@
                         <th class="search-col" con-id="first_name">First Name</th>
                         <th class="search-col" con-id="middle_name">Middle Name</th>
                         <th class="search-col" con-id="last_name">Last Name</th>
+                        <th class="search-col" con-id="title">Title</th>
                         <th class="search-col" con-id="email">Email</th>
                         <th class="search-col" con-id="country">Country</th>
                         <th class="search-col" con-id="medical_specialities">Medical Specialities</th>
@@ -94,22 +96,23 @@
                             <td>{{$eventAbstract->first_name}}</td>
                             <td>{{$eventAbstract->middle_name}}</td>
                             <td>{{$eventAbstract->last_name}}</td>
+                            <td>{{$eventAbstract->title}}</td>
                             <td>{{$eventAbstract->email}}</td>
                             <td>{{$eventAbstract->country}}</td>
                             <td>{{$eventAbstract->medical_speciality}}</td>
-                            <td></td>
-
+                            {{--<td></td>--}}
                         </tr>
                     @endforeach
-                    <tr bgcolor="#1976d3">
-                        <td style = "color:white">Grand Total</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td align="right" style = "color:white">{{$grandTotal}}</td>
-                    </tr>
+                    {{--<tr bgcolor="#1976d3">--}}
+                        {{--<td style = "color:white">Grand Total</td>--}}
+                        {{--<td></td>--}}
+                        {{--<td></td>--}}
+                        {{--<td></td>--}}
+                        {{--<td></td>--}}
+                        {{--<td></td>--}}
+                        {{--<td></td>--}}
+                        {{--<td align="right" style = "color:white">{{$grandTotal}}</td>--}}
+                    {{--</tr>--}}
                     </tbody>
                 </table>
             </div>

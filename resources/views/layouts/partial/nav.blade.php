@@ -297,7 +297,16 @@
             </li>
 
             @if(Auth::guard('User')->user()->role_id == '1')
-                <li nav-id="modifier-manage-modifierpanel"><a href="/backend/systemreference">System Reference</a></li>
+                <li nav-id="modifier-create" class="has-sub">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-bookmark"></i>
+                        <span>System Reference</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li nav-id="modifier-manage-modifierpanel"><a href="/backend/systemreference">System Reference</a></li>
+                    </ul>
+                </li>
             @endif
         </ul>
         <!-- end sidebar nav -->
