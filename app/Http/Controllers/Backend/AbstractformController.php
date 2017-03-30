@@ -146,6 +146,7 @@ class AbstractformController extends Controller
         $title     = Input::get('title');
         $email = Input::get('email');
         $country = Input::get('country');
+        $abstract_title = Input::get('abstract_title');
         $medical_specialities = Input::get('medical_specialities');
         if ($medical_specialities == "other") {
             $medical_specialities = 0;
@@ -166,6 +167,7 @@ class AbstractformController extends Controller
         $abstractform->title = $title;
         $abstractform->email = $email;
         $abstractform->country = $country;
+        $abstractform->abstract_title = $abstract_title;
 //        $abstractform->medical_specialities  = $medical_specialities;
         $abstractform->medical_speciality_id = $medical_specialities;
         $abstractform->medical_speciality_other = $other_specialities;
@@ -226,6 +228,9 @@ class AbstractformController extends Controller
                 $userContent = "Abstract Confirmation Reply...";
             }
             //end getting email content
+
+            //replace key_word with abstract title
+            $userContent = str_replace("[[{{!!abs_title_variable!!}}]]",$abstract_title,$userContent);
 
             //start getting letterHead Image and Date
             $letterHeadImage = public_path().'/images/LetterHead.jpg';
@@ -343,12 +348,15 @@ class AbstractformController extends Controller
 
 //                $adminContent = "<p>Dear ".$register->first_name.",<p>";
             if(isset($adminContentRaw) && count($adminContentRaw)>0){
-                $adminContent = $userContentRaw[0]->description;
+                $adminContent = $adminContentRaw[0]->description;
             }
             else{
                 $adminContent = "Abstract Confirmation Reply...";
             }
             //end getting email content
+
+            //replace key_word with abstract title
+            $adminContent = str_replace("[[{{!!abs_title_variable!!}}]]",$abstract_title,$adminContent);
 
             //start getting letterHead Image and Date
             $letterHeadImage = public_path().'/images/LetterHead.jpg';
@@ -356,7 +364,7 @@ class AbstractformController extends Controller
             $date = date("d-m-Y");                              //date for email
 
             //get recipient of email
-            $to = "To : Admin";
+            $to = "To : Administrator";
             //end getting recipient of email
 
             //get event title
@@ -418,6 +426,7 @@ class AbstractformController extends Controller
         $title      = Input::get('title');
         $email = Input::get('email');
         $country = Input::get('country');
+        $abstract_title = Input::get('abstract_title');
         $medical_specialities = Input::get('medical_specialities');
         if ($medical_specialities == "other") {
             $medical_specialities = 0;
@@ -436,6 +445,7 @@ class AbstractformController extends Controller
         $abstractform->title = $title;
         $abstractform->email = $email;
         $abstractform->country = $country;
+        $abstractform->abstract_title = $abstract_title;
 //        $abstractform->medical_specialities  = $medical_specialities;
         $abstractform->medical_speciality_id = $medical_specialities;
         $abstractform->medical_speciality_other = $other_specialities;
@@ -460,8 +470,9 @@ class AbstractformController extends Controller
             $userEmailArr = array();
             $userEmailArr[0] = $email;
 
-            $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_USER' LIMIT 1");
+//            $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_USER' LIMIT 1");
 
+            /*
             //start changing $title to title names
             if($title == 1){
                 $user_title = "Dr.";
@@ -490,13 +501,92 @@ class AbstractformController extends Controller
                 $userContent .= "Abstract Rejection Reply...";
             }
 
+            //replace key_word with abstract title
+            $userContent = str_replace("[[{{!!abs_title_variable!!}}]]",$abstract_title,$userContent);  */
+
+
+
+    //start constructing email template
+            //start getting email content
+            $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_USER' LIMIT 1");
+
+            if(isset($userContentRaw) && count($userContentRaw)>0){
+                $userContent = $userContentRaw[0]->description;
+            }
+            else{
+                $userContent = "Abstract Rejection Reply...";
+            }
+            //end getting email content
+
+            //replace key_word with abstract title
+            $userContent = str_replace("[[{{!!abs_title_variable!!}}]]",$abstract_title,$userContent);
+
+            //start getting letterHead Image and Date
+            $letterHeadImage = public_path().'/images/LetterHead.jpg';
+
+            $date = date("d-m-Y");                              //date for email
+
+            //get recipient of email
+            $to = "To : ";
+
+            //start changing $title to title names
+            if($title == 1){
+                $user_title = "Dr.";
+            }
+            elseif($title == 2){
+                $user_title = "Professor";
+            }
+            elseif($title == 3){
+                $user_title = "Mr.";
+            }
+            elseif($title == 4){
+                $user_title = "Mrs.";
+            }
+            else{
+                $user_title = "Ms.";
+            }
+            //end changing $title to title names
+
+            $to .= $user_title." ".$last_name;
+
+            //get event title
+            $eventTitle  = Utility::getEventTitle();
+
+            //start signature section
+            $sincerely   = Utility::getSincerely();
+            $signatureImage = public_path().'/images/Sign.jpg';
+            $presidentInfo = Utility::getPresidentInfo();
+            //end signature section
+
+            //get footer of email template
+            $emailFooterBeforeLogo = Utility::getEmailFooterBeforeLogo();
+            $footerLogoImage       = public_path().'/images/FooterLogos.jpg';
+            $emailFooterAfterLogo  = Utility::getEmailFooterAfterLogo();
+    //end constructing email template
+
+           /*
             if(isset($userEmailArr) && count($userEmailArr)>0){
                 Mail::send([], [], function($message) use($userEmailArr,$userContent) {
                     $message->to($userEmailArr)->subject('Abstract Rejection Reply')->setBody($userContent, 'text/html');;
 //                    Attach file
 //                    $message->attach($attach);
                 });
+            } */
+            if(isset($userEmailArr) && count($userEmailArr)>0){
+                Mail::send([], [], function($message) use($userEmailArr,$letterHeadImage,$date,$to,$eventTitle,$userContent,$sincerely,$signatureImage,$presidentInfo,$emailFooterBeforeLogo,$footerLogoImage,$emailFooterAfterLogo) {
+                    $message->to($userEmailArr)->subject('Abstract Rejection Reply')
+                        ->setBody('<img src="'.$message->embed($letterHeadImage).'" alt="header image" style="width:100%;height:100%;" /><br><br>'
+                            .$date.'<br><br><br>'
+                            .$to.'<br><br>'
+                            .$eventTitle.'<br>'
+                            .$userContent.'<br><br><br><br><br>'
+                            .$sincerely.'<br><br>'
+                            .'<img src="'.$message->embed($signatureImage).'" alt="signature image" style="width:20%;height:20%;" /><br><br>'
+                            .$presidentInfo.'<br><br><br><br>'
+                            .$emailFooterBeforeLogo.'<img src="'.$message->embed($footerLogoImage).'" alt="footer logos" style="width:100%;height:25%;" /><br><br>'.$emailFooterAfterLogo, 'text/html');
+                });
             }
+
             //end sending email to user
 
             //start sending email to admin
@@ -507,8 +597,9 @@ class AbstractformController extends Controller
                 array_push($adminEmailArr,$eRaw->email);
             }
 
-            $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_ADMIN' LIMIT 1");
+//            $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_ADMIN' LIMIT 1");
 
+            /*
             $adminContent = "<p>Dear Sir/Madam,<p>";
             if(isset($adminContentRaw) && count($adminContentRaw)>0){
                 $adminContent .= $adminContentRaw[0]->description;
@@ -517,6 +608,51 @@ class AbstractformController extends Controller
                 $adminContent .= "Abstract Rejection Reply...";
             }
 
+            //replace key_word with abstract title
+            $adminContent = str_replace("[[{{!!abs_title_variable!!}}]]",$abstract_title,$adminContent);
+            */
+
+    //start constructing email template
+            //start getting email content
+            $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_ADMIN' LIMIT 1");
+
+//                $adminContent = "<p>Dear ".$register->first_name.",<p>";
+            if(isset($adminContentRaw) && count($adminContentRaw)>0){
+                $adminContent = $adminContentRaw[0]->description;
+            }
+            else{
+                $adminContent = "Abstract Rejection Reply...";
+            }
+            //end getting email content
+
+            //replace key_word with abstract title
+            $adminContent = str_replace("[[{{!!abs_title_variable!!}}]]",$abstract_title,$adminContent);
+
+            //start getting letterHead Image and Date
+            $letterHeadImage = public_path().'/images/LetterHead.jpg';
+
+            $date = date("d-m-Y");                              //date for email
+
+            //get recipient of email
+            $to = "To : Administrator";
+            //end getting recipient of email
+
+            //get event title
+            $eventTitle  = Utility::getEventTitle();
+
+            //start signature section
+            $sincerely   = Utility::getSincerely();
+            $signatureImage = public_path().'/images/Sign.jpg';
+            $presidentInfo = Utility::getPresidentInfo();
+            //end signature section
+
+            //get footer of email template
+            $emailFooterBeforeLogo = Utility::getEmailFooterBeforeLogo();
+            $footerLogoImage       = public_path().'/images/FooterLogos.jpg';
+            $emailFooterAfterLogo  = Utility::getEmailFooterAfterLogo();
+    //end constructing email template
+
+            /*
             if(isset($adminEmailArr) && count($adminEmailArr)>0){
                 Mail::send([], [], function($message) use($adminEmailArr,$adminContent) {
                     $message->to($adminEmailArr)->subject('Abstract Rejection Reply')->setBody($adminContent, 'text/html');
@@ -524,6 +660,22 @@ class AbstractformController extends Controller
                         //Attach file
 //                        $message->attach($attach);
                     }
+                });
+            }
+            */
+
+            if(isset($adminEmailArr) && count($adminEmailArr)>0){
+                Mail::send([], [], function($message) use($adminEmailArr,$letterHeadImage,$date,$to,$eventTitle,$adminContent,$sincerely,$signatureImage,$presidentInfo,$emailFooterBeforeLogo,$footerLogoImage,$emailFooterAfterLogo) {
+                    $message->to($adminEmailArr)->subject('Abstract Rejection Reply')
+                        ->setBody('<img src="'.$message->embed($letterHeadImage).'" alt="header image" style="width:100%;height:100%;" /><br><br>'
+                            .$date.'<br><br><br>'
+                            .$to.'<br><br>'
+                            .$eventTitle.'<br>'
+                            .$adminContent.'<br><br><br><br><br>'
+                            .$sincerely.'<br><br>'
+                            .'<img src="'.$message->embed($signatureImage).'" alt="signature image" style="width:20%;height:20%;" /><br><br>'
+                            .$presidentInfo.'<br><br><br><br>'
+                            .$emailFooterBeforeLogo.'<img src="'.$message->embed($footerLogoImage).'" alt="footer logos" style="width:100%;height:25%;" /><br><br>'.$emailFooterAfterLogo, 'text/html');
                 });
             }
             //end sending email to admin

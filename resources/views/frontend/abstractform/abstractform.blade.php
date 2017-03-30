@@ -132,6 +132,17 @@
         </div>
     </div>
 
+    <div class="row entry_row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <label for="first_name">Abstract Title<span class="require">*</span></label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            {{--<input type="text" class="form-control" id="abstract_title" name="abstract_title" placeholder="Enter Abstract Title" value="{{Request::old('abstract_title') }}"/>--}}
+            <textarea class="form-control"  rows="3" cols="50" id="abstract_title" name="abstract_title" placeholder="Enter Abstract Title" value="{{Request::old('abstract_title') }}"></textarea>
+            <p class="text-danger" id="abstract_title_error">{{$errors->first('abstract_title')}}</p>
+        </div>
+    </div>
+
     {{--<div class="row entry_row">--}}
         {{--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">--}}
             {{--<label for="medical_specialities">Medication Specialities</label>--}}
@@ -256,6 +267,13 @@
             var country = $("#country").val();
             if(country == "" || country == "undefined" || country == null){
                 $("#country_error").text("Country is required !");
+                valid = false;
+            }
+
+            $("#abstract_title_error").text("");
+            var abstract_title = $("#abstract_title").val();
+            if(abstract_title == "" || abstract_title == "undefined" || abstract_title == null){
+                $("#abstract_title_error").text("Abstract Title is required !");
                 valid = false;
             }
 

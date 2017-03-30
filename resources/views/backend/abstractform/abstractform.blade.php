@@ -135,6 +135,17 @@
         </div>
     </div>
 
+    <div class="row entry_row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="first_name">Abstract Title<span class="require">*</span></label>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            {{--<input type="text" class="form-control" id="abstract_title" name="abstract_title" placeholder="Enter Abstract Title" value="{{Request::old('abstract_title') }}"/>--}}
+            <textarea class="form-control"  rows="3" cols="50" id="abstract_title" name="abstract_title" placeholder="Enter Abstract Title">{{isset($abstractforms)? $abstractforms->abstract_title :Request::old('abstract_title')}}</textarea>
+            <p class="text-danger" id="abstract_title_error">{{$errors->first('abstract_title')}}</p>
+        </div>
+    </div>
+
     {{--<div class="row">--}}
         {{--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">--}}
             {{--<label for="medical_specialities">Medication Specialities</label>--}}
@@ -299,6 +310,7 @@
                     last_name                   : 'required',
                     email                       : 'required',
                     country                     : 'required',
+                    abstract_title              : 'required',
                     other                       : 'required',
                     email_template              : 'required',
                 },
@@ -307,6 +319,7 @@
                     last_name                   : 'Last Name is required',
                     email                       : 'Email is required',
                     country                     : 'Country is required',
+                    abstract_title              : 'Abstract Title is required',
                     other                       : 'Other Speciality Text is required',
                     email_template              : 'Email Template is required',
                 },

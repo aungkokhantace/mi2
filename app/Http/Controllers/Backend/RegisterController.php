@@ -600,8 +600,8 @@ class RegisterController extends Controller
 
                 $reg_cat = $regCategoryObj->name;
 
-                $userContent = str_replace("[[{{!!fee_amt_variable!!}}]]",$fee,$userContent);
-                $userContent = str_replace("[[{{!!reg_cat_variable!!}}]]",$reg_cat,$userContent);
+                $adminContent = str_replace("[[{{!!fee_amt_variable!!}}]]",$fee,$adminContent);
+                $adminContent = str_replace("[[{{!!reg_cat_variable!!}}]]",$reg_cat,$adminContent);
 
                 //end getting email content
 

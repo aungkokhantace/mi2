@@ -128,6 +128,7 @@ class AbstractformController extends Controller
         $title                  = Input::get('title');
         $email                  = Input::get('email');
         $country                = Input::get('country');
+        $abstract_title         = Input::get('abstract_title');
         $medical_specialities   = Input::get('medical_specialities');
         if($medical_specialities == "other"){
             $medical_specialities = 0;
@@ -146,6 +147,7 @@ class AbstractformController extends Controller
         $abstractform->title                 = $title;
         $abstractform->email                 = $email;
         $abstractform->country               = $country;
+        $abstractform->abstract_title        = $abstract_title;
 //        $abstractform->medical_specialities  = $medical_specialities;
         $abstractform->medical_speciality_id = $medical_specialities;
         $abstractform->medical_speciality_other = $other_specialities;
