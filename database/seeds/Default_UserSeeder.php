@@ -24,11 +24,11 @@ class Default_UserSeeder extends Seeder
         ['id'=>2, 'user_name'=>'administrator','display_name'=>'Administrator', 'password' =>'$2y$10$y5c8.r5Wfp8ZyuHVjy5f2OxkmR5.GyAJW4Yw9rOvAwyejvMBLSGt.', 'email' =>'administrator@gmail.com','role_id' =>'2','staff_id'=>'0002','address'=>'','description'=>'This is admin role'],
         //password for administrator = "12345@mi2"
 
-        ['id'=>3, 'user_name'=>'registration_admin','display_name'=>'registration_admin', 'password' =>'$2y$10$7txQGR10/PzPm08VgEH3wOPHA0tfcFbkSKx.jDMoqQFNRUURioOk2', 'email' =>'registrationadmin@gmail.com','role_id' =>'3','staff_id'=>'0003','address'=>'','description'=>'This is registration admin role'],
-        //password for registration_admin = "11111111"
+        ['id'=>3, 'user_name'=>'registration_admin','display_name'=>'registration_admin', 'password' =>'$2y$10$VSdxBPTTq.hPrR6/cchGRufPugNPT7c81rhp0tOPuWKApOWTQ6Wni', 'email' =>'registrationadmin@gmail.com','role_id' =>'3','staff_id'=>'0003','address'=>'','description'=>'This is registration admin role'],
+        //password for registration_admin = "12345@register"
 
-        ['id'=>4, 'user_name'=>'abstract_admin','display_name'=>'abstract_admin', 'password' =>'$2y$10$7txQGR10/PzPm08VgEH3wOPHA0tfcFbkSKx.jDMoqQFNRUURioOk2', 'email' =>'abstractadmin@gmail.com','role_id' =>'4','staff_id'=>'0004','address'=>'','description'=>'This is abstract admin role'],
-        //password for abstract_admin = "11111111"
+        ['id'=>4, 'user_name'=>'abstract_admin','display_name'=>'abstract_admin', 'password' =>'$2y$10$UxLrN.ciO3tBcXy.teGzMOT6te2/75goJYMRH4LKi.gVPN6AyXnYS', 'email' =>'abstractadmin@gmail.com','role_id' =>'4','staff_id'=>'0004','address'=>'','description'=>'This is abstract admin role'],
+        //password for abstract_admin = "12345@abstract"
     );
 
     DB::table('core_users')->insert($roles);
