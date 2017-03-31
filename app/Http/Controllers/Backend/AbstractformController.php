@@ -192,14 +192,6 @@ class AbstractformController extends Controller
             $userEmailArr = array();
             $userEmailArr[0] = $email;
 
-            //start getting super-admin email and adding to email array
-            $superadminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 3"); //type = 3 is for super-admin
-
-            foreach($superadminEmailRaw as $superRaw){
-                array_push($userEmailArr,$superRaw->email);
-            }
-            //end getting super-admin email and adding to email array
-
            /* if($email_template == "oral"){
                 //ABS_CONFIRM_USER_1 is for oral presentation
                 $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_CONFIRM_USER_1' LIMIT 1");
@@ -485,14 +477,6 @@ class AbstractformController extends Controller
             //start sending email to user
             $userEmailArr = array();
             $userEmailArr[0] = $email;
-
-            //start getting super-admin email and adding to email array
-            $superadminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 3"); //type = 3 is for super-admin
-
-            foreach($superadminEmailRaw as $superRaw){
-                array_push($userEmailArr,$superRaw->email);
-            }
-            //end getting super-admin email and adding to email array
 
 //            $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'ABS_REJECT_USER' LIMIT 1");
 

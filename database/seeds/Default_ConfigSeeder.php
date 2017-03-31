@@ -23,7 +23,8 @@ class Default_ConfigSeeder extends Seeder
             ['code'=>'SETTING_LOGO', 'type'=>'SETTING', 'value'=>'/images/logo.png','description'=>'Company Logo'],
             ['code'=>'LOG_MAX_FILES', 'type'=>'SETTING', 'value'=>'60','description'=>'Maximum Log File Count'],
             ['code'=>'HEADER_MENU', 'type'=>'SETTING', 'value'=>'off','description'=>'Header Menu Flag'],
-            ['code'=>'FOOTER_MENU', 'type'=>'SETTING', 'value'=>'off','description'=>'Footer Menu Flag']
+            ['code'=>'FOOTER_MENU', 'type'=>'SETTING', 'value'=>'off','description'=>'Footer Menu Flag'],
+            ['code'=>'SETTING_EARLY_BIRD', 'type'=>'SETTING', 'value'=>'2017-06-30','description'=>'Early Bird Date']
         );
 
         DB::table('core_configs')->insert($roles);
