@@ -619,7 +619,7 @@ class RegisterController extends Controller
                 $date = date("d-m-Y");                              //date for email
 
                 //get recipient of email
-                $to = "To : Admin";
+                $to = "To : Administrator";
                 /* //recipient with middle name
                 if(isset($register->middle_name) && $register->middle_name != ""){
                     $to  .=  $register->first_name.' '.$register->middle_name.' '.$register->last_name.'<br><br>';
