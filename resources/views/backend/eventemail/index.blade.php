@@ -62,8 +62,10 @@
                             <td>{{$eventemail->description}}</td>
                             @if($eventemail->type == 1)
                                 <td>Abstract</td>
-                            @else
+                            @elseif($eventemail->type == 2)
                                 <td>Register</td>
+                            @else
+                                <td>Super-admin</td>
                             @endif
                         </tr>
                     @endforeach

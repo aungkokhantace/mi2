@@ -422,6 +422,14 @@ class RegisterController extends Controller
                 $userEmailArr = array();
                 $userEmailArr[0] = $register->email;
 
+                //start getting super-admin email and adding to email array
+                $superadminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 3"); //type = 3 is for super-admin
+
+                foreach($superadminEmailRaw as $superRaw){
+                    array_push($userEmailArr,$superRaw->email);
+                }
+                //end getting super-admin email and adding to email array
+
                 //start constructing email template
                 //start getting email content
                 $userContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_USER' LIMIT 1");
@@ -552,6 +560,14 @@ class RegisterController extends Controller
                 foreach($adminEmailRaw as $eRaw){
                     array_push($adminEmailArr,$eRaw->email);
                 }
+
+                //start getting super-admin email and adding to email array
+                $superadminEmailRaw = DB::select("SELECT * FROM event_emails WHERE deleted_at IS NULL AND type = 3"); //type = 3 is for super-admin
+
+                foreach($superadminEmailRaw as $superRaw){
+                    array_push($adminEmailArr,$superRaw->email);
+                }
+                //end getting super-admin email and adding to email array
 
 //                $adminContentRaw = DB::select("SELECT * FROM core_settings WHERE code = 'REG_CONFIRM_ADMIN' LIMIT 1");
 //

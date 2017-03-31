@@ -55,9 +55,15 @@
                         @if($eventemail->type == 1)
                             <option value="1" selected>Abstract</option>
                             <option value="2">Register</option>
-                        @else
+                            <option value="3">Superadmin</option>
+                        @elseif($eventemail->type == 2)
                             <option value="1">Abstract</option>
                             <option value="2" selected>Register</option>
+                            <option value="3">Super-admin</option>
+                        @else
+                            <option value="1">Abstract</option>
+                            <option value="2">Register</option>
+                            <option value="3" selected>Super-admin</option>
                         @endif
                 </select>
             @else
@@ -65,6 +71,7 @@
                     <option value="" selected disabled>Select Event Email Type</option>
                     <option value="1">Abstract</option>
                     <option value="2">Register</option>
+                    <option value="3">Super-admin</option>
                 </select>
             @endif
             <p class="text-danger">{{$errors->first('type')}}</p>

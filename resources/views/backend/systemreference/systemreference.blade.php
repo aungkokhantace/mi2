@@ -59,6 +59,10 @@
                     <td>Register</td>
                     <td>2</td>
                 </tr>
+                <tr>
+                    <td>Super-admin</td>
+                    <td>3</td>
+                </tr>
             </table>
         </div>
     </div>
