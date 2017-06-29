@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'test20161209@gmail.com', 'name' => 'Internal Medicine Society Myanmar'],
+    'from' => ['address' => 'test20161209@gmail.com', 'name' => 'MIMC2017'],
 
     /*
     |--------------------------------------------------------------------------

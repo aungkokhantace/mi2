@@ -394,4 +394,33 @@ class HomeController extends Controller
     {
         return view('frontend.comingsoon');
     }
+
+    public function tourpackage()
+    {
+        $url = Route::getCurrentRoute()->getPath();
+
+        $pageRepo = new PageRepository();
+        $page_id  = $pageRepo->getPageIDByURL($url);
+
+        $page = $pageRepo->getObjByID($page_id);
+
+        $postRepo = new PostRepository();
+        $posts    = $postRepo->getObjByPage($page_id);
+
+        //for slider view
+        //get template of page
+        $template_id = $page->templates_id;
+
+        //get slider of template
+        $templateSliderRepo = new TemplateSliderRepository();
+        $slider = $templateSliderRepo->getObjByTemplateID($template_id);
+
+        //get images of the slider
+        $sliderdetailRepo = new TemplateSliderDetailRepository();
+        $images      = $sliderdetailRepo->getObjsById($slider->id);
+        $status = "active";
+        //for slider view
+
+        return view('frontend.event.event_tour_package')->with('page',$page)->with('posts',$posts)->with('images', $images)->with('$status', $status);
+    }
 }

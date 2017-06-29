@@ -37,6 +37,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('home/other/local', array('as'=>'home/other/local','uses'=>'Frontend\HomeController@local'));
         Route::get('home/other/visa', array('as'=>'home/other/visa','uses'=>'Frontend\HomeController@visa'));
         Route::get('home/other/housing', array('as'=>'home/other/housing','uses'=>'Frontend\HomeController@housing'));
+        Route::get('home/other/tourpackage', array('as'=>'home/other/tourpackage','uses'=>'Frontend\HomeController@tourpackage'));
 
         Route::get('comingsoon', array('as'=>'event/other','uses'=>'Frontend\HomeController@comingsoon'));
 
