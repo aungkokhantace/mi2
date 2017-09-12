@@ -207,3 +207,58 @@ p .MsoNormal{
     width:100% !important;
 }
 
+#agenda-table{
+    width:100%; 
+}
+
+#agenda-table td{
+    border: 1px solid black;
+    /* padding:1px; */
+    text-align: center;
+}
+
+.vertical-text{
+    /* transform: rotate(-90deg); */
+    border: 1px solid black;
+    
+    -webkit-backface-visibility: hidden;
+    /* -webkit-transform: translateZ(0) scale(1.0, 1.0); */
+    /* transform: translateZ(0); */
+
+}
+
+.center-text{
+    text-align: center;
+}
+
+.opening{
+    background-color: #3393FF;
+}
+
+.tea-break{
+    background-color: #E9967A;
+}
+
+.green-cell{
+    background-color: #D5E783;
+}
+
+.light-blue-cell{
+    background-color: #6EC5F3;
+}
+
+.orange-cell{
+    background-color: #F3BD6E;
+}
+
+.yellow-cell{
+    background-color: #EAE83B;
+}
+
+.violet-cell{
+    background-color: #8758FC;
+}
+
+.light-green-cell{
+    background-color: #ABE5B0;
+}

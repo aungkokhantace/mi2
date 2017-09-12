@@ -239,7 +239,7 @@
 //            });
 
             $('#page_content').summernote({
-                height:300,
+                height:400,
                 toolbar: [
                     // [groupName, [list of button]]
                     ['style', ['style']],
