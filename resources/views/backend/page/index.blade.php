@@ -40,7 +40,7 @@
                         <th><input type='checkbox' name='check' id='check_all'/></th>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Content</th>
+                        <!-- <th>Content</th> -->
                         <th>Status</th>
                         <th>Url</th>
                         <th>Title</th>
@@ -55,7 +55,7 @@
                         <th></th>
                         <th class="search-col" con-id="name">Name</th>
                         <th class="search-col" con-id="description">Description</th>
-                        <th class="search-col" con-id="content">Content</th>
+                        <!-- <th class="search-col" con-id="content">Content</th> -->
                         <th class="search-col" con-id="status">Status</th>
                         <th class="search-col" con-id="url">Url</th>
                         <th class="search-col" con-id="title">Title</th>
@@ -71,7 +71,7 @@
                             <td><input type="checkbox" class="check_source" name="edit_check" value="{{ $page->id }}" id="all"></td>
                             <td><a href="/backend/page/edit/{{$page->id}}">{{$page->name}}</a></td>
                             <td>{{$page->description}}</td>
-                            <td>{{$page->content}}</td>
+                            <!-- <td>{{$page->content}}</td> -->
                             <td>{{$page->status}}</td>
                             <td>{{$page->url}}</td>
                             <td>{{$page->title}}</td>

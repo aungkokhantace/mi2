@@ -1149,7 +1149,291 @@ font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Plenar
         ['id'=>21, 'name'=>'Speakers','description'=>'Speakers', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span><br></p>',
             'status' =>'active', 'url' =>'home/conference/speakers', 'title' =>'Speakers', 'page_menu_order' =>'2', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
-        ['id'=>22, 'name'=>'Committees','description'=>'Committees', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span><br></p>',
+        ['id'=>22, 'name'=>'Committees','description'=>'Committees', 'content' =>'<h4><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b><u>Organizing Committee</u></b></h4>
+        <table class="committee-table">
+        <tbody>
+        <tr>
+          <td colspan="2"><b>Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Myo Lwin Nyein</td>
+          <td width="75%">
+            <ul>
+              <li>Professor &amp; Head, Department of Medicine, University of Medicine 2</li>
+              <li><a href="http://mlnyein59@gmail.com">mlnyein59@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Vice Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Htin Aung Saw</td>
+          <td width="75%">
+            <ul>
+              <li>Retired Professor, Tropical Medicine, University of Medicine 2</li>
+              <li><a href="http://htinaungsaw@gmail.com">htinaungsaw@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Yan Lynn Myint </td>
+          <td width="75%">
+            <ul>
+              <li>Professor &amp; Head, Department of Medicine, University of Medicine Mandalay</li>
+              <li><a href="http://yanlynnmyint@gmail.com">yanlynnmyint@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Secretary General</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">AP Dr Thein Myint</td>
+          <td width="75%">
+            <ul>
+              <li>Associate Professor, Department of Medicine, University of Medicine 1</li>
+              <li><a href="http://drthanemyint@gmail.com">drthanemyint@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+        </tr></tbody></table>
+        
+        <h4><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b><u>Academic Committee</u></b></h4>
+        <table class="committee-table">
+        <tbody>
+        <tr>
+          <td colspan="2"><b>Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Zaw Lynn Aung </td>
+          <td width="75%">
+            <ul>
+              <li>Professor &amp; Head, Department of Medicine, University of Medicine 1</li>
+              <li><a href="http://zawlynna@gmail.com">zawlynna@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Vice Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Nwe Nwe Win</td>
+          <td width="75%">
+            <ul>
+              <li>Professor  &amp; Head, Department of Medicine, Defense Service Medical Academy</li>
+              <li><a href="http://profnwenwewin@gmil.com">profnwenwewin@gmil.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Win Min Thit</td>
+          <td width="75%">
+            <ul>
+              <li>Professor  &amp; Head, Neurology Department, University of Medicine 1</li>
+              <li><a href="http://wminthit@gmail.com">wminthit@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Secretary</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">AP Dr Moe Naing </td>
+          <td width="75%">
+            <ul>
+              <li>Associate Professor, Department of Medicine, University of Medicine 1</li>
+              <li><a href="http://drmoenaing@gmail.com">drmoenaing@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+        </tr></tbody></table>
+        
+        <h4><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b><u>Credential Committee</u></b></h4>
+        <table class="committee-table">
+        <tbody>
+        <tr>
+          <td colspan="2"><b>Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Than Than Aye (GI)</td>
+          <td width="75%">
+            <ul>
+              <li>Professor &amp; Head, Department of Gastroenterology, University of Medicine 2</li>
+              <li><a href="http://ttaye06@gmail.com">ttaye06@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Vice Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Khaing Khaing Zaw</td>
+          <td width="75%">
+            <ul>
+              <li>Professor &amp; Head, Department of Dermatology, University of Medicine 1</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Secretary</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">AP Dr Khin San Aye</td>
+          <td width="75%">
+            <ul>
+              <li>Professor, Department of Gastroenterology, University of Medicine 2</li>
+              <li><a href="http://ksaye.08@gmail.com">ksaye.08@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+        </tr></tbody></table>
+        
+        <h4><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b><u>Reception Committee</u></b></h4>
+        <table class="committee-table">
+        <tbody>
+        <tr>
+          <td colspan="2"><b>Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Hlaing Mya Win</td>
+          <td width="75%">
+            <ul>
+              <li>Professor, Department of Medicine, University of Medicine 1</li>
+              <li><a href="http://dr.hlaingmyawin2012@gmail.com">dr.hlaingmyawin2012@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Vice Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Cho Mar Hlaing</td>
+          <td width="75%">
+            <ul>
+              <li>Professor, Department of Medicine, University of Medicine 2</li>
+              <li><a href="http://cmhkkz@gmail.com">cmhkkz@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Secretary</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">AP Hein Yarzar Aung</td>
+          <td width="75%">
+            <ul>
+              <li>Associate Professor, Department of Medicine, University of Medicine 1</li>
+              <li><a href="http://hyarzaraung@gmail.com">hyarzaraung@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        </tbody></table>
+        
+        <h4><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b><u>Publicity Committee</u></b></h4>
+        <table class="committee-table">
+        <tbody>
+        <tr>
+          <td colspan="2"><b>Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Nan Phyu Phyu Aung</td>
+          <td width="75%">
+            <ul>
+              <li>Professor, Department of Medicine, University of Medicine 2</li>
+              <li><a href="http://drnanphyuphyuaung310@gmail.com">drnanphyuphyuaung310@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Vice Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Khin Phyu Pyar</td>
+          <td width="75%">
+            <ul>
+              <li>Professor, Department of Medicine, Defense Service Medical Academy</li>
+              <li><a href="http://khinphyupyar@gmail.com">khinphyupyar@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Secretary</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Dr Phyo Thiha</td>
+          <td width="75%">
+            <ul>
+              <li>Lecturer, Department of Medicine, University of Medicine 2</li>
+              <li><a href="http://thihaphyodr@gmail.com">thihaphyodr@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+        </tr></tbody></table>
+        
+        <h4><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b><u>Sport Committee</u></b></h4>
+        <table class="committee-table">
+        <tbody>
+        <tr>
+          <td colspan="2"><b>Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof U Chit Soe</td>
+          <td width="75%">
+            <ul>
+              <li>Professor &amp; Head, Rheumatology Department, University of Medicine 1</li>
+              <li><a href="http://prof.chit@gmail.com">prof.chit@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Secretary</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Dr Lei Lei Htay</td>
+          <td width="75%">
+            <ul>
+              <li>Consultant, Rheumatology Department, University of Medicine 1</li>
+              <li><a href="http://leileihtay@gmail.com">leileihtay@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+        </tr></tbody></table>
+        
+        <h4><span style="font-size: 11px;">﻿</span><span style="font-size: 11px;">﻿</span><b><u>Financial Committee</u></b></h4>
+        <table class="committee-table">
+        <tbody>
+        <tr>
+          <td colspan="2"><b>Chair</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Prof Mar Mar Kyi</td>
+          <td width="75%">
+            <ul>
+              <li>Professor, Department of Medicine, University of Medicine 2</li>
+              <li><a href="http://drmmkyi@gmail.com">drmmkyi@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><b>Secretary</b></td>
+        </tr>
+        <tr valign="top">
+          <td width="25%">Dr Nan Phyu Sin Toe Myint</td>
+          <td width="75%">
+            <ul>
+              <li>Assistant Lecturer, Department of Medicine, University of Medicine 2</li>
+              <li><a href="http://phyujasmine23@gmail.com">phyujasmine23@gmail.com</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+        </tr></tbody></table>',
             'status' =>'active', 'url' =>'home/conference/committees', 'title' =>'Committees', 'page_menu_order' =>'3', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
         ['id'=>23, 'name'=>'Secretariat','description'=>'Secretariat', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span><br></p>',

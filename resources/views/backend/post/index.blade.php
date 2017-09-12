@@ -53,7 +53,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Title</th>
-                        <th>Content</th>
+                        <!-- <th>Content</th> -->
                         <th>Status</th>
                         <th>URL</th>
                         <th>Post Order</th>
@@ -66,7 +66,7 @@
                         <th class="search-col" con-id="name">Name</th>
                         <th class="search-col" con-id="description">Description</th>
                         <th class="search-col" con-id="title">Title</th>
-                        <th class="search-col" con-id="content">Content</th>
+                        <!-- <th class="search-col" con-id="content">Content</th> -->
                         <th class="search-col" con-id="status">Status</th>
                         <th class="search-col" con-id="url">URL</th>
                         <th class="search-col" con-id="post_order">Post Order</th>
@@ -80,7 +80,7 @@
                             <td><a href="/backend/post/edit/{{$post->id}}">{{$post->name}}</a></td>
                             <td>{{$post->description}}</td>
                             <td>{{$post->title}}</td>
-                            <td>{{$post->content}}</td>
+                            <!-- <td>{{$post->content}}</td> -->
                             <td>{{$post->status}}</td>
                             <td>{{$post->url}}</td>
                             <td>{{$post->post_order}}</td>
