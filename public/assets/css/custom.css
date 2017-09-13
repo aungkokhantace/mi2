@@ -263,3 +263,7 @@ p .MsoNormal{
 .light-green-cell{
     background-color: #ABE5B0;
 }
+
+.full-width-table{
+    width:100%;
+}
