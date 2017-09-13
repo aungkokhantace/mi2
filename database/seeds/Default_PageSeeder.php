@@ -1126,24 +1126,536 @@ the official hotel block</u></span><span style="font-family: Zawgyi-One, sans-se
 </p><p class="MsoNormal" style="text-align: justify; margin-bottom: 0.0001pt; line-height: 1.4;"><span style="font-family:" zawgyi-one","sans-serif""=""><a href="http://www.myanmar.micasahotel.com/default-en.html"><span style="mso-fareast-font-family:" times="" new="" roman";color:#1155cc"="">http://www.myanmar.micasahotel.com/default-en.html</span></a></span><span style="font-family:" zawgyi-one","sans-serif";mso-fareast-font-family:"times="" new="" roman""=""><o:p></o:p></span></p>',
             'status' =>'active', 'url' =>'home/other/housing', 'title' =>'Other title', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
-        ['id'=>20, 'name'=>'Agenda','description'=>'Agenda', 'content' =>'<p><span style="font-size: 11px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span></p><p class="MsoNormal"><span style="font-size:12.0pt;line-height:107%;font-family:
-" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Scientific Sessions will be included.</span><o:p></o:p></span></p><p class="MsoListParagraphCxSpFirst" style="text-indent: -0.25in; margin-left: 25px;"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">.</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
-font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Symposium</span><o:p></o:p></span></p><p class="MsoListParagraphCxSpMiddle" style="text-indent: -0.25in; margin-left: 25px;"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">.</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
-font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Meet the expert </span><o:p></o:p></span></p><p class="MsoListParagraphCxSpMiddle" style="text-indent: -0.25in; margin-left: 25px;"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">.</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
-font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Paper presentation</span><o:p></o:p></span></p><p style="margin-left: 25px;"><span style="font-size: 14px;">
-
-
-
-
-
-
-
-</span></p><p class="MsoListParagraphCxSpLast" style="text-indent: -0.25in; margin-left: 25px;"><!--[if !supportLists]--><span style="font-size:12.0pt;line-height:107%;font-family:" times="" new="" roman","serif";="" mso-fareast-font-family:"times="" roman""=""><span style="font-size: 14px;">.</span><span style="font-variant-numeric: normal; font-stretch: normal; font-size: 14px; line-height: normal;" times="" new="" roman";"="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><!--[endif]--><span style="font-size:12.0pt;line-height:107%;
-font-family:" zawgyi-one","sans-serif""=""><span style="font-size: 14px;">Plenary lecturer</span><o:p></o:p></span></p>',
+        ['id'=>20, 'name'=>'Agenda','description'=>'Agenda', 'content' =>'<table id="agenda-table"><tbody>
+        <tr>
+         <td colspan="15" class="center-text"><b>PROGRAMME AT A GLANCE (29.8.2017)</b></td>
+         <td class="no-border"></td>
+        </tr>
+       
+        <tr>
+         <td rowspan="3">Day 1<br>(29.9.2017)<br>Friday</td>
+         <td>8:00-9:30</td>
+         <td>9:30-10:00</td>
+         <td colspan="2">10:00-11:00</td>
+         <td colspan="2">11:00-12:00</td>
+         <td colspan="2">12:00-13:00</td>
+         <td colspan="4">13:00-14:30</td>
+         <td>14:30-15:00</td>
+         <td>15:00-16:00</td>
+        </tr>
+       
+        <tr>
+         <td rowspan="2" class="opening">Opening</td>
+         <td rowspan="2" class="vertical-text tea-break"><div class="tea-break-container">Tea break</div></td>
+         <td rowspan="2" colspan="2" class="green-cell">Plenary Lecture<br>ACP - Fostering Excellence and Professionalism in Internal Medicine</td>
+         <td colspan="2" class="orange-cell">Mini (1) Gastroenterology</td>
+         <td rowspan="2" colspan="2" class="light-blue-cell">Lunch  symposium<br>Dermatology</td>
+         <td rowspan="2" colspan="4" class="violet-cell">Major (1)<br>Infection<br>TTO</td>
+         <td rowspan="2" class="vertical-text tea-break">Tea break</td>
+         <td class="orange-cell">Mini (3)<br>Cardiology<br>Sanofi</td>
+        </tr>
+       
+        <tr>
+         <td colspan="2" class="orange-cell">Mini (2)<br>Liver</td>
+         <td class="orange-cell">Mini (4)<br>Pulmonology<br>GSK</td>
+        </tr> 
+       
+        <tr>
+         <td rowspan="3">Day 2<br>(30.9.2017)<br>Saturday</td>
+         <td colspan="3">8:30-10:30</td>
+         <td>10:30-11:00</td>
+         <td colspan="3">11:00-12:30</td>
+         <td colspan="2">12:30-13:30</td>
+         <td colspan="3">13:30-14:30</td>
+         <td>14:30-15:00</td>
+         <td>15:00-16:00</td>
+         <td>18:00-20:00</td>
+        </tr>
+       
+        <tr>
+         <td rowspan="2" colspan="3" class="green-cell">Theme Symposium<br>The Future of Medical Doctors in the ASEAN MRA<br>‘Best Practices’ in 6 ASEAN Countries</td>
+         <td rowspan="2" class="vertical-text tea-break">Tea break</td>
+         <td colspan="3" class="violet-cell">Major (3)<br>Neurology</td>
+         <td rowspan="2" colspan="2" class="light-blue-cell">Lunch  symposium<br>High value care</td>
+         <td colspan="3" class="orange-cell">Mini (5)<br>Hypertension and<br>CVD<br>Mega</td>
+         <td rowspan="2" class="vertical-text tea-break">Tea break</td>
+         <td class="orange-cell">Mini (7)<br>Geriatrics</td>
+         <td rowspan="2" class="vertical-text">Gala Dinner</td>
+        </tr>
+       
+        <tr>
+         <td colspan="3" class="violet-cell">Major (4)<br>Tuberculosis</td>
+         <td colspan="3" class="orange-cell">Mini (6)<br>Stem cell Therapy</td>
+         <td class="orange-cell">Mini (8)<br>Oncology</td>
+        </tr>
+       
+        <tr>
+         <td rowspan="3">Day 3<br>(1.10.2017)<br>Sunday</td>
+         <td colspan="2">8:30-10:00</td>
+         <td>10:00-10:30</td>
+         <td colspan="2">10:30-11:30</td>
+         <td colspan="2">11:30-12:30</td>
+         <td colspan="2">12:30-13:30</td>
+         <td>13:30-13:45</td>
+         <td>13:45-14:00</td>
+         <td colspan="2">14:00-15:00</td>
+         <td>15:00-16:00</td>
+        </tr>
+       
+        <tr>
+         <td colspan="2" class="violet-cell">Major (5)<br>Endocrinology</td>
+         <td rowspan="2" class="vertical-text tea-break">Tea break</td>
+         <td colspan="2" class="orange-cell">Mini (9)<br>Psychiatry<br>Servier</td>
+         <td colspan="2" class="orange-cell">Mini (11)<br>Nephrology</td>
+         <td rowspan="2" colspan="2" class="light-blue-cell">Lunch<br>symposium<br>Hematology<br>Sanofi</td>
+         <td rowspan="2" class="vertical-text yellow-cell">Paper &amp; poster awards ceremony</td>
+         <td rowspan="2" class="vertical-text tea-break">Tea break</td>
+         <td rowspan="2" colspan="2" class="light-blue-cell">Clinical Session<br>(4 cases)</td>
+         <td rowspan="2" class="light-green-cell">CPC</td>
+        </tr>
+       
+        <tr>
+         <td colspan="2" class="violet-cell">Major (6)<br>Nutrition<br>Abbott</td>
+         <td colspan="2" class="orange-cell">Mini (10)<br>Rheumatology</td>
+         <td colspan="2" class="orange-cell">Mini (12)<br>Toxicology</td>
+        </tr>
+       </tbody></table>
+       
+       <h3 class="center-text">18<sup>th</sup> Myanmar Internal Medicine Conference</h3>
+       <h3 class="center-text">MIMC 2017</h3>
+       <h3 class="center-text">(In Conjunction with 4th AFIM Congress &amp; 4th ACP Southeast Asian Chapter Meeting)</h3>
+       <h3 class="center-text">29th Sep - 1st Oct, 2017</h3>
+       <h3 class="center-text"><u>TENTATIVE PROGRAMME</u></h3>
+       <h3 class="center-text">DAY 1: 29th SEPTEMBER 2017 (FRIDAY)</h3>
+       
+       <table class="full-width-table">
+       <tbody>
+       <tr>
+         <td width="20%">08:00-09:30</td>
+         <td width="80%"><b>Opening Ceremony</b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <ul>
+           <li>Opening Speech by Union Minister, Ministry of Health and Sport</li>
+           <li>Welcome Speech by President of IMS, MMA</li>
+           <li>Photo session</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">09:30-10:00</td>
+         <td width="80%"><b>Refreshment</b></td>
+       </tr>
+       <tr>
+        <td colspan="2"><h4><b>Academic Programme</b></h4></td>
+       </tr>
+       <tr>
+         <td width="20%">10:00-11:00</td>
+         <td width="80%"><b><u>Plenary Lecture</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <ul>
+           <li>Chairperson: Prof Rai Mra</li><br>
+           <li>Topic: ACP – Fostering Excellence and Professionalism in Internal Medicine</li>
+           <li>Speaker: Prof. Thomas G Tape - Immediate Past Chair, ACP Board of Regents </li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">11:00-12:00</td>
+         <td width="80%"><b><u>Mini Symposium (1)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Gastroenterology</i>
+          <ul>
+           <li>Chairperson: Prof Thein Myint</li><br>
+           <li>Topic: Functional Dyspepsia </li>
+           <li>Speaker: Diana Alcantara-Payawal, President-Elect Asian Pacific Study of the Liver</li><br>
+           <li>Topic: H. pylori</li>
+           <li>Speaker: Prof Nwe Ni</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Mini Symposium (2)</u></b><br><i>Hepatology</i>
+          <ul>
+           <li>Chairperson: Prof Khin Mg Win, Prof Kyaw Soe Tun</li><br>
+           <li>Topic: Update in management of Non-Alcoholic Fatty Liver Disease (NAFLD)</li>
+           <li>Speaker: Prof Naomi</li><br>
+           <li>Topic: Update in management of Hepatitis B</li>
+           <li>Speaker: Prof Win Naing, Prof Win Win Swe</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">12:00-13:00</td>
+         <td width="80%"><b><u>Lunch Symposium (1)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Dermatology</i>
+          <ul>
+           <li>Topic: Aesthetic dermatology</li>
+           <li>Speaker: Prof Daw Khine Knine Zaw</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">12:00-14:30</td>
+         <td width="80%"><b><u>Major Symposium (1)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Infection</i>
+          <ul>
+           <li>Chairperson: Prof Htin Aung Saw</li><br>
+           <li>Topic: Aesthetic dermatology</li>
+           <li>Speaker: Prof Daw Khine Knine Zaw</li><br>
+           <li>Topic: Dengue</li>
+           <li>Speaker: Prof Amorn Leelarasamee (Thai)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">14:30-15:00</td>
+         <td width="80%"><b><u>Refreshment</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%">15:00-16:00</td>
+         <td width="80%"><b><u>Mini Symposium (3)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Cardiology</i> – Acute Coronary Syndrome
+          <ul>
+           <li>Chairperson: Prof Khin May San</li><br>
+           <li>Topic: Medical Management</li>
+           <li>Speaker: Prof Myint Soe Win (UM 2)</li><br>
+           <li>Topic: Interventional therapy</li>
+           <li>Speaker: Prof Kyaw Soe Win (UMM)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Mini Symposium (4)</u></b> <br> <i>Pulmonology </i> – COPD
+          <ul>
+           <li>Chairperson: Prof Tin Maung Cho</li><br>
+           <li>Topic: What’s new in COPD</li>
+           <li>Speaker: AP Ng Alan</li><br>
+           <li>Topic: Going beyond the lung</li>
+           <li>Speaker: Prof Win Naing (Chest)</li>
+          </ul>
+         </td>
+       </tr>
+       </tbody></table>
+       
+       <h3 class="center-text">DAY 2: 30th SEPTEMBER 2017 (SATURDAY)</h3>
+       
+       <table class="full-width-table">
+       <tbody>
+       <tr>
+         <td width="20%">08:30-10:30</td>
+         <td width="80%"><b><u>Theme Symposium</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>The Future of Medical Doctors in the ASEAN MRA</i> <br> (Mutual Recognition Arrangement)
+          <ul>
+           <li>Chairperson: Prof Ne Win</li><br>
+           <li>Topic: The ‘Best Practices’ of the Internal Medicine Training Program in 6 ASEAN Countries</li>
+           <li>Speaker: Prof Daw Khine Knine Zaw</li><br>
+           <li>Topic: Dengue</li>
+           <li>Speakers: 
+               <ol type="a">
+                  <li>Indonesia (Dr Idrus Alwi)</li>
+                  <li>Myanmar (Prof Myo Lwin Nyein)</li>
+                  <li>Thailand (AP Thanyachai Sura)</li>
+                  <li>Philippines (Dr Nenita Avena-Collantes)</li>
+                  <li>Singapore (Dr Sresayampanathan)</li>
+                  <li>Malaysia (Dr Letchuman Ramanathan)</li>
+               </ol>
+           </li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">10:30-11:00</td>
+         <td width="80%"><b><u>Refreshment</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%">11:00-12:30</td>
+         <td width="80%">
+          <b><u>Major Symposium (2)</u></b>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Neurology for the Internist</i>
+          <ul>
+           <li>Chairperson: Prof Mi Mi Cho, Prof Win Min Thit</li><br>
+           <li>Topic: Approach to movement disorders</li>
+           <li>Speaker: Prof Roongroj (Thai)</li><br>
+           <li>Topic: Management of Parkinson\'s disease</li>
+           <li>Speaker: Prof Louis Tan (Singapore)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Major Symposium (3)</u></b> <br> <i>Tuberculosis</i>
+          <ul>
+           <li>Chairperson: Prof Tin Maung Cho</li><br>
+           <li>Topic: Genormic sequencing in TB</li>
+           <li>Speaker: Dr Sithu Ag</li><br>
+           <li>Topic: Beyond the anti-TB treatment</li>
+           <li>Speaker: Prof Win Naing (chest)</li><br>
+           <li>Topic: MDR TB / XDR TB–Future options for treatment</li>
+           <li>Speaker: Dr Edmund Ong (UK)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">12:30-13:30</td>
+         <td width="80%"><b><u>Lunch Symposium (2)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>High value care</i>
+          <ul>
+           <li>Chairperson: Prof Pe Thet Khin</li><br>
+           <li>Speaker: Prof. Thomas G Tape - Immediate Past Chair, ACP Board of Regents</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">13:30-14:30</td>
+         <td width="80%"><b><u>Mini Symposium (5)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Hypertension and CVD</i>
+          <ul>
+           <li>Chairperson: Prof Nwe Nwe</li><br>
+           <li>Topic: Cardiovascular Risk Factors” (or) “Stable Coronary Artery Disease</li>
+           <li>Speaker: Prof. Aaron Wong (Singapore)</li><br>
+           <li>Topic: How to Manage Hypertensive Emergencies and Urgencies</li>
+           <li>Speaker: MARIANO B. LOPEZ</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Mini Symposium (6)</u></b> <br> <i>Stem cell Therapy</i>
+          <ul>
+           <li>Chairperson: Prof Theingi Myint</li><br>
+           <li>Speakers: 
+             <ol>
+               <li>Professor Kyu Kyu Mg</li>
+               <li>Foreign speaker – Dr Veerapol Khemarangsan</li>
+             </ol>
+           </li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">14:30-15:00</td>
+         <td width="80%"><b><u>Refreshment</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%">15:00-16:00</td>
+         <td width="80%"><b><u>Mini Symposium (7)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Geriatrics</i>
+          <ul>
+           <li>Chairperson: Prof Nyunt Thein</li><br>
+           <li>Topic: Healthy Aging</li>
+           <li>Speaker: AP Min Zaw Oo</li><br>
+           <li>Topic: Frailty Assessment and Crisis Interventions</li>
+           <li>Speaker: Dr Moe Thaw Oo (UK)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Mini Symposium (8)</u></b> <br> <i>Oncology</i>
+          <ul>
+           <li>Chairperson: Prof Soe Aung</li><br>
+           <li>Topic: Screening for Treatable Cancers</li>
+           <li>Speaker: Prof Yin Yin Htun</li><br>
+           <li>Topic: Oncologic Medical Emergencies for the Internists</li>
+           <li>Speaker: Prof Richard (Singapore)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">18:00-20:00</td>
+         <td width="80%"><b><u>Gala Dinner</u></b></td>
+       </tr>
+       </tbody>
+       </table>
+       
+       <h3 class="center-text">DAY 3:1st OCTOBER 2017 (SUNDAY)</h3>
+       
+       <table class="full-width-table">
+       <tbody>
+       <tr>
+         <td width="20%">08:30-10:00</td>
+         <td width="80%"><b><u>Major Symposium (4)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Endocrinology</i>
+          <ul>
+           <li>Chairperson: Prof Than Than Aye, Prof Tint Swe Latt</li><br>
+           <li>Topic: New perspectives on Conventional Therapies</li>
+           <li>Speaker: Prof. CECILIA A. JIMENO</li><br>
+           <li>Topic: Choosing the right diuretic for the management of diabetic hypertension</li>
+           <li>Speaker: Prof Ko Ko</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Major Symposium (5)</u></b> <br> <i>Nutrition</i>
+          <ul>
+           <li>Chairperson: Prof Zaw Lynn Aung</li><br>
+           <li>Topic: Diet for combating obesity</li>
+           <li>Speaker: Dr Ei Mon Phyo from UOPH – Nutrition department</li><br>
+           <li>Topic: The Perioperative Diet</li>
+           <li>Speaker: Prof Ling (Singapore)</li><br>
+           <li>Topic: Nutrition in the Critically Ill Patients</li>
+           <li>Speaker: Ms Loh Wing Nie (Singapore)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">10:00-10:30</td>
+         <td width="80%"><b><u>Refreshment</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%">10:30-11:30</td>
+         <td width="80%"><b><u>Mini Symposium (9)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Psychiatry</i>
+          <ul>
+           <li>Chairperson: Prof Zaw Lynn Aung, Prof Tin Oo</li><br>
+           <li>Topic: Role of family in management of depression</li>
+           <li>Speaker: Dr Thet Zaw</li><br>
+           <li>Topic: Biological management of depression</li>
+           <li>Speaker: Dr Roger Ho (Singapore)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Mini Symposium (10)</u></b> <br> <i>Rheumatology</i>
+          <ul>
+           <li>Chairperson: Prof Yan Lin Myint</li><br>
+           <li>Topic: Biologic use in Rhematoid Arthritis</li>
+           <li>Speaker: Prof Chit Soe</li><br>
+           <li>Topic:Synoviolin as a novel factor for Rhematoid Arthritis, chronic inflammation and metabolic disorders</li>
+           <li>Speaker: Prof. Toshihiro Nakajima (Japan)</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">11:30-12:30</td>
+         <td width="80%"><b><u>Mini Symposium (11)</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <i>Nephrology</i>
+          <ul>
+           <li>Chairperson: Prof Khin Mg Mg Than,  Prof Khin Mg Htay</li><br>
+           <li>Topic: Approach to Hyponatremia</li>
+           <li>Speaker: Prof Khin Thida Thwin</li><br>
+           <li>Topic: Strategies to Slow Down the Progression of CKD</li>
+           <li>Speaker: Dr Russel Robert</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+          <b><u>Mini Symposium (12)</u></b> <br> <i>Toxicology</i>
+          <ul>
+           <li>Chairperson: Prof Myo Lwin Nyein</li><br>
+           <li>Topic: Initial Management of Common Poisoning in the Emergency Room</li>
+           <li>Speaker: Prof Erni Juwita Nelwan  (The Indonesian Society of Internal Medicine)</li><br>
+           <li>Topic:Toxinology</li>
+           <li>Speaker: Prof Jullian White</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">12:30-13:30</td>
+         <td width="80%">
+          <b><u>Lunch Symposium (3)</u></b>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%"></td>
+         <td width="80%">
+         <i>Hematology</i>
+          <ul>
+           <li>Chairperson: Prof Aye Aye Myint</li><br>
+           <li>Topic: Basic Interpretation of CBC, RBC indices, and Clotting Parameters</li>
+           <li>Speaker: Prof. Htun Lwin Nyein</li><br>
+           <li>Topic: Approach to Anemia</li>
+           <li>Speaker: AP Sein Win</li>
+          </ul>
+         </td>
+       </tr>
+       <tr>
+         <td width="20%">13:30-13:45</td>
+         <td width="80%"><b><u>Paper and Poster award ceremony</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%">13:45-14:00</td>
+         <td width="80%"><b><u>Refreshment</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%">14:00-15:00</td>
+         <td width="80%"><b><u>Clinical Session</u></b></td>
+       </tr>
+       <tr>
+         <td width="20%">15:00-16:00</td>
+         <td width="80%"><b><u>CPC</u></b></td>
+       </tr>
+       </tbody>
+       </table>
+       <br>
+       <p><b>Free Paper</b> - Parallel with symposia in different room</p>',
             'status' =>'active', 'url' =>'home/conference/agenda', 'title' =>'Agenda', 'page_menu_order' =>'1', 'events_id' =>'1', 'templates_id' =>'1', 'allow_edit' =>1, 'created_by' =>'1', 'updated_by' =>'1', 'created_at' =>'2017-01-30 09:19:53', 'updated_at' =>'2017-01-30 09:19:53' ],
 
         ['id'=>21, 'name'=>'Speakers','description'=>'Speakers', 'content' =>'<p><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-size: 14px;">﻿</span><span style="font-family: Zawgyi-One, sans-serif; font-size: 14px;">To be confirmed.</span><br></p>',
