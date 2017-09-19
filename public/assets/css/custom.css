@@ -215,7 +215,8 @@ p .MsoNormal{
     border: 1px solid black;
     /* padding:1px; */
     text-align: center;
-    font-size: 11px;
+    font-size: 9px;
+    font-weight: bold;
 }
 
 .vertical-text{
@@ -232,38 +233,46 @@ p .MsoNormal{
     text-align: center;
 }
 
-.opening{
-    background-color: #3393FF;
+.blue-cell{
+    background-color: #3393FF !important;
 }
 
 .tea-break{
-    background-color: #E9967A;
+    background-color: #E9967A !important;
 }
 
 .green-cell{
-    background-color: #D5E783;
+    background-color: #D5E783 !important;
 }
 
 .light-blue-cell{
-    background-color: #6EC5F3;
+    background-color: #6EC5F3 !important;
 }
 
 .orange-cell{
-    background-color: #F3BD6E;
+    background-color: #F3BD6E !important;
 }
 
 .yellow-cell{
-    background-color: #EAE83B;
+    background-color: #EAE83B !important;
 }
 
 .violet-cell{
-    background-color: #8758FC;
+    background-color: #8758FC !important;
 }
 
 .light-green-cell{
-    background-color: #ABE5B0;
+    background-color: #ABE5B0 !important;
 }
 
 .full-width-table{
     width:100%;
 }
+
+/* for agenda table */
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:9px;padding:2px 0px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:9px;font-weight:normal;padding:2px 0px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-baqh{text-align:center;vertical-align:center}
+.tg .tg-yw4l{vertical-align:center}
+/* for agenda table */
